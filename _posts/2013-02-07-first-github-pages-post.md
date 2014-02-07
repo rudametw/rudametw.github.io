@@ -8,4 +8,4 @@ This is the first post using jekyll. A really cool framework for generating stat
 
 <!--more-->
 
-This part shouldn't show in the summary blog page.
+This part shouldn\'t show in the summary blog page.
