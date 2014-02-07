@@ -1,11 +1,11 @@
 ---
 layout: post
-title: First github pages post using jekyll
+title: First post using jekyll
+categories: [test, first-post, trash]
 ---
 
-{{ page.title }}
-================
+This is the first post using jekyll. A really cool framework for generating static content pages.
 
-<p class="meta">7 Feb 2014 - Rennes</p>
+<!--more-->
 
-First post
+This part shouldn't show in the summary blog page.
