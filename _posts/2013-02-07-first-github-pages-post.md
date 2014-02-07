@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: blog-post
 title: First post using jekyll
 categories: [test, first-post, trash]
 ---
