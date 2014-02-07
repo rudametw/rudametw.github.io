@@ -1,0 +1,107 @@
+---
+---
+
+{% include head.html %}
+
+<body>
+
+    {% include navbar.html %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8">
+                <!-- blog entry -->
+                {% for post in site.posts %}
+                    <hr>
+                    <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+                    <p class="lead">by <a href="/contact">Walter Rudametkin &nbsp;&nbsp;&nbsp;</a>
+                    
+                        <!-- <div class="btn-group"> -->
+     
+                        {% for category in post.categories %}
+                        <!-- <button type="button" class="btn btn-default"> -->
+                        <a href="/blog/categories/{{ category }}"><span class="label label-primary">{{ category }}</span>
+                        </a>
+                        <!-- </button> -->
+                        {% endfor %}
+
+<!--                         {% for category in site.categories %}
+                        <button type="button" class="btn btn-default">
+                            {{ category | first }}
+                        </button>
+                        {% endfor %}
+ -->
+                        <!-- </div> -->
+                        </p>
+                    
+<!--                     <div class="container">
+                    <div class="row">
+                    <div class="col-lg-3"> -->
+                    <!-- <p> -->
+                        <span class="glyphicon glyphicon-time"></span> Posted {{ post.date| date: "%Y.%m.%d" }} 
+                        {% if post.place == post.place.blank? %}
+                            &nbsp;
+                        {% else %}
+                            &mdash; {{ post.place }}
+                        {% endif %}
+<!-- 
+                    </div>
+                    </div>
+                    </div>
+                    <div class="container">
+                    <div class="row">
+                    <div class="col-lg-3">
+ -->
+
+<!--                     </div>
+                    </div>
+                    </div> -->
+
+                    <!-- </p> -->
+                    
+
+                    <hr>
+                    <!-- <img src="http://placehold.it/900x300" class="img-responsive"> -->
+                    <!-- <hr> -->
+                    <p>{{ post.excerpt }}</p>
+                    <a class="btn btn-primary" href="{{ post.url }}">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                    <!-- <hr> -->
+                {% endfor %}
+
+                <!-- second blog entry -->
+<!--                 <h1><a href="#">Another Blog Post</a>
+                </h1>
+                <p class="lead">by <a href="index.php">Start Bootstrap</a>
+                </p>
+                <hr>
+                <p>
+                    <span class="glyphicon glyphicon-time"></span> Posted on August 28, 2013 at 10:45 PM</p>
+                <hr>
+                <img src="http://placehold.it/900x300" class="img-responsive">
+                <hr>
+                <p>Science cuts two ways, of course; its products can be used for both good and evil. But there's no turning back from science. The early warnings about technological dangers also come from science...</p>
+                <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+                <hr>
+ -->
+                <!-- pager -->
+<!--                 <ul class="pager">
+                    <li class="previous"><a href="#">&larr; Older</a>
+                    </li>
+                    <li class="next"><a href="#">Newer &rarr;</a>
+                    </li>
+                </ul>
+ -->
+            </div>
+
+            {% include well.html %}
+
+        </div>
+        <hr>
+    </div>
+
+    {% include footer.html %}
+
+</body>
+</html>
