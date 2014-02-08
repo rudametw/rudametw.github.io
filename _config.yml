@@ -1,8 +1,0 @@
-#markdown: rdiscount
-pygments: true
-auto: true
-excerpt_separator: <!--more-->
-category_dir: /blog/categories
-category_title_prefix: category
-#permalink: /blog/posts/:categories/:year/:month/:day/:title.html
-permalink: /blog/posts/:year.:month.:day/:title.html
