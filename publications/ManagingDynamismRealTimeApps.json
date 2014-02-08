@@ -1,0 +1,14 @@
+{
+    "type": "article",
+    "title": "Managing the Dynamism of Real-Time Java Applications on the OSGi Platform.",
+    "author": [
+        {
+            "name": "Joao Americo",
+            "name": "Walter Rudametkin",
+            "name": "and Didier Donsez."
+        }
+    ],
+    "conference": "In Proceedings of the 27th ACM Symposium on Applied Computing (SAC' 2012)",
+    "year": "2012-03-26",
+    "url": "http://dl.acm.org/citation.cfm?id=2231952&dl=ACM&coll=DL&CFID=124787454&CFTOKEN=67187099",
+}

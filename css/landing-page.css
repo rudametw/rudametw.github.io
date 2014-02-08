@@ -20,7 +20,7 @@ body,h1,h2,h3,h4,h5,h6 {
 	color: #ffffff;
 	/* 	background: url(../img/intro-bg.jpg) no-repeat center center; */
 /* 	background: url(../img/inria-rba.jpg) no-repeat center center; */
-	background: url(../img/dolphins.jpg) no-repeat center center;
+	background: url(/img/dolphins.jpg) no-repeat center center;
 	background-size: cover;
 	text-align: center;
 }
@@ -98,7 +98,7 @@ body,h1,h2,h3,h4,h5,h6 {
 .banner {
 	padding: 100px 0;
 	color: #f8f8f8;
-	background: url(../img/banner-bg.jpg) no-repeat center center;
+	background: url(/img/bay2-2.jpg) no-repeat center center;
 	background-size: cover;
 }
 
@@ -142,9 +142,11 @@ body,h1,h2,h3,h4,h5,h6 {
 
 footer {
 	background-color: #f8f8f8;
-	padding: 50px 0;
-}
+	padding: 10px 0;
+/*	background-color: #f8f8f8;
+	padding: 10px 0;
+*/}
 
 p.copyright {
-	margin: 15px 0 0;
+	margin: 5px 0 0;
 }

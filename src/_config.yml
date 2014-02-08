@@ -1,6 +1,6 @@
 markdown: redcarpet
 redcarpet:
-  extensions: ["strikethrough"]
+  extensions: ["strikethrough", "tables"]
 pygments: true
 auto: true
 excerpt_separator: <!--more-->

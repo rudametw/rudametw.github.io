@@ -1,11 +1,11 @@
----
-layout: default
----
+<div class="container-fluid">
+    <div class="row-fluid">
 
-            {% capture my_include %}{% include contact.md %}{% endcapture %}
-            {{ my_include | markdownify }}
+        <div class="span3">
+<!--             <img class="AngularJS-small" src="img/me.jpg"> -->
+        </div>
 
-<!-- 
+        <div class="span3">
             <h1>Contact</h1>
             <br />
             <h3>{{contact.name}}</h3>
@@ -17,16 +17,9 @@ layout: default
                 <strong>Telephone:</strong> {{contact.telephone}} <br /> <strong>Email:</strong>
                 {{contact.email_name}} @no_spam@ {{contact.email_domain}}_dot_{{contact.email_tl}}
             </p>
--->
-
-                </div>
-
-
-            <div class="col-lg-4">
-                    <div class="row">
-                        <div class="col-lg-6">
-                            <!-- <img src="/img/me.jpg" class="img-responsive"> -->
-                            <img src="/img/me.jpg">
-                    </div>
-                </div>
-            </div>
+        </div>
+        <div class="span2">
+            <img class="AngularJS-small" src="img/me.jpg">
+        </div>
+    </div>
+</div>

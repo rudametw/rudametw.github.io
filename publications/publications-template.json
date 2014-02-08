@@ -1,0 +1,32 @@
+[
+	{
+	    "type": "demonstration",
+	    "title": "JOnAS 5: Demonstration du serveur JavaEE basé sur OSGi",
+	    "author": "Guillaume Sauthier and Walter Rudametkin",
+	    "conference": "OSGi Users Group France",
+	    "place": "Paris, France",
+	    "date": "January 29, 2008",
+	    "year": "2008",
+	    "url": "http://france.osgiusers.org/Meeting/200801"
+	},
+	{
+	    "type": "conference",
+	    "title": "",
+	    "author": "",
+	    "conference": "",
+	    "place": "",
+	    "date": "",
+	    "year": "",
+	    "url": ""
+	},
+	{
+	    "type": "conference",
+	    "title": "",
+	    "author": "",
+	    "conference": "",
+	    "place": "",
+	    "date": "",
+	    "year": "",
+	    "url": ""
+	}
+]

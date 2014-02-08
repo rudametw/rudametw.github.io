@@ -1,0 +1,157 @@
+[
+	{
+	    "type": "book",
+	    "title": "Adaptive and Dynamic Service Compositions in the OSGi Service Platform",
+	    "author": "Lionel Touseau, Kiev Gama, Didier Donsez, Walter Rudametkin",
+	    "conference": "chapter in book “Service Life Cycle Tools and Technologies: Methods, Trends and Advances”, Ed Jonathan Lee, Shang-Pin Ma, and Alan Liu",
+	    "place": "Publ. IGI Global",
+	    "date": "2011",
+	    "year": "2011",
+	    "url": "http://www.igi-global.com/chapter/adaptive-dynamic-service-compositions-osgi/60296"
+	},
+	{
+	    "type": "conference",
+	    "title": "Managing the Dynamism of Real-Time Java Applications on the OSGi Platform",
+	    "author": "Joao Americo, Walter Rudametkin and Didier Donsez",
+	    "conference": "In Proceedings of the 27th ACM Symposium on Applied Computing (SAC' 2012)",
+	    "place": "Riva del Garda (Trento), Italy",
+	    "date": "2012-03-26",
+	    "year": "2012",
+	    "url": "http://dl.acm.org/citation.cfm?id=2231952&dl=ACM&coll=DL&CFID=124787454&CFTOKEN=67187099"
+	},
+	{
+	    "type": "conference",
+	    "title": "Clustering OSGi Applications using Distributed Shared Memory",
+	    "author": "Anthony Gelibert, Walter Rudametkin, Didier Donsez and Sebastien Jean",
+	    "conference": "In Proceedings of the 11th annual International Conference on New Technologies of Distributed Systems (NOTERE 2011)",
+	    "place": "Paris, France",
+	    "date": "9 – 12 Mai 2011",
+	    "year": "2011",
+	    "url": "http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=5957981&contentType=Conference+Publications&sortType%3Dasc_p_Sequence%26filter%3DAND(p_IS_Number%3A5957970)"
+	},
+	{
+	    "type": "conference",
+	    "title": "A framework for managing dynamic service-oriented component architectures",
+	    "author": "Walter Rudametkin, Lionel Touseau, Didier Donsez and François Exertier",
+	    "conference": "In Proceedings of the IEEE 2010 Asia-Pacific Services Computing Conference",
+	    "place": "Hangzhou, China",
+	    "date": "2010-12-06",
+	    "year": "2010",
+	    "url": "http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5708552&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D5708552"
+	},
+	{
+	    "type": "conference",
+	    "title": "Towards a Dynamic and Extensible Middleware for Enhancing Exhibits",
+	    "author": "Walter Rudametkin, Kiev Gama, Lionel Touseau and Didier Donsez",
+	    "conference": "In Proceedings of the 7th IEEE Consumer Communications & Networking Conference (CCNC'10)",
+	  	"place": "Las Vegas, Nevada",
+	    "date": "2010-01-10",
+	    "year": "2010",
+	    "url": "http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5421602&url=http%3A%2F%2Fieeexplore.ieee.org%2Fiel5%2F5419385%2F5421566%2F05421602.pdf%3Farnumber%3D5421602"
+	},
+	{
+	    "type": "conference",
+	    "title": "Developing Adaptable Components using Dynamic Languages",
+	    "author": "Didier Donsez, Kiev Gama and Walter Rudametkin",
+	    "conference": "In Proceedings of the 35th EUROMICRO Conference on Software Engineering and Advanced Applications (SEEA)",
+	    "place": "Patras, Greece",
+	    "date": "2009-08-27",
+	    "year": "2009",
+	    "url": "http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5350042&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D5350042"
+	},
+	{
+	    "type": "conference",
+	    "title": "Towards a SLA-based Approach to Handle Service Disruptions",
+	    "author": "Lionel Touseau, Walter Rudametkin and Didier Donsez",
+	    "conference": "In Proceedings of the IEEE International Conference on Services Computing (SCC'08)",
+	    "place": "Honolulu, Hawaii, USA",
+	    "date": "2008-07-07",
+	    "year": "2008",
+	    "url": "http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=4578489&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D4578489"
+	},
+	{
+	    "type": "national",
+	    "title": "Resilience in dynamic component-based applications",
+	    "author": "Kiev Gama, Walter Rudametkin e Didier Donsez",
+	    "conference": "III Congresso Brasileiro de Software: Teoria e Prática. Trilha Especial do SBES'2012",
+	    "place": "Natal, Brazil",
+	    "date": "23-28 Setembro 2012",
+	    "year": "2012",
+	    "url": "http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=6337873&contentType=Conference+Publications&sortType%3Dasc_p_Sequence%26filter%3DAND(p_IS_Number%3A6337858)%26rowsPerPage%3D50"
+	},
+	{
+	    "type": "workshop",
+	    "title": "Using Fail-stop Proxies for Enhancing Services Isolation in the OSGi Service Platform",
+	    "author": "Kiev Gama, Walter Rudametkin and Didier Donsez",
+	    "conference": "In Proceedings of the Workshop of the 9th International Middleware Conference 2008",
+	    "place": "Leuven, Belgium",
+	    "date": "2008-12-01",
+	    "year": "2008",
+	    "url": "http://dl.acm.org/citation.cfm?id=1462804"
+	},
+	{
+	    "type": "demonstration",
+	    "title": "A Service-Oriented Platform for iTV applications deployment IEEE CCNC 2010",
+	    "author": "Didier Donsez and Stéphane Chomat and Kiev Game and Walter Rudametkin and Lionel Touseau",
+	    "conference": "IEEE CCNC 2010 Consumer Communications and Networking Conference, Demonstration Session",
+	    "place": "Las Vegas, Nevada, USA",
+	    "date": "January 9-12 2010",
+	    "year": "2010",
+	    "url": "http://ieeexplore.ieee.org/xpl/login.jsp?tp=&arnumber=5421597&url=http%3A%2F%2Fieeexplore.ieee.org%2Fxpls%2Fabs_all.jsp%3Farnumber%3D5421597"
+	},
+	{
+	    "type": "demonstration",
+	    "title": "NFCMuseum: an Open-Source Middleware for Augmenting Museum Exhibits",
+	    "author": "Walter Rudametkin, Lionel Touseau, Maroula Perisanidi, Andrés Gómez, Didier Donsez",
+	    "conference": "International Conference on Pervasive Services (ICPS'08), Demonstration track",
+	    "place": "Sorrento, Italy",
+	    "date": "July 6-10, 2008",
+	    "year": "2008",
+	    "url2": "http://www.icpsconference.org/2008/program.htm",
+	    "url": "http://membres-liglab.imag.fr/donsez/pub/publi/icps08-nfcmuseum.pdf"
+	},
+	{
+	    "type": "demonstration",
+	    "title": "JOnAS 5: Demonstration du serveur JavaEE basé sur OSGi",
+	    "author": "Guillaume Sauthier and Walter Rudametkin",
+	    "conference": "OSGi Users Group France",
+	    "place": "Paris, France",
+	    "date": "January 29, 2008",
+	    "year": "2008",
+	    "url": "http://france.osgiusers.org/Meeting/200801",
+	    "pdf": "http://france.osgiusers.org/wiki/uploads/Meeting/jonasosgi200801.pdf"
+	},
+	{
+	    "type": "industrial",
+	    "title": "Predictability vs. Dynamism: managing dynamic real-time applications",
+	    "author": "Walter Rudametkin and Joao Americo",
+	    "conference": "OSGi Community Event",
+	    "place": "London, England",
+	    "date": "September 29-30, 2010",
+	    "year": "2010",
+	    "url": "http://communityevent.osgi.org/2010/schedule",
+	    "pdf": "http://www.osgi.org/wiki/uploads/CommunityEvent2010/AmericoampRudametkin-OSGiCommunity2010FINAL.pdf"
+	},
+	{
+	    "type": "industrial",
+	    "title": "OW2 JOnAS 5.0 Java EE AS: An OSGi Based Integration Platform",
+	    "author": "François Fornaciari and Walter Rudametkin",
+	    "conference": "OSGi Community Event",
+	    "place": "Berlin, Germany",
+	    "date": "June 10-11, 2008",
+	    "year": "2008",
+	    "url": "http://www.osgi.org/CommunityEvent2008/Program",
+	    "pdf": "http://www.osgi.org/wiki/uploads/CommunityEvent2008/19_Fornaciari%20Rudametkin.pdf"
+	},
+	{
+	    "type": "industrial",
+	    "title": "Bull SAS JOnAS 5: Présentation du serveur JavaEE basé sur OSGi",
+	    "author": "Guillaume Sauthier and Walter Rudametkin",
+	    "conference": "OSGi Users Group France",
+	    "place": "Paris, France",
+	    "date": "January 29, 2008",
+	    "year": "2008",
+	    "url": "http://france.osgiusers.org/Meeting/200801",
+	    "pdf": "http://france.osgiusers.org/wiki/uploads/Meeting/jonasosgi200801.pdf"
+	}
+]
