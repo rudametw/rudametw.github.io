@@ -14,7 +14,7 @@ This is [an example](http://example.com/ "Title") inline link.
 
 <p> Regular text goes here. Just messing around with this darn thingity and it seems to be doing ok</p>
 
-<hr>
+
 <!-- <img src="/img/dolphins.jpg" class="img-responsive"> -->
 <!-- <hr> -->
 
