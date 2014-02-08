@@ -10,5 +10,5 @@ destination: ./_site/
 plugins:     ./_plugins
 layouts:     ./_layouts
 include:     ['.htaccess']
-exclude:     ['run-jekyll.sh', 'Gemfile*', 'update_site.sh']
+exclude:     ['run-jekyll.sh', 'Gemfile*', 'update_site.sh', 'update_site.sh']
 
