@@ -1,15 +1,7 @@
 ---
+layout: default
 ---
 
-{% include head.html %}
-
-<body>
-
-    {% include navbar.html %}
-
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8">
                 <!-- blog entry -->
                 {% for post in site.posts %}
                     <hr>
@@ -97,11 +89,3 @@
 
             {% include well.html %}
 
-        </div>
-        <hr>
-    </div>
-
-    {% include footer.html %}
-
-</body>
-</html>
