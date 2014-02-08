@@ -6,3 +6,9 @@ category_dir: /blog/categories
 category_title_prefix: category
 #permalink: /blog/posts/:categories/:year/:month/:day/:title.html
 permalink: /blog/posts/:year.:month.:day/:title.html
+destination: ./_site/
+plugins:     ./_plugins
+layouts:     ./_layouts
+include:     ['.htaccess']
+exclude:     ['run-jekyll.sh', 'Gemfile*']
+
