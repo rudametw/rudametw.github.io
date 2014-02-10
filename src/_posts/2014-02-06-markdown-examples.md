@@ -2,8 +2,12 @@
 layout: blog-post
 title: Testing different markup options
 place: Rennes, France
-categories: [markdown, trash]
+categories: [markdown, untidy]
 ---
+
+This post is a test for markdown and Jekyll. I basically have all kinds of examples of how to do stuff in markdown, but it's not tidy at all.
+
+<!--more-->
 
 Markup syntax can be found here\:  
 [http://daringfireball.net/projects/markdown/syntax](http://daringfireball.net/projects/markdown/syntax)  
@@ -18,7 +22,6 @@ This is [an example](http://example.com/ "Title") inline link.
 <!-- <img src="/img/dolphins.jpg" class="img-responsive"> -->
 <!-- <hr> -->
 
-<!--more-->
 
 <p class="lead"> Second part, this is the lead part of the text, most likely the excerpt.</p>
 
