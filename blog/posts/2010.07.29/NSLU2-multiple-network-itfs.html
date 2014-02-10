@@ -73,6 +73,10 @@
                         </a>
                         <!-- </button> -->
                     
+                        <a href="/blog/categories/work-in-progress"><span class="label label-primary">work-in-progress</span>
+                        </a>
+                        <!-- </button> -->
+                    
                     </p>
                         <span class="glyphicon glyphicon-time"></span> Posted 2010.07.29 
                         
@@ -80,15 +84,28 @@
                         
 
                 <hr>
-                <p><img class="center-block" src="/img/nslu2.jpg" alt="NSLU2.jpg"/></p>
+                <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="/img/wip3.jpg" alt="Work in progress"/>
+        </div>
+        <div class="col-md-7">
+            <img src="/img/nslu2.jpg" alt="NSLU2.jpg"/>
+        </div>
+    </div>
+</div>
 
-<p>It&#39;s easy to setup additional IP addresses on Debiann Linux. This is particularly useful for the NSLU which doesn&#39;t have a display so you need to remotely connect to it.</p>
+<hr>
+
+<p>It&#39;s easy to setup additional IP addresses on Debian Linux. This is particularly useful for the NSLU which doesn&#39;t have a display so you need to remotely connect to it.</p>
+
+<p>Having more than one virtual network interface allows us to have both a DHCP address and a static IP address, making the NSLU2 accessible pretty much always.</p>
 
 <!--more-->
 
 <h3>On the nslu</h3>
 
-<p>IP address must be setup. Also, a DNS must be configured in order to work.</p>
+<p>I&#39;m supposing you have somekind of IP address already setup. Also, you should have a working DNS, although this shouldn&#39;t impact any of the following.</p>
 
 <p>Once you can ping the gateway machine, the gateway must be added so that the nslu knows that he can attain addresses that are beyond his own network.</p>
 
@@ -102,8 +119,14 @@
 <p>For setting up the gateway we must enable ip forwarding:</p>
 <div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nb">echo </span>1 &gt; /proc/sys/net/ipv4/ip_forward
 </code></pre></div>
-<p>If we want to setup alias cards, we can do
-ifconfig eth0:N address    netmask</p>
+<h3>Additional virtual network interface</h3>
+
+<p>If we want to setup alias cards, we can do something along the lines of
+<code>bash
+ifconfig eth0:N address    netmask
+</code></p>
+
+<p>However, it&#39;s probably easier to just edit the <code>/etc/network/interfaces</code> file by adding something like this</p>
 
 <div class="highlight"><pre><code class="bash">iface eth0:0 inet static
         address 192.168.0.100
@@ -116,10 +139,11 @@ ifconfig eth0:N address    netmask</p>
         <span class="c">#post-up route add -host 192.168.0.10 dev eth0:1</span>
 </code></pre></div>
 
-<p>or inside the interfaces file doing</p>
+<p>This allows us to have a static IP address in addition to whatever other configured addresses we might have. I used it to have both a DHCP assigned address and a static local network address, allowing me to always get access to the NSLU2, even if it&#39;s not getting an address through DHCP.</p>
 
-<p>finally, must set up iptables to the correct rules!!!
-Rules are defined in /home/rudametw/bin/ip_forwarding</p>
+<p>Finally, must set up iptables to the correct rules!!!</p>
+
+<p>I found and change a script to setup the tables to allow </p>
 
                 
                 <!-- the comment box -->
@@ -175,6 +199,9 @@ Rules are defined in /home/rudametw/bin/ip_forwarding</p>
                                 <li><a href="/blog/categories/nslu2">nslu2</a>
                                 </li>
                                 
+                                <li><a href="/blog/categories/work-in-progress">work-in-progress</a>
+                                </li>
+                                
                             </ul>
                         </div>
                     </div>
@@ -194,6 +221,9 @@ Rules are defined in /home/rudametw/bin/ip_forwarding</p>
                                 </li>
                                 
                                 <li><a href="/blog/categories/nslu2">nslu2</a>
+                                </li>
+                                
+                                <li><a href="/blog/categories/work-in-progress">work-in-progress</a>
                                 </li>
                                 
                                 <li><a href="/blog/categories/first-post">first-post</a>
