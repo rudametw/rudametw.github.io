@@ -5,8 +5,8 @@
         </div>
         <div class="col-md-7">
             <br /><br /><br />
-            <h1>Section under construction...<h1>
-            <h2>Come back soon<h2>
+            <h1>Section under construction...</h1>
+            <h2>Come back soon</h2>
         </div>
     </div>
 </div>
