@@ -61,37 +61,102 @@
         <div class="row">
             <div class="col-md-8">
                                <!-- the actual blog post: title/author/date/content -->
-                <h1> First post using jekyll </h1>
+                <h1> Mount your Box.Net account using WebDAV </h1>
                     <p class="lead">by <a href="/contact">Walter Rudametkin &nbsp;&nbsp;&nbsp;</a>
     
                     
-                        <a href="/blog/categories/first-post"><span class="label label-primary">first-post</span>
+                        <a href="/blog/categories/linux"><span class="label label-primary">linux</span>
                         </a>
                         <!-- </button> -->
                     
-                        <a href="/blog/categories/jekyll"><span class="label label-primary">jekyll</span>
+                        <a href="/blog/categories/webdav"><span class="label label-primary">webdav</span>
                         </a>
                         <!-- </button> -->
                     
-                        <a href="/blog/categories/github-pages"><span class="label label-primary">github-pages</span>
+                        <a href="/blog/categories/cloud"><span class="label label-primary">cloud</span>
                         </a>
                         <!-- </button> -->
                     
                     </p>
-                        <span class="glyphicon glyphicon-time"></span> Posted 2014.02.04 
+                        <span class="glyphicon glyphicon-time"></span> Posted 2011.09.17 
                         
-                            &nbsp;
+                            &mdash; Grenoble, France
                         
 
                 <hr>
                 
-                <p>This is the my first post after configuring my site to use github pages, and more specifically, after I started using Jekyll.</p>
+                <p>It&#39;s pretty easy to setup box.net with webdav and to have your files automatically saved to box.net. I got 50gb of storage space on box.net when I bought an HP Touchpad 32gb on firesale.</p>
+
+<p>However, because it&#39;s not a paid or professional account, I can&#39;t really do anything with it.</p>
+
+<p>UPDATE: I don&#39;t use this setup because box.net is just too slow and some people have been complaining that they don&#39;t implement webdav properly. I really wish they&#39;d come up with a client for Linux like Dropbox has.</p>
+
+<p>Originally posted on Ubuntu Forums: <a href="http://ubuntuforums.org/showthread.php?t=202761&amp;page=4">http://ubuntuforums.org/showthread.php?t=202761&amp;page=4</a></p>
 
 <!--more-->
 
-<p>Jekyll is a really cool framework for generating static content pages. This allows me to not worry about where or how I save my page. I can even have it delivered through Dropbox, which is pretty awesome.</p>
+<h2>Davfs setup</h2>
 
-<p>Anyhow, I&#39;m starting to like Jekyll, even if it has a couple of quirks.</p>
+<p>I just setup my box.net and wanted to share the steps with anybody having trouble. I suppose you&#39;ve installed davfs already.</p>
+
+<p>Create a mount point:</p>
+
+<div class="highlight"><pre><code class="bash"> mkdir ~/box.net
+</code></pre></div>
+
+<p>Add this to <code>/etc/fstab</code> (correct the details for your user):</p>
+
+<div class="highlight"><pre><code class="bash"> http://www.box.net/dav /home/user/box.net davfs rw,user,noauto 0 0
+</code></pre></div>
+
+<p>(Just as a note, https didn&#39;t work for me. It mounts but copied files never showed up. I saw something on their site about 256bit SSL encryption being available when you upgrade to business.)</p>
+
+<p>To allow your your user to mount without being root you want to say yes to this:</p>
+
+<div class="highlight"><pre><code class="bash">sudo dpkg-reconfigure davfs2
+</code></pre></div>
+
+<p>Then add user to davfs2 group</p>
+
+<div class="highlight"><pre><code class="bash">sudo adduser <span class="nv">$USER</span> davfs2
+</code></pre></div>
+
+<p>Let&#39;s configure davfs in your home directory</p>
+
+<div class="highlight"><pre><code class="bash">mkdir ~/.davfs2
+cp /etc/davfs2/davfs2.conf ~/.davfs2
+</code></pre></div>
+
+<p>Add this to <code>~/.davfs2/davfs2.conf</code>:</p>
+
+<div class="highlight"><pre><code class="bash">use_locks       0
+</code></pre></div>
+
+<p>To avoid typing your login and password every time:</p>
+
+<div class="highlight"><pre><code class="bash">sudo cp /etc/davfs2/secrets ~/.davfs2
+sudo chown <span class="nv">$USER</span> ~/.davfs2/secrets
+</code></pre></div>
+
+<p>Add your login and pass to <code>~/.davfs2/secrets</code>:</p>
+
+<div class="highlight"><pre><code class="bash">http://www.box.net/dav   username@mail.com   password
+</code></pre></div>
+
+<p>And finally mount:</p>
+
+<div class="highlight"><pre><code class="bash">mount ~/box.net
+</code></pre></div>
+
+<p>I hope I didn&#39;t miss anything. I used some stuff originally found in french here: <a href="http://doc.ubuntu-fr.org/davfs2">http://doc.ubuntu-fr.org/davfs2</a></p>
+
+<h3>Rsync and Box.net</h3>
+
+<p>I&#39;ve been running rsync for a little while and ever since I got the configuration correct (i.e., nolocks, http) I haven&#39;t had any trouble. </p>
+
+<p>On the other hand, I want better synchronization so instead of rsync (or even Unison) I&#39;m thinking of using something like dvcs-autosync or SparkleShare because they use a git backend and provide version control (among other features), but I haven&#39;t figured out how to set it up so that I can put the &quot;central&quot; .git repo on my box.net. (Maybe it&#39;s really simple.) Also, lots of my files are photos &amp; music and I&#39;m not sure if using git on them is a good idea.</p>
+
+<p><a href="http://www.syncany.org/">http://www.syncany.org/</a> might be an interesting option, they say they provide synchronization for local folders (including nfs and fuse mounts) out of the box, but the project doesn&#39;t seem very mature yet.</p>
 
 
                 
@@ -150,9 +215,9 @@
                 <h4>Current Tags</h4>
                 <ul class="list-unstyled">
                     
-                    <li><a href="/blog/categories/first-post">first-post</a></li> 
-                    <li><a href="/blog/categories/jekyll">jekyll</a></li> 
-                    <li><a href="/blog/categories/github-pages">github-pages</a></li> 
+                    <li><a href="/blog/categories/linux">linux</a></li> 
+                    <li><a href="/blog/categories/webdav">webdav</a></li> 
+                    <li><a href="/blog/categories/cloud">cloud</a></li> 
                 </ul>
             </div>
         </div>
