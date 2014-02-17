@@ -5,7 +5,7 @@
                 <h1>Dr. Walter Rudametkin</h1>
                 <h2>Postdoctoral researcher @ INRIA Rennes</h2>
                 <hr>
-                <h3>walter.rudametkin @no_spam@ inria.fr  </h3>
+                <h3>walter.rudametkin@inria.fr  </h3>
                 <hr>
                 <h3>Work Address</h3>
                 <div class="row">
@@ -23,7 +23,8 @@
                     <strong>Telephone</strong> (+33) 2 99 84 22 15  <br />
                     <strong>Fax</strong> (+33) 2 99 84 71 71        <br />
                     <!-- walter.rudametkin <del>@no_spam@</del> inria_dot_fr   -->
-                    <strong>Email&nbsp;&nbsp;</strong> walter.rudametkin_at_inria_dot_fr  
+                    <strong>Work Email&nbsp;&nbsp;</strong>walter.rudametkin@inria.fr
+                    <strong>Personal Email&nbsp;&nbsp;</strong>rudametkin@gmail.com  
                     </p>
                 </div>
             </div>
