@@ -1,0 +1,12 @@
+//Rewrite to www
+Options +FollowSymLinks
+RewriteEngine on
+RewriteCond %{HTTP_HOST} ^rudametw.github.io[nc]
+RewriteRule ^(.*)$ http://www.rudametw.github.io/$1 [r=301,nc]
+
+//301 Redirect Old File
+Redirect 301 / /
+
+//301 Redirect Entire Directory
+RedirectMatch 301 /(.*) //$1
+
