@@ -1,6 +1,6 @@
 ---
 layout: blog-post
-title: NSLU Linux Gateway
+title: NSLU2 Linux Gateway
 place: Rennes, France
 categories: [linux, nslu2, work-in-progress]
 ---
