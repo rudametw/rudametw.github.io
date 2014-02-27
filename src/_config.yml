@@ -14,3 +14,4 @@ permalink: /blog/posts/:year.:month.:day/:title.html
 include:     ['.htaccess']
 exclude:     ['run-jekyll.sh', 'Gemfile*', 'update_site.sh', 'update_site.sh']
 
+url: http://rudametw.github.io
