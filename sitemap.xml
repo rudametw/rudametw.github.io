@@ -1,23 +1,51 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>/blog/posts/2014.02.06/markdown-examples.html</loc>
-    <lastmod>2014-02-06</lastmod>
-
-  </url>
-  <url>
-    <loc>/blog/posts/2014.02.04/first-jekyll-github-pages-post.html</loc>
-    <lastmod>2014-02-04</lastmod>
-
-  </url>
-  <url>
-    <loc>/blog/posts/2011.09.17/Linux-webdav-box.net.html</loc>
-    <lastmod>2011-09-17</lastmod>
-
-  </url>
-  <url>
-    <loc>/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html</loc>
-    <lastmod>2010-07-29</lastmod>
-
-  </url>
+<?xml version='1.0' encoding='UTF-8'?>
+<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
+    <url>
+        <loc>/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html</loc>
+        <lastmod>2014-02-17T14:30:27+01:00</lastmod>
+    </url>
+    <url>
+        <loc>/blog/posts/2011.09.17/Linux-webdav-box.net.html</loc>
+        <lastmod>2014-02-17T14:47:31+01:00</lastmod>
+    </url>
+    <url>
+        <loc>/blog/posts/2014.02.04/first-jekyll-github-pages-post.html</loc>
+        <lastmod>2014-02-12T00:08:16+01:00</lastmod>
+    </url>
+    <url>
+        <loc>/blog/posts/2014.02.06/markdown-examples.html</loc>
+        <lastmod>2014-02-12T00:08:16+01:00</lastmod>
+    </url>
+    <url>
+        <loc>/teaching/</loc>
+        <lastmod>2014-02-13T16:53:22+01:00</lastmod>
+    </url>
+    <url>
+        <loc>/publications/</loc>
+        <lastmod>2014-02-13T16:53:22+01:00</lastmod>
+    </url>
+    <url>
+        <loc>/research/</loc>
+        <lastmod>2014-02-13T16:53:22+01:00</lastmod>
+    </url>
+    <url>
+        <loc>/</loc>
+        <lastmod>2014-02-27T00:29:36+01:00</lastmod>
+    </url>
+    <url>
+        <loc>/blog/</loc>
+        <lastmod>2014-02-12T00:08:16+01:00</lastmod>
+    </url>
+    <url>
+        <loc>/blog/index.html.old</loc>
+        <lastmod>2014-02-11T14:46:40+01:00</lastmod>
+    </url>
+    <url>
+        <loc>/contact/</loc>
+        <lastmod>2014-02-11T14:46:40+01:00</lastmod>
+    </url>
+    <url>
+        <loc>/about/</loc>
+        <lastmod>2014-02-13T16:58:01+01:00</lastmod>
+    </url>
 </urlset>
