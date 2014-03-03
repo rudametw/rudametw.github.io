@@ -2,7 +2,7 @@ markdown: redcarpet
 redcarpet:
   extensions: ["strikethrough", "tables"]
 pygments: true
-auto: true
+#auto: true
 excerpt_separator: <!--more-->
 category_dir: /blog/categories
 category_title_prefix: category
@@ -15,3 +15,24 @@ include:     ['.htaccess']
 exclude:     ['run-jekyll.sh', 'Gemfile*', 'update_site.sh', 'update_site.sh']
 
 url: http://rudametw.github.io
+
+
+gallery:
+  # path to the gallery
+  dir: photos
+  # title for gallery index
+  title: "Photos"
+  # title prefix for gallery page. title=title_prefix+gallery_name
+  title_prefix: ""
+  # field to control sorting of galleries for the index page
+  # (possible values are: title, date_time, best_image)
+  sort_field: "title"
+  # sizes for thumbnails
+  thumbnail_size:
+    x: 400
+    y: 400
+  # custom configuration for individual gallery
+  # best_image is image for the index page (defaults to last image)
+  galleries:
+    2014.02.25_rennes_at_night:
+        best_image: DSC_0034.JPG
