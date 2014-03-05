@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="col-md-4">
-            <img src="/img/me.jpg" alt="My photo">
+            <img class="mypicture" src="/img/me.jpg" alt="My photo">
         </div>
     </div>
 
