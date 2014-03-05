@@ -3,13 +3,18 @@ body,html {
 	width: 100%;
 }
 
-body,h1,h2,h3,h4,h5,h6 {
-	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-weight: 700;
+body {
+    margin-top: 80px; /*100px is double the height of the navbar - I made it a big larger for some more space - keep it at 50px at least if you want to use the fixed top nav */
+    font-weight: 400;
+    font-size: 16px;
 }
 
-body {
- margin-top: 80px; 100px /*is double the height of the navbar - I made it a big larger for some more space - keep it at 50px at least if you want to use the fixed top nav */
+body,h1,h2,h3,h4,h5,h6 {
+	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+/*     font-weight: 700; */
+}
+.navbar-nav > li > a,navbar,navbar-brand,.navbar-brand,h1,h2,h3,h4,h5,h6 {
+	font-weight: 700;
 }
 
 /* footer { */
@@ -19,6 +24,14 @@ body {
 .lead {
 	font-size: 18px;
 	font-weight: 400;
+}
+
+.well{ 
+    margin-top: 10px;
+}
+
+.mypicture {
+    margin-top: 10px;    
 }
 
 .intro-header {

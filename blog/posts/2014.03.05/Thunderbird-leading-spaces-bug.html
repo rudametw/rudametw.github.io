@@ -95,41 +95,121 @@ $(document).ready(function() {
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h1 class="category">
-                    Category &nbsp;&nbsp; <span class="label label-warning">cloud</span>
-                </h1>
-
-                <!-- blog entry -->
-                
-                <hr>
-                <h1>
-                    <a href="/blog/posts/2011.09.17/Linux-webdav-box.net.html">Mount your Box.Net account using WebDAV</a>
-                </h1>
-
-                <p class="lead">
-                    by <a href="/contact">Walter Rudametkin &nbsp;&nbsp;&nbsp;</a>
-                     
-                        <a href="/blog/categories/linux"> <span class="label label-primary">linux</span></a> 
-                     
-                        <a href="/blog/categories/webdav"> <span class="label label-primary">webdav</span></a> 
-                     
-                        <a href="/blog/categories/cloud"> <span class="label label-primary">cloud</span></a> 
+                               <!-- the actual blog post: title/author/date/content -->
+                <h1> Thunderbird leading spaces disappear when using wrong character set </h1>
+                    <p class="lead">by <a href="/contact">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+    
                     
-                </p>
+                        <a href="/blog/categories/thunderbird"><span class="label label-primary">thunderbird</span>
+                        </a>
+                        <!-- </button> -->
+                    
+                        <a href="/blog/categories/bug"><span class="label label-primary">bug</span>
+                        </a>
+                        <!-- </button> -->
+                    
+                    </p>
+                        <span class="glyphicon glyphicon-time"></span> Posted 2014.03.05 
+                        
+                            &mdash; Rennes, France
+                        
 
-                <span class="glyphicon glyphicon-time"></span> Posted 2011.09.17  &mdash; Grenoble, France 
                 <hr>
+                
+                <p>I ran into a weird bug that took me about 50 test emails to understand. Thunderbird appears to automatically convert your plain-text emails from one character set to another automatically if it detects that there is an incompatible character.</p>
 
-                <p>It&#39;s pretty easy to setup box.net with webdav and to have your files automatically saved to box.net. I got 50gb of storage space on box.net when I bought an HP Touchpad 32gb on firesale.</p>
+<p>However, the conversion isn&#39;t as smooth as it should be. In fact, in my case, all leading spaces in my neatly formatted plain-text format=flowed emails disappear.</p>
 
-<p>However, because it&#39;s not a paid or professional account, I can&#39;t really do anything with it.</p>
+<!--more-->
 
-<p>UPDATE: I don&#39;t use this setup because box.net is just too slow and some people have been complaining that they don&#39;t implement webdav properly. I really wish they&#39;d come up with a client for Linux like Dropbox has.</p>
+<p>Let&#39;s try an example. Send an email with a couple of lines and a single &quot;weird&quot; character, like this one:</p>
 
-<p>Originally posted on Ubuntu Forums: <a href="http://ubuntuforums.org/showthread.php?t=202761&amp;page=4">http://ubuntuforums.org/showthread.php?t=202761&amp;page=4</a></p>
- <a class="btn btn-primary" href="/blog/posts/2011.09.17/Linux-webdav-box.net.html">Read More <span
-                    class="glyphicon glyphicon-chevron-right"></span></a> 
+<div class="highlight"><pre><code class="bash">    This line has four leading spaces
+   This line has three leading spaces
+          This line has ten leading spaces
 
+’ This is a stupid right-single-quotation-mark character <span class="o">(</span>u+2019<span class="o">)</span>
+</code></pre></div>
+
+<p>And what do we get when we send it?</p>
+
+<div class="highlight"><pre><code class="bash">Return-Path: walter.rudametkin@inria.fr
+<span class="o">[</span>...<span class="o">]</span>
+Message-ID: &lt;531727D5.7000209@inria.fr&gt;
+Date: Wed, 05 Mar 2014 14:34:13 +0100
+From: Walter Rudametkin &lt;walter.rudametkin@inria.fr&gt;
+Organization: INRIA
+User-Agent: blabla
+MIME-Version: 1.0
+To: undisclosed-recipients:<span class="p">;</span>
+Content-Type: text/plain<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>windows-1252<span class="p">;</span> <span class="nv">format</span><span class="o">=</span>flowed
+Content-Transfer-Encoding: 8bit
+
+This line has four leading spaces
+This line has three leading spaces
+This line has ten leading spaces
+
+’ This is a stupid right-single-quotation-mark character <span class="o">(</span>u+2019<span class="o">)</span>
+</code></pre></div>
+
+<p>Damn, where are my spaces?</p>
+
+<h2>What&#39;s going on?</h2>
+
+<p>My charset in Thunderbird was configured to <code>ISO-8859-1</code>, which appears to still be the default. Thunderbird doesn&#39;t appear to be willing to change to UTF-8 as a default either, as can be seen by the WONTFIX in this <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=224391">bug</a>.</p>
+
+<p>Behind the scenes Thunderbird sees the &quot;weird&quot; character and changes the character set to a compatible one when sending the email. </p>
+
+<p>This can be seen in my &#39;Content-Type&#39; header which becomes this:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="lineno">1</span> Content-Type: text/plain<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>windows-1252<span class="p">;</span> <span class="nv">format</span><span class="o">=</span>flowed
+</code></pre></div>
+
+<p>As you can see, the charset is now changed to &#39;windows-1252&#39; (instead of the default &#39;ISO-8859-1&#39;), but my spaces are also gone!!!</p>
+
+<p>Furthermore, if you use utf-8 characters like ←→⇐⇒⇑⇓⇙⇗⇖⇘⇙, which I conveniently have my keyboard setup to use, your email will be converted to &#39;charset=UTF-8&#39;, and you still lose your leading spaces.</p>
+
+<h2>Solution</h2>
+
+<p>My solution is to simply set Thunderbird to always use &#39;UTF-8&#39;. In Thunderbird this is pretty simple, go to:
+<code>Edit→Preferences→Display→Advanced</code> And change outgoing and incoming mails.</p>
+
+<h2>Mozilla bug</h2>
+
+<p>If anybody is intested, I filed a bug for this problem <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=979857">https://bugzilla.mozilla.org/show_bug.cgi?id=979857</a></p>
+
+
+                
+                <!-- the comment box -->
+<!--                 <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div> -->
+
+                <!-- the comments -->
+<!--                 <hr>
+ --><!--                 <h3>Start Bootstrap
+                    <small>9:41 PM on August 24, 2013</small>
+                </h3>
+                <p>This has to be the worst blog post I have ever read. It simply makes no sense. You start off by talking about space or something, then you randomly start babbling about cupcakes, and you end off with random fish names.</p>
+
+                <h3>Start Bootstrap
+                    <small>9:47 PM on August 24, 2013</small>
+                </h3>
+                <p>Don't listen to this guy, any blog with the categories 'dinosaurs, spaceships, fried foods, wild animals, alien abductions, business casual, robots, and fireworks' has true potential.</p> -->
+
+<!--             <div class="row"> -->
+<!--                 % include well.html %} -->
+<!--             </div> -->
+
+<!--             </div> -->
+<!--             % include well.html %} -->
+            
             </div>
             <div class="col-md-4">
                 <!-- <div class="col-md-4"> -->
@@ -146,6 +226,21 @@ $(document).ready(function() {
         </div>
     </div>
     -->
+
+    
+
+    <div class="well">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Current Tags</h4>
+                <ul class="list-unstyled">
+                    
+                    <li><a href="/blog/categories/thunderbird">thunderbird</a></li> 
+                    <li><a href="/blog/categories/bug">bug</a></li> 
+                </ul>
+            </div>
+        </div>
+    </div>
 
     
 
@@ -186,6 +281,7 @@ $(document).ready(function() {
     </div>
 
     <hr>
+
     <div class="banner">
 
     <div class="container">
