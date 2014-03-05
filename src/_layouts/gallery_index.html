@@ -4,15 +4,22 @@ layout: large-page
 {% for gallery in page.galleries %}
 <div class="col-lg-4 col-md-4 col-xs-6 thumb">
 
-    <div style="width: 35em; text-align: center; padding: 1em 0 4em 0;">
-        <a href="{{ gallery['gallery'] }}"> <img style="max-height: 20em; max-width: 20em;"
-            src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}"
+<!--     <div style="width: 35em; text-align: center; padding: 1em 0 4em 0;"> -->
+<!--         <a href="{{ gallery['gallery'] }}"> <img style="max-height: 20em; max-width: 20em;" -->
+<!--             src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}" -->
+<!--             > -->
+<!--         </a> -->
+
+    <div style="text-align: center; padding: 1em 0 4em 0;">
+        <a href="{{ gallery['gallery'] }}">
+            <img src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}"
+                class="img-responsive thumbnail"
             >
         </a>
         
-        <h3>
+        <h4>
             <a href="{{ gallery['gallery'] }}">{{ gallery["name"] }}</a>
-        </h3>
+        </h4>
         {{ gallery["images"] | size }} images
     </div>
 </div>
