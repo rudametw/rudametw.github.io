@@ -11,14 +11,14 @@ layout: large-page
 <!--         </a> -->
 
     <div style="text-align: center; padding: 1em 0 4em 0;">
-        <a href="{{ gallery['gallery'] }}">
+        <a href="{{ gallery['gallery'] }}/">
             <img src="{{ gallery['gallery'] }}/thumbs/{{ gallery['best_image'] }}"
                 class="img-responsive thumbnail"
             >
         </a>
         
         <h4>
-            <a href="{{ gallery['gallery'] }}">{{ gallery["name"] }}</a>
+            <a href="{{ gallery['gallery'] }}/">{{ gallery["name"] }}</a>
         </h4>
         {{ gallery["images"] | size }} images
     </div>

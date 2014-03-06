@@ -21,7 +21,7 @@
                 <h4>Current Tags</h4>
                 <ul class="list-unstyled">
                     {% for category in page.categories %}
-                    <li><a href="/blog/categories/{{ category }}">{{ category }}</a></li> {% endfor %}
+                    <li><a href="/blog/categories/{{ category }}/">{{ category }}</a></li> {% endfor %}
                 </ul>
             </div>
         </div>
@@ -34,8 +34,8 @@
             <div class="col-lg-6">
                 <h4>All Tags</h4>
                 <ul class="list-unstyled">
-                    <li><a href="/blog">All</a></li> {% for category in site.categories %}
-                    <li><a href="/blog/categories/{{ category | first }}">{{ category | first }}</a></li> {% endfor %}
+                    <li><a href="/blog/">All</a></li> {% for category in site.categories %}
+                    <li><a href="/blog/categories/{{ category | first }}/">{{ category | first }}</a></li> {% endfor %}
                 </ul>
             </div>
         </div>
@@ -45,7 +45,7 @@
         <h4>'Tis me blog matie</h4>
         <p>Sorry, no comments enabled for now because I'm using a simple static site generator (maybe I'll try out disqus another day).</p>
         <p>
-            But if you like what you see, send me an <a href="/contact">email</a>.
+            But if you like what you see, send me an <a href="/contact/">email</a>.
         </p>
     </div>
 <!-- </div> -->
