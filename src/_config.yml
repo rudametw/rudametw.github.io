@@ -44,3 +44,9 @@ gallery:
         best_image: DSC_0034.JPG
     2013.07.27_Saint_Malo:
         best_image: DSC_9097.JPG
+
+assets:
+  compress:
+    css:  sass
+    js:   uglifier
+    gzip: [ text/css, application/javascript ]
