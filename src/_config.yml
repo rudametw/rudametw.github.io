@@ -16,12 +16,14 @@ exclude:     ['run-jekyll.sh', 'Gemfile*', 'update_site.sh', 'update_site.sh']
 
 url: http://rudametw.github.io
 
-sitemap:
-    file: "/sitemap.xml"
-    include_posts:
-        - "/photos/2014.02.25_rennes_at_night/"
-        - "/photos/2013.07.27_Saint_Malo/"
-
+#Not used anymore. I added an index.html to all directories to solve this.
+#The only problem is the gallery is not created at startup.
+#You have to refresh a file for it to work.
+#sitemap:
+#    file: "/sitemap.xml"
+#    include_posts:
+#        - "/photos/2014.02.25_rennes_at_night/"
+#        - "/photos/2013.07.27_Saint_Malo/"
 
 gallery:
   # path to the gallery
@@ -44,6 +46,10 @@ gallery:
         best_image: DSC_0034.JPG
     2013.07.27_Saint_Malo:
         best_image: DSC_9097.JPG
+    2013.12.13_Dad_fishing_trip:
+        best_image: DSC_4995.JPG
+    2014.01.16 Dad keeps torturing me with these pictures:
+        best_image: DSC_5128.JPG
 
 assets:
   compress:
