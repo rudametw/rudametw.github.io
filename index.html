@@ -52,12 +52,13 @@
 	</nav>
 
 
+<div itemscope itemtype="http://data-vocabulary.org/Person">
+
     <div class="intro-header">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
                     <div class="intro-message">
-                        <div itemscope itemtype="http://data-vocabulary.org/Person">
                         <h1><span itemprop="name">Walter Rudametkin</span>, Ph.D.</h1>
                         <h3><span itemprop="title">Postdoctoral researcher</span> @ <span itemprop="affiliation">inria rba</span></h3>
                         <hr class="intro-divider">
@@ -71,7 +72,6 @@
                             <li><a href="https://www.google.com/+WalterRudametkin" class="btn btn-default btn-lg"><i
                                     class="fa fa-google-plus-square fa-fw"></i> <span class="network-name">google+</span></a></li>
                         </ul>
-                        </div>
                         <section class="main">
                             <a class="arrow-wrap" href="#content">
                                 <span class="arrow"></span>
@@ -96,7 +96,7 @@
                     <h2 class="section-heading">Where I work</h2>
 
                     <p class="lead">
-                        I'm a posdoctoral researcher in the <a href="http://diverse.irisa.fr">DiverSE team</a> (formally <a
+                        I'm a <span itemprop="role">posdoctoral researcher </span> in the <span itemprop="workLocation" itemscope=itemtype="http://schema.org/Place"> <span itemprop="url" <a href="http://diverse.irisa.fr"> <span itemprop="name">DiverSE team</span></a> </span> (formally <a
                             href="http://triskell.irisa.fr">Triskell</a>) at the <a href="https://www.inria.fr">INRIA</a> <a
                             href="https://www.inria.fr/centre/rennes">Rennes</a> research center.
                     </p>
@@ -328,6 +328,9 @@
   ga('create', 'UA-48705379-1', 'rudametw.github.io');
   ga('send', 'pageview');
 </script>
+
+
+</div> <!-- Close Person -->
 
 </body>
 </html>
