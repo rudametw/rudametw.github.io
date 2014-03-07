@@ -18,6 +18,9 @@ Fancybox
 Fontawesome,
 and a couple of other things that haven't come to mind.
 
-You can visit the resulting website here:
-http://rudametw.github.io github-pages website
+You can visit the resulting website at the following addreses:
+
+http://rudametw.github.io
+
+http://people.rennes.inria.fr/Walter.Rudametkin/
 
