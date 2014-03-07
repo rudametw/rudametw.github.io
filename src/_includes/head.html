@@ -4,11 +4,16 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Walter Rudametkin's home page, contact, blog and photos">
+<!-- <meta name="description" content="Walter Rudametkin's home page, contact, blog and photos"> -->
 <meta name="author" content="Walter Rudametkin">
 <link rel="author" href="https://plus.google.com/+WalterRudametkin" />
 
+{% if page.title == page.title.blank? %}
 <title>Walter Rudametkin's home page</title>
+<meta name="description" content="Hi! Welcome to Walter's home page. See his research, project, blog or just send him an email." >
+{% else %}<title>{{ page.title }}</title>{% endif %}
+{% if page.description == page.description.blank? %}&nbsp;{% else %}
+<meta name="description" content="{{ page.description }}">{% endif %}
 
 <!-- Add custom CSS here -->
 {% stylesheet main %}
