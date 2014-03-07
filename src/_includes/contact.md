@@ -23,8 +23,9 @@
                     <strong>Telephone</strong> (+33) 2 99 84 22 15  <br />
                     <strong>Fax</strong> (+33) 2 99 84 71 71        <br />
                     <!-- walter.rudametkin <del>@no_spam@</del> inria_dot_fr   -->
-                    <strong>Work Email&nbsp;&nbsp;</strong>walter.rudametkin@inria.fr
-                    <strong>Personal Email&nbsp;&nbsp;</strong>rudametkin@gmail.com  
+                    <strong>Work Email&nbsp;&nbsp;</strong>
+                        <a href="mailto:walter.rudametkin@inria.fr">walter.rudametkin@inria.fr</a>
+                    <strong>Personal Email&nbsp;&nbsp;</strong><a href="mailto:rudametkin@gmail.com">rudametkin@gmail.com</a>  
                     </p>
                 </div>
             </div>
