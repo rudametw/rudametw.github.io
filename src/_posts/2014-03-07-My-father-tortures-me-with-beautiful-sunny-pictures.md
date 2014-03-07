@@ -28,10 +28,10 @@ And another one.
 
 ##Consitency, repetition, cruelty
 
-Yeah, so he sent a couple of pictures. *Big deal!* The thing is, he had a friend send them to me, somebody not to competent with computers if you ask me. He sent maybe 3 pictures the first time. Then 5. Then 12... some pictures were repeated. Then 2. Then 20. Then some more. In total, I got something like 10 emails with pictures over a period of 4 weeks. It was consistent bombardment. *Propaganda* I say. Nothing more than a severe attack against my ever weakening resistance to leaving France.
+Yeah, so he sent a couple of pictures. *Big deal!* The thing is, he had a friend send them to me, somebody not to competent with computers if you ask me. He sent maybe 3 pictures the first time. Then 5. Then 12... some pictures were repeated. Then 2. Then 20. Then some more. In total, I got something like 10 emails with pictures over a period of 4 weeks. It was consistent bombardment. *Propaganda* I say. Psychological warfare. Nothing less than a severe attack against my ever weakening resistance to leaving France.
 
 
-####Demoralizing... or is it?
+###Demoralizing... or is it?
 
 From dad's point of view he's just sharing, and he misses me, and he wants Marcia and I to go home. Guess what... **it's working**! I don't think I've ever wanted to go home so badly in my life :-)
 
