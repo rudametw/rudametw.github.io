@@ -4,7 +4,7 @@
         <div class="row">
             <div class="col-md-8">
                 <h1>
-                    <span itemprop="title">Dr.</span> <span itemprop="name">Walter <span itemprop="additionalName">Andrew</span> Rudametkin <span
+                    <span itemprop="honorificPrefix">Dr.</span> <span itemprop="name">Walter <span itemprop="additionalName">Andrew</span> Rudametkin <span
                         itemprop="additionalName">Ivey</span>
                     </span>
                 </h1>
