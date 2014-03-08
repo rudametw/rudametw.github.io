@@ -22,13 +22,15 @@
                         <p class="lead">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span itemprop="name">IRISA</span> – <span itemprop="name">INRIA</span><br />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span itemprop="name">DiverSE project</span>  <br />
-                        <span itemprop="address" itemscope itemtype=http://schema.org/PostalAddress">
+                        <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span itemprop="streetAddress">Campus de Beaulieu</span> <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span itemprop="postalCode">35042</span><span itemprop="addressLocality"> Rennes</span>, Cedex <br />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span itemprop="addressCountry">France</span> 
                         </span> 
                         </p>
                     </div>
+                </div>
+                </span>
                 <div class="col-md-6">
                     <p class="lead">
                     <strong>Telephone</strong> <span itemprop="telephone">(+33) 2 99 84 22 15</span>  <br />
