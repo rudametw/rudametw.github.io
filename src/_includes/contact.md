@@ -23,19 +23,19 @@
                     <div class="col-md-4 col-md-offset-0">
 
                         <p class="lead">
-                            <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-                                itemprop="name">IRISA</span> – <span itemprop="name">INRIA</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-                                itemprop="name">DiverSE project</span> <br />
+                            <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span itemprop="name">IRISA</span> – <span itemprop="name">INRIA</span><br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <span itemprop="name">DiverSE project</span> <br />
                                 <span itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-                                    itemtype="http://schema.org/PostalAddress"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span itemprop="streetAddress">Campus
-                                        de Beaulieu</span> <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span itemprop="postalCode">35042</span><span
-                                    itemprop="addressLocality"> Rennes</span>, Cedex <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span
-                                    itemprop="addressCountry">France</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span itemprop="streetAddress">Campus de Beaulieu</span> <br /> 
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span itemprop="postalCode">35042</span>
+                                    <span itemprop="addressLocality"> Rennes</span>, Cedex <br /> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    <span itemprop="addressCountry">France</span>
                                 </span>
                             </span>
                         </p>
                     </div>
-                </div>
+                
 
                 <div class="col-md-6">
                     <p class="lead">
@@ -44,6 +44,7 @@
                             <a href="mailto:walter.rudametkin@inria.fr" itemprop="email">walter.rudametkin@inria.fr</a> <strong>Personal Email&nbsp;&nbsp;</strong>
                             <a href="mailto:rudametkin@gmail.com" itemprop="email">rudametkin@gmail.com</a>
                     </p>
+                </div>
                 </div>
             </div>
             <div class="col-md-4">
