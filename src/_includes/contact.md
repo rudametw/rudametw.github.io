@@ -37,14 +37,14 @@
                     </div>
                 
 
-                <div class="col-md-6">
-                    <p class="lead">
-                        <strong>Telephone</strong> <span itemprop="telephone">(+33) 2 99 84 22 15</span> <br /> <strong>Fax</strong> <span
-                            itemprop="faxNumber">(+33) 2 99 84 71 71</span> <br /> <strong>Work Email&nbsp;&nbsp;</strong>
-                            <a href="mailto:walter.rudametkin@inria.fr" itemprop="email">walter.rudametkin@inria.fr</a> <strong>Personal Email&nbsp;&nbsp;</strong>
-                            <a href="mailto:rudametkin@gmail.com" itemprop="email">rudametkin@gmail.com</a>
-                    </p>
-                </div>
+                    <div class="col-md-6">
+                        <p class="lead">
+                            <strong>Telephone</strong> <span itemprop="telephone">(+33) 2 99 84 22 15</span> <br /> <strong>Fax</strong> <span
+                                itemprop="faxNumber">(+33) 2 99 84 71 71</span> <br /> <strong>Work Email&nbsp;&nbsp;</strong>
+                                <a href="mailto:walter.rudametkin@inria.fr" itemprop="email">walter.rudametkin@inria.fr</a> <strong>Personal Email&nbsp;&nbsp;</strong>
+                                <a href="mailto:rudametkin@gmail.com" itemprop="email">rudametkin@gmail.com</a>
+                        </p>
+                    </div>
                 </div>
             </div>
             <div class="col-md-4">

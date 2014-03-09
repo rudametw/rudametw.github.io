@@ -13,17 +13,20 @@ That's all nice and all but I haven't seen the sun since fall started, back in O
 
 For example, here's a picture from last December.
 
-<a      href=http://localhost:4000/photos/2013.12.13_Dad_fishing_trip/DSC_5013.JPG >
+<a      href=/photos/2013.12.13_Dad_fishing_trip/DSC_5013.JPG >
 <img    class="img-responsive" 
         alt="Dad and a linkcod in the Bay of Ensenada" 
-        src=http://localhost:4000/photos/2013.12.13_Dad_fishing_trip/DSC_5013.JPG>
+        src=/photos/2013.12.13_Dad_fishing_trip/DSC_5013.JPG>
 </a>
 
 <!--more-->
 
 And another one.
 
-<a href=http://localhost:4000/photos/2013.12.13_Dad_fishing_trip/DSC_4995.JPG ><img class="img-responsive" alt="Dad and a linkcod in the Bay of Ensenada" src=http://localhost:4000/photos/2013.12.13_Dad_fishing_trip/DSC_4995.JPG>
+<a href=/photos/2013.12.13_Dad_fishing_trip/DSC_4995.JPG >
+<img class="img-responsive" 
+     alt="Dad and a linkcod in the Bay of Ensenada" 
+     src=/photos/2013.12.13_Dad_fishing_trip/DSC_4995.JPG>
 </a>
 
 ##Consitency, repetition, cruelty
@@ -36,13 +39,16 @@ Yeah, so he sent a couple of pictures. *Big deal!* The thing is, he had a friend
 From dad's point of view he's just sharing, and he misses me, and he wants Marcia and I to go home. Guess what... **it's working**! I don't think I've ever wanted to go home so badly in my life :-)
 
 Just to show off a couple of more, here are the seals.
-<a href=http://localhost:4000/photos/2013.12.13_Dad_fishing_trip/DSC_5027.JPG ><img class="img-responsive" alt="Seals in Sauzal, Baja California" src=http://localhost:4000/photos/2013.12.13_Dad_fishing_trip/DSC_5027.JPG>
+<a href=/photos/2013.12.13_Dad_fishing_trip/DSC_5027.JPG >
+<img class="img-responsive" 
+     alt="Seals in Sauzal, Baja California" 
+     src=/photos/2013.12.13_Dad_fishing_trip/DSC_5027.JPG>
 </a>
 
 And here they are on the peer.
 
-<a      href=http://localhost:4000/photos/2013.12.13_Dad_fishing_trip/DSC_5033.JPG >
-<img     src=http://localhost:4000/photos/2013.12.13_Dad_fishing_trip/DSC_5033.JPG
+<a      href=/photos/2013.12.13_Dad_fishing_trip/DSC_5033.JPG >
+<img    src=/photos/2013.12.13_Dad_fishing_trip/DSC_5033.JPG
         class="img-responsive" 
         alt="Dad and a linkcod in the Bay of Ensenada" >
 </a>
