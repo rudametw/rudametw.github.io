@@ -20,3 +20,11 @@
 <!-- {% stylesheet main %} -->
 
 <link rel="shortcut icon" href="favicon.ico">
+
+    <script type="text/javascript">
+          var stylesheet = document.createElement('link');
+          stylesheet.href = '{% asset_path main.css %}';
+          stylesheet.rel = 'stylesheet';
+          stylesheet.type = 'text/css';
+          document.getElementsByTagName('head')[0].appendChild(stylesheet);
+    </script>
