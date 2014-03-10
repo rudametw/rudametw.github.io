@@ -1,24 +1,6 @@
-<!DOCTYPE HTML>
-<html lang="en">
 
-<head>
-<meta charset="utf-8">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="author" content="Walter Rudametkin">
-<link rel="author" href="https://plus.google.com/+WalterRudametkin">
+{% include head-open-head-tag.html %}
 
-{% if page.title == page.title.blank? %}
-<title>Walter Rudametkin | Official Home Page | Sitio Oficial</title>
-<meta name="description" content="Hi! Welcome to Walter's home page. Research, projects, blog or send him an email.">
-{% else %}<title>{{ page.title }}</title>{% endif %}
-{% if page.description == page.description.blank? %}
-{% else %}
-<meta name="description" content="{{ page.description }}">{% endif %}
-
-<!-- Add custom CSS here -->
-{% stylesheet main %}
-
-<link rel="shortcut icon" href="favicon.ico">
+<!-- Test -->
 
 </head>
