@@ -66,12 +66,12 @@ If anybody reads this, you can check out most of the pictures in these galleries
 <!--         </a> -->
 
     <div style="text-align: center; padding: 1em 0 4em 0;">
-        <a href="/photos/2014.01.16%20Dad%20keeps%20torturing%20me%20with%20these%20pictures/">
-            <img src="/photos/2014.01.16%20Dad%20keeps%20torturing%20me%20with%20these%20pictures/thumbs/DSC_5128.JPG"
+        <a href="/photos/2014.01.16_Dad_keeps_torturing_me_with_these_pictures/">
+            <img src="/photos/2014.01.16_Dad_keeps_torturing_me_with_these_pictures/thumbs/DSC_5128.JPG"
                 class="img-responsive thumbnail" alt="Beautiful Ensenada Bay">
         </a>
         <h4>
-            <a href="/photos/2014.01.16%20Dad%20keeps%20torturing%20me%20with%20these%20pictures/">2014.01.16 Dad Keeps Torturing Me With These Pictures</a>
+            <a href="/photos/2014.01.16_Dad_keeps_torturing_me_with_these_pictures/">2014.01.16 Dad Keeps Torturing Me With These Pictures</a>
         </h4>
         4 images
     </div>

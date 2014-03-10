@@ -1,6 +1,6 @@
 ---
 layout: blog-post
-title: Thunderbird leading spaces disappear when using wrong character set
+title: Thunderbird bug&#58; leading spaces are removed when character set is automatically converted
 place: Rennes, France
 categories: [thunderbird, bug]
 ---
