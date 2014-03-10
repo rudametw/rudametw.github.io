@@ -4,7 +4,7 @@ title: Walter Rudametkin | Photo Gallery for Friends and Family
 description: Walter Rudametkin Photos Friends Family Rennes Grenoble France Ensenada Mexico Fishing Travel Beaches Mountains
 --- 
 {% for gallery in page.galleries %}
-            <div class="col-lg-4 col-md-4 col-xs-6 thumb">
+            <div class="col-lg-6 col-md-4 col-xs-6 thumb">
             
             <!--     <div style="width: 35em; text-align: center; padding: 1em 0 4em 0;"> -->
             <!--         <a href="{{ gallery['gallery'] }}"> <img style="max-height: 20em; max-width: 20em;" -->
@@ -24,5 +24,6 @@ description: Walter Rudametkin Photos Friends Family Rennes Grenoble France Ense
                     </h4>
                     {{ gallery["images"] | size }} images
                 </div>
+                <br>
             </div>
 {% endfor %}
