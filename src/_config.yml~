@@ -40,8 +40,8 @@ gallery:
   #  x: 400
   #  y: 400
   thumbnail_size:
-    x: 283
-    y: 283
+    x: 350
+    y: 350
   # custom configuration for individual gallery
   # best_image is image for the index page (defaults to last image)
   galleries:
