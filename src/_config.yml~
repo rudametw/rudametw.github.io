@@ -36,9 +36,12 @@ gallery:
   # (possible values are: title, date_time, best_image)
   sort_field: "title"
   # sizes for thumbnails
+  #thumbnail_size:
+  #  x: 400
+  #  y: 400
   thumbnail_size:
-    x: 400
-    y: 400
+    x: 283
+    y: 283
   # custom configuration for individual gallery
   # best_image is image for the index page (defaults to last image)
   galleries:
