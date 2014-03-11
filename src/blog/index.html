@@ -4,14 +4,13 @@ title: Walter Rudametkin | Personal Blog | Tech | Linux | Research | Life
 ---
 
                 {% for post in site.posts %}
-<!--                         <hr> -->
                         <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin &nbsp;&nbsp;&nbsp;</a>
+                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
                         
                             {% for category in post.categories %}
-                                    <a href="/blog/categories/{{ category }}"><span class="label label-primary">{{ category }}</span></a>
+                                    <a href="/blog/categories/{{ category }}/"><span class="label label-primary">{{ category }}</span></a>
+                                    &nbsp;
                             {% endfor %}
-
                         </p>
                         
                         <span class="glyphicon glyphicon-time"></span> Posted {{ post.date| date: "%Y.%m.%d" }} 
