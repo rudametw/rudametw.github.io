@@ -1,0 +1,3 @@
+RewriteEngine on 
+RewriteRule ^(.*)$ http://people.rennes.inria.fr/Walter.Rudametkin/$1 [R=301,L]
+
