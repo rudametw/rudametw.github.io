@@ -5,7 +5,7 @@ pygments: true
 #auto: true
 excerpt_separator: <!--more-->
 category_dir: /blog/categories
-category_title_prefix: category
+category_title_prefix: category:&nbsp;
 #permalink: /blog/posts/:categories/:year/:month/:day/:title.html
 permalink: /blog/posts/:year.:month.:day/:title.html
 #destination: ./_site/
@@ -58,7 +58,9 @@ gallery:
     2014.03.01_Rennes_market_and_oyster_snack:
         best_image: DSC_0664.JPG
     2014.03.09_Bonnets_Rouges_Walk_in_Rennes:
-        best_image: DSC_1422.JPG
+        best_image: DSC_1421.JPG
+    2014.03.23_Fisheye_at_Place_De_La_Marie_Rennes:
+        best_image: DSC_1970.JPG
 
 assets:
   compress:
