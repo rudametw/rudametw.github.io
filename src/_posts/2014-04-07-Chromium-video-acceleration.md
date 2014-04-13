@@ -12,3 +12,5 @@ I tried this on my Dell e6530 and it seems to work pretty good.
 
 For video acceleration : 
 Go to `chrome://flags` &#8594; `Override software rendering list` &#8594; Set to `Enable`
+
+This works for both Chrome and Chromium.
