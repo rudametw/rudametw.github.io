@@ -9,9 +9,9 @@
 <meta name="author" content="Walter Rudametkin">
 <link rel="author" href="https://plus.google.com/+WalterRudametkin">
 
-<title>category:&nbsp;nslu2</title>
+<title>Add Chrome PDF Viewer to Chromium on Fedora 20 x86_64</title>
 
-<meta name="description" content="Category: nslu2">
+
 
 <!-- Add custom CSS here -->
 <!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
@@ -56,50 +56,73 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h1 class="category">
-                    Category &nbsp;&nbsp; <span class="label label-warning">nslu2</span>
-                </h1>
+                               <!-- the actual blog post: title/author/date/content -->
+                <h1> Add Chrome PDF Viewer to Chromium on Fedora 20 x86_64 </h1>
+                    <p class="lead">by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                        
+                            <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
+                            &nbsp;
+                        
+                            <a href="/blog/categories/chromium/"><span class="label label-primary">chromium</span></a>
+                            &nbsp;
+                        
+                            <a href="/blog/categories/feature/"><span class="label label-primary">feature</span></a>
+                            &nbsp;
+                        
+                    </p>
+                        <span class="glyphicon glyphicon-time"></span> Posted 2014.04.02 
+                        
+                            &mdash; Rennes, France
+                        
 
-                <!-- blog entry -->
+                <hr>
                 
-                <hr>
-                <h1>
-                    <a href="/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html">NSLU2 Linux Gateway</a>
-                </h1>
+                <p>I really would like a PDF reader that saves the open pdf files in tabs, like a browser does. It would let me get back to reading whatever I was reading after a restart. Currently, I try to restart as little as possible, usually between 20 and 40 days in order to save all my open stuff. I would use Mendeley except the open tabs feature request has been open since 2009 and not implemented yet!!! <a href="http://feedback.mendeley.com/forums/4941-general/suggestions/263198-remember-open-tabs-and-position-within-pdfs">http://feedback.mendeley.com/forums/4941-general/suggestions/263198-remember-open-tabs-and-position-within-pdfs</a>.</p>
 
-                <p class="lead">
-                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
-                     
-                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
-                     
-                        <a href="/blog/categories/nslu2/"> <span class="label label-primary">nslu2</span></a> 
-                     
-                        <a href="/blog/categories/work-in-progress/"> <span class="label label-primary">work-in-progress</span></a> 
-                    
-                </p>
+<p>My answer for PDFs is to use my browser to store my open files. It might be a little overkill but it does the job decent enough. I mainly use Firefox + mozplugger + evince, but I also use the Chrome and Chromium browsers for different things including reading PDFs. Chrome has a simple PDF plugin that I like and its pretty fast, but Chromium doesn&#39;t have it because of licensing issues.</p>
 
-                <span class="glyphicon glyphicon-time"></span> Posted 2010.07.29  &mdash; Rennes, France 
-                <hr>
+<!--more-->
 
-                <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <img src="/img/wip3.jpg" alt="Work in progress"/>
-        </div>
-        <div class="col-md-7">
-            <img src="/img/nslu2.jpg" alt="NSLU2.jpg"/>
-        </div>
-    </div>
-</div>
+<p>On Fedora 20 x86_64, here&#39;s how to include the plugin into Chromium if you have both browsers installed:</p>
 
-<hr>
+<div class="highlight"><pre><code class="bash">ln -s /opt/google/chrome/libpdf.so /usr/lib64/chromium/libpdf.so
+</code></pre></div>
 
-<p>It&#39;s easy to setup additional IP addresses on Debian Linux. This is particularly useful for the NSLU which doesn&#39;t have a display so you need to remotely connect to it.</p>
+<p>I prefer the symbolic link because when Chrome updates the plugin, Chromium automatically gets the updated version. If you don&#39;t like that or if you don&#39;t install Chrome, just copy the libpdf.so file into Chromium.</p>
 
-<p>Having more than one virtual network interface allows us to have both a DHCP address and a static IP address, making the NSLU2 accessible pretty much always.</p>
- <a class="btn btn-primary" href="/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html">Read More <span
-                    class="glyphicon glyphicon-chevron-right"></span></a> 
+<p>Go to chrome://plugins/ to enable the plugin or to see if Chromium actually finds it.</p>
 
+                
+                <!-- the comment box -->
+<!--                 <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div> -->
+
+                <!-- the comments -->
+<!--                 <hr>
+ --><!--                 <h3>Start Bootstrap
+                    <small>9:41 PM on August 24, 2013</small>
+                </h3>
+                <p>This has to be the worst blog post I have ever read. It simply makes no sense. You start off by talking about space or something, then you randomly start babbling about cupcakes, and you end off with random fish names.</p>
+
+                <h3>Start Bootstrap
+                    <small>9:47 PM on August 24, 2013</small>
+                </h3>
+                <p>Don't listen to this guy, any blog with the categories 'dinosaurs, spaceships, fried foods, wild animals, alien abductions, business casual, robots, and fireworks' has true potential.</p> -->
+
+<!--             <div class="row"> -->
+<!--                 % include well.html %} -->
+<!--             </div> -->
+
+<!--             </div> -->
+<!--             % include well.html %} -->
+            
             </div>
             <div class="col-md-4">
                 <!-- <div class="col-md-4"> -->
@@ -116,6 +139,22 @@
         </div>
     </div>
     -->
+
+    
+
+    <div class="well">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Current Tags</h4>
+                <ul class="list-unstyled">
+                    
+                    <li><a href="/blog/categories/linux/">linux</a></li> 
+                    <li><a href="/blog/categories/chromium/">chromium</a></li> 
+                    <li><a href="/blog/categories/feature/">feature</a></li> 
+                </ul>
+            </div>
+        </div>
+    </div>
 
     
 
@@ -160,6 +199,7 @@
     </div>
 
     <hr>
+
     <div class="banner">
     <div class="container">
         <div class="row">

@@ -9,9 +9,9 @@
 <meta name="author" content="Walter Rudametkin">
 <link rel="author" href="https://plus.google.com/+WalterRudametkin">
 
-<title>category:&nbsp;nslu2</title>
+<title>Acrobat reader cannot find libEGL.so.1 &#58; Fedora 20</title>
 
-<meta name="description" content="Category: nslu2">
+
 
 <!-- Add custom CSS here -->
 <!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
@@ -56,50 +56,79 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h1 class="category">
-                    Category &nbsp;&nbsp; <span class="label label-warning">nslu2</span>
-                </h1>
+                               <!-- the actual blog post: title/author/date/content -->
+                <h1> Acrobat reader cannot find libEGL.so.1 &#58; Fedora 20 </h1>
+                    <p class="lead">by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                        
+                            <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
+                            &nbsp;
+                        
+                            <a href="/blog/categories/bug/"><span class="label label-primary">bug</span></a>
+                            &nbsp;
+                        
+                    </p>
+                        <span class="glyphicon glyphicon-time"></span> Posted 2014.03.19 
+                        
+                            &mdash; Rennes, France
+                        
 
-                <!-- blog entry -->
+                <hr>
                 
-                <hr>
-                <h1>
-                    <a href="/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html">NSLU2 Linux Gateway</a>
-                </h1>
+                <p>I use acrobat reader sometimes, like when people send me an annotated pdf or if Evince doesn&#39;t print it properly. My main pdf reader is Evince, but it&#39;s a bit buggy. Also, I use okular to annotate pdfs, which it does a fine job at.</p>
 
-                <p class="lead">
-                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
-                     
-                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
-                     
-                        <a href="/blog/categories/nslu2/"> <span class="label label-primary">nslu2</span></a> 
-                     
-                        <a href="/blog/categories/work-in-progress/"> <span class="label label-primary">work-in-progress</span></a> 
-                    
-                </p>
+<p>Anyhow, I was getting the following error after applying some updates: </p>
 
-                <span class="glyphicon glyphicon-time"></span> Posted 2010.07.29  &mdash; Rennes, France 
-                <hr>
+<div class="highlight"><pre><code class="bash">acroread: error <span class="k">while </span>loading shared libraries: libEGL.so.1: cannot open shared object file: No such file or directory
+</code></pre></div>
 
-                <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <img src="/img/wip3.jpg" alt="Work in progress"/>
-        </div>
-        <div class="col-md-7">
-            <img src="/img/nslu2.jpg" alt="NSLU2.jpg"/>
-        </div>
-    </div>
-</div>
+<p>It took me a while to track down the problem, which has a simple solution, just find the missing symbolic link. I ran into this page that describes the issue but nobody had provided the proper command <a href="http://forums.fedoraforum.org/showthread.php?t=297151">http://forums.fedoraforum.org/showthread.php?t=297151</a>.</p>
 
-<hr>
+<!--more-->
 
-<p>It&#39;s easy to setup additional IP addresses on Debian Linux. This is particularly useful for the NSLU which doesn&#39;t have a display so you need to remotely connect to it.</p>
+<p>Acroread is x86 32 bits but I&#39;m running Fedora 20 x86_64, so I didn&#39;t see initially that my libEGL that I was trying to link with was the wrong one. Anyhow, make sure you have the right libEGL installed: </p>
 
-<p>Having more than one virtual network interface allows us to have both a DHCP address and a static IP address, making the NSLU2 accessible pretty much always.</p>
- <a class="btn btn-primary" href="/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html">Read More <span
-                    class="glyphicon glyphicon-chevron-right"></span></a> 
+<div class="highlight"><pre><code class="bash"><span class="c">#List the files</span>
+repoquery --list mesa-libEGL.i686
+<span class="c">#Install or reinstall just to make sure</span>
+yum reinstall  mesa-libEGL.i686
+</code></pre></div>
 
+<p>Fedora uses different lib directory for 32 and 64 bit binairies. We want to point to the 32 bit one, so the command to fix acroread is:</p>
+
+<div class="highlight"><pre><code class="bash">ln -s /usr/lib/libEGL.so.1 /opt/Adobe/Reader9/Reader/intellinux/lib/libEGL.so.1
+</code></pre></div>
+
+                
+                <!-- the comment box -->
+<!--                 <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div> -->
+
+                <!-- the comments -->
+<!--                 <hr>
+ --><!--                 <h3>Start Bootstrap
+                    <small>9:41 PM on August 24, 2013</small>
+                </h3>
+                <p>This has to be the worst blog post I have ever read. It simply makes no sense. You start off by talking about space or something, then you randomly start babbling about cupcakes, and you end off with random fish names.</p>
+
+                <h3>Start Bootstrap
+                    <small>9:47 PM on August 24, 2013</small>
+                </h3>
+                <p>Don't listen to this guy, any blog with the categories 'dinosaurs, spaceships, fried foods, wild animals, alien abductions, business casual, robots, and fireworks' has true potential.</p> -->
+
+<!--             <div class="row"> -->
+<!--                 % include well.html %} -->
+<!--             </div> -->
+
+<!--             </div> -->
+<!--             % include well.html %} -->
+            
             </div>
             <div class="col-md-4">
                 <!-- <div class="col-md-4"> -->
@@ -116,6 +145,21 @@
         </div>
     </div>
     -->
+
+    
+
+    <div class="well">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Current Tags</h4>
+                <ul class="list-unstyled">
+                    
+                    <li><a href="/blog/categories/linux/">linux</a></li> 
+                    <li><a href="/blog/categories/bug/">bug</a></li> 
+                </ul>
+            </div>
+        </div>
+    </div>
 
     
 
@@ -160,6 +204,7 @@
     </div>
 
     <hr>
+
     <div class="banner">
     <div class="container">
         <div class="row">

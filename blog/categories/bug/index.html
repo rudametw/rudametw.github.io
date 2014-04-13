@@ -64,6 +64,66 @@
                 
                 <hr>
                 <h1>
+                    <a href="/blog/posts/2014.03.19/Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.html">Acrobat reader cannot find libEGL.so.1 &#58; Fedora 20</a>
+                </h1>
+
+                <p class="lead">
+                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                     
+                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
+                     
+                        <a href="/blog/categories/bug/"> <span class="label label-primary">bug</span></a> 
+                    
+                </p>
+
+                <span class="glyphicon glyphicon-time"></span> Posted 2014.03.19  &mdash; Rennes, France 
+                <hr>
+
+                <p>I use acrobat reader sometimes, like when people send me an annotated pdf or if Evince doesn&#39;t print it properly. My main pdf reader is Evince, but it&#39;s a bit buggy. Also, I use okular to annotate pdfs, which it does a fine job at.</p>
+
+<p>Anyhow, I was getting the following error after applying some updates: </p>
+
+<p><div class="highlight"><pre><code class="bash">acroread: error <span class="k">while </span>loading shared libraries: libEGL.so.1: cannot open shared object file: No such file or directory
+</code></pre></div></p>
+
+<p>It took me a while to track down the problem, which has a simple solution, just find the missing symbolic link. I ran into this page that describes the issue but nobody had provided the proper command <a href="http://forums.fedoraforum.org/showthread.php?t=297151">http://forums.fedoraforum.org/showthread.php?t=297151</a>.</p>
+ <a class="btn btn-primary" href="/blog/posts/2014.03.19/Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.html">Read More <span
+                    class="glyphicon glyphicon-chevron-right"></span></a> 
+                <hr>
+                <h1>
+                    <a href="/blog/posts/2014.03.12/Fr-alternate-keyboard-right-ctrl-key-bug.html">Fr alternative keyboard layout bug (fr-oss)&#58; right ctrl key not working</a>
+                </h1>
+
+                <p class="lead">
+                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                     
+                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
+                     
+                        <a href="/blog/categories/bug/"> <span class="label label-primary">bug</span></a> 
+                    
+                </p>
+
+                <span class="glyphicon glyphicon-time"></span> Posted 2014.03.12  &mdash; Rennes, France 
+                <hr>
+
+                <p>I really like the &#39;alternative&#39; french keyboard layout on my computer, a.k.a fr-oss. I like to use the deadkeys for accents in french and spanish, and I really like the alt-gr + ctrl# for doing arrows and stuff like that.</p>
+
+<p>Earlier this year on my Fedora laptop (F20) for work the right ctrl key stopped working. It sucked because ctrl-arrows no longer jump through words in text documents. VLC right ctrl+Up/Down no longer changed the volume either, making me have to use both hands just for that. I figured it was a bug in Fedora so I found a neat command to fix the mapping while I waited for the problem to be fixed. However, some time later it happened to my wife&#39;s Ubuntu laptop and looking into it I found that the problem is comes from higher up the chain.</p>
+
+<p>Someone decided to map right ctrl to something &quot;new&quot; instead of letting it be the same as the left ctrl key. Sure, if programs used the &quot;new right control&quot; it might be great and super useful. But they don&#39;t, so the key does nothing. Kind of beats the purpose, huh?</p>
+
+<p><a href="https://bugs.freedesktop.org/show_bug.cgi?id=15804#c44">https://bugs.freedesktop.org/show_bug.cgi?id=15804#c44</a></p>
+
+<p>To fix the problem, here&#39;s the command you can run.</p>
+
+<p><div class="highlight"><pre><code class="bash">xmodmap -e <span class="p">&amp;</span><span class="c">#39;keycode 105 = Control&lt;em&gt;R&amp;#39; -e &amp;#39;clear Control&amp;#39; -e &amp;#39;add Control = Control&lt;/em&gt;L Control_R&amp;#39;</span>
+</code></pre></div></p>
+
+<p>However...</p>
+ <a class="btn btn-primary" href="/blog/posts/2014.03.12/Fr-alternate-keyboard-right-ctrl-key-bug.html">Read More <span
+                    class="glyphicon glyphicon-chevron-right"></span></a> 
+                <hr>
+                <h1>
                     <a href="/blog/posts/2014.03.05/Thunderbird-leading-spaces-bug.html">Thunderbird bug&#58; leading spaces are removed when character set is automatically converted</a>
                 </h1>
 
@@ -124,6 +184,8 @@
                     <li><a href="/blog/categories/bug/">bug</a></li> 
                     <li><a href="/blog/categories/life/">life</a></li> 
                     <li><a href="/blog/categories/fishing/">fishing</a></li> 
+                    <li><a href="/blog/categories/chromium/">chromium</a></li> 
+                    <li><a href="/blog/categories/feature/">feature</a></li> 
                 </ul>
             </div>
         </div>

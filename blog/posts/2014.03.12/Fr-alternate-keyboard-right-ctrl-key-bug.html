@@ -9,9 +9,9 @@
 <meta name="author" content="Walter Rudametkin">
 <link rel="author" href="https://plus.google.com/+WalterRudametkin">
 
-<title>category:&nbsp;nslu2</title>
+<title>Fr alternative keyboard layout bug (fr-oss)&#58; right ctrl key not working</title>
 
-<meta name="description" content="Category: nslu2">
+
 
 <!-- Add custom CSS here -->
 <!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
@@ -56,50 +56,83 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h1 class="category">
-                    Category &nbsp;&nbsp; <span class="label label-warning">nslu2</span>
-                </h1>
+                               <!-- the actual blog post: title/author/date/content -->
+                <h1> Fr alternative keyboard layout bug (fr-oss)&#58; right ctrl key not working </h1>
+                    <p class="lead">by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                        
+                            <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
+                            &nbsp;
+                        
+                            <a href="/blog/categories/bug/"><span class="label label-primary">bug</span></a>
+                            &nbsp;
+                        
+                    </p>
+                        <span class="glyphicon glyphicon-time"></span> Posted 2014.03.12 
+                        
+                            &mdash; Rennes, France
+                        
 
-                <!-- blog entry -->
+                <hr>
                 
-                <hr>
-                <h1>
-                    <a href="/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html">NSLU2 Linux Gateway</a>
-                </h1>
+                <p>I really like the &#39;alternative&#39; french keyboard layout on my computer, a.k.a fr-oss. I like to use the deadkeys for accents in french and spanish, and I really like the alt-gr + ctrl# for doing arrows and stuff like that.</p>
 
-                <p class="lead">
-                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
-                     
-                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
-                     
-                        <a href="/blog/categories/nslu2/"> <span class="label label-primary">nslu2</span></a> 
-                     
-                        <a href="/blog/categories/work-in-progress/"> <span class="label label-primary">work-in-progress</span></a> 
-                    
-                </p>
+<p>Earlier this year on my Fedora laptop (F20) for work the right ctrl key stopped working. It sucked because ctrl-arrows no longer jump through words in text documents. VLC right ctrl+Up/Down no longer changed the volume either, making me have to use both hands just for that. I figured it was a bug in Fedora so I found a neat command to fix the mapping while I waited for the problem to be fixed. However, some time later it happened to my wife&#39;s Ubuntu laptop and looking into it I found that the problem is comes from higher up the chain.</p>
 
-                <span class="glyphicon glyphicon-time"></span> Posted 2010.07.29  &mdash; Rennes, France 
-                <hr>
+<p>Someone decided to map right ctrl to something &quot;new&quot; instead of letting it be the same as the left ctrl key. Sure, if programs used the &quot;new right control&quot; it might be great and super useful. But they don&#39;t, so the key does nothing. Kind of beats the purpose, huh?</p>
 
-                <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <img src="/img/wip3.jpg" alt="Work in progress"/>
-        </div>
-        <div class="col-md-7">
-            <img src="/img/nslu2.jpg" alt="NSLU2.jpg"/>
-        </div>
-    </div>
-</div>
+<p><a href="https://bugs.freedesktop.org/show_bug.cgi?id=15804#c44">https://bugs.freedesktop.org/show_bug.cgi?id=15804#c44</a></p>
 
-<hr>
+<p>To fix the problem, here&#39;s the command you can run.</p>
 
-<p>It&#39;s easy to setup additional IP addresses on Debian Linux. This is particularly useful for the NSLU which doesn&#39;t have a display so you need to remotely connect to it.</p>
+<div class="highlight"><pre><code class="bash">xmodmap -e <span class="s1">&#39;keycode 105 = Control_R&#39;</span> -e <span class="s1">&#39;clear Control&#39;</span> -e <span class="s1">&#39;add Control = Control_L Control_R&#39;</span>
+</code></pre></div>
 
-<p>Having more than one virtual network interface allows us to have both a DHCP address and a static IP address, making the NSLU2 accessible pretty much always.</p>
- <a class="btn btn-primary" href="/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html">Read More <span
-                    class="glyphicon glyphicon-chevron-right"></span></a> 
+<p>However...</p>
 
+<!--more-->
+
+<p>the command needs to be run every time the machine is started. I figured I&#39;d put it into a startup script and voilà! WRONG, sometimes after suspend/resume the key just stops working again. Or, when I connect the computer to my dock station and use the external monitors + keyboard + mouse, it also stops working.</p>
+
+<p>I was going to do a cronjob or a script that ties into resume, but instead, I mapped a shortcut in XFCE to execute my script and notify me when it does. Pretty simple, the shortcut I used is <code>&lt;meta&gt; + k</code> (the windows key + k). The script is as follows:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="c">#!/bin/sh</span>
+notify-send -u normal -t 1000 <span class="s2">&quot;Fixing right control key&quot;</span>
+xmodmap -e <span class="s1">&#39;keycode 105 = Control_R&#39;</span> -e <span class="s1">&#39;clear Control&#39;</span> -e <span class="s1">&#39;add Control = Control_L Control_R&#39;</span>
+</code></pre></div>
+
+<p>The only <em>weird</em> thing is that it doesn&#39;t always work on the first try. Or the second. Or the third. But, if you hit <code>meta + k</code> enough, it&#39;ll work. I don&#39;t know why that is, on the command line it works on the first try every time, but with the shortcut it just is.</p>
+
+                
+                <!-- the comment box -->
+<!--                 <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div> -->
+
+                <!-- the comments -->
+<!--                 <hr>
+ --><!--                 <h3>Start Bootstrap
+                    <small>9:41 PM on August 24, 2013</small>
+                </h3>
+                <p>This has to be the worst blog post I have ever read. It simply makes no sense. You start off by talking about space or something, then you randomly start babbling about cupcakes, and you end off with random fish names.</p>
+
+                <h3>Start Bootstrap
+                    <small>9:47 PM on August 24, 2013</small>
+                </h3>
+                <p>Don't listen to this guy, any blog with the categories 'dinosaurs, spaceships, fried foods, wild animals, alien abductions, business casual, robots, and fireworks' has true potential.</p> -->
+
+<!--             <div class="row"> -->
+<!--                 % include well.html %} -->
+<!--             </div> -->
+
+<!--             </div> -->
+<!--             % include well.html %} -->
+            
             </div>
             <div class="col-md-4">
                 <!-- <div class="col-md-4"> -->
@@ -116,6 +149,21 @@
         </div>
     </div>
     -->
+
+    
+
+    <div class="well">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Current Tags</h4>
+                <ul class="list-unstyled">
+                    
+                    <li><a href="/blog/categories/linux/">linux</a></li> 
+                    <li><a href="/blog/categories/bug/">bug</a></li> 
+                </ul>
+            </div>
+        </div>
+    </div>
 
     
 
@@ -160,6 +208,7 @@
     </div>
 
     <hr>
+
     <div class="banner">
     <div class="container">
         <div class="row">
