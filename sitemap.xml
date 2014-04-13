@@ -46,9 +46,25 @@
     </url>
     <url>
         <loc>
+            http://rudametw.github.io/blog/posts/2014.03.23/Dell-e6430-touchpad-sensitivity.html
+        </loc>
+        <lastmod>2014-04-14T00:06:26+02:00</lastmod>
+    </url>
+    <url>
+        <loc>
             http://rudametw.github.io/blog/posts/2014.04.02/chrome-pdf-viewer-in-chromium-Fedora-20.html
         </loc>
         <lastmod>2014-04-13T23:51:40+02:00</lastmod>
+    </url>
+    <url>
+        <loc>
+            http://rudametw.github.io/blog/posts/2014.04.07/Chromium-video-acceleration.html
+        </loc>
+        <lastmod>2014-04-13T23:59:52+02:00</lastmod>
+    </url>
+    <url>
+        <loc>http://rudametw.github.io/blog/posts/2014.04.10/not-enough-threads.html</loc>
+        <lastmod>2014-04-14T00:52:15+02:00</lastmod>
     </url>
     <url>
         <loc>http://rudametw.github.io/teaching/</loc>
@@ -64,7 +80,7 @@
     </url>
     <url>
         <loc>http://rudametw.github.io/</loc>
-        <lastmod>2014-04-13T23:51:40+02:00</lastmod>
+        <lastmod>2014-04-14T00:52:15+02:00</lastmod>
     </url>
     <url>
         <loc>http://rudametw.github.io/blog/</loc>

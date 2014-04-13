@@ -9,9 +9,9 @@
 <meta name="author" content="Walter Rudametkin">
 <link rel="author" href="https://plus.google.com/+WalterRudametkin">
 
-<title>category:&nbsp;github-pages</title>
+<title>Not enough threads or processes &#58; "thread create failed"</title>
 
-<meta name="description" content="Category: github-pages">
+
 
 <!-- Add custom CSS here -->
 <!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
@@ -56,36 +56,160 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                <h1 class="category">
-                    Category &nbsp;&nbsp; <span class="label label-warning">github-pages</span>
-                </h1>
+                               <!-- the actual blog post: title/author/date/content -->
+                <h1> Not enough threads or processes &#58; "thread create failed" </h1>
+                    <p class="lead">by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                        
+                            <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
+                            &nbsp;
+                        
+                            <a href="/blog/categories/bug/"><span class="label label-primary">bug</span></a>
+                            &nbsp;
+                        
+                    </p>
+                        <span class="glyphicon glyphicon-time"></span> Posted 2014.04.10 
+                        
+                            &mdash; Rennes, France
+                        
 
-                <!-- blog entry -->
+                <hr>
                 
-                <hr>
-                <h1>
-                    <a href="/blog/posts/2014.02.04/first-jekyll-github-pages-post.html">First post using jekyll</a>
-                </h1>
+                <p>I started running into a weird problem that I didn&#39;t immediately identify. Some programs just started failing: libreoffice, chrome, chromium, firefox, eclipse, ...</p>
 
-                <p class="lead">
-                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
-                     
-                        <a href="/blog/categories/first-post/"> <span class="label label-primary">first-post</span></a> 
-                     
-                        <a href="/blog/categories/jekyll/"> <span class="label label-primary">jekyll</span></a> 
-                     
-                        <a href="/blog/categories/github-pages/"> <span class="label label-primary">github-pages</span></a> 
-                    
-                </p>
+<p>It was quite undeterministic and depended on the system ressources being fairly well used. I thought it was a RAM issue, not having enough memory would cause programs to fail. I have somewhat agressive ram settings, but, I also have 16 GB of RAM on my computer. Well, it wasn&#39;t a memory issue, I was able to reproduce the issue with loads of memory still left over.</p>
 
-                <span class="glyphicon glyphicon-time"></span> Posted 2014.02.04 
-                &nbsp; 
-                <hr>
+<p>Here&#39;s some of the messages I was getting.</p>
 
-                <p>This is the my first post after configuring my site to use github pages, and more specifically, after I started using Jekyll.</p>
- <a class="btn btn-primary" href="/blog/posts/2014.02.04/first-jekyll-github-pages-post.html">Read More <span
-                    class="glyphicon glyphicon-chevron-right"></span></a> 
+<p><em>Libreoffice:</em> (similar bug <a href="https://bugs.freedesktop.org/show_bug.cgi?id=73300">here</a>)</p>
 
+<div class="highlight"><pre><code class="bash">osl::Thread::create failed
+</code></pre></div>
+
+<p><em>Java:</em></p>
+
+<div class="highlight"><pre><code class="bash">java.lang.OutOfMemoryError: unable to create new native thread.
+</code></pre></div>
+
+<p><em>Chrome and Chromium:</em></p>
+
+<div class="highlight"><pre><code class="bash">pthread_create error: Resource temporarily unavailable
+</code></pre></div>
+
+<!--more-->
+
+<p>An example of the pthread create bug on another program is here <a href="https://my.vertica.com/docs/5.0/HTML/Master/16468.htm">https://my.vertica.com/docs/5.0/HTML/Master/16468.htm</a>.</p>
+
+<p>Some other side-effect messages appeared like:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="o">[</span>16751:16780:0408/145921:ERROR:shared_memory_posix.cc<span class="o">(</span>225<span class="o">)]</span> Creating shared memory in /dev/shm/.com.google.Chrome.z77EvR failed: Too many open files
+<span class="o">[</span>16751:16780:0408/145921:ERROR:host_shared_bitmap_manager.cc<span class="o">(</span>122<span class="o">)]</span> Cannot create shared memory buffer
+</code></pre></div>
+
+<h2>The FIX</h2>
+
+<p>I have all kinds of browsers installed on my computer, and I&#39;m always messing around with their configurations. I&#39;m working on some stuff that requires using different browsers. I also have a lot of open tabs. But this bug appeared whenever I was running Chromium and Google Chrome, making me believe they couldn&#39;t be run together. The problem is that with a decent number of tabs both browser start hundreds of threads. Like 500!</p>
+
+<p>Here&#39;s some commands to count running threads on your system. Not sure which one is best, they give different answers:</p>
+
+<div class="highlight"><pre><code class="bash"><span class="c">#Count all threads</span>
+ps -elfT <span class="p">|</span> wc -l 
+ps -eLf  <span class="p">|</span> wc -l
+
+<span class="c">#Count threads, shows more, don&#39;t know why</span>
+ps -eLo pid,cmd,nlwp <span class="p">|</span> wc -l
+ps axms
+
+<span class="c">#Count threads for different browsers</span>
+ps -elfT <span class="p">|</span> grep firefox <span class="p">|</span> wc -l
+ps -elfT <span class="p">|</span> grep chrome <span class="p">|</span> wc -l
+ps -elfT <span class="p">|</span> grep chromium <span class="p">|</span> wc -l
+ps -elfT <span class="p">|</span> grep opera <span class="p">|</span> wc -l
+</code></pre></div>
+
+<p>If you do the test you&#39;ll see that chromium and chrome use huge amounts of threads. Right now I have <code>Chrome@658 threads</code>, <code>Chromium@601 threads</code>, <code>Firefox@39 threads</code>, <code>Opera@4 threads</code>.</p>
+
+<p>But why is there a limit anyway? Threads are cheap and I have lots of RAM. And, what <em>is</em> the limit set at? To find out, we&#39;ll use the <code>ulimit</code> command.</p>
+
+<div class="highlight"><pre><code class="bash"><span class="c">#Check max number of threads:</span>
+<span class="nv">$ </span><span class="nb">ulimit</span> -u
+1024
+
+<span class="c">#Check limits for all ressources:</span>
+<span class="nv">$ </span><span class="nb">ulimit</span> -a
+...
+</code></pre></div>
+
+<p>Who the heck came up with 1024 and why?</p>
+
+<p>According to <a href="https://bugzilla.redhat.com/show_bug.cgi?id=432903">bug 432903</a> this should reduce the risk of forkbombing. But, as explained more recently, it&#39;s somewhat useless since a malicious user can still augment the soft thread limit and continue bombing <a href="https://bugzilla.redhat.com/show_bug.cgi?id=919793">bug 919793</a>.</p>
+
+<p>The limit is ancient and should be changed. Here&#39;s how to do it.</p>
+
+<p><br></p>
+
+<h4>Temporarilly change thread limit:</h4>
+
+<div class="highlight"><pre><code class="bash"><span class="c">#Use about 1 thread per MB of memory</span>
+<span class="c">#8 GB</span>
+<span class="nb">ulimit</span> -u 8192
+<span class="c">#16 GB</span>
+<span class="nb">ulimit</span> -u 16384
+</code></pre></div>
+
+<p>The command works in a shell and is applied to all programs run from that shell. If you open a new shell, the old limit will apply. It sucks when you can&#39;t open any more terminals because there&#39;s no threads though! In my case, changing the limit immediately allowed me to launch browsers without them crashing.</p>
+
+<p><br></p>
+
+<h4>Permanently change thread limit in Fedora 20:</h4>
+
+<p>Edit <code>/etc/security/limits.d/90-nproc.conf</code></p>
+
+<div class="highlight"><pre><code class="bash"><span class="c"># Default limit for number of user&#39;s processes to prevent</span>
+<span class="c"># accidental fork bombs.</span>
+<span class="c"># See rhbz #432903 for reasoning.</span>
+
+<span class="c">#Comment old amount</span>
+<span class="c">#*          soft    nproc     1024</span>
+
+<span class="c">#Increase soft amount to 8k threads</span>
+*          soft    nproc     8192
+*          hard    nproc     16384
+root       soft    nproc     unlimited
+</code></pre></div>
+
+<p>This will fix the system. Reboot and voilà.</p>
+
+                
+                <!-- the comment box -->
+<!--                 <div class="well">
+                    <h4>Leave a Comment:</h4>
+                    <form role="form">
+                        <div class="form-group">
+                            <textarea class="form-control" rows="3"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div> -->
+
+                <!-- the comments -->
+<!--                 <hr>
+ --><!--                 <h3>Start Bootstrap
+                    <small>9:41 PM on August 24, 2013</small>
+                </h3>
+                <p>This has to be the worst blog post I have ever read. It simply makes no sense. You start off by talking about space or something, then you randomly start babbling about cupcakes, and you end off with random fish names.</p>
+
+                <h3>Start Bootstrap
+                    <small>9:47 PM on August 24, 2013</small>
+                </h3>
+                <p>Don't listen to this guy, any blog with the categories 'dinosaurs, spaceships, fried foods, wild animals, alien abductions, business casual, robots, and fireworks' has true potential.</p> -->
+
+<!--             <div class="row"> -->
+<!--                 % include well.html %} -->
+<!--             </div> -->
+
+<!--             </div> -->
+<!--             % include well.html %} -->
+            
             </div>
             <div class="col-md-4">
                 <!-- <div class="col-md-4"> -->
@@ -102,6 +226,21 @@
         </div>
     </div>
     -->
+
+    
+
+    <div class="well">
+        <div class="row">
+            <div class="col-md-6">
+                <h4>Current Tags</h4>
+                <ul class="list-unstyled">
+                    
+                    <li><a href="/blog/categories/linux/">linux</a></li> 
+                    <li><a href="/blog/categories/bug/">bug</a></li> 
+                </ul>
+            </div>
+        </div>
+    </div>
 
     
 
@@ -146,6 +285,7 @@
     </div>
 
     <hr>
+
     <div class="banner">
     <div class="container">
         <div class="row">

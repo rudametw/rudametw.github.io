@@ -64,6 +64,42 @@
                 
                 <hr>
                 <h1>
+                    <a href="/blog/posts/2014.04.10/not-enough-threads.html">Not enough threads or processes &#58; "thread create failed"</a>
+                </h1>
+
+                <p class="lead">
+                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                     
+                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
+                     
+                        <a href="/blog/categories/bug/"> <span class="label label-primary">bug</span></a> 
+                    
+                </p>
+
+                <span class="glyphicon glyphicon-time"></span> Posted 2014.04.10  &mdash; Rennes, France 
+                <hr>
+
+                <p>I started running into a weird problem that I didn&#39;t immediately identify. Some programs just started failing: libreoffice, chrome, chromium, firefox, eclipse, ...</p>
+
+<p>It was quite undeterministic and depended on the system ressources being fairly well used. I thought it was a RAM issue, not having enough memory would cause programs to fail. I have somewhat agressive ram settings, but, I also have 16 GB of RAM on my computer. Well, it wasn&#39;t a memory issue, I was able to reproduce the issue with loads of memory still left over.</p>
+
+<p>Here&#39;s some of the messages I was getting.</p>
+
+<p><em>Libreoffice:</em> (similar bug <a href="https://bugs.freedesktop.org/show_bug.cgi?id=73300">here</a>)
+<div class="highlight"><pre><code class="bash">osl::Thread::create failed
+</code></pre></div></p>
+
+<p><em>Java:</em>
+<div class="highlight"><pre><code class="bash">java.lang.OutOfMemoryError: unable to create new native thread.
+</code></pre></div></p>
+
+<p><em>Chrome and Chromium:</em>
+<div class="highlight"><pre><code class="bash">pthread_create error: Resource temporarily unavailable
+</code></pre></div></p>
+ <a class="btn btn-primary" href="/blog/posts/2014.04.10/not-enough-threads.html">Read More <span
+                    class="glyphicon glyphicon-chevron-right"></span></a> 
+                <hr>
+                <h1>
                     <a href="/blog/posts/2014.03.19/Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.html">Acrobat reader cannot find libEGL.so.1 &#58; Fedora 20</a>
                 </h1>
 
@@ -184,8 +220,8 @@
                     <li><a href="/blog/categories/bug/">bug</a></li> 
                     <li><a href="/blog/categories/life/">life</a></li> 
                     <li><a href="/blog/categories/fishing/">fishing</a></li> 
-                    <li><a href="/blog/categories/chromium/">chromium</a></li> 
                     <li><a href="/blog/categories/feature/">feature</a></li> 
+                    <li><a href="/blog/categories/chromium/">chromium</a></li> 
                 </ul>
             </div>
         </div>

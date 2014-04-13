@@ -57,6 +57,81 @@
         <div class="row">
             <div class="col-md-8">
                                
+                        <h1><a href="/blog/posts/2014.04.10/not-enough-threads.html">Not enough threads or processes &#58; "thread create failed"</a></h1>
+                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
+                        
+                            
+                                    <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
+                                    &nbsp;
+                            
+                                    <a href="/blog/categories/bug/"><span class="label label-primary">bug</span></a>
+                                    &nbsp;
+                            
+                        </p>
+                        
+                        <span class="glyphicon glyphicon-time"></span> Posted 2014.04.10 
+                        
+                                &mdash; Rennes, France
+                        
+                        <hr>
+
+                        <p>I started running into a weird problem that I didn&#39;t immediately identify. Some programs just started failing: libreoffice, chrome, chromium, firefox, eclipse, ...</p>
+
+<p>It was quite undeterministic and depended on the system ressources being fairly well used. I thought it was a RAM issue, not having enough memory would cause programs to fail. I have somewhat agressive ram settings, but, I also have 16 GB of RAM on my computer. Well, it wasn&#39;t a memory issue, I was able to reproduce the issue with loads of memory still left over.</p>
+
+<p>Here&#39;s some of the messages I was getting.</p>
+
+<p><em>Libreoffice:</em> (similar bug <a href="https://bugs.freedesktop.org/show_bug.cgi?id=73300">here</a>)</p>
+
+<div class="highlight"><pre><code class="bash">osl::Thread::create failed
+</code></pre></div>
+
+<p><em>Java:</em></p>
+
+<div class="highlight"><pre><code class="bash">java.lang.OutOfMemoryError: unable to create new native thread.
+</code></pre></div>
+
+<p><em>Chrome and Chromium:</em></p>
+
+<div class="highlight"><pre><code class="bash">pthread_create error: Resource temporarily unavailable
+</code></pre></div>
+
+
+                        <a class="btn btn-primary" href="/blog/posts/2014.04.10/not-enough-threads.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
+                
+                        <h1><a href="/blog/posts/2014.04.07/Chromium-video-acceleration.html">Make chromium faster with video acceleration</a></h1>
+                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
+                        
+                            
+                                    <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
+                                    &nbsp;
+                            
+                                    <a href="/blog/categories/chromium/"><span class="label label-primary">chromium</span></a>
+                                    &nbsp;
+                            
+                                    <a href="/blog/categories/feature/"><span class="label label-primary">feature</span></a>
+                                    &nbsp;
+                            
+                        </p>
+                        
+                        <span class="glyphicon glyphicon-time"></span> Posted 2014.04.07 
+                        
+                                &mdash; Rennes, France
+                        
+                        <hr>
+
+                        <p>I tried this on my Dell e6530 and it seems to work pretty good.</p>
+
+<p><a href="http://www.borfast.com/blog/how-enable-webgl-google-chrome-linux-blacklisted-graphics-card">http://www.borfast.com/blog/how-enable-webgl-google-chrome-linux-blacklisted-graphics-card</a></p>
+
+<p>For video acceleration : 
+Go to <code>chrome://flags</code> &#8594; <code>Override software rendering list</code> &#8594; Set to <code>Enable</code></p>
+
+<p>This works for both Chrome and Chromium.</p>
+
+
+                        <a class="btn btn-primary" href="/blog/posts/2014.04.07/Chromium-video-acceleration.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
+                
                         <h1><a href="/blog/posts/2014.04.02/chrome-pdf-viewer-in-chromium-Fedora-20.html">Add Chrome PDF Viewer to Chromium on Fedora 20 x86_64</a></h1>
                         <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
                         
@@ -84,6 +159,37 @@
 
 
                         <a class="btn btn-primary" href="/blog/posts/2014.04.02/chrome-pdf-viewer-in-chromium-Fedora-20.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
+                
+                        <h1><a href="/blog/posts/2014.03.23/Dell-e6430-touchpad-sensitivity.html">Reduce touchpad sensitivity on a Dell e6430</a></h1>
+                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
+                        
+                            
+                                    <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
+                                    &nbsp;
+                            
+                                    <a href="/blog/categories/feature/"><span class="label label-primary">feature</span></a>
+                                    &nbsp;
+                            
+                        </p>
+                        
+                        <span class="glyphicon glyphicon-time"></span> Posted 2014.03.23 
+                        
+                                &mdash; Rennes, France
+                        
+                        <hr>
+
+                        <p>I find the touchpad on my laptop way to sensitive by default. To change it, I&#39;ve found the following settings comfortable:</p>
+
+<div class="highlight"><pre><code class="bash">xinput <span class="nb">set</span>-prop <span class="s2">&quot;AlpsPS/2 ALPS DualPoint TouchPad&quot;</span> <span class="s2">&quot;Synaptics Finger&quot;</span> 18 18 18
+</code></pre></div>
+
+<p>I also have a wireless mouse that I sometimes use. It&#39;s way to sensitive. The following command makes it useable:</p>
+
+<div class="highlight"><pre><code class="bash">xinput <span class="nb">set</span>-prop <span class="s2">&quot;HP Wireless Optical Mobile Mouse&quot;</span> <span class="s2">&quot;Device Accel Adaptive Deceleration&quot;</span> 1.5
+</code></pre></div>
+
+
+                        <a class="btn btn-primary" href="/blog/posts/2014.03.23/Dell-e6430-touchpad-sensitivity.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
                 
                         <h1><a href="/blog/posts/2014.03.19/Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.html">Acrobat reader cannot find libEGL.so.1 &#58; Fedora 20</a></h1>
                         <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
@@ -373,8 +479,8 @@
                     <li><a href="/blog/categories/bug/">bug</a></li> 
                     <li><a href="/blog/categories/life/">life</a></li> 
                     <li><a href="/blog/categories/fishing/">fishing</a></li> 
-                    <li><a href="/blog/categories/chromium/">chromium</a></li> 
                     <li><a href="/blog/categories/feature/">feature</a></li> 
+                    <li><a href="/blog/categories/chromium/">chromium</a></li> 
                 </ul>
             </div>
         </div>
