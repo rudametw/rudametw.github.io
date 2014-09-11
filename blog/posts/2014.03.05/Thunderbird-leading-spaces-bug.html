@@ -14,7 +14,7 @@
 
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
 <link rel="icon" href="favicon.ico">
@@ -82,33 +82,31 @@
 
 <p>Let&#39;s try an example. Send an email with a couple of lines and a single &quot;weird&quot; character, like this one:</p>
 
-<div class="highlight"><pre><code class="bash">    This line has four leading spaces
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">This line has four leading spaces
    This line has three leading spaces
           This line has ten leading spaces
 
-’ This is a stupid right-single-quotation-mark character <span class="o">(</span>u+2019<span class="o">)</span>
-</code></pre></div>
+’ This is a stupid right-single-quotation-mark character (u+2019)</code></pre></div>
 
 <p>And what do we get when we send it?</p>
 
-<div class="highlight"><pre><code class="bash">Return-Path: walter.rudametkin@inria.fr
-<span class="o">[</span>...<span class="o">]</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Return-Path: walter.rudametkin@inria.fr
+[...]
 Message-ID: &lt;531727D5.7000209@inria.fr&gt;
 Date: Wed, 05 Mar 2014 14:34:13 +0100
 From: Walter Rudametkin &lt;walter.rudametkin@inria.fr&gt;
 Organization: INRIA
 User-Agent: blabla
 MIME-Version: 1.0
-To: undisclosed-recipients:<span class="p">;</span>
-Content-Type: text/plain<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>windows-1252<span class="p">;</span> <span class="nv">format</span><span class="o">=</span>flowed
+To: undisclosed-recipients:;
+Content-Type: text/plain; charset=windows-1252; format=flowed
 Content-Transfer-Encoding: 8bit
 
 This line has four leading spaces
 This line has three leading spaces
 This line has ten leading spaces
 
-’ This is a stupid right-single-quotation-mark character <span class="o">(</span>u+2019<span class="o">)</span>
-</code></pre></div>
+’ This is a stupid right-single-quotation-mark character (u+2019)</code></pre></div>
 
 <p>Damn, where are my spaces?</p>
 
@@ -120,8 +118,7 @@ This line has ten leading spaces
 
 <p>This can be seen in my &#39;Content-Type&#39; header which becomes this:</p>
 
-<div class="highlight"><pre><code class="bash"><span class="lineno">1</span> Content-Type: text/plain<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>windows-1252<span class="p">;</span> <span class="nv">format</span><span class="o">=</span>flowed
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">Content-Type: text/plain; charset=windows-1252; format=flowed</code></pre></div>
 
 <p>As you can see, the charset is now changed to &#39;windows-1252&#39; (instead of the default &#39;ISO-8859-1&#39;), but my spaces are also gone!!!</p>
 
@@ -248,7 +245,7 @@ This line has ten leading spaces
         <div class="row">
             <div class="col-lg-3">
                 <!--                     <h2>You can check me out on</h2> -->
-                <h2>Find me on</h2>
+                <h2>Find me</h2>
             </div>
             <div class="col-lg-9">
                 <ul class="list-inline banner-social-buttons">
@@ -314,21 +311,21 @@ This line has ten leading spaces
 <!-- Defer CSS -->
     <script type="text/javascript">
           var stylesheet = document.createElement('link');
-          stylesheet.href = '/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css';
+          stylesheet.href = '/assets/main-a8fb2489ebf00f724c822f550c5c4404.css';
           stylesheet.rel = 'stylesheet';
           stylesheet.type = 'text/css';
           document.getElementsByTagName('head')[0].appendChild(stylesheet);
     </script>
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- Main Javascript -->
-<!-- <script src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script> -->
-<script async type="text/javascript" src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script>
+<!-- <script src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script> -->
+<script async type="text/javascript" src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script>
 
 <!-- <script> -->
-<!-- loadStyleSheet(/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css); -->
+<!-- loadStyleSheet(/assets/main-a8fb2489ebf00f724c822f550c5c4404.css); -->
 <!-- </script> -->
 
 <script>
@@ -340,6 +337,7 @@ This line has ten leading spaces
   ga('create', 'UA-48705379-1', 'rudametw.github.io');
   ga('send', 'pageview');
 </script>
+
 
 </body>
 </html>

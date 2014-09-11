@@ -14,7 +14,7 @@
 
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
 <link rel="icon" href="favicon.ico">
@@ -84,8 +84,7 @@
 
 <p>To fix the problem, here&#39;s the command you can run.</p>
 
-<div class="highlight"><pre><code class="bash">xmodmap -e <span class="s1">&#39;keycode 105 = Control_R&#39;</span> -e <span class="s1">&#39;clear Control&#39;</span> -e <span class="s1">&#39;add Control = Control_L Control_R&#39;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">xmodmap -e &#39;keycode 105 = Control_R&#39; -e &#39;clear Control&#39; -e &#39;add Control = Control_L Control_R&#39;</code></pre></div>
 
 <p>However...</p>
 
@@ -95,10 +94,9 @@
 
 <p>I was going to do a cronjob or a script that ties into resume, but instead, I mapped a shortcut in XFCE to execute my script and notify me when it does. Pretty simple, the shortcut I used is <code>&lt;meta&gt; + k</code> (the windows key + k). The script is as follows:</p>
 
-<div class="highlight"><pre><code class="bash"><span class="c">#!/bin/sh</span>
-notify-send -u normal -t 1000 <span class="s2">&quot;Fixing right control key&quot;</span>
-xmodmap -e <span class="s1">&#39;keycode 105 = Control_R&#39;</span> -e <span class="s1">&#39;clear Control&#39;</span> -e <span class="s1">&#39;add Control = Control_L Control_R&#39;</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">#!/bin/sh
+notify-send -u normal -t 1000 &quot;Fixing right control key&quot;
+xmodmap -e &#39;keycode 105 = Control_R&#39; -e &#39;clear Control&#39; -e &#39;add Control = Control_L Control_R&#39;</code></pre></div>
 
 <p>The only <em>weird</em> thing is that it doesn&#39;t always work on the first try. Or the second. Or the third. But, if you hit <code>meta + k</code> enough, it&#39;ll work. I don&#39;t know why that is, on the command line it works on the first try every time, but with the shortcut it just is.</p>
 
@@ -214,7 +212,7 @@ xmodmap -e <span class="s1">&#39;keycode 105 = Control_R&#39;</span> -e <span cl
         <div class="row">
             <div class="col-lg-3">
                 <!--                     <h2>You can check me out on</h2> -->
-                <h2>Find me on</h2>
+                <h2>Find me</h2>
             </div>
             <div class="col-lg-9">
                 <ul class="list-inline banner-social-buttons">
@@ -280,21 +278,21 @@ xmodmap -e <span class="s1">&#39;keycode 105 = Control_R&#39;</span> -e <span cl
 <!-- Defer CSS -->
     <script type="text/javascript">
           var stylesheet = document.createElement('link');
-          stylesheet.href = '/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css';
+          stylesheet.href = '/assets/main-a8fb2489ebf00f724c822f550c5c4404.css';
           stylesheet.rel = 'stylesheet';
           stylesheet.type = 'text/css';
           document.getElementsByTagName('head')[0].appendChild(stylesheet);
     </script>
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- Main Javascript -->
-<!-- <script src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script> -->
-<script async type="text/javascript" src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script>
+<!-- <script src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script> -->
+<script async type="text/javascript" src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script>
 
 <!-- <script> -->
-<!-- loadStyleSheet(/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css); -->
+<!-- loadStyleSheet(/assets/main-a8fb2489ebf00f724c822f550c5c4404.css); -->
 <!-- </script> -->
 
 <script>
@@ -306,6 +304,7 @@ xmodmap -e <span class="s1">&#39;keycode 105 = Control_R&#39;</span> -e <span cl
   ga('create', 'UA-48705379-1', 'rudametw.github.io');
   ga('send', 'pageview');
 </script>
+
 
 </body>
 </html>

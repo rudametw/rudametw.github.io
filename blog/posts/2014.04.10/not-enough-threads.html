@@ -14,7 +14,7 @@
 
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
 <link rel="icon" href="favicon.ico">
@@ -82,18 +82,15 @@
 
 <p><em>Libreoffice:</em> (similar bug <a href="https://bugs.freedesktop.org/show_bug.cgi?id=73300">here</a>)</p>
 
-<div class="highlight"><pre><code class="bash">osl::Thread::create failed
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">osl::Thread::create failed</code></pre></div>
 
 <p><em>Java:</em></p>
 
-<div class="highlight"><pre><code class="bash">java.lang.OutOfMemoryError: unable to create new native thread.
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">java.lang.OutOfMemoryError: unable to create new native thread.</code></pre></div>
 
 <p><em>Chrome and Chromium:</em></p>
 
-<div class="highlight"><pre><code class="bash">pthread_create error: Resource temporarily unavailable
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">pthread_create error: Resource temporarily unavailable</code></pre></div>
 
 <!--more-->
 
@@ -101,9 +98,8 @@
 
 <p>Some other side-effect messages appeared like:</p>
 
-<div class="highlight"><pre><code class="bash"><span class="o">[</span>16751:16780:0408/145921:ERROR:shared_memory_posix.cc<span class="o">(</span>225<span class="o">)]</span> Creating shared memory in /dev/shm/.com.google.Chrome.z77EvR failed: Too many open files
-<span class="o">[</span>16751:16780:0408/145921:ERROR:host_shared_bitmap_manager.cc<span class="o">(</span>122<span class="o">)]</span> Cannot create shared memory buffer
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">[16751:16780:0408/145921:ERROR:shared_memory_posix.cc(225)] Creating shared memory in /dev/shm/.com.google.Chrome.z77EvR failed: Too many open files
+[16751:16780:0408/145921:ERROR:host_shared_bitmap_manager.cc(122)] Cannot create shared memory buffer</code></pre></div>
 
 <h2>The FIX</h2>
 
@@ -111,33 +107,31 @@
 
 <p>Here&#39;s some commands to count running threads on your system. Not sure which one is best, they give different answers:</p>
 
-<div class="highlight"><pre><code class="bash"><span class="c">#Count all threads</span>
-ps -elfT <span class="p">|</span> wc -l 
-ps -eLf  <span class="p">|</span> wc -l
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">#Count all threads
+ps -elfT | wc -l 
+ps -eLf  | wc -l
 
-<span class="c">#Count threads, shows more, don&#39;t know why</span>
-ps -eLo pid,cmd,nlwp <span class="p">|</span> wc -l
+#Count threads, shows more, don&#39;t know why
+ps -eLo pid,cmd,nlwp | wc -l
 ps axms
 
-<span class="c">#Count threads for different browsers</span>
-ps -elfT <span class="p">|</span> grep firefox <span class="p">|</span> wc -l
-ps -elfT <span class="p">|</span> grep chrome <span class="p">|</span> wc -l
-ps -elfT <span class="p">|</span> grep chromium <span class="p">|</span> wc -l
-ps -elfT <span class="p">|</span> grep opera <span class="p">|</span> wc -l
-</code></pre></div>
+#Count threads for different browsers
+ps -elfT | grep firefox | wc -l
+ps -elfT | grep chrome | wc -l
+ps -elfT | grep chromium | wc -l
+ps -elfT | grep opera | wc -l</code></pre></div>
 
 <p>If you do the test you&#39;ll see that chromium and chrome use huge amounts of threads. Right now I have <code>Chrome@658 threads</code>, <code>Chromium@601 threads</code>, <code>Firefox@39 threads</code>, <code>Opera@4 threads</code>.</p>
 
 <p>But why is there a limit anyway? Threads are cheap and I have lots of RAM. And, what <em>is</em> the limit set at? To find out, we&#39;ll use the <code>ulimit</code> command.</p>
 
-<div class="highlight"><pre><code class="bash"><span class="c">#Check max number of threads:</span>
-<span class="nv">$ </span><span class="nb">ulimit</span> -u
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">#Check max number of threads:
+$ ulimit -u
 1024
 
-<span class="c">#Check limits for all ressources:</span>
-<span class="nv">$ </span><span class="nb">ulimit</span> -a
-...
-</code></pre></div>
+#Check limits for all ressources:
+$ ulimit -a
+...</code></pre></div>
 
 <p>Who the heck came up with 1024 and why?</p>
 
@@ -149,12 +143,11 @@ ps -elfT <span class="p">|</span> grep opera <span class="p">|</span> wc -l
 
 <h4>Temporarilly change thread limit:</h4>
 
-<div class="highlight"><pre><code class="bash"><span class="c">#Use about 1 thread per MB of memory</span>
-<span class="c">#8 GB</span>
-<span class="nb">ulimit</span> -u 8192
-<span class="c">#16 GB</span>
-<span class="nb">ulimit</span> -u 16384
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">#Use about 1 thread per MB of memory
+#8 GB
+ulimit -u 8192
+#16 GB
+ulimit -u 16384</code></pre></div>
 
 <p>The command works in a shell and is applied to all programs run from that shell. If you open a new shell, the old limit will apply. It sucks when you can&#39;t open any more terminals because there&#39;s no threads though! In my case, changing the limit immediately allowed me to launch browsers without them crashing.</p>
 
@@ -164,18 +157,17 @@ ps -elfT <span class="p">|</span> grep opera <span class="p">|</span> wc -l
 
 <p>Edit <code>/etc/security/limits.d/90-nproc.conf</code></p>
 
-<div class="highlight"><pre><code class="bash"><span class="c"># Default limit for number of user&#39;s processes to prevent</span>
-<span class="c"># accidental fork bombs.</span>
-<span class="c"># See rhbz #432903 for reasoning.</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"># Default limit for number of user&#39;s processes to prevent
+# accidental fork bombs.
+# See rhbz #432903 for reasoning.
 
-<span class="c">#Comment old amount</span>
-<span class="c">#*          soft    nproc     1024</span>
+#Comment old amount
+#*          soft    nproc     1024
 
-<span class="c">#Increase soft amount to 8k threads</span>
+#Increase soft amount to 8k threads
 *          soft    nproc     8192
 *          hard    nproc     16384
-root       soft    nproc     unlimited
-</code></pre></div>
+root       soft    nproc     unlimited</code></pre></div>
 
 <p>This will fix the system. Reboot and voilà.</p>
 
@@ -291,7 +283,7 @@ root       soft    nproc     unlimited
         <div class="row">
             <div class="col-lg-3">
                 <!--                     <h2>You can check me out on</h2> -->
-                <h2>Find me on</h2>
+                <h2>Find me</h2>
             </div>
             <div class="col-lg-9">
                 <ul class="list-inline banner-social-buttons">
@@ -357,21 +349,21 @@ root       soft    nproc     unlimited
 <!-- Defer CSS -->
     <script type="text/javascript">
           var stylesheet = document.createElement('link');
-          stylesheet.href = '/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css';
+          stylesheet.href = '/assets/main-a8fb2489ebf00f724c822f550c5c4404.css';
           stylesheet.rel = 'stylesheet';
           stylesheet.type = 'text/css';
           document.getElementsByTagName('head')[0].appendChild(stylesheet);
     </script>
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- Main Javascript -->
-<!-- <script src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script> -->
-<script async type="text/javascript" src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script>
+<!-- <script src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script> -->
+<script async type="text/javascript" src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script>
 
 <!-- <script> -->
-<!-- loadStyleSheet(/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css); -->
+<!-- loadStyleSheet(/assets/main-a8fb2489ebf00f724c822f550c5c4404.css); -->
 <!-- </script> -->
 
 <script>
@@ -383,6 +375,7 @@ root       soft    nproc     unlimited
   ga('create', 'UA-48705379-1', 'rudametw.github.io');
   ga('send', 'pageview');
 </script>
+
 
 </body>
 </html>

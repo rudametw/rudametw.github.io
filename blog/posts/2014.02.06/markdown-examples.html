@@ -14,7 +14,7 @@
 
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
 <link rel="icon" href="favicon.ico">
@@ -105,24 +105,23 @@
 
 <hr>
 
-<div class="highlight"><pre><code class="java"><span class="lineno"> 1</span> <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="o">)</span>
-<span class="lineno"> 2</span> <span class="o">{</span>
-<span class="lineno"> 3</span>  <span class="kt">int</span><span class="o">[]</span> <span class="n">list</span> <span class="o">={</span><span class="mi">1</span><span class="o">,</span> <span class="mi">2</span><span class="o">,</span> <span class="mi">3</span><span class="o">,</span> <span class="mi">4</span><span class="o">,</span> <span class="mi">5</span><span class="o">,</span> <span class="mi">6</span><span class="o">,</span> <span class="mi">7</span><span class="o">,</span> <span class="mi">8</span><span class="o">,</span> <span class="mi">9</span><span class="o">,</span> <span class="mi">10</span><span class="o">};</span>
-<span class="lineno"> 4</span>  <span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="n">sumListEnhanced</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
-<span class="lineno"> 5</span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Sum of elements in list: &quot;</span> <span class="o">+</span> <span class="n">sum</span><span class="o">);</span>
-<span class="lineno"> 6</span> 
-<span class="lineno"> 7</span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Original List&quot;</span><span class="o">);</span>
-<span class="lineno"> 8</span>  <span class="n">printList</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
-<span class="lineno"> 9</span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Calling addOne&quot;</span><span class="o">);</span>
-<span class="lineno">10</span>  <span class="n">addOne</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
-<span class="lineno">11</span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;List after call to addOne&quot;</span><span class="o">);</span>
-<span class="lineno">12</span>  <span class="n">printList</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
-<span class="lineno">13</span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;Calling addOneError&quot;</span><span class="o">);</span>
-<span class="lineno">14</span>  <span class="n">addOneError</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
-<span class="lineno">15</span>  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">&quot;List after call to addOneError. Note elements of list did not change.&quot;</span><span class="o">);</span>
-<span class="lineno">16</span>  <span class="n">printList</span><span class="o">(</span><span class="n">list</span><span class="o">);</span>
-<span class="lineno">17</span> <span class="o">}</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-java" data-lang="java">public static void main(String[] args)
+{
+    int[] list ={1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int sum = sumListEnhanced(list);
+    System.out.println(&quot;Sum of elements in list: &quot; + sum);
+
+    System.out.println(&quot;Original List&quot;);
+    printList(list);
+    System.out.println(&quot;Calling addOne&quot;);
+    addOne(list);
+    System.out.println(&quot;List after call to addOne&quot;);
+    printList(list);
+    System.out.println(&quot;Calling addOneError&quot;);
+    addOneError(list);
+    System.out.println(&quot;List after call to addOneError. Note elements of list did not change.&quot;);
+    printList(list);
+}</code></pre></div>
 
 <ol>
 <li>First ordered list item</li>
@@ -136,14 +135,14 @@
 <ol>
 <li>Ordered sub-list</li>
 </ol></li>
-<li><p>And another item.</p>
+<li>And another item.</li>
+</ol>
 
 <p>You can have properly indented paragraphs within list items. Notice the blank line above, and the leading spaces (at least one, but we&#39;ll use three here to also align the raw Markdown).</p>
 
 <p>To have a line break without a paragraph, you will need to use two trailing spaces.⋅⋅
-Note that this line is separate, but within the same paragraph.⋅⋅
-(This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)</p></li>
-</ol>
+   Note that this line is separate, but within the same paragraph.⋅⋅
+   (This is contrary to the typical GFM line break behaviour, where trailing spaces are not required.)</p>
 
 <ul>
 <li>Unordered list can use asterisks</li>
@@ -206,7 +205,7 @@ id sem consectetuer libero luctus adipiscing.</p>
 </ol>
 
 <p>Here&#39;s some example code:</p>
-<div class="highlight"><pre><code class="text language-text" data-lang="text">return shell_exec(&quot;echo $input | $markdown_script&quot;);
+<div class="highlight"><pre><code class="language-text" data-lang="text">return shell_exec(&quot;echo $input | $markdown_script&quot;);
 </code></pre></div></blockquote>
 
 <p>Unordered lists use asterisks, pluses, and hyphens — interchangably — as list markers:</p>
@@ -251,8 +250,7 @@ viverra nec, fringilla in, laoreet vitae, risus.</li>
 Suspendisse id sem consectetuer libero luctus adipiscing.</li>
 </ul>
 
-<div class="highlight"><pre><code class="bash"><span class="nb">cd</span> ~
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">cd ~</code></pre></div>
 
                 
                 <!-- the comment box -->
@@ -366,7 +364,7 @@ Suspendisse id sem consectetuer libero luctus adipiscing.</li>
         <div class="row">
             <div class="col-lg-3">
                 <!--                     <h2>You can check me out on</h2> -->
-                <h2>Find me on</h2>
+                <h2>Find me</h2>
             </div>
             <div class="col-lg-9">
                 <ul class="list-inline banner-social-buttons">
@@ -432,21 +430,21 @@ Suspendisse id sem consectetuer libero luctus adipiscing.</li>
 <!-- Defer CSS -->
     <script type="text/javascript">
           var stylesheet = document.createElement('link');
-          stylesheet.href = '/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css';
+          stylesheet.href = '/assets/main-a8fb2489ebf00f724c822f550c5c4404.css';
           stylesheet.rel = 'stylesheet';
           stylesheet.type = 'text/css';
           document.getElementsByTagName('head')[0].appendChild(stylesheet);
     </script>
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- Main Javascript -->
-<!-- <script src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script> -->
-<script async type="text/javascript" src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script>
+<!-- <script src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script> -->
+<script async type="text/javascript" src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script>
 
 <!-- <script> -->
-<!-- loadStyleSheet(/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css); -->
+<!-- loadStyleSheet(/assets/main-a8fb2489ebf00f724c822f550c5c4404.css); -->
 <!-- </script> -->
 
 <script>
@@ -458,6 +456,7 @@ Suspendisse id sem consectetuer libero luctus adipiscing.</li>
   ga('create', 'UA-48705379-1', 'rudametw.github.io');
   ga('send', 'pageview');
 </script>
+
 
 </body>
 </html>

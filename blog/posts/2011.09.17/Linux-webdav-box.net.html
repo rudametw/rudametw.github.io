@@ -14,7 +14,7 @@
 
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
 <link rel="icon" href="favicon.ico">
@@ -93,52 +93,43 @@
 
 <p>Create a mount point:</p>
 
-<div class="highlight"><pre><code class="bash"> mkdir ~/box.net
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir ~/box.net</code></pre></div>
 
 <p>Add this to <code>/etc/fstab</code> (correct the details for your user):</p>
 
-<div class="highlight"><pre><code class="bash"> http://www.box.net/dav /home/user/box.net davfs rw,user,noauto 0 0
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">http://www.box.net/dav /home/user/box.net davfs rw,user,noauto 0 0</code></pre></div>
 
 <p>(Just as a note, https didn&#39;t work for me. It mounts but copied files never showed up. I saw something on their site about 256bit SSL encryption being available when you upgrade to business.)</p>
 
 <p>To allow your your user to mount without being root you want to say yes to this:</p>
 
-<div class="highlight"><pre><code class="bash">sudo dpkg-reconfigure davfs2
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo dpkg-reconfigure davfs2</code></pre></div>
 
 <p>Then add user to davfs2 group</p>
 
-<div class="highlight"><pre><code class="bash">sudo adduser <span class="nv">$USER</span> davfs2
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo adduser $USER davfs2</code></pre></div>
 
 <p>Let&#39;s configure davfs in your home directory</p>
 
-<div class="highlight"><pre><code class="bash">mkdir ~/.davfs2
-cp /etc/davfs2/davfs2.conf ~/.davfs2
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir ~/.davfs2
+cp /etc/davfs2/davfs2.conf ~/.davfs2</code></pre></div>
 
 <p>Add this to <code>~/.davfs2/davfs2.conf</code>:</p>
 
-<div class="highlight"><pre><code class="bash">use_locks       0
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">use_locks       0</code></pre></div>
 
 <p>To avoid typing your login and password every time:</p>
 
-<div class="highlight"><pre><code class="bash">sudo cp /etc/davfs2/secrets ~/.davfs2
-sudo chown <span class="nv">$USER</span> ~/.davfs2/secrets
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo cp /etc/davfs2/secrets ~/.davfs2
+sudo chown $USER ~/.davfs2/secrets</code></pre></div>
 
 <p>Add your login and pass to <code>~/.davfs2/secrets</code>:</p>
 
-<div class="highlight"><pre><code class="bash">http://www.box.net/dav   username@mail.com   password
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">http://www.box.net/dav username@mail.com   password</code></pre></div>
 
 <p>And finally mount:</p>
 
-<div class="highlight"><pre><code class="bash">mount ~/box.net
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">mount ~/box.net</code></pre></div>
 
 <p>I hope I didn&#39;t miss anything. I used some stuff originally found in french here: <a href="http://doc.ubuntu-fr.org/davfs2">http://doc.ubuntu-fr.org/davfs2</a></p>
 
@@ -263,7 +254,7 @@ sudo chown <span class="nv">$USER</span> ~/.davfs2/secrets
         <div class="row">
             <div class="col-lg-3">
                 <!--                     <h2>You can check me out on</h2> -->
-                <h2>Find me on</h2>
+                <h2>Find me</h2>
             </div>
             <div class="col-lg-9">
                 <ul class="list-inline banner-social-buttons">
@@ -329,21 +320,21 @@ sudo chown <span class="nv">$USER</span> ~/.davfs2/secrets
 <!-- Defer CSS -->
     <script type="text/javascript">
           var stylesheet = document.createElement('link');
-          stylesheet.href = '/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css';
+          stylesheet.href = '/assets/main-a8fb2489ebf00f724c822f550c5c4404.css';
           stylesheet.rel = 'stylesheet';
           stylesheet.type = 'text/css';
           document.getElementsByTagName('head')[0].appendChild(stylesheet);
     </script>
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- Main Javascript -->
-<!-- <script src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script> -->
-<script async type="text/javascript" src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script>
+<!-- <script src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script> -->
+<script async type="text/javascript" src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script>
 
 <!-- <script> -->
-<!-- loadStyleSheet(/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css); -->
+<!-- loadStyleSheet(/assets/main-a8fb2489ebf00f724c822f550c5c4404.css); -->
 <!-- </script> -->
 
 <script>
@@ -355,6 +346,7 @@ sudo chown <span class="nv">$USER</span> ~/.davfs2/secrets
   ga('create', 'UA-48705379-1', 'rudametw.github.io');
   ga('send', 'pageview');
 </script>
+
 
 </body>
 </html>

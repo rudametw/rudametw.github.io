@@ -14,7 +14,7 @@
 
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
 <link rel="icon" href="favicon.ico">
@@ -104,13 +104,12 @@
 
 <p>Command is </p>
 
-<div class="highlight"><pre><code class="bash"> route add default gw 192.168.0.100
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">route add default gw 192.168.0.100</code></pre></div>
 
 <p>Then the <code>/etc/resolv.conf</code> must be edited to the same nameserver as the other box. Note that nslu should be able to ping this nameserver once the gateway is setup.</p>
 
 <p>For setting up the gateway we must enable ip forwarding:</p>
-<div class="highlight"><pre><code class="bash language-bash" data-lang="bash"><span class="nb">echo </span>1 &gt; /proc/sys/net/ipv4/ip_forward
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">echo 1 &gt; /proc/sys/net/ipv4/ip_forward
 </code></pre></div>
 <h3>Additional virtual network interface</h3>
 
@@ -121,16 +120,15 @@ ifconfig eth0:N address    netmask
 
 <p>However, it&#39;s probably easier to just edit the <code>/etc/network/interfaces</code> file by adding something like this</p>
 
-<div class="highlight"><pre><code class="bash">iface eth0:0 inet static
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">iface eth0:0 inet static
         address 192.168.0.100
         netmask 255.255.255.0
         broadcast 192.168.0.255
         network 192.168.0.0
-        pre-up <span class="nb">echo</span> <span class="s2">&quot;*** Starting eth0:0 alias ***&quot;</span>
-        post-up <span class="nb">echo</span> <span class="s2">&quot;*** Alias eth0:0 started ***&quot;</span>
-        <span class="c">#post-up route add -net 192.168.0.0 dev eth0</span>
-        <span class="c">#post-up route add -host 192.168.0.10 dev eth0:1</span>
-</code></pre></div>
+        pre-up echo &quot;*** Starting eth0:0 alias ***&quot;
+        post-up echo &quot;*** Alias eth0:0 started ***&quot;
+        #post-up route add -net 192.168.0.0 dev eth0
+        #post-up route add -host 192.168.0.10 dev eth0:1</code></pre></div>
 
 <p>This allows us to have a static IP address in addition to whatever other configured addresses we might have. I used it to have both a DHCP assigned address and a static local network address, allowing me to always get access to the NSLU2, even if it&#39;s not getting an address through DHCP.</p>
 
@@ -251,7 +249,7 @@ ifconfig eth0:N address    netmask
         <div class="row">
             <div class="col-lg-3">
                 <!--                     <h2>You can check me out on</h2> -->
-                <h2>Find me on</h2>
+                <h2>Find me</h2>
             </div>
             <div class="col-lg-9">
                 <ul class="list-inline banner-social-buttons">
@@ -317,21 +315,21 @@ ifconfig eth0:N address    netmask
 <!-- Defer CSS -->
     <script type="text/javascript">
           var stylesheet = document.createElement('link');
-          stylesheet.href = '/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css';
+          stylesheet.href = '/assets/main-a8fb2489ebf00f724c822f550c5c4404.css';
           stylesheet.rel = 'stylesheet';
           stylesheet.type = 'text/css';
           document.getElementsByTagName('head')[0].appendChild(stylesheet);
     </script>
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- Main Javascript -->
-<!-- <script src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script> -->
-<script async type="text/javascript" src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script>
+<!-- <script src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script> -->
+<script async type="text/javascript" src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script>
 
 <!-- <script> -->
-<!-- loadStyleSheet(/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css); -->
+<!-- loadStyleSheet(/assets/main-a8fb2489ebf00f724c822f550c5c4404.css); -->
 <!-- </script> -->
 
 <script>
@@ -343,6 +341,7 @@ ifconfig eth0:N address    netmask
   ga('create', 'UA-48705379-1', 'rudametw.github.io');
   ga('send', 'pageview');
 </script>
+
 
 </body>
 </html>

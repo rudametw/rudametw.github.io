@@ -14,7 +14,7 @@
 
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
 <link rel="icon" href="favicon.ico">
@@ -78,8 +78,7 @@
 
 <p>Anyhow, I was getting the following error after applying some updates: </p>
 
-<div class="highlight"><pre><code class="bash">acroread: error <span class="k">while </span>loading shared libraries: libEGL.so.1: cannot open shared object file: No such file or directory
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">acroread: error while loading shared libraries: libEGL.so.1: cannot open shared object file: No such file or directory</code></pre></div>
 
 <p>It took me a while to track down the problem, which has a simple solution, just find the missing symbolic link. I ran into this page that describes the issue but nobody had provided the proper command <a href="http://forums.fedoraforum.org/showthread.php?t=297151">http://forums.fedoraforum.org/showthread.php?t=297151</a>.</p>
 
@@ -87,16 +86,14 @@
 
 <p>Acroread is x86 32 bits but I&#39;m running Fedora 20 x86_64, so I didn&#39;t see initially that my libEGL that I was trying to link with was the wrong one. Anyhow, make sure you have the right libEGL installed: </p>
 
-<div class="highlight"><pre><code class="bash"><span class="c">#List the files</span>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">#List the files
 repoquery --list mesa-libEGL.i686
-<span class="c">#Install or reinstall just to make sure</span>
-yum reinstall  mesa-libEGL.i686
-</code></pre></div>
+#Install or reinstall just to make sure
+yum reinstall  mesa-libEGL.i686</code></pre></div>
 
 <p>Fedora uses different lib directory for 32 and 64 bit binairies. We want to point to the 32 bit one, so the command to fix acroread is:</p>
 
-<div class="highlight"><pre><code class="bash">ln -s /usr/lib/libEGL.so.1 /opt/Adobe/Reader9/Reader/intellinux/lib/libEGL.so.1
-</code></pre></div>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">ln -s /usr/lib/libEGL.so.1 /opt/Adobe/Reader9/Reader/intellinux/lib/libEGL.so.1</code></pre></div>
 
                 
                 <!-- the comment box -->
@@ -210,7 +207,7 @@ yum reinstall  mesa-libEGL.i686
         <div class="row">
             <div class="col-lg-3">
                 <!--                     <h2>You can check me out on</h2> -->
-                <h2>Find me on</h2>
+                <h2>Find me</h2>
             </div>
             <div class="col-lg-9">
                 <ul class="list-inline banner-social-buttons">
@@ -276,21 +273,21 @@ yum reinstall  mesa-libEGL.i686
 <!-- Defer CSS -->
     <script type="text/javascript">
           var stylesheet = document.createElement('link');
-          stylesheet.href = '/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css';
+          stylesheet.href = '/assets/main-a8fb2489ebf00f724c822f550c5c4404.css';
           stylesheet.rel = 'stylesheet';
           stylesheet.type = 'text/css';
           document.getElementsByTagName('head')[0].appendChild(stylesheet);
     </script>
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css"> -->
+<!-- <link rel="stylesheet" href="/assets/main-a8fb2489ebf00f724c822f550c5c4404.css"> -->
 
 <!-- Main Javascript -->
-<!-- <script src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script> -->
-<script async type="text/javascript" src="/assets/main-3c9909ea20f68da3f27d94c79deb4a1a.js"></script>
+<!-- <script src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script> -->
+<script async type="text/javascript" src="/assets/main-d21f9cc982845be00c7bd4445e2165e3.js"></script>
 
 <!-- <script> -->
-<!-- loadStyleSheet(/assets/main-0ec8f5d7e7c4c4b18fea8bd28e694a64.css); -->
+<!-- loadStyleSheet(/assets/main-a8fb2489ebf00f724c822f550c5c4404.css); -->
 <!-- </script> -->
 
 <script>
@@ -302,6 +299,7 @@ yum reinstall  mesa-libEGL.i686
   ga('create', 'UA-48705379-1', 'rudametw.github.io');
   ga('send', 'pageview');
 </script>
+
 
 </body>
 </html>
