@@ -27,7 +27,7 @@
 /*     height:calc(100% - 3em); subtract an amount of space for your arrow element */
 /*     background-color:#333; */
     width:100%;
-    
+
     margin-top: -25px;
     /*  If you're making other pages, make sure there is 50px of padding to make sure the navbar doesn't overlap content! */
     padding-top: 30px;
@@ -142,7 +142,12 @@
                 <div class="col-lg-12">
                     <div class="intro-message">
                         <h1><span itemprop="name">Walter Rudametkin</span>, <span itemprop="honorificSuffix">Ph.D.</span></h1>
-                        <h3><span itemprop="jobTitle">Postdoctoral researcher</span> @ <span itemprop="affiliation">inria</span> rba</h3>
+                        <h3><span itemprop="jobTitle">Associate Professor</span> @
+                            <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">
+                            <a href="http://www.polytech-lille.fr" itemprop="url" style="color: #FFFFFF"> <span itemprop="name">Polytech'Lille</span></a>
+                            </span>
+                        </h3>
+                        <!--<span itemprop="affiliation">Polytech'Lille</span></h3>-->
                         <hr class="intro-divider">
                         <ul class="list-inline intro-social-buttons">
                             <li><a href="http://www.linkedin.com/in/rudametkin" class="btn btn-default btn-lg"><i
@@ -169,6 +174,7 @@
     </div>
     <!-- /.intro-header -->
 
+
     <div class="content-section-a" id="content">
         <div class="container">
             <div class="row">
@@ -178,34 +184,55 @@
                     <h2 class="section-heading">Where I work</h2>
 
                     <p class="lead">
-                        I'm a <span itemprop="jobTitle">posdoctoral researcher </span> in the 
+                        Since September 2014 I'm an <span itemprop="jobTitle">associate professor </span> at
+                        <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">
+                        <a href="http://www.polytech-lille.fr" itemprop="url"> <span itemprop="name">Polytech'Lille</span></a>,
+                        </span>
+                        which is a french engineering school that is part of the
+                        <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">
+                        <a href="http://www.univ-lille1.fr" itemprop="url"> <span itemprop="name">University of Lille&nbsp;1</span></a>.
+                        My activities include both teaching and research in the domain of software engineering.
+                        At Polytech I currently teach object oriented programming, software architecture and introduction to databases.
+                        </span>
+                    </p>
 
-                        <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place"> 
-                        <a href="http://diverse.irisa.fr" itemprop="url"> <span itemprop="name">DiverSE team</span></a>
+                    <p class="lead">
+                        For my research activities I'm a part of the
+                        <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">
+                        <a href="https://team.inria.fr/spirals/" itemprop="url"> <span itemprop="name">Spirals research team</span></a>.
                         </span>
 
-                         (formerly
-                        <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place"> 
-                            <a href="http://triskell.irisa.fr" itemprop="url"><span itemprop="name">Triskell</span></a>) at the 
-                        </span>
+                        <!-- Add span for workplaces for each of these items -->
+                        Spirals is a joint team between the <a href="http://www.inria.fr">Inria</a> and the <a href="http://www.univ-lille1.fr">University of Lille&nbsp;1</a>, within the <a href="http://www.lifl.fr">LIFL</a>&nbsp;(UMR 8022 CNRS-Lille1-Lille 3-Inria).</p>
 
-                        <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place"> 
+
+                    <p class="lead">Our team focuses on self-adaptive systems in general, and on self-optimisation and self-healing properties in particular.
+
+                    <p class="lead">
+                        I was previously a postdoctoral researcher in the
+                        <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">
+                        <a href="http://diverse.irisa.fr" itemprop="url"> <span itemprop="name">DiverSE</span></a>
+                        </span>
+                        (and formely
+                        <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">
+                            <a href="http://triskell.irisa.fr" itemprop="url"><span itemprop="name">Triskell</span></a>)
+                        </span>
+                        team at the
+                        <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">
                             <a href="https://www.inria.fr" itemprop="url"><span itemprop="name">INRIA</span></a>
                         </span>
                         <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">
                             <span itemprop="name"><a href="https://www.inria.fr/centre/rennes" itemprop="url">Rennes</a> research center</span>.
                         </span>
-                    </p>
-                    <p class="lead">Our team focuses on software diversity and all of its benefits. Much like ecosystems found in nature, software
-                        can take advantage of variants that co-exist within these complex systems, improving robustness, security and resilience.</p>
-
-                    <p class="lead">Mostly though, higher levels of diversity provide a pool of software solutions that can be used to adapt to
-                        unforeseen situations.</p>
+                        The team focuses on software diversity and all of its benefits towards improving software robustness, security and resilience.</p>
                 </div>
                 <div class="col-lg-5 col-lg-offset-0 col-sm-6 ">
                     <!-- <img class="img-responsive" src="img/inria-rba.jpg" alt=""> -->
                     <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">
-                    <img class="img-responsive" src="img/inria-rba-small-optimized.jpg" alt="Inria Rennes Bretagne Main Entrance" itemprop="image">
+                    <!--<img class="img-responsive" src="img/inria-rba-small-optimized.jpg" alt="Inria Rennes Bretagne Main Entrance" itemprop="image">-->
+                    <img class="img-responsive" src="img/polytech-lille.jpg" alt="Polytech'Lille" itemprop="image">
+                    <br>
+                    <img class="img-responsive" src="img/inria-lille.jpg" alt="Inria Lille" itemprop="image">
                     </span>
                 </div>
             </div>
@@ -214,6 +241,54 @@
 
     </div>
     <!-- /.content-section-a -->
+
+
+
+    <!--<div class="content-section-a" id="content">-->
+        <!--<div class="container">-->
+            <!--<div class="row">-->
+                <!--<div class="col-lg-6 col-sm-6">-->
+                    <!--[>                     <hr class="section-heading-spacer"> <]-->
+                    <!--<div class="clearfix"></div>-->
+                    <!--<h2 class="section-heading">Where I work</h2>-->
+
+                    <!--<p class="lead">-->
+                        <!--I'm a <span itemprop="jobTitle">posdoctoral researcher </span> in the-->
+
+                        <!--<span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">-->
+                        <!--<a href="http://diverse.irisa.fr" itemprop="url"> <span itemprop="name">DiverSE team</span></a>-->
+                        <!--</span>-->
+
+                         <!--(formerly-->
+                        <!--<span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">-->
+                            <!--<a href="http://triskell.irisa.fr" itemprop="url"><span itemprop="name">Triskell</span></a>) at the-->
+                        <!--</span>-->
+
+                        <!--<span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">-->
+                            <!--<a href="https://www.inria.fr" itemprop="url"><span itemprop="name">INRIA</span></a>-->
+                        <!--</span>-->
+                        <!--<span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">-->
+                            <!--<span itemprop="name"><a href="https://www.inria.fr/centre/rennes" itemprop="url">Rennes</a> research center</span>.-->
+                        <!--</span>-->
+                    <!--</p>-->
+                    <!--<p class="lead">Our team focuses on software diversity and all of its benefits. Much like ecosystems found in nature, software-->
+                        <!--can take advantage of variants that co-exist within these complex systems, improving robustness, security and resilience.</p>-->
+
+                    <!--<p class="lead">Mostly though, higher levels of diversity provide a pool of software solutions that can be used to adapt to-->
+                        <!--unforeseen situations.</p>-->
+                <!--</div>-->
+                <!--<div class="col-lg-5 col-lg-offset-0 col-sm-6 ">-->
+                    <!--[> <img class="img-responsive" src="img/inria-rba.jpg" alt=""> <]-->
+                    <!--<span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">-->
+                    <!--<img class="img-responsive" src="img/inria-rba-small-optimized.jpg" alt="Inria Rennes Bretagne Main Entrance" itemprop="image">-->
+                    <!--</span>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <!--[> /.container <]-->
+
+    <!--</div>-->
+    <!--[> /.content-section-a <]-->
 
     <div class="content-section-b">
         <div class="container">
@@ -238,8 +313,12 @@
                     <!--                     <hr class="section-heading-spacer"> -->
                     <div class="clearfix"></div>
                     <h2 class="section-heading">What I do</h2>
-                    <p class="lead">Of course, having variants is not everything. To increase resilience, you have to make them usable, to change
-                        from one variant to another, and particularly, to tolerate these changes unexpectedly.
+                    <!--<p class="lead">Of course, having variants is not everything. To increase resilience, you have to make them usable, to change-->
+                        <!--from one variant to another, and particularly, to tolerate these changes unexpectedly.-->
+                    <p class="lead">
+                        A lot of my research has been focused on reconfiguring systems at runtime. Once we have multiple software variants we can make
+                        them usable by changing from one variant to another at runtime in order to optimize the system. We also attempt to tolerate unexpected changes
+                        (if a component becomes unavailable or unusable, we should adapt the system as quickly as possible) in order to make the software more resilient.
                     <p class="lead">
                         I'm interested in the intricate details of handling dynamic software reconfigurations (e.g., quiescence, component decoupling)
                         at both the component and architectural levels. I've mostly focused on dynamism in centralized component-based frameworks like
@@ -248,9 +327,14 @@
                             href="http://fractal.ow2.org/">Fractal</a>.
                     </p>
                     <p class="lead">
+                        However, as of late, we've been working on designing Cloud applications to better handle dynamic changes and to allow for self-optimisation.
+                        We're working on specifying adaptation policies at design-time, using Feature Models. We're particularly interested in doing this in the
+                        context of multi-clouds.
+                    <p class="lead">
                         Here's a copy of my <a href="docs/WalterRudametkin.thesis.FINAL.pdf">Ph.D. thesis</a> and my <a
                             href="docs/WalterRudametkin.slides.FINAL.pdf">defense slides</a>. A video of my defense can be seen at the <a
-                            href="http://www.liglab.fr/spip.php?article1313">LIG website</a>. Just for the nostalgic part in me, here's my <a
+                            href="http://www.liglab.fr/node/204">LIG website</a>.
+                            Just for the nostalgic part in me, here's my <a
                             href="docs/MasterThesis-WalterRudametkin-FINAL.pdf">master's thesis</a> with my <a href="docs/DynamicTracing.pdf">ugly
                             slides</a> too.
                     </p>
@@ -303,7 +387,7 @@
                     <p class="lead">
                         After all of that, I landed into a really cool and demanding doctorate program that allows you to work for a company while
                         doing your doctorate. It's what some call an <i>industrial doctorate</i>, and is known in France as a <a
-                            href="http://www.anrt.asso.fr/fr/espace_cifre/accueil.jsp">CIFRE</a>. I worked for 
+                            href="http://www.anrt.asso.fr/fr/espace_cifre/accueil.jsp">CIFRE</a>. I worked for
                             <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">
                             <a href="http://www.bull.com" itemprop="url"><span itemprop="name">Bull S.A.S.</span></a>
                             </span>for about three and a half years, and later went on to finish my doctorate with the
