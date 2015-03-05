@@ -1,0 +1,460 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Walter Rudametkin">
+<link rel="author" href="https://plus.google.com/+WalterRudametkin">
+
+<title>category:&nbsp;linux</title>
+
+<meta name="description" content="Category: linux">
+
+<!-- Add custom CSS here -->
+<!-- <link rel="stylesheet" href="/assets/main-bedce7e00f53f1a0d91104f61e452875.css"> -->
+
+<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+<link rel="icon" href="favicon.ico">
+
+<!-- Test -->
+
+</head>
+
+<body>
+
+    	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+                <!-- <a class="navbar-brand" href="http://rudametkin.tk">Rudametkin.tk</a> -->
+                <a class="navbar-brand" href="/">walter.rudametkin</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+					<li><a href="/publications/">Publications</a></li>
+					<li><a href="/teaching/">Teaching</a></li>
+                    <li><a href="/research/">Research</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/photos/">Photos</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <h1 class="category">
+                    Category &nbsp;&nbsp; <span class="label label-warning">linux</span>
+                </h1>
+
+                <!-- blog entry -->
+                
+                <hr>
+                <h1>
+                    <a href="/blog/posts/2014.04.10/not-enough-threads.html">Not enough threads or processes &#58; "thread create failed"</a>
+                </h1>
+
+                <p class="lead">
+                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                     
+                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
+                     
+                        <a href="/blog/categories/bug/"> <span class="label label-primary">bug</span></a> 
+                    
+                </p>
+
+                <span class="glyphicon glyphicon-time"></span> Posted 2014.04.10  &mdash; Rennes, France 
+                <hr>
+
+                <p>I started running into a weird problem that I didn&#39;t immediately identify. Some programs just started failing: libreoffice, chrome, chromium, firefox, eclipse, ...</p>
+
+<p>It was quite undeterministic and depended on the system ressources being fairly well used. I thought it was a RAM issue, not having enough memory would cause programs to fail. I have somewhat agressive ram settings, but, I also have 16 GB of RAM on my computer. Well, it wasn&#39;t a memory issue, I was able to reproduce the issue with loads of memory still left over.</p>
+
+<p>Here&#39;s some of the messages I was getting.</p>
+
+<p><em>Libreoffice:</em> (similar bug <a href="https://bugs.freedesktop.org/show_bug.cgi?id=73300">here</a>)
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">osl::Thread::create failed</code></pre></div></p>
+
+<p><em>Java:</em>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">java.lang.OutOfMemoryError: unable to create new native thread.</code></pre></div></p>
+
+<p><em>Chrome and Chromium:</em>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">pthread_create error: Resource temporarily unavailable</code></pre></div></p>
+ <a class="btn btn-primary" href="/blog/posts/2014.04.10/not-enough-threads.html">Read More <span
+                    class="glyphicon glyphicon-chevron-right"></span></a> 
+                <hr>
+                <h1>
+                    <a href="/blog/posts/2014.04.07/Chromium-video-acceleration.html">Make chromium faster with video acceleration</a>
+                </h1>
+
+                <p class="lead">
+                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                     
+                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
+                     
+                        <a href="/blog/categories/chromium/"> <span class="label label-primary">chromium</span></a> 
+                     
+                        <a href="/blog/categories/feature/"> <span class="label label-primary">feature</span></a> 
+                    
+                </p>
+
+                <span class="glyphicon glyphicon-time"></span> Posted 2014.04.07  &mdash; Rennes, France 
+                <hr>
+
+                <p>I tried this on my Dell e6530 and it seems to work pretty good.</p>
+
+<p><a href="http://www.borfast.com/blog/how-enable-webgl-google-chrome-linux-blacklisted-graphics-card">http://www.borfast.com/blog/how-enable-webgl-google-chrome-linux-blacklisted-graphics-card</a></p>
+
+<p>For video acceleration : 
+Go to <code>chrome://flags</code> &#8594; <code>Override software rendering list</code> &#8594; Set to <code>Enable</code></p>
+
+<p>This works for both Chrome and Chromium.</p>
+ <a class="btn btn-primary" href="/blog/posts/2014.04.07/Chromium-video-acceleration.html">Read More <span
+                    class="glyphicon glyphicon-chevron-right"></span></a> 
+                <hr>
+                <h1>
+                    <a href="/blog/posts/2014.04.02/chrome-pdf-viewer-in-chromium-Fedora-20.html">Add Chrome PDF Viewer to Chromium on Fedora 20 x86_64</a>
+                </h1>
+
+                <p class="lead">
+                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                     
+                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
+                     
+                        <a href="/blog/categories/chromium/"> <span class="label label-primary">chromium</span></a> 
+                     
+                        <a href="/blog/categories/feature/"> <span class="label label-primary">feature</span></a> 
+                    
+                </p>
+
+                <span class="glyphicon glyphicon-time"></span> Posted 2014.04.02  &mdash; Rennes, France 
+                <hr>
+
+                <p>I really would like a PDF reader that saves the open pdf files in tabs, like a browser does. It would let me get back to reading whatever I was reading after a restart. Currently, I try to restart as little as possible, usually between 20 and 40 days in order to save all my open stuff. I would use Mendeley except the open tabs feature request has been open since 2009 and not implemented yet!!! <a href="http://feedback.mendeley.com/forums/4941-general/suggestions/263198-remember-open-tabs-and-position-within-pdfs">http://feedback.mendeley.com/forums/4941-general/suggestions/263198-remember-open-tabs-and-position-within-pdfs</a>.</p>
+
+<p>My answer for PDFs is to use my browser to store my open files. It might be a little overkill but it does the job decent enough. I mainly use Firefox + mozplugger + evince, but I also use the Chrome and Chromium browsers for different things including reading PDFs. Chrome has a simple PDF plugin that I like and its pretty fast, but Chromium doesn&#39;t have it because of licensing issues.</p>
+ <a class="btn btn-primary" href="/blog/posts/2014.04.02/chrome-pdf-viewer-in-chromium-Fedora-20.html">Read More <span
+                    class="glyphicon glyphicon-chevron-right"></span></a> 
+                <hr>
+                <h1>
+                    <a href="/blog/posts/2014.03.23/Dell-e6430-touchpad-sensitivity.html">Reduce touchpad sensitivity on a Dell e6430</a>
+                </h1>
+
+                <p class="lead">
+                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                     
+                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
+                     
+                        <a href="/blog/categories/feature/"> <span class="label label-primary">feature</span></a> 
+                    
+                </p>
+
+                <span class="glyphicon glyphicon-time"></span> Posted 2014.03.23  &mdash; Rennes, France 
+                <hr>
+
+                <p>I find the touchpad on my laptop way to sensitive by default. To change it, I&#39;ve found the following settings comfortable:</p>
+
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash">xinput set-prop &amp;quot;AlpsPS/2 ALPS DualPoint TouchPad&amp;quot; &amp;quot;Synaptics Finger&amp;quot; 18 18 18</code></pre></div></p>
+
+<p>I also have a wireless mouse that I sometimes use. It&#39;s way to sensitive. The following command makes it useable:
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">xinput set-prop &amp;quot;HP Wireless Optical Mobile Mouse&amp;quot; &amp;quot;Device Accel Adaptive Deceleration&amp;quot; 1.5</code></pre></div></p>
+ <a class="btn btn-primary" href="/blog/posts/2014.03.23/Dell-e6430-touchpad-sensitivity.html">Read More <span
+                    class="glyphicon glyphicon-chevron-right"></span></a> 
+                <hr>
+                <h1>
+                    <a href="/blog/posts/2014.03.19/Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.html">Acrobat reader cannot find libEGL.so.1 &#58; Fedora 20</a>
+                </h1>
+
+                <p class="lead">
+                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                     
+                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
+                     
+                        <a href="/blog/categories/bug/"> <span class="label label-primary">bug</span></a> 
+                    
+                </p>
+
+                <span class="glyphicon glyphicon-time"></span> Posted 2014.03.19  &mdash; Rennes, France 
+                <hr>
+
+                <p>I use acrobat reader sometimes, like when people send me an annotated pdf or if Evince doesn&#39;t print it properly. My main pdf reader is Evince, but it&#39;s a bit buggy. Also, I use okular to annotate pdfs, which it does a fine job at.</p>
+
+<p>Anyhow, I was getting the following error after applying some updates: </p>
+
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash">acroread: error while loading shared libraries: libEGL.so.1: cannot open shared object file: No such file or directory</code></pre></div></p>
+
+<p>It took me a while to track down the problem, which has a simple solution, just find the missing symbolic link. I ran into this page that describes the issue but nobody had provided the proper command <a href="http://forums.fedoraforum.org/showthread.php?t=297151">http://forums.fedoraforum.org/showthread.php?t=297151</a>.</p>
+ <a class="btn btn-primary" href="/blog/posts/2014.03.19/Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.html">Read More <span
+                    class="glyphicon glyphicon-chevron-right"></span></a> 
+                <hr>
+                <h1>
+                    <a href="/blog/posts/2014.03.12/Fr-alternate-keyboard-right-ctrl-key-bug.html">Fr alternative keyboard layout bug (fr-oss)&#58; right ctrl key not working</a>
+                </h1>
+
+                <p class="lead">
+                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                     
+                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
+                     
+                        <a href="/blog/categories/bug/"> <span class="label label-primary">bug</span></a> 
+                    
+                </p>
+
+                <span class="glyphicon glyphicon-time"></span> Posted 2014.03.12  &mdash; Rennes, France 
+                <hr>
+
+                <p>I really like the &#39;alternative&#39; french keyboard layout on my computer, a.k.a fr-oss. I like to use the deadkeys for accents in french and spanish, and I really like the alt-gr + ctrl# for doing arrows and stuff like that.</p>
+
+<p>Earlier this year on my Fedora laptop (F20) for work the right ctrl key stopped working. It sucked because ctrl-arrows no longer jump through words in text documents. VLC right ctrl+Up/Down no longer changed the volume either, making me have to use both hands just for that. I figured it was a bug in Fedora so I found a neat command to fix the mapping while I waited for the problem to be fixed. However, some time later it happened to my wife&#39;s Ubuntu laptop and looking into it I found that the problem is comes from higher up the chain.</p>
+
+<p>Someone decided to map right ctrl to something &quot;new&quot; instead of letting it be the same as the left ctrl key. Sure, if programs used the &quot;new right control&quot; it might be great and super useful. But they don&#39;t, so the key does nothing. Kind of beats the purpose, huh?</p>
+
+<p><a href="https://bugs.freedesktop.org/show_bug.cgi?id=15804#c44">https://bugs.freedesktop.org/show_bug.cgi?id=15804#c44</a></p>
+
+<p>To fix the problem, here&#39;s the command you can run.</p>
+
+<p><div class="highlight"><pre><code class="language-bash" data-lang="bash">xmodmap -e &amp;#39;keycode 105 = Control&lt;em&gt;R&amp;#39; -e &amp;#39;clear Control&amp;#39; -e &amp;#39;add Control = Control&lt;/em&gt;L Control_R&amp;#39;</code></pre></div></p>
+
+<p>However...</p>
+ <a class="btn btn-primary" href="/blog/posts/2014.03.12/Fr-alternate-keyboard-right-ctrl-key-bug.html">Read More <span
+                    class="glyphicon glyphicon-chevron-right"></span></a> 
+                <hr>
+                <h1>
+                    <a href="/blog/posts/2011.09.17/Linux-webdav-box.net.html">Mount your Box.Net account using WebDAV</a>
+                </h1>
+
+                <p class="lead">
+                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                     
+                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
+                     
+                        <a href="/blog/categories/webdav/"> <span class="label label-primary">webdav</span></a> 
+                     
+                        <a href="/blog/categories/cloud/"> <span class="label label-primary">cloud</span></a> 
+                    
+                </p>
+
+                <span class="glyphicon glyphicon-time"></span> Posted 2011.09.17  &mdash; Grenoble, France 
+                <hr>
+
+                <p>It&#39;s pretty easy to setup box.net with webdav and to have your files automatically saved to box.net. I got 50gb of storage space on box.net when I bought an HP Touchpad 32gb on firesale.</p>
+
+<p>However, because it&#39;s not a paid or professional account, I can&#39;t really do anything with it.</p>
+
+<p>UPDATE: I don&#39;t use this setup because box.net is just too slow and some people have been complaining that they don&#39;t implement webdav properly. I really wish they&#39;d come up with a client for Linux like Dropbox has.</p>
+
+<p>Originally posted on Ubuntu Forums: <a href="http://ubuntuforums.org/showthread.php?t=202761&amp;page=4">http://ubuntuforums.org/showthread.php?t=202761&amp;page=4</a></p>
+ <a class="btn btn-primary" href="/blog/posts/2011.09.17/Linux-webdav-box.net.html">Read More <span
+                    class="glyphicon glyphicon-chevron-right"></span></a> 
+                <hr>
+                <h1>
+                    <a href="/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html">NSLU2 Linux Gateway</a>
+                </h1>
+
+                <p class="lead">
+                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                     
+                        <a href="/blog/categories/linux/"> <span class="label label-primary">linux</span></a> 
+                     
+                        <a href="/blog/categories/nslu2/"> <span class="label label-primary">nslu2</span></a> 
+                     
+                        <a href="/blog/categories/work-in-progress/"> <span class="label label-primary">work-in-progress</span></a> 
+                    
+                </p>
+
+                <span class="glyphicon glyphicon-time"></span> Posted 2010.07.29  &mdash; Rennes, France 
+                <hr>
+
+                <div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="/img/wip3.jpg" alt="Work in progress"/>
+        </div>
+        <div class="col-md-7">
+            <img src="/img/nslu2.jpg" alt="NSLU2.jpg"/>
+        </div>
+    </div>
+</div>
+
+<hr>
+
+<p>It&#39;s easy to setup additional IP addresses on Debian Linux. This is particularly useful for the NSLU which doesn&#39;t have a display so you need to remotely connect to it.</p>
+
+<p>Having more than one virtual network interface allows us to have both a DHCP address and a static IP address, making the NSLU2 accessible pretty much always.</p>
+ <a class="btn btn-primary" href="/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html">Read More <span
+                    class="glyphicon glyphicon-chevron-right"></span></a> 
+
+            </div>
+            <div class="col-md-4">
+                <!-- <div class="col-md-4"> -->
+    <!--              
+    <div class="well">
+        <h4>Blog Search</h4>
+        <div class="input-group">
+            <input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </div>
+    </div>
+    -->
+
+    
+
+    <div class="well">
+        <div class="row">
+            <div class="col-lg-6">
+                <h4>All Tags</h4>
+                <ul class="list-unstyled">
+                    <li><a href="/blog/">All</a></li> 
+                    <li><a href="/blog/categories/linux/">linux</a></li> 
+                    <li><a href="/blog/categories/nslu2/">nslu2</a></li> 
+                    <li><a href="/blog/categories/work-in-progress/">work-in-progress</a></li> 
+                    <li><a href="/blog/categories/webdav/">webdav</a></li> 
+                    <li><a href="/blog/categories/cloud/">cloud</a></li> 
+                    <li><a href="/blog/categories/first-post/">first-post</a></li> 
+                    <li><a href="/blog/categories/jekyll/">jekyll</a></li> 
+                    <li><a href="/blog/categories/github-pages/">github-pages</a></li> 
+                    <li><a href="/blog/categories/markdown/">markdown</a></li> 
+                    <li><a href="/blog/categories/untidy/">untidy</a></li> 
+                    <li><a href="/blog/categories/thunderbird/">thunderbird</a></li> 
+                    <li><a href="/blog/categories/bug/">bug</a></li> 
+                    <li><a href="/blog/categories/life/">life</a></li> 
+                    <li><a href="/blog/categories/fishing/">fishing</a></li> 
+                    <li><a href="/blog/categories/feature/">feature</a></li> 
+                    <li><a href="/blog/categories/chromium/">chromium</a></li> 
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="well">
+        <h4>'Tis me blog matie</h4>
+        <p>Sorry, no comments enabled for now because I'm using a simple static site generator (maybe I'll try out disqus another day).</p>
+        <p>
+            But if you like what you see, send me an <a href="/contact/">email</a>.
+        </p>
+    </div>
+<!-- </div> -->
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+    <div class="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <!--                     <h2>You can check me out on</h2> -->
+                <h2>Find me</h2>
+            </div>
+            <div class="col-lg-9">
+                <ul class="list-inline banner-social-buttons">
+                    <li><a href="http://www.linkedin.com/in/rudametkin" class="btn btn-default btn-lg"><i class="fa fa-linkedin-square fa-fw"></i>
+                            <span class="network-name">Linkedin</span></a></li>
+                    <li><a href="https://github.com/rudametw" class="btn btn-default btn-lg"><i class="fa fa-github-square fa-fw"></i> <span
+                            class="network-name">Github</span></a></li>
+                    <li><a href="http://scholar.google.fr/citations?user=vJQGm9kAAAAJ&amp;hl=en" class="btn btn-default btn-lg"><i
+                            class="fa fa-search fa-fw"></i> <span class="network-name">Scholar</span></a></li>
+                    <li><a href="https://www.google.com/+WalterRudametkin?rel=author" class="btn btn-default btn-lg"><i
+                            class="fa fa-google-plus-square fa-fw"></i> <span class="network-name">google+</span></a></li>
+                    <li><a href="http://walterrudametkin.brandyourself.com/" class="btn btn-default btn-lg"><i
+                            class="fa fa-share-square fa-fw"></i> <span class="network-name">brandyourself</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.banner -->
+
+<footer>
+    <div class="container">
+        <div class="span12 pagination-centered" style="text-align: center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li><a href="/">Home</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <!-- 						<li><a href="#about">About</a></li>
+							<li class="footer-menu-divider">&sdot;</li>
+	                    -->
+                        <li><a href="/publications/">Publications</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="/teaching/">Teaching</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="/research/">Research</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="/photos/">Photos</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+
+                    <p class="copyright text-muted small">
+                        <a href="http://validator.w3.org/check?uri=referer"><img src="/img/valid-html401.png"
+                            alt="Valid HTML 4.01 Frameset" height="20" width="57"></a> Built using <a href="http://jekyllrb.com/">Jekyll</a>, <a
+                            href="http://twitter.github.com/bootstrap/">Bootstrap</a> and <a href="http://startbootstrap.com">Startbootstrap</a>. All
+                        source code available <a href="https://github.com/rudametw/rudametw.github.io"> here</a>.
+                    </p>
+                    <p class="copyright text-muted small">
+                    Githublove... 
+                    <a href="https://www.google.com/+RudametwGithubIove" rel="publisher">got the hublove?</a> by Walter Rudametkin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Defer CSS -->
+    <script type="text/javascript">
+          var stylesheet = document.createElement('link');
+          stylesheet.href = '/assets/main-bedce7e00f53f1a0d91104f61e452875.css';
+          stylesheet.rel = 'stylesheet';
+          stylesheet.type = 'text/css';
+          document.getElementsByTagName('head')[0].appendChild(stylesheet);
+    </script>
+
+<!-- Add custom CSS here -->
+<!-- <link rel="stylesheet" href="/assets/main-bedce7e00f53f1a0d91104f61e452875.css"> -->
+
+<!-- Main Javascript -->
+<!-- <script src="/assets/main-f2bda5f0801b6a41743c383e9ab4635a.js"></script> -->
+<script async type="text/javascript" src="/assets/main-f2bda5f0801b6a41743c383e9ab4635a.js"></script>
+
+<!-- <script> -->
+<!-- loadStyleSheet(/assets/main-bedce7e00f53f1a0d91104f61e452875.css); -->
+<!-- </script> -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48705379-1', 'rudametw.github.io');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>
