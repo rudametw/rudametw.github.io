@@ -14,14 +14,13 @@
                 </h2>
                 <hr>
                 <h3>
-                    <span itemprop="email"><a href="mailto:walter.rudametkin@lifl.fr">walter.rudametkin@univ-lille1.fr</a></span>
+                    <span itemprop="email"><a href="mailto:walter.rudametkin@univ-lille1.fr">walter.rudametkin@univ-lille1.fr</a></span>
                 </h3>
                 <hr>
                 <h3>Work Address</h3>
 
                 <div class="row">
                     <div class="col-md-5 col-md-offset-0">
-
                         <p class="lead">
                             <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">
                                 &nbsp;&nbsp;&nbsp;&nbsp;
