@@ -10,11 +10,15 @@
                 </h1>
 
                 <h2>
-                    <span itemprop="jobTitle">Associate Professor</span> @ <span itemprop="affiliation">Polytech'Lille</span>
+                    <span itemprop="jobTitle">Associate Professor</span> &mdash; <span itemprop="affiliation">Université de Lille 1</span>
                 </h2>
                 <hr>
                 <h3>
                     <span itemprop="email"><a href="mailto:walter.rudametkin@univ-lille1.fr">walter.rudametkin@univ-lille1.fr</a></span>
+                </h3>
+                <hr>
+                <h3>
+                    <span itemprop="affiliation">Teaching unit: Polytech'Lille</span>
                 </h3>
                 <hr>
                 <h3>Work Address</h3>
