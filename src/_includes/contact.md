@@ -21,7 +21,7 @@
 
                 <div class="row">
                     <div class="col-md-5 col-md-offset-0">
-                        <p class="lead">
+                        <p>
                             <span itemprop="workLocation" itemscope itemtype="http://schema.org/Place">
                                 &nbsp;&nbsp;&nbsp;&nbsp;
                                 <!--<span itemprop="name">IRISA</span> – <span itemprop="name">INRIA</span><br />-->
@@ -44,12 +44,11 @@
                     </div>
 
                     <div class="col-md-7">
-                        <p class="lead">
+                        <p>
                             <strong>Telephone</strong> <span itemprop="telephone">(+33) 3 59 35 87 64 <br />
                             <strong>Fax</strong> <span itemprop="faxNumber">&nbsp;&nbsp;Just email me :)</span> <br />
-                            <strong>Work Email&nbsp;&nbsp;</strong>
-                                <a href="mailto:walter.rudametkin@univ&#8209;lille1.fr" itemprop="email">walter.rudametkin@univ-lille1.fr</a> <strong>Personal Email&nbsp;&nbsp;</strong>
-                                <a href="mailto:rudametkin@gmail.com" itemprop="email">rudametkin@gmail.com</a>
+                            <strong>Work Email&nbsp;&nbsp;</strong> <a href="mailto:walter.rudametkin@univ&#8209;lille1.fr" itemprop="email">walter.rudametkin@univ-lille1.fr</a> <br />
+                            <strong>Personal Email&nbsp;&nbsp;</strong><a href="mailto:rudametkin@gmail.com" itemprop="email">rudametkin@gmail.com</a>
                         </p>
                     </div>
                 </div>
