@@ -1,6 +1,6 @@
 require 'rubygems'
 require 'exifr'
-require 'RMagick'
+require 'rmagick'
 include Magick
 
 include FileUtils
