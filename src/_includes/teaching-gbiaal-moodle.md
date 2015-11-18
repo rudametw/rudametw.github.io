@@ -41,12 +41,16 @@ Voici des supports pour le cours de base de données. Je vous invite vivement à
 
 [Fichier SQL pour créer la base de données chansons](gbiaal4sgbd/td_tp/chansons.sql)
 
+<!--
 [TP3 corrigé](gbiaal4sgbd/td_tp/TP3-SQL1-Chansons-avec-corrections.pdf)
+-->
 
 ####TP4 SQL2 (2/3)
 [Sujet de TP4 -- On connait la chanson (requêtes update/alter)](gbiaal4sgbd/td_tp/TP4-SQL2-Chansons-deuxieme_partie.pdf)
 
+<!--
 [Requêtes SQL du TP4 corrigées](gbiaal4sgbd/td_tp/TP4-SQL2-Chansons-deuxieme-partie-corrige.sql)
+-->
 
 ####TP5 (SQL 3/3) -- Étudiants à l'étranger
 [Sujet de TP5 -- Étudiants à l'étranger](gbiaal4sgbd/td_tp/TP5-SQL3-Etudiants-etrangers.pdf)
