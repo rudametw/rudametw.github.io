@@ -18,13 +18,19 @@ Voici des supports pour le cours de base de données. Je vous invite vivement à
 [4 BD Relationnelles.pdf](gbiaal4sgbd/cours/4.0_BD_Relationnelles.pdf) | [4 BD Relationnelles (handouts).pdf](gbiaal4sgbd/cours/4_BD_Relationnelles_-_handouts.pdf)
 
 [5 SQL.pdf](gbiaal4sgbd/cours/5_SQL.pdf) | [5 SQL (handouts).pdf](gbiaal4sgbd/cours/5_SQL-handouts.pdf)
-[6 SQL2.pdf](gbiaal4sgbd/cours/6_SQL2.pdf) | [6 SQL2 exercices.pdf](gbiaal4sgbd/cours/6-SQL2-exercices.pdf) | [6 SQL2 (expanded).pdf](gbiaal4sgbd/cours/6_SQL2-expanded.pdf) | [6 SQL2 (handouts).pdf](gbiaal4sgbd/cours/6-SQL2-handouts.pdf)
+
+[6 SQL2.pdf](gbiaal4sgbd/cours/6_SQL2.pdf) | [6 SQL2 (expanded, une slide par animation).pdf](gbiaal4sgbd/cours/6_SQL2-expanded.pdf) | [6 SQL2 (handouts).pdf](gbiaal4sgbd/cours/6-SQL2-handouts.pdf) | [6 SQL2 exercices.pdf](gbiaal4sgbd/cours/6-SQL2-exercices.pdf) | [6 SQL2 Example de Jointure.pdf](gbiaal4sgbd/cours/6_SQL2-jointure-example.pdf)
 
 [7 Recapitulatif.pdf](gbiaal4sgbd/cours/7_Recapitulatif.pdf) | [7 Recapitulatif (exercises corrigés).pdf](gbiaal4sgbd/cours/7_Recapitulatif-exercises-corrig_s.pdf) | [7 Recapitulatif (handouts).pdf](gbiaal4sgbd/cours/7_Recapitulatif-handouts.pdf)
 
 
 ##Travaux dirigés
 [4.1 BD Relationnelles exercises.pdf](gbiaal4sgbd/td_tp/4.1_BD_Relationnelles_exercises.pdf)
+
+###Nouveau !
+
+[6 SQL2 exercices.pdf](gbiaal4sgbd/cours/6-SQL2-exercices.pdf) | [6 SQL2 exercices corrigées.pdf](gbiaal4sgbd/cours/6_SQL2-exercices-corrigees.pdf) 
+
 
 ##Travaux pratiques
 
