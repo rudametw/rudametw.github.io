@@ -14,10 +14,12 @@
 
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css"> -->
+<!-- <link type="text/css" rel="stylesheet" href="/assets/main.css"> -->
 
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
-<link rel="icon" href="favicon.ico">
+<link rel="icon" href="/favicon.ico">
+
+
 
 <!-- Test -->
 
@@ -84,7 +86,7 @@
 
 <p>To fix the problem, here&#39;s the command you can run.</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">xmodmap -e &#39;keycode 105 = Control_R&#39; -e &#39;clear Control&#39; -e &#39;add Control = Control_L Control_R&#39;</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">xmodmap -e &#39;keycode 105 = Control_R&#39; -e &#39;clear Control&#39; -e &#39;add Control = Control_L Control_R&#39;</code></pre></figure>
 
 <p>However...</p>
 
@@ -94,9 +96,9 @@
 
 <p>I was going to do a cronjob or a script that ties into resume, but instead, I mapped a shortcut in XFCE to execute my script and notify me when it does. Pretty simple, the shortcut I used is <code>&lt;meta&gt; + k</code> (the windows key + k). The script is as follows:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">#!/bin/sh
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">#!/bin/sh
 notify-send -u normal -t 1000 &quot;Fixing right control key&quot;
-xmodmap -e &#39;keycode 105 = Control_R&#39; -e &#39;clear Control&#39; -e &#39;add Control = Control_L Control_R&#39;</code></pre></div>
+xmodmap -e &#39;keycode 105 = Control_R&#39; -e &#39;clear Control&#39; -e &#39;add Control = Control_L Control_R&#39;</code></pre></figure>
 
 <p>The only <em>weird</em> thing is that it doesn&#39;t always work on the first try. Or the second. Or the third. But, if you hit <code>meta + k</code> enough, it&#39;ll work. I don&#39;t know why that is, on the command line it works on the first try every time, but with the shortcut it just is.</p>
 
@@ -278,21 +280,21 @@ xmodmap -e &#39;keycode 105 = Control_R&#39; -e &#39;clear Control&#39; -e &#39;
 <!-- Defer CSS -->
     <script type="text/javascript">
           var stylesheet = document.createElement('link');
-          stylesheet.href = '/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css';
+          stylesheet.href = '/assets/main.css';
           stylesheet.rel = 'stylesheet';
           stylesheet.type = 'text/css';
           document.getElementsByTagName('head')[0].appendChild(stylesheet);
     </script>
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css"> -->
+<!-- <link type="text/css" rel="stylesheet" href="/assets/main.css"> -->
 
 <!-- Main Javascript -->
-<!-- <script src="/assets/main-2a657df52cc3662b576669b96306eb03.js"></script> -->
-<script async type="text/javascript" src="/assets/main-2a657df52cc3662b576669b96306eb03.js"></script>
+<!-- <script type="text/javascript" src="/assets/main.js"></script> -->
+<script async type="text/javascript" src="/assets/main.js"></script>
 
 <!-- <script> -->
-<!-- loadStyleSheet(/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css); -->
+<!-- loadStyleSheet(/assets/main.css); -->
 <!-- </script> -->
 
 <script>

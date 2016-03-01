@@ -14,10 +14,12 @@
 
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css"> -->
+<!-- <link type="text/css" rel="stylesheet" href="/assets/main.css"> -->
 
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
-<link rel="icon" href="favicon.ico">
+<link rel="icon" href="/favicon.ico">
+
+
 
 <!-- Test -->
 
@@ -93,43 +95,43 @@
 
 <p>Create a mount point:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir ~/box.net</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir ~/box.net</code></pre></figure>
 
 <p>Add this to <code>/etc/fstab</code> (correct the details for your user):</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">http://www.box.net/dav /home/user/box.net davfs rw,user,noauto 0 0</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">http://www.box.net/dav /home/user/box.net davfs rw,user,noauto 0 0</code></pre></figure>
 
 <p>(Just as a note, https didn&#39;t work for me. It mounts but copied files never showed up. I saw something on their site about 256bit SSL encryption being available when you upgrade to business.)</p>
 
 <p>To allow your your user to mount without being root you want to say yes to this:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo dpkg-reconfigure davfs2</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo dpkg-reconfigure davfs2</code></pre></figure>
 
 <p>Then add user to davfs2 group</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo adduser $USER davfs2</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo adduser $USER davfs2</code></pre></figure>
 
 <p>Let&#39;s configure davfs in your home directory</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir ~/.davfs2
-cp /etc/davfs2/davfs2.conf ~/.davfs2</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mkdir ~/.davfs2
+cp /etc/davfs2/davfs2.conf ~/.davfs2</code></pre></figure>
 
 <p>Add this to <code>~/.davfs2/davfs2.conf</code>:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">use_locks       0</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">use_locks       0</code></pre></figure>
 
 <p>To avoid typing your login and password every time:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">sudo cp /etc/davfs2/secrets ~/.davfs2
-sudo chown $USER ~/.davfs2/secrets</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">sudo cp /etc/davfs2/secrets ~/.davfs2
+sudo chown $USER ~/.davfs2/secrets</code></pre></figure>
 
 <p>Add your login and pass to <code>~/.davfs2/secrets</code>:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">http://www.box.net/dav username@mail.com   password</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">http://www.box.net/dav  username@mail.com   password</code></pre></figure>
 
 <p>And finally mount:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">mount ~/box.net</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">mount ~/box.net</code></pre></figure>
 
 <p>I hope I didn&#39;t miss anything. I used some stuff originally found in french here: <a href="http://doc.ubuntu-fr.org/davfs2">http://doc.ubuntu-fr.org/davfs2</a></p>
 
@@ -320,21 +322,21 @@ sudo chown $USER ~/.davfs2/secrets</code></pre></div>
 <!-- Defer CSS -->
     <script type="text/javascript">
           var stylesheet = document.createElement('link');
-          stylesheet.href = '/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css';
+          stylesheet.href = '/assets/main.css';
           stylesheet.rel = 'stylesheet';
           stylesheet.type = 'text/css';
           document.getElementsByTagName('head')[0].appendChild(stylesheet);
     </script>
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css"> -->
+<!-- <link type="text/css" rel="stylesheet" href="/assets/main.css"> -->
 
 <!-- Main Javascript -->
-<!-- <script src="/assets/main-2a657df52cc3662b576669b96306eb03.js"></script> -->
-<script async type="text/javascript" src="/assets/main-2a657df52cc3662b576669b96306eb03.js"></script>
+<!-- <script type="text/javascript" src="/assets/main.js"></script> -->
+<script async type="text/javascript" src="/assets/main.js"></script>
 
 <!-- <script> -->
-<!-- loadStyleSheet(/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css); -->
+<!-- loadStyleSheet(/assets/main.css); -->
 <!-- </script> -->
 
 <script>

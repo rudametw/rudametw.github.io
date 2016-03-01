@@ -14,10 +14,12 @@
 
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css"> -->
+<!-- <link type="text/css" rel="stylesheet" href="/assets/main.css"> -->
 
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
-<link rel="icon" href="favicon.ico">
+<link rel="icon" href="/favicon.ico">
+
+
 
 <!-- Test -->
 
@@ -82,15 +84,15 @@
 
 <p>Let&#39;s try an example. Send an email with a couple of lines and a single &quot;weird&quot; character, like this one:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">This line has four leading spaces
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">This line has four leading spaces
    This line has three leading spaces
           This line has ten leading spaces
 
-’ This is a stupid right-single-quotation-mark character (u+2019)</code></pre></div>
+’ This is a stupid right-single-quotation-mark character (u+2019)</code></pre></figure>
 
 <p>And what do we get when we send it?</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">Return-Path: walter.rudametkin@inria.fr
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Return-Path: walter.rudametkin@inria.fr
 [...]
 Message-ID: &lt;531727D5.7000209@inria.fr&gt;
 Date: Wed, 05 Mar 2014 14:34:13 +0100
@@ -106,7 +108,7 @@ This line has four leading spaces
 This line has three leading spaces
 This line has ten leading spaces
 
-’ This is a stupid right-single-quotation-mark character (u+2019)</code></pre></div>
+’ This is a stupid right-single-quotation-mark character (u+2019)</code></pre></figure>
 
 <p>Damn, where are my spaces?</p>
 
@@ -118,7 +120,7 @@ This line has ten leading spaces
 
 <p>This can be seen in my &#39;Content-Type&#39; header which becomes this:</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">Content-Type: text/plain; charset=windows-1252; format=flowed</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">Content-Type: text/plain; charset=windows-1252; format=flowed</code></pre></figure>
 
 <p>As you can see, the charset is now changed to &#39;windows-1252&#39; (instead of the default &#39;ISO-8859-1&#39;), but my spaces are also gone!!!</p>
 
@@ -311,21 +313,21 @@ This line has ten leading spaces
 <!-- Defer CSS -->
     <script type="text/javascript">
           var stylesheet = document.createElement('link');
-          stylesheet.href = '/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css';
+          stylesheet.href = '/assets/main.css';
           stylesheet.rel = 'stylesheet';
           stylesheet.type = 'text/css';
           document.getElementsByTagName('head')[0].appendChild(stylesheet);
     </script>
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css"> -->
+<!-- <link type="text/css" rel="stylesheet" href="/assets/main.css"> -->
 
 <!-- Main Javascript -->
-<!-- <script src="/assets/main-2a657df52cc3662b576669b96306eb03.js"></script> -->
-<script async type="text/javascript" src="/assets/main-2a657df52cc3662b576669b96306eb03.js"></script>
+<!-- <script type="text/javascript" src="/assets/main.js"></script> -->
+<script async type="text/javascript" src="/assets/main.js"></script>
 
 <!-- <script> -->
-<!-- loadStyleSheet(/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css); -->
+<!-- loadStyleSheet(/assets/main.css); -->
 <!-- </script> -->
 
 <script>

@@ -14,10 +14,12 @@
 
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css"> -->
+<!-- <link type="text/css" rel="stylesheet" href="/assets/main.css"> -->
 
 <!-- <link rel="shortcut icon" href="favicon.ico"> -->
-<link rel="icon" href="favicon.ico">
+<link rel="icon" href="/favicon.ico">
+
+
 
 <!-- Test -->
 
@@ -104,13 +106,13 @@
 
 <p>Command is </p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">route add default gw 192.168.0.100</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">route add default gw 192.168.0.100</code></pre></figure>
 
 <p>Then the <code>/etc/resolv.conf</code> must be edited to the same nameserver as the other box. Note that nslu should be able to ping this nameserver once the gateway is setup.</p>
 
 <p>For setting up the gateway we must enable ip forwarding:</p>
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">echo 1 &gt; /proc/sys/net/ipv4/ip_forward
-</code></pre></div>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">echo 1 &gt; /proc/sys/net/ipv4/ip_forward
+</code></pre></figure>
 <h3>Additional virtual network interface</h3>
 
 <p>If we want to setup alias cards, we can do something along the lines of
@@ -120,7 +122,7 @@ ifconfig eth0:N address    netmask
 
 <p>However, it&#39;s probably easier to just edit the <code>/etc/network/interfaces</code> file by adding something like this</p>
 
-<div class="highlight"><pre><code class="language-bash" data-lang="bash">iface eth0:0 inet static
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">iface eth0:0 inet static
         address 192.168.0.100
         netmask 255.255.255.0
         broadcast 192.168.0.255
@@ -128,7 +130,7 @@ ifconfig eth0:N address    netmask
         pre-up echo &quot;*** Starting eth0:0 alias ***&quot;
         post-up echo &quot;*** Alias eth0:0 started ***&quot;
         #post-up route add -net 192.168.0.0 dev eth0
-        #post-up route add -host 192.168.0.10 dev eth0:1</code></pre></div>
+        #post-up route add -host 192.168.0.10 dev eth0:1</code></pre></figure>
 
 <p>This allows us to have a static IP address in addition to whatever other configured addresses we might have. I used it to have both a DHCP assigned address and a static local network address, allowing me to always get access to the NSLU2, even if it&#39;s not getting an address through DHCP.</p>
 
@@ -315,21 +317,21 @@ ifconfig eth0:N address    netmask
 <!-- Defer CSS -->
     <script type="text/javascript">
           var stylesheet = document.createElement('link');
-          stylesheet.href = '/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css';
+          stylesheet.href = '/assets/main.css';
           stylesheet.rel = 'stylesheet';
           stylesheet.type = 'text/css';
           document.getElementsByTagName('head')[0].appendChild(stylesheet);
     </script>
 
 <!-- Add custom CSS here -->
-<!-- <link rel="stylesheet" href="/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css"> -->
+<!-- <link type="text/css" rel="stylesheet" href="/assets/main.css"> -->
 
 <!-- Main Javascript -->
-<!-- <script src="/assets/main-2a657df52cc3662b576669b96306eb03.js"></script> -->
-<script async type="text/javascript" src="/assets/main-2a657df52cc3662b576669b96306eb03.js"></script>
+<!-- <script type="text/javascript" src="/assets/main.js"></script> -->
+<script async type="text/javascript" src="/assets/main.js"></script>
 
 <!-- <script> -->
-<!-- loadStyleSheet(/assets/main-c8340f2b0e7bf1782e6b00c087f42da8.css); -->
+<!-- loadStyleSheet(/assets/main.css); -->
 <!-- </script> -->
 
 <script>
