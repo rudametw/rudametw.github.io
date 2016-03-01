@@ -5,15 +5,15 @@ body,html {
 }
 
 body {
-    margin-top: 60px;
-/*     margin-top: 80px; 100px is double the height of the navbar - I made it a big larger for some more space - keep it at 50px at least if you want to use the fixed top nav */
-    font-weight: 400;
-    font-size: 16px;
+	 margin-top: 60px;
+/*	  margin-top: 80px; 100px is double the height of the navbar - I made it a big larger for some more space - keep it at 50px at least if you want to use the fixed top nav */
+	 font-weight: 400;
+	 font-size: 16px;
 }
 
 body,h1,h2,h3,h4,h5,h6 {
 	font-family: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
-/*     font-weight: 700; */
+	/*	  font-weight: 700; */
 }
 .navbar-nav > li > a,navbar,navbar-brand,.navbar-brand,h1,h2,h3,h4,h5,h6 {
 	font-weight: 700;
@@ -24,12 +24,12 @@ body,h1,h2,h3,h4,h5,h6 {
 	font-weight: 400;
 }
 
-.well{ 
-/*     margin-top: 10px; */
+.well{
+/*	  margin-top: 10px; */
 }
 
 .mypicture {
-    margin-top: 15px;    
+	 margin-top: 15px;
 }
 
 .section-heading {
@@ -45,8 +45,9 @@ body,h1,h2,h3,h4,h5,h6 {
 .banner {
 	padding: 100px 0;
 	color: #f8f8f8;
-/* 	background: url(/img/bay2-2.jpg) no-repeat center center; */
-	background: url('<%= asset_path "bay2-2-optimized.jpg" %>') no-repeat center center;
+	/* 	background: url(/img/bay2-2.jpg) no-repeat center center; */
+	/*background: url('<%= asset_path "bay2-2-optimized.jpg" %>') no-repeat center center;*/
+	background: url('/img/bay2-2-optimized.jpg') no-repeat center center;
 	background-size: cover;
 }
 
