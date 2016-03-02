@@ -56,8 +56,8 @@ Voici des supports pour le cours de Programmation Avancé. Je vous invite viveme
 
 ##Travaux pratiques
 [TP1.pdf](ima3/TP1.pdf) | 
-[TP2.pdf](ima3/TP2.pdf)  
-
+[TP2.pdf](ima3/TP2.pdf) | 
+[TP3.pdf](ima3/TP3.pdf)  
 
 
 <!--####TP1 Tableur et cohérence de données-->
