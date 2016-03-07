@@ -43,6 +43,9 @@ Voici des supports pour le cours de Programmation Avancé. Je vous invite viveme
 [CM6-Listes_variantes-handouts-4pp.pdf](ima3/CM6-Listes_variantes-handouts-4pp.pdf) | 
 [CM6-Listes_variantes-handouts-6pp.pdf](ima3/CM6-Listes_variantes-handouts-6pp.pdf)  
 
+[CM7-arbres.pdf](ima3/CM7-arbres.pdf) | 
+[CM7-arbres-handouts-4pp.pdf](ima3/CM7-arbres-handouts-4pp.pdf) | 
+[CM7-arbres-handouts-6pp.pdf](ima3/CM7-arbres-handouts-6pp.pdf)  
 
 ##Travaux dirigés
 <!--[TD-Synthese-SD.pdf](ima3/TD-Synthese-SD.pdf) | -->
