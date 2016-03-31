@@ -54,7 +54,8 @@ Voici des supports pour le cours de Programmation Avancé. Je vous invite viveme
 [TD3.pdf](ima3/TD3.pdf) | 
 [TD4-5.pdf](ima3/TD4-5.pdf) | 
 [TD6.pdf](ima3/TD6.pdf) | 
-[TD7.pdf](ima3/TD7.pdf)  
+[TD7.pdf](ima3/TD7.pdf) | 
+[TD-Synthese-SD.pdf](ima3/TD-Synthese-SD.pdf)  
 
 
 ##Travaux pratiques
