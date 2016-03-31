@@ -65,6 +65,7 @@ Voici des supports pour le cours de Programmation Avancé. Je vous invite viveme
 [TP5.pdf](ima3/TP5.pdf) | 
 [TP6.pdf](ima3/TP6.pdf) | 
 [TP7.pdf](ima3/TP7.pdf) | 
+[TP8.pdf](ima3/TP8.pdf)  
 
 <!--[TP8.pdf](ima3/TP8.pdf)  -->
 
