@@ -44,7 +44,7 @@ layout: thumbnail-gallery
 
 {% for image in page.images %}
 <div class="col-lg-4 col-md-4 col-xs-6 thumb">
-    <a class="fancybox thumbnail" href="{{ image }}" data-fancybox-group="gallery"><img class="img-responsive" src="thumbs/{{ image }}" alt="">
+    <a class="fancybox thumbnail" href="{{ image.name }}" data-fancybox-group="gallery"><img class="img-responsive" src="thumbs/{{ image.name }}" alt="">
     </a>
 </div>
 {% endfor %}
