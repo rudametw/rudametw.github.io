@@ -1,0 +1,572 @@
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+<head>
+<meta charset="utf-8">
+<!-- <meta http-equiv="Content-Type" content="text/html; charset=utf-8"> -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="author" content="Walter Rudametkin">
+<link rel="author" href="https://plus.google.com/+WalterRudametkin">
+
+
+<title>Walter Rudametkin | Official Home Page | Sitio Oficial</title>
+<meta name="description" content="Hi! Welcome to Walter's home page. Research, projects, blog or send him an email.">
+
+
+
+
+<!-- Add custom CSS here -->
+<!-- <link type="text/css" rel="stylesheet" href="/assets/main.css"> -->
+
+<!-- <link rel="shortcut icon" href="favicon.ico"> -->
+<link rel="icon" href="/favicon.ico">
+
+
+
+<!-- Test -->
+
+</head>
+
+<body>
+
+    	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span>
+				</button>
+                <!-- <a class="navbar-brand" href="http://rudametkin.tk">Rudametkin.tk</a> -->
+                <a class="navbar-brand" href="/">walter.rudametkin</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-right navbar-ex1-collapse">
+				<ul class="nav navbar-nav">
+                    <li><a href="/">Home</a></li>
+					<li><a href="/publications/">Publications</a></li>
+					<li><a href="/teaching/">Teaching</a></li>
+                    <li><a href="/research/">Research</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                    <li><a href="/photos/">Photos</a></li>
+                    <li><a href="/contact/">Contact</a></li>
+				</ul>
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container -->
+	</nav>
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10">
+
+            <h1>Taller Jekyll CICOMP 2016</h1>
+
+<p>Jekyll: un generador de blogs y sitios web estáticos.</p>
+
+<p>Está participando en el taller Jekyll en el CICOMP 2016. Gracias por ser conejillo de india en este, mi primer taller. Espero que lo que va a aprender el día de hoy le servirá en el futuro, y si tiene cualquier pregunta o duda por favor hágamelo saber.</p>
+
+<p>Advertencia: No soy experto Jekyll, solo un usuario ocasional. Commencé mi sitio en Jekyll en 2014 y me pareció que era una herramienta muy interesante. Desde entonces ha evolucionado mucho.</p>
+
+<h2>Iniciando con Jekyll</h2>
+
+<p>Crear un sitio jekyll nuevo</p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">jekyll new mi_sitio
+</code></pre></figure>
+<!--
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">--&gt;
+    &lt;!--jekyll new mi_sitio--&gt;
+&lt;!--</code></pre></figure>
+-->
+
+<p>Entrar al directorio que fue creado</p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">cd mi_sitio
+</code></pre></figure>
+<p>Veamos que archivos y directorios fueron creados con el comando </p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">ls -la
+</code></pre></figure>
+<p>La salida contendrá al menos los archivos y directorios siguientes</p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">mi_sitio/
+├── about.md
+├── index.md
+├── _posts/
+├── .gitignore
+├── _config.yml
+└── Gemfile
+</code></pre></figure>
+<p>El commando <code>jekyll new</code> crea un sitio virgen siguiendo la maquetación de Jekyll, junto con el tema por defecto.</p>
+
+<p>Para ver el sitio usemos inicial ejecute</p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">jekyll serve
+</code></pre></figure>
+<p>Jekyll construye el sitio y arranca un servidor HTTP en la direccion <a href="http://127.0.0.1:4000">http://127.0.0.1:4000</a>.</p>
+
+<p>Note que si usted modifica algún archivo, Jekyll regenera el sitio automáticamente.</p>
+
+<h2>Commandos principales de Jekyll</h2>
+
+<p>En Jekyll no hay ninguna base de datos, el sitio se construye a partir de archivos de texto. Los formatos de documento permitidos por Jekyll son html, markdown, textile o liquid. Jekyll lee esos archivos y genera un sitio web html estandard. Otros tipos de archivos también pueden ser usados, pero en ése caso Jekyll no los procesa, los copia tal cual.</p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">jekyll serve
+</code></pre></figure>
+<p>Jekyll va a construir el sitio y lanza un servidor http localmente.
+Para detener el servidor presione <code>ctrl+c</code>.
+Por defecto, el sitio generado se encuentra en el directorio <code>_site</code></p>
+
+<!--<br />-->
+<figure class="highlight"><pre><code class="language-text" data-lang="text">jekyll build
+</code></pre></figure>
+<p>Genera el sitio <em>sin</em> lanzar el servidor http. Por defecto, el sitio generado se encuentra en el directorio <code>_site</code> pero puede cambiar el destino con la opción <code>--destination &lt;destination&gt;</code></p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">jekyll new
+</code></pre></figure>
+<p>Crea el esqueleto de un sitio jekyll con el tema por defecto. Por ejemplo, <code>jekyll new mi_super_sitio</code> crea un sitio llamado mi<em>super</em>sitio.
+Por cierto, si descarga un tema Jekyll desde internet, o si se basó en el sitio de alguien más, puede ser que éste paso no sea necesario.</p>
+
+<h3>Resumen de comandos</h3>
+
+<table><thead>
+<tr>
+<th>commando</th>
+<th>descripción</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>jekyll new nombre_sitio</code>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>
+<td>Crea el esqueleto de un sitio nuevo</td>
+</tr>
+<tr>
+<td><code>jekyll build</code></td>
+<td>Construye el sitio</td>
+</tr>
+<tr>
+<td><code>jekyll serve</code></td>
+<td>Construye el del sitio y lanza el servidor http</td>
+</tr>
+<tr>
+<td><code>jekyll clean</code></td>
+<td>Borrar el sitio generado (solamente afecta el directorio <code>_site</code>)</td>
+</tr>
+<tr>
+<td><code>jekyll help</code></td>
+<td>Mostrar la ayuda</td>
+</tr>
+<tr>
+<td><code>jekyll &lt;subcommand&gt; help</code></td>
+<td>Mostrar la ayuda específica del subcommando</td>
+</tr>
+</tbody></table>
+
+<h2>Estructura de un sitio Jekyll</h2>
+
+<p>Vamos a cubrir muy rápidamente la estructura de un sitio jekyll, pero es importante entender cada elemento. Si necesita mayor información consulte la documentación oficial<br>
+<a href="https://jekyllrb.com/docs/structure/">https://jekyllrb.com/docs/structure/</a></p>
+
+<p><hr />
+<code>_config.yml</code></p>
+
+<p>Este archivo contiene la configuración general del sitio. Usa un formato muy sencillo llamado yaml.</p>
+
+<p>Edite el archivo para empezar a llenar la información del sitio, puede comenzar por llenar el titulo del sitio, su correo electrónico, su usuario github (vamos a crear uno después si aun no tiene), usuario twitter, la descripción del sitio, etc.<br>
+<a href="https://jekyllrb.com/docs/configuration/">https://jekyllrb.com/docs/configuration/</a></p>
+
+<p><hr />
+<code>index.md</code></p>
+
+<p>Esta es la página de inicio de su nuevo blog. Vea el contenido del archivo y note que inicia con un encabezado YAML. Las líneas que comienzan con <code>#</code> son comentarios.</p>
+<figure class="highlight"><pre><code class="language-yaml" data-lang="yaml">---
+# You don&#39;t need to edit this file, it&#39;s empty on purpose.
+# Edit theme&#39;s home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: home
+---
+</code></pre></figure>
+<p>Todo archivo que tenga un encabezado YAML sera transformado por jekyll al construir su sitio, no importa si es un archivo .html, .markdown, .md, o .textile. Veremos más tarde este proceso, pero en este encabezado está claramente indicado que el diseño usado es <code>home</code>.</p>
+
+<p>Note que los archivos que no tienen un encabezado YAML serán copiados tal cual al sitio final. Esto le permite mezclar todo tipo de contenido en su sitio, o incluir archivos como imagenes o pdfs.<br>
+<a href="https://jekyllrb.com/docs/frontmatter/">https://jekyllrb.com/docs/frontmatter</a></p>
+
+<p><hr />
+<code>_layouts</code></p>
+
+<p>El directorio <code>_layouts</code> contiene los diseños de las páginas y las entradas de blog del sitio. La idea es que éstos archivos definen el diseño de cada tipo de página, y en el encabezado YAML uno define cual diseño usar. Un diseño va a proveer el código html y markdown que <em>envuelve</em> la página o la entrada de blog que escribe. Los diseños tienen derecho de incluir pedazos de código del directorio <code>_includes</code>.</p>
+
+<p>El tema por defecto, <code>minima</code>, tiene los diseños <code>default</code>, <code>home</code>, <code>page</code>, y <code>post</code>. Usted puede agregar los diseños que quiera, se puede basar en los diseños existentes (copiar y modificar los archivos de diseño del tema).</p>
+
+<p><hr />
+<code>_includes</code></p>
+
+<p>Este directorio contendra los pedazos reutilizables de sus plantillas (&quot;templates&quot;). A veces se les conoce como parciales. Es común tener archivos con código html parcial para las cabezeras o pie de pǽginas, así como las barras de navegación.
+Veremos más sobre como funcionan, en particular cuando usemos temas diferentes.</p>
+
+<p><hr />
+<code>_posts</code></p>
+
+<p>Este directorio contendrá las entradas de su blog. El término &#39;blog&#39; es flexible, hay muchos sitios que usan este directorio para entradas nuevas del sitio sin ser necesariamente un blog.</p>
+
+<p>Cada entrada de blog debe ser contenido dentro de un archivo cuyo nombre deberá seguir el formato,
+<code>YEAR-MONTH-DAY-this-is-my-title.MARKUP</code>. El directorio puede contener un gran nombre de entradas, cada uno en un archivo independendiente.</p>
+
+<p>Por ejemplo, <code>2016-11-11-mi-primer-blog.md</code> es una entrada de blog válida siguiendo el formato markdown.</p>
+
+<p><hr />
+<code>about.md</code></p>
+
+<p>El tema por defecto viene con éste archivo en el directorio principal del proyecto.  La ubicación del archivo puede ser molesto y no convenir a sus preferencias de organización del sitio por lo que muchos temas lo mueven de directorio. Recuerda que usted controla la ubicación de todos los archivos y el url en el que serán publicados.</p>
+
+<p><hr />
+<code>_site</code></p>
+
+<p>Este directorio contiene el sitio estático generado por Jekyll. Puede navegar en el directorio y ver todos los archivos. Es importante notar que los archivos que tenían encabezados YAML ahora son archivos .html completos.</p>
+
+<p>Cada vez que modifique un archivo, jekyll va a borrar y recrear este directorio. Es importante que no haga cambios directamente a los archivos que contiene por que serán perdidos.</p>
+
+<p><strong>Compare el contenido y la ubicación de los archivos de su proyecto con respecto a los que son generados en<code>_site</code>.</strong></p>
+
+<p>Por ejemplo,<br>
+<code>index.md --&gt; _site/index.html</code><br>
+<code>about.md --&gt; _site/about/index.html</code><br>
+<code>_posts/2016-11-05-welcome-to-jekyll.markdown --&gt; _site/jekyll/update/2016/11/05/welcome-to-jekyll.html</code></p>
+
+<p>Todos los URL finales son configurables, ya sea por su ubicación en el proyecto, o por que cambia la propiedad <code>permalink</code> del encabezado YAML.</p>
+
+<p><hr />
+<code>_data</code></p>
+
+<p>Pondremos elementos reutilisables, variables, y otras cosas en este directorio. Los datos pueden estar en archivos YAML, JSON o CSV.</p>
+
+<p>Otros directorios</p>
+
+<p>Si usted crea otros directorios, como por ejemplo un directorio img que contiene sus imágenes, estos serán copiados al sitio final.</p>
+
+<h2>pages vs posts</h2>
+
+<p>Existen dos tipos de página web en Jekyll, &quot;pages&quot; y &quot;posts&quot;, o sea, pǽginas &quot;normales&quot; y entradas de blog.</p>
+
+<p>La particularidad de las entradas de blog son que deben de estar en el directorio de <code>_posts</code>, deben de nombrarse siguiendo las reglas descritas arriba con respecto a la fecha, son listados cronológicamente, y pueden pertenecer a categorías.<br>
+<a href="https://jekyllrb.com/docs/posts/">https://jekyllrb.com/docs/posts/</a></p>
+
+<p>Las páginas son especialmente útiles para páginas principales del sitio donde el URL es importante.<br>
+<a href="https://jekyllrb.com/docs/pages/">https://jekyllrb.com/docs/pages/</a></p>
+
+<h2>Temas y estilos</h2>
+
+<h3>¿Donde está instalado su tema ?</h3>
+
+<p>Por defecto Jekyll usa el tema minima. Para ver donde está instalado puede usar el comando </p>
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">bundle show minima
+</code></pre></figure>
+<p>Cuando sepa donde está instalado el tema, puede ver su contenido con el comando <code>ls</code>, como por ejemplo </p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">ls -la /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
+</code></pre></figure>
+<p>Pude usar el comando <code>cd</code> para navegar al directorio y de ahi ver el contenido del tema. También puede usar un navegador de archivos gráfico como Nautilus para abrir el directorio.</p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">nautilus /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
+</code></pre></figure>
+<p><strong>Estudie el contenido de los directorios <code>_layouts</code> y <code>_includes</code></strong></p>
+
+<p><hr /></p>
+
+<h3>Cambiar de tema</h3>
+
+<p>Dentro del archivo <code>_config.yml</code> puede cambiar o borrar la propiedad <code>theme: minima</code>. Recuerda que al cambiar el tema, los diseños (dentro del directorio <code>_layout</code>) pueden cambiar de nombre.</p>
+
+<p>El tema también se puede sobreescribir si usted tiene archivos del mismo nombre y ubicación en su proyecto. Por ejemplo, si está usando un tema que le conviene pero que quiere modificar ligeramente, puede copiar los archivos del tema que desea modificar a su proyecto, y luego hacer las modificaciones pertinentes.</p>
+
+<p><hr /></p>
+
+<h4>Sin tema</h4>
+
+<p>Borre la propiedad <code>theme:</code>. Jekyll solo usará los elementos existentes dentro de su proyecto (usted deberá proveer todo los archivos de diseño). </p>
+
+<p><hr /></p>
+
+<h4>Instalando gems</h4>
+
+<p>La comunidad ruby provee una gran cantidad de paquetes que son facilmente instalables desde su repositorio central. Algunos temas Jekyll también están disponibles, por lo que puede instalarlos desde ahí.</p>
+
+<p>Para instalar un tema, necesita conocer el nombre del tema, y seguir las instrucciones disponibles aquí: <a href="https://jekyllrb.com/docs/themes/">https://jekyllrb.com/docs/themes/</a></p>
+
+<p>Un ejemplo que pueden seguir, el tema <code>starving-artist-jekyll-theme</code><br>
+<a href="https://chrisanthropic.github.io/starving-artist-jekyll-theme/documentation/installation/">https://chrisanthropic.github.io/starving-artist-jekyll-theme/documentation/installation/</a></p>
+
+<p>Otro ejemplo que puede seguir <a href="https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/">https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/</a></p>
+
+<p>La lista de gems los puede encontrar en <a href="http://bestgems.org/search?q=jekyll+theme">http://bestgems.org/search?q=jekyll+theme</a></p>
+
+<p>Otra lista aquí <a href="https://github.com/planetjekyll/awesome-jekyll-themes#official-themes">https://github.com/planetjekyll/awesome-jekyll-themes#official-themes</a></p>
+
+<p><hr /></p>
+
+<h4>Descargando archivos zip</h4>
+
+<p>Hay una gran cantidad de temas para Jekyll que no existen como gems. Para usar esos temas, basta descargar el archivo, descomprimirlo, y copiar los archivos a los directorios correspondientes de su sitio.</p>
+
+<p>Listas de temas :
+<a href="https://drjekyllthemes.github.io/">https://drjekyllthemes.github.io/</a>
+<a href=""></a>
+<a href=""></a>
+<a href=""></a>
+<a href=""></a></p>
+
+<p><hr /></p>
+
+<h4>Descargando proyectos github</h4>
+
+<p>El proceso es similar a los archivos zip, es solo que la forma de descargar el proyecto es diferente. Deberá clonar el repositorio con el comando <code>git clone</code>, y de ahí copiar los archivos a su sitio, o copiar los archivos de su sitio al repositorio clonado.</p>
+
+<h2>Ejercicio Jekyll</h2>
+
+<ul>
+<li>Escriba 2 o 3 entradas de blog
+
+<ul>
+<li>Use markdown</li>
+<li>Cree una lista numerotada</li>
+<li>Cree enlaces hace otros sitios</li>
+<li>Agregue imagenes
+
+<ul>
+<li>Crea un directorio para almacenarlos</li>
+<li>Utilize ligas para apuntar hacía sus imágenes</li>
+</ul></li>
+<li>Agregue un video youtube</li>
+<li>Agrega ejemplos de código</li>
+</ul></li>
+<li>Escriba 3 páginas (e.g., página inicial, contacto, acerca de)
+
+<ul>
+<li>Mezcle contenido markdown y contenido html</li>
+<li>Intente usar la opción <code>permalink</code> para definir un URL diferente para una de las páginas</li>
+</ul></li>
+<li>Escoge un tema nuevo
+
+<ul>
+<li>Cambia el tema por defecto Jekyll</li>
+<li>Verifique que las páginas y las entradas del blog siguen siendo visibles
+
+<ul>
+<li>Corrija los errores en caso de no ser así</li>
+</ul></li>
+</ul></li>
+</ul>
+
+<p>Ligas para ayudar :<br>
+<a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet</a><br>
+<a href="https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf">https://guides.github.com/pdfs/markdown-cheatsheet-online.pdf</a><br>
+<a href="http://www.simplehtmlguide.com/cheatsheet.php">http://www.simplehtmlguide.com/cheatsheet.php</a>
+<a href=""></a>
+<a href=""></a></p>
+
+<h1>Git</h1>
+
+<p>Git (pronunciado &quot;guit&quot; ) es un software de control de versiones diseñado por Linus Torvalds, pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando éstas tienen un gran número de archivos de código fuente.</p>
+
+<h2>Tutorial git (15 minutos)</h2>
+
+<p><a href="https://try.github.io">https://try.github.io</a></p>
+
+<h2>Documentación</h2>
+
+<p><a href="https://git-scm.com/book/es/v1">https://git-scm.com/book/es/v1</a><br>
+<a href="https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf">https://services.github.com/kit/downloads/github-git-cheat-sheet.pdf</a><br>
+<a href="https://www.git-tower.com/blog/git-cheat-sheet/">https://www.git-tower.com/blog/git-cheat-sheet/</a></p>
+
+<h2>Github</h2>
+
+<p>GitHub es una forja (plataforma de desarrollo colaborativo) para alojar proyectos utilizando el sistema de control de versiones Git. Utiliza el framework Ruby on Rails por GitHub, Inc. (anteriormente conocida como Logical Awesome). Desde enero de 2010, GitHub opera bajo el nombre de GitHub, Inc. El código se almacena de forma pública, aunque también se puede hacer de forma privada, creando una cuenta de pago.</p>
+
+<p>Github se puede ver como una red social para compartir código fuente, es decir, &quot;social coding&quot;.</p>
+
+<p>Para continuar, necesitará crear una cuenta github.<br>
+<a href="https://github.com/">https://github.com/</a></p>
+
+<h2>Github Pages</h2>
+
+<p>Github provee un servicio de hospedaje gratis para sus usuarios que se integra bien con Jekyll. Para usarlo debe de crear un repositorio llamado `usuario.github.io, donde usuario es su nombre de usuario github.</p>
+
+<p>Para empezar una página github-pages, siga los pasos siguientes reemplazando usuario/username por su usuario github : <a href="https://pages.github.com/">https://pages.github.com/</a></p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">git clone https://github.com/username/username.github.io
+cd username.github.io
+echo &quot;Hello World&quot; &gt; index.html
+
+git add --all
+git commit -m &quot;Initial commit&quot;
+git push -u origin master
+</code></pre></figure>
+<p>Abra el url que corresponde a su página, <a href="http://username.github.io">http://username.github.io</a></p>
+
+<p>Crear una cuenta github<br>
+Crear un repositorio para el codigo del proyecto<br>
+Crear un repositorio para el sitio</p>
+
+<p>Copiar los archivos del directorio _site al repositorio del sitio</p>
+
+<p><hr /></p>
+
+<h1>Funciones avanzadas</h1>
+
+<p>Información sobre el tiempo de generación de paginas</p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">jekyll build –profile
+</code></pre></figure>
+<h2>Aprenda Liquid</h2>
+
+<p><a href="http://jekyll.tips/jekyll-casts/introduction-to-liquid/">http://jekyll.tips/jekyll-casts/introduction-to-liquid/</a><br>
+<a href="http://jekyll.tips/jekyll-casts/control-flow-statements-in-liquid/">http://jekyll.tips/jekyll-casts/control-flow-statements-in-liquid/</a><br>
+<a href="https://shopify.github.io/liquid/">https://shopify.github.io/liquid/</a><br>
+<a href=""></a></p>
+
+<p>Ejemplo de loop con liquid para listar todas las entradas del blog</p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">
+&lt;ul&gt;
+  {% for post in site.posts %}
+    &lt;li&gt;&lt;a href=&quot;{{ post.url }}&quot;&gt;{{ post.title }}&lt;/a&gt;&lt;/li&gt;
+  {% endfor %}
+&lt;/ul&gt;
+
+</code></pre></figure>
+<!--Tree :-->
+
+<!--```-->
+
+<!--project-name/-->
+
+<!--├── _assets/-->
+
+<!--├── _data/-->
+
+<!--├── _drafts/-->
+
+<!--├── _includes/-->
+
+<!--├── _layouts/-->
+
+<!--├── _pages/-->
+
+<!--|   ├── 404.md               # custom 404 page-->
+
+<!--|   ├── about.md             # about page-->
+
+<!--|   ├── contact.md           # contact page-->
+
+<!--|   └── home.md              # home page (eg. <root>/index.html)-->
+
+<!--├── _posts/-->
+
+<!--├── .gitignore-->
+
+<!--├── _config.yml-->
+
+<!--└── Gemfile-->
+
+<!--```-->
+
+<!--Examples: about.md ~> permalink: /about/, home.md ~> permalink: /, contact.md ~> permalink: /contact/, etc.-->
+
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <div class="banner">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <!--                     <h2>You can check me out on</h2> -->
+                <h2>Find me</h2>
+            </div>
+            <div class="col-lg-9">
+                <ul class="list-inline banner-social-buttons">
+                    <li><a href="http://www.linkedin.com/in/rudametkin" class="btn btn-default btn-lg"><i class="fa fa-linkedin-square fa-fw"></i>
+                            <span class="network-name">Linkedin</span></a></li>
+                    <li><a href="https://github.com/rudametw" class="btn btn-default btn-lg"><i class="fa fa-github-square fa-fw"></i> <span
+                            class="network-name">Github</span></a></li>
+                    <li><a href="http://scholar.google.fr/citations?user=vJQGm9kAAAAJ&amp;hl=en" class="btn btn-default btn-lg"><i
+                            class="fa fa-search fa-fw"></i> <span class="network-name">Scholar</span></a></li>
+                    <li><a href="https://www.google.com/+WalterRudametkin?rel=author" class="btn btn-default btn-lg"><i
+                            class="fa fa-google-plus-square fa-fw"></i> <span class="network-name">google+</span></a></li>
+                    <li><a href="http://walterrudametkin.brandyourself.com/" class="btn btn-default btn-lg"><i
+                            class="fa fa-share-square fa-fw"></i> <span class="network-name">brandyourself</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.banner -->
+
+<footer>
+    <div class="container">
+        <div class="span12 pagination-centered" style="text-align: center">
+            <div class="row">
+                <div class="col-lg-12">
+                    <ul class="list-inline">
+                        <li><a href="/">Home</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <!-- 						<li><a href="#about">About</a></li>
+							<li class="footer-menu-divider">&sdot;</li>
+	                    -->
+                        <li><a href="/publications/">Publications</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="/teaching/">Teaching</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="/research/">Research</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="/photos/">Photos</a></li>
+                        <li class="footer-menu-divider">&sdot;</li>
+                        <li><a href="/contact/">Contact</a></li>
+                    </ul>
+
+                    <p class="copyright text-muted small">
+                        <a href="http://validator.w3.org/check?uri=referer"><img src="/img/valid-html401.png"
+                            alt="Valid HTML 4.01 Frameset" height="20" width="57"></a> Built using <a href="http://jekyllrb.com/">Jekyll</a>, <a
+                            href="http://twitter.github.com/bootstrap/">Bootstrap</a> and <a href="http://startbootstrap.com">Startbootstrap</a>. All
+                        source code available <a href="https://github.com/rudametw/rudametw.github.io"> here</a>.
+                    </p>
+                    <p class="copyright text-muted small">
+                    Githublove... 
+                    <a href="https://www.google.com/+RudametwGithubIove" rel="publisher">got the hublove?</a> by Walter Rudametkin.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Defer CSS -->
+    <script type="text/javascript">
+          var stylesheet = document.createElement('link');
+          stylesheet.href = '/assets/main.css';
+          stylesheet.rel = 'stylesheet';
+          stylesheet.type = 'text/css';
+          document.getElementsByTagName('head')[0].appendChild(stylesheet);
+    </script>
+
+<!-- Add custom CSS here -->
+<!-- <link type="text/css" rel="stylesheet" href="/assets/main.css"> -->
+
+<!-- Main Javascript -->
+<!-- <script type="text/javascript" src="/assets/main.js"></script> -->
+<script async type="text/javascript" src="/assets/main.js"></script>
+
+<!-- <script> -->
+<!-- loadStyleSheet(/assets/main.css); -->
+<!-- </script> -->
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-48705379-1', 'rudametw.github.io');
+  ga('send', 'pageview');
+</script>
+
+
+</body>
+</html>

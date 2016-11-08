@@ -1,151 +1,143 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
-        <loc>
-            http://rudametw.github.io/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html
-        </loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <loc>http://localhost:4000/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html</loc>
+        <lastmod>2016-11-06T09:42:26-08:00</lastmod>
     </url>
     <url>
-        <loc>http://rudametw.github.io/blog/posts/2011.09.17/Linux-webdav-box.net.html</loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <loc>http://localhost:4000/blog/posts/2011.09.17/Linux-webdav-box.net.html</loc>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://rudametw.github.io/blog/posts/2014.02.04/first-jekyll-github-pages-post.html
-        </loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <loc>http://localhost:4000/blog/posts/2014.02.04/first-jekyll-github-pages-post.html</loc>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
     </url>
     <url>
-        <loc>http://rudametw.github.io/blog/posts/2014.02.06/markdown-examples.html</loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <loc>http://localhost:4000/blog/posts/2014.02.06/markdown-examples.html</loc>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
     </url>
     <url>
-        <loc>
-            http://rudametw.github.io/blog/posts/2014.03.05/Thunderbird-leading-spaces-bug.html
-        </loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <loc>http://localhost:4000/blog/posts/2014.03.05/Thunderbird-leading-spaces-bug.html</loc>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://rudametw.github.io/blog/posts/2014.03.07/My-father-tortures-me-with-beautiful-sunny-pictures.html
+            http://localhost:4000/blog/posts/2014.03.07/My-father-tortures-me-with-beautiful-sunny-pictures.html
         </loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://rudametw.github.io/blog/posts/2014.03.12/Fr-alternate-keyboard-right-ctrl-key-bug.html
+            http://localhost:4000/blog/posts/2014.03.12/Fr-alternate-keyboard-right-ctrl-key-bug.html
         </loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://rudametw.github.io/blog/posts/2014.03.19/Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.html
+            http://localhost:4000/blog/posts/2014.03.19/Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.html
         </loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://rudametw.github.io/blog/posts/2014.03.23/Dell-e6430-touchpad-sensitivity.html
+            http://localhost:4000/blog/posts/2014.03.23/Dell-e6430-touchpad-sensitivity.html
         </loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://rudametw.github.io/blog/posts/2014.04.02/chrome-pdf-viewer-in-chromium-Fedora-20.html
+            http://localhost:4000/blog/posts/2014.04.02/chrome-pdf-viewer-in-chromium-Fedora-20.html
         </loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/blog/posts/2014.04.07/Chromium-video-acceleration.html</loc>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/blog/posts/2014.04.10/not-enough-threads.html</loc>
+        <lastmod>2016-11-07T19:40:34-08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/blog/</loc>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/contact/</loc>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/publications/</loc>
+        <lastmod>2016-07-22T06:58:32-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/research/cloud-monitoring-and-repair/</loc>
+        <lastmod>2016-07-22T06:58:32-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/research/dynamic-application-consistency/</loc>
+        <lastmod>2016-07-22T06:58:32-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/research/dynamic-apps-for-cloud-computing/</loc>
+        <lastmod>2016-07-22T06:58:32-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/research/optimisation-applications-cloud/</loc>
+        <lastmod>2016-07-22T06:58:32-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/research/</loc>
+        <lastmod>2016-07-22T06:58:32-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/teaching/</loc>
+        <lastmod>2016-07-22T06:58:32-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/</loc>
+        <lastmod>2016-11-07T19:40:34-08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/CICOMP/</loc>
+        <lastmod>2016-11-07T19:46:26-08:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/photos/2013.07.27_Saint_Malo/</loc>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
+    </url>
+    <url>
+        <loc>http://localhost:4000/photos/2013.12.13_Dad_fishing_trip/</loc>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
     </url>
     <url>
         <loc>
-            http://rudametw.github.io/blog/posts/2014.04.07/Chromium-video-acceleration.html
+            http://localhost:4000/photos/2014.01.16_Dad_keeps_torturing_me_with_these_pictures/
         </loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
     </url>
     <url>
-        <loc>http://rudametw.github.io/blog/posts/2014.04.10/not-enough-threads.html</loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <loc>http://localhost:4000/photos/2014.02.25_rennes_at_night/</loc>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
     </url>
     <url>
-        <loc>http://rudametw.github.io/blog/</loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <loc>http://localhost:4000/photos/2014.03.01_Rennes_market_and_oyster_snack/</loc>
+        <lastmod>2016-07-22T06:58:31-07:00</lastmod>
     </url>
     <url>
-        <loc>http://rudametw.github.io/contact/</loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
+        <loc>http://localhost:4000/photos/2014.03.04_Beach_Trip_to_La_Baule_and_Guerande/</loc>
+        <lastmod>2016-07-22T06:58:32-07:00</lastmod>
     </url>
     <url>
-        <loc>http://rudametw.github.io/publications/</loc>
-        <lastmod>2016-07-22T15:58:32+02:00</lastmod>
+        <loc>http://localhost:4000/photos/2014.03.09_Bonnets_Rouges_Walk_in_Rennes/</loc>
+        <lastmod>2016-07-22T06:58:32-07:00</lastmod>
     </url>
     <url>
-        <loc>http://rudametw.github.io/research/cloud-monitoring-and-repair/</loc>
-        <lastmod>2016-07-22T15:58:32+02:00</lastmod>
+        <loc>http://localhost:4000/photos/2014.03.23_Fisheye_at_Place_De_La_Marie_Rennes/</loc>
+        <lastmod>2016-07-22T06:58:32-07:00</lastmod>
     </url>
     <url>
-        <loc>http://rudametw.github.io/research/dynamic-application-consistency/</loc>
-        <lastmod>2016-07-22T15:58:32+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://rudametw.github.io/research/dynamic-apps-for-cloud-computing/</loc>
-        <lastmod>2016-07-22T15:58:32+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://rudametw.github.io/research/optimisation-applications-cloud/</loc>
-        <lastmod>2016-07-22T15:58:32+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://rudametw.github.io/research/</loc>
-        <lastmod>2016-07-22T15:58:32+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://rudametw.github.io/teaching/</loc>
-        <lastmod>2016-07-22T15:58:32+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://rudametw.github.io/</loc>
-        <lastmod>2016-07-22T16:53:25+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://rudametw.github.io/photos/2013.07.27_Saint_Malo/</loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://rudametw.github.io/photos/2013.12.13_Dad_fishing_trip/</loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://rudametw.github.io/photos/2014.01.16_Dad_keeps_torturing_me_with_these_pictures/
-        </loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://rudametw.github.io/photos/2014.02.25_rennes_at_night/</loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://rudametw.github.io/photos/2014.03.01_Rennes_market_and_oyster_snack/</loc>
-        <lastmod>2016-07-22T15:58:31+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://rudametw.github.io/photos/2014.03.04_Beach_Trip_to_La_Baule_and_Guerande/
-        </loc>
-        <lastmod>2016-07-22T15:58:32+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://rudametw.github.io/photos/2014.03.09_Bonnets_Rouges_Walk_in_Rennes/</loc>
-        <lastmod>2016-07-22T15:58:32+02:00</lastmod>
-    </url>
-    <url>
-        <loc>
-            http://rudametw.github.io/photos/2014.03.23_Fisheye_at_Place_De_La_Marie_Rennes/
-        </loc>
-        <lastmod>2016-07-22T15:58:32+02:00</lastmod>
-    </url>
-    <url>
-        <loc>http://rudametw.github.io/photos/</loc>
-        <lastmod>2016-07-22T16:42:54+02:00</lastmod>
+        <loc>http://localhost:4000/photos/</loc>
+        <lastmod>2016-07-22T07:42:54-07:00</lastmod>
     </url>
 </urlset>
