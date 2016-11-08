@@ -267,8 +267,8 @@ Hay una gran cantidad de temas para Jekyll que no existen como gems. Para usar e
 Listas de temas :  
 [https://drjekyllthemes.github.io/](https://drjekyllthemes.github.io/)  
 [http://jekyll.tips/templates/](http://jekyll.tips/templates/)  
-[]()
-[]()
+[http://themes.jekyllrc.org/](http://themes.jekyllrc.org/)  
+[https://jekyllthemes.io/](https://jekyllthemes.io/)
 []()
 
 
