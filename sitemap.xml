@@ -2,7 +2,7 @@
 <urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
     <url>
         <loc>http://localhost:4000/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html</loc>
-        <lastmod>2016-11-06T09:42:26-08:00</lastmod>
+        <lastmod>2016-11-07T20:29:45-08:00</lastmod>
     </url>
     <url>
         <loc>http://localhost:4000/blog/posts/2011.09.17/Linux-webdav-box.net.html</loc>
@@ -96,11 +96,11 @@
     </url>
     <url>
         <loc>http://localhost:4000/</loc>
-        <lastmod>2016-11-07T19:40:34-08:00</lastmod>
+        <lastmod>2016-11-07T20:29:45-08:00</lastmod>
     </url>
     <url>
         <loc>http://localhost:4000/CICOMP/</loc>
-        <lastmod>2016-11-07T19:46:26-08:00</lastmod>
+        <lastmod>2016-11-07T20:32:27-08:00</lastmod>
     </url>
     <url>
         <loc>http://localhost:4000/photos/2013.07.27_Saint_Malo/</loc>

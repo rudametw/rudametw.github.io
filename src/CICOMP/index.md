@@ -187,6 +187,12 @@ Otros directorios
 
 Si usted crea otros directorios, como por ejemplo un directorio img que contiene sus imágenes, estos serán copiados al sitio final.
 
+<hr />
+`Gemfile`
+
+Este archivo contiene las dependencias ruby para su sitio. Sirve para descargar y usar extensiones, plugins, temas y otras cosas.  
+[http://jekyll.tips/jekyll-casts/gemfiles-and-the-bundler/](http://jekyll.tips/jekyll-casts/gemfiles-and-the-bundler/)
+
 ## pages vs posts
 
 Existen dos tipos de página web en Jekyll, "pages" y "posts", o sea, pǽginas "normales" y entradas de blog.
@@ -196,6 +202,11 @@ La particularidad de las entradas de blog son que deben de estar en el directori
 
 Las páginas son especialmente útiles para páginas principales del sitio donde el URL es importante.  
 [https://jekyllrb.com/docs/pages/](https://jekyllrb.com/docs/pages/)
+
+##Ejemplo de markdown
+
+El código fuente de ésta página se encuentra aquí  
+[https://raw.githubusercontent.com/rudametw/rudametw.github.io/master/src/CICOMP/index.md](https://raw.githubusercontent.com/rudametw/rudametw.github.io/master/src/CICOMP/index.md)
 
 ## Temas y estilos
 
@@ -253,9 +264,9 @@ Otra lista aquí [https://github.com/planetjekyll/awesome-jekyll-themes#official
 
 Hay una gran cantidad de temas para Jekyll que no existen como gems. Para usar esos temas, basta descargar el archivo, descomprimirlo, y copiar los archivos a los directorios correspondientes de su sitio.
 
-Listas de temas :
-[https://drjekyllthemes.github.io/](https://drjekyllthemes.github.io/)
-[]()
+Listas de temas :  
+[https://drjekyllthemes.github.io/](https://drjekyllthemes.github.io/)  
+[http://jekyll.tips/templates/](http://jekyll.tips/templates/)  
 []()
 []()
 []()
@@ -293,7 +304,7 @@ Ligas para ayudar :
 []()
 []()
 
-
+<hr />
 #Git
 Git (pronunciado "guit" ) es un software de control de versiones diseñado por Linus Torvalds, pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando éstas tienen un gran número de archivos de código fuente.
 
@@ -371,6 +382,20 @@ Ejemplo de loop con liquid para listar todas las entradas del blog
 {% endraw %}
 ```
 
+Jekyll variables  
+[http://jekyll.tips/jekyll-cheat-sheet/](http://jekyll.tips/jekyll-cheat-sheet/)
+
+Jekyll Liquid cheat sheet :  
+[https://gist.github.com/smutnyleszek/9803727](https://gist.github.com/smutnyleszek/9803727)
+
+##Plugins
+
+[https://jekyllrb.com/docs/plugins/](https://jekyllrb.com/docs/plugins/)
+
+[http://jekyll.tips/jekyll-casts/using-jekyll-plugins/](http://jekyll.tips/jekyll-casts/using-jekyll-plugins/)
+
+##Templates
+[https://jekyllrb.com/docs/templates/](https://jekyllrb.com/docs/templates/)
 
 <!--Tree :-->
 
