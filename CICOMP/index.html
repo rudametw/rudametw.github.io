@@ -70,8 +70,161 @@
 
 <p>Advertencia: No soy experto Jekyll, solo un usuario ocasional. Commencé mi sitio en Jekyll en 2014 y me pareció que era una herramienta muy interesante. Desde entonces ha evolucionado mucho.</p>
 
+<h2>La máquina virtual</h2>
+
+<p>Vamos a instalar Linux dentro de una mǽquina virtual. Para empezar, necesitamos descarcargar un iso de cualquier distribución de Linux. Para éste tutorial, voy a suponer que usaron una distribución de la familia de Ubuntu, en particular Xubuntu.</p>
+
+<p>Debido a que las computadoras que estan usando son Windows 7 en 32 bits, el Linux deberá ser de 32 bits también.</p>
+
+<p>Si optan por Xubuntu, lo pueden descargar desde aquí:<br>
+<a href="https://xubuntu.org/getxubuntu/">https://xubuntu.org/getxubuntu/</a><br>
+(Ir a &quot;Mirror Downloads&quot;)</p>
+
+<p>Puede descargar Xubuntu 16.04 o 16.10, pero asegure que sea 32 bits (i386).</p>
+
+<h3>Preparando el BIOS</h3>
+
+<p>Las computadoras HP que estan usando tienen unas funciones de virtualización desactivadas, en particular las tecnologías VT-x y VT-d. Ésto inhibe ciertas optimizaciones de VirtualBox, por lo que conviene cambiar la configuración.</p>
+
+<p>Cuando arranque la mǽquina, presionar <code>F10</code> hasta entrar a la configuracón del BIOS. Enseguida entrar a <code>SECURITY -&gt; VIRTUALIZATION</code> donde va a activar <code>VT-x</code> y <code>VT-d</code> y desactivar las otras opciones de seguridad.</p>
+
+<p>Presione <code>F10</code> para cerrar la ventana de seguridad, luego vaya a <code>FILE</code> y guarde los cambios.</p>
+
+<h3>Preparando Windows 7</h3>
+
+<p>No hay mcho que hacer en Windows 7, no lo vamos a usar más que para descargar Linux. Sin embargo, Windows tiene varios servicios y programas activados, para minimizar los recursos desperdiciados proceda a desactivar el antivirus Nod32, CCleaner, así como cualquier otro programa.</p>
+
+<h3>Preparando VirtualBox</h3>
+
+<p>Proceda a la instalación de Linux dentro de una máquina virtual virtualbox.</p>
+
+<ul>
+<li>Presione New</li>
+<li>  Active la opción expert</li>
+<li>  Puede llamar su maquina virtual <code>CICOMP</code></li>
+<li>  Seleccione Linux, Ubuntu 32 bit</li>
+<li>  Crea un disco duro
+
+<ul>
+<li>Virtual VDI</li>
+<li>De unos 16 o 24 Gib</li>
+<li>Dynamico</li>
+</ul></li>
+<li>Termine la configuración</li>
+</ul>
+
+<p>Una vez la máquina creada, el disco duro está vacío y aún falta configurarla correctamente.</p>
+
+<ul>
+<li>Configure la máquina virtual CICOMP
+
+<ul>
+<li>Abra Settings</li>
+<li>Queremos configurar las siguientes opciones (busque bien!)
+
+<ul>
+<li>CPU : la mitad de los Cores o poquito más (de 4 à 6 si 8 cores)</li>
+<li>Active I/O Apic</li>
+<li>Video Memory: 64 Mib</li>
+<li>Acceleración 3d y 2d</li>
+<li>Sata: Use I/O host</li>
+<li>Shared folders
+
+<ul>
+<li>Configure el directorio Downloads para que sea compartido en modo lectura y escritura</li>
+</ul></li>
+</ul></li>
+<li>Busque el CDROM/IDE y configurelo para que apunte al iso Linux previamente descargado.</li>
+</ul></li>
+</ul>
+
+<p>Ya casi, ahora falta instalar Ubuntu</p>
+
+<ul>
+<li>Arranque la máquina virtual
+
+<ul>
+<li>Asegure que bootee sobre el iso Linux</li>
+<li>Configure el idioma</li>
+<li>Seleccione Instalar</li>
+<li>Siga las instrucciones</li>
+</ul></li>
+</ul>
+
+<!--+ Para usuario y clave puede usar algo como `cicomp` y `jekyll`.-->
+
+<p>Para terminar, regrese a los Settings y quite el iso del CDROM/IDE</p>
+
+<h3>Preparando Linux</h3>
+
+<p>Si todo va bien, su máquina Linux debe de bootear y usted puede hacer login.</p>
+
+<p>Ahora, abra una terminal Linux para los comandos que se deberán ejecutar</p>
+
+<p>Vamos a instalar las &quot;guest extensions&quot; de VirtualBox para facilitar la integración de Linux sobre windows.</p>
+
+<!--https://virtualboxes.org/doc/installing-guest-additions-on-ubuntu/-->
+
+<ul>
+<li>Presione <code>ctrl_derecha + home</code> y en el menu busque las virtualbox guest extensions.
+
+<ul>
+<li>VirtualBox acaba de conectar un iso a su Maquina virtual. Busque el directorio que contiene los archivos del iso.
+
+<ul>
+<li>Puede usar el comando <code>df</code> o usar un navegador de archivos.</li>
+</ul></li>
+<li>Una vez que encuente el directorio, ejecute el archivo <code>autorun.sh</code> en la terminal
+
+<ul>
+<li>El comando será algo como :
+
+<ul>
+<li><code>sh /media/cdrom/autorun.sh</code></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+
+<!--check vbox services-->
+
+<!--sudo /usr/bin/VBoxClient (double menos) -clipboard -->
+
+<!--shared downloads directory-->
+
+<!--automount-->
+
+<p>Ahora, instale un poco de software a su sistema :</p>
+
+<ul>
+<li>Para instalar un programa, use el comando <code>sudo apt install package</code> donde <code>package</code> es el programa que quiere instalar.</li>
+<li>Instale al menos
+
+<ul>
+<li>git, vim, htop, ruby-full, gedit</li>
+</ul></li>
+</ul>
+
+<p>Para desarrollo web se recomienda un editor decente. Les recomiendo sublime-text que es sencillo de usar. Para instalarlo en Ubuntu ejecute los comandos siguientes (<a href="https://launchpad.net/%7Ewebupd8team/+archive/ubuntu/sublime-text-3">instrucciones</a>
+) ;</p>
+
+<ul>
+<li>sudo add-apt-repository ppa:webupd8team/sublime-text-3</li>
+<li>sudo apt-get update</li>
+<li>sudo apt install sublime-text-installer</li>
+</ul>
+
+<p>Para usar sublime, el commando es <code>subl</code></p>
+
 <h2>Iniciando con Jekyll</h2>
 
+<p>Instalar ruby</p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">sudo apt install ruby-full
+</code></pre></figure>
+<p>Instalar jekyll y bundler</p>
+<figure class="highlight"><pre><code class="language-text" data-lang="text">sudo gem install jekyll
+sudo gem install bundler
+</code></pre></figure>
 <p>Crear un sitio jekyll nuevo</p>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">jekyll new mi_sitio
 </code></pre></figure>
@@ -270,8 +423,9 @@ Veremos más sobre como funcionan, en particular cuando usemos temas diferentes.
 <p>Cuando sepa donde está instalado el tema, puede ver su contenido con el comando <code>ls</code>, como por ejemplo </p>
 <figure class="highlight"><pre><code class="language-text" data-lang="text">ls -la /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
 </code></pre></figure>
-<p>Pude usar el comando <code>cd</code> para navegar al directorio y de ahi ver el contenido del tema. También puede usar un navegador de archivos gráfico como Nautilus para abrir el directorio.</p>
+<p>Pude usar el comando <code>cd</code> para navegar al directorio y de ahi ver el contenido del tema. También puede usar un navegador de archivos gráfico como Nautilus o Thunar para abrir el directorio.</p>
 <figure class="highlight"><pre><code class="language-text" data-lang="text">nautilus /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
+thunar /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
 </code></pre></figure>
 <p><strong>Estudie el contenido de los directorios <code>_layouts</code> y <code>_includes</code></strong></p>
 
@@ -408,11 +562,28 @@ git push -u origin master
 </code></pre></figure>
 <p>Abra el url que corresponde a su página, <a href="http://username.github.io">http://username.github.io</a></p>
 
-<p>Crear una cuenta github<br>
-Crear un repositorio para el codigo del proyecto<br>
-Crear un repositorio para el sitio</p>
+<h2>Ejercicio Github</h2>
 
-<p>Copiar los archivos del directorio _site al repositorio del sitio</p>
+<ul>
+<li>Crear una cuenta github</li>
+<li>Crear un repositorio para el codigo fuente de su proyecto
+
+<ul>
+<li>Una vez que tenga el repositorio creado en Github, initialice el repositorio dentro del directorio fuente de su sitio web.</li>
+<li>Agregue los archivos a git. Haga commit. Haga push para enviar los cambios
+
+<ul>
+<li>Asegure que el directorio _site no forma parte del commit (ver .gitignore)</li>
+</ul></li>
+</ul></li>
+<li>Crear un segundo repositorio para el sitio generado (no el codigo fuente sino el html que Jekyll genera)
+
+<ul>
+<li>Siga las convenciones de Github pages</li>
+<li>Copiar los archivos del directorio _site al repositorio</li>
+<li>Abra el url de su sitio nuevo.</li>
+</ul></li>
+</ul>
 
 <p><hr /></p>
 

@@ -10,7 +10,123 @@ Está participando en el taller Jekyll en el CICOMP 2016. Gracias por ser coneji
 
 Advertencia: No soy experto Jekyll, solo un usuario ocasional. Commencé mi sitio en Jekyll en 2014 y me pareció que era una herramienta muy interesante. Desde entonces ha evolucionado mucho.
 
+
+
+## La máquina virtual
+
+Vamos a instalar Linux dentro de una mǽquina virtual. Para empezar, necesitamos descarcargar un iso de cualquier distribución de Linux. Para éste tutorial, voy a suponer que usaron una distribución de la familia de Ubuntu, en particular Xubuntu.
+
+Debido a que las computadoras que estan usando son Windows 7 en 32 bits, el Linux deberá ser de 32 bits también.
+
+Si optan por Xubuntu, lo pueden descargar desde aquí:  
+[https://xubuntu.org/getxubuntu/](https://xubuntu.org/getxubuntu/)  
+(Ir a "Mirror Downloads")
+
+Puede descargar Xubuntu 16.04 o 16.10, pero asegure que sea 32 bits (i386).
+
+### Preparando el BIOS
+
+Las computadoras HP que estan usando tienen unas funciones de virtualización desactivadas, en particular las tecnologías VT-x y VT-d. Ésto inhibe ciertas optimizaciones de VirtualBox, por lo que conviene cambiar la configuración.
+
+Cuando arranque la mǽquina, presionar `F10` hasta entrar a la configuracón del BIOS. Enseguida entrar a `SECURITY -> VIRTUALIZATION` donde va a activar `VT-x` y `VT-d` y desactivar las otras opciones de seguridad.
+
+Presione `F10` para cerrar la ventana de seguridad, luego vaya a `FILE` y guarde los cambios.
+
+### Preparando Windows 7
+
+No hay mcho que hacer en Windows 7, no lo vamos a usar más que para descargar Linux. Sin embargo, Windows tiene varios servicios y programas activados, para minimizar los recursos desperdiciados proceda a desactivar el antivirus Nod32, CCleaner, así como cualquier otro programa.
+
+### Preparando VirtualBox
+
+Proceda a la instalación de Linux dentro de una máquina virtual virtualbox.
+
++ Presione New
++ 	Active la opción expert
++ 	Puede llamar su maquina virtual `CICOMP`
++ 	Seleccione Linux, Ubuntu 32 bit
++	Crea un disco duro
+	+ Virtual VDI
+	+ De unos 16 o 24 Gib
+	+ Dynamico
++ Termine la configuración
+
+ Una vez la máquina creada, el disco duro está vacío y aún falta configurarla correctamente.
+
++ Configure la máquina virtual CICOMP
+	+ Abra Settings
+	+ Queremos configurar las siguientes opciones (busque bien!)
+		+ CPU : la mitad de los Cores o poquito más (de 4 à 6 si 8 cores)
+		+ Active I/O Apic
+		+ Video Memory: 64 Mib
+		+ Acceleración 3d y 2d
+		+ Sata: Use I/O host
+		+ Shared folders
+			+ Configure el directorio Downloads para que sea compartido en modo lectura y escritura
+	+ Busque el CDROM/IDE y configurelo para que apunte al iso Linux previamente descargado.
+
+Ya casi, ahora falta instalar Ubuntu
+
++ Arranque la máquina virtual
+	+ Asegure que bootee sobre el iso Linux
+	+ Configure el idioma
+	+ Seleccione Instalar
+	+ Siga las instrucciones
+
+<!--+ Para usuario y clave puede usar algo como `cicomp` y `jekyll`.-->
+
+Para terminar, regrese a los Settings y quite el iso del CDROM/IDE
+
+### Preparando Linux
+
+Si todo va bien, su máquina Linux debe de bootear y usted puede hacer login.
+
+Ahora, abra una terminal Linux para los comandos que se deberán ejecutar
+
+Vamos a instalar las "guest extensions" de VirtualBox para facilitar la integración de Linux sobre windows.
+
+<!--https://virtualboxes.org/doc/installing-guest-additions-on-ubuntu/-->
+
++ Presione `ctrl_derecha + home` y en el menu busque las virtualbox guest extensions.
+	+ VirtualBox acaba de conectar un iso a su Maquina virtual. Busque el directorio que contiene los archivos del iso.
+		+ Puede usar el comando `df` o usar un navegador de archivos.
+	+ Una vez que encuente el directorio, ejecute el archivo `autorun.sh` en la terminal
+		+ El comando será algo como :
+			+ `sh /media/cdrom/autorun.sh`
+
+<!--check vbox services-->
+<!--sudo /usr/bin/VBoxClient (double menos) -clipboard -->
+<!--shared downloads directory-->
+<!--automount-->
+
+Ahora, instale un poco de software a su sistema :
+
+ + Para instalar un programa, use el comando `sudo apt install package` donde `package` es el programa que quiere instalar.
+ + Instale al menos
+	+ git, vim, htop, ruby-full, gedit
+
+Para desarrollo web se recomienda un editor decente. Les recomiendo sublime-text que es sencillo de usar. Para instalarlo en Ubuntu ejecute los comandos siguientes ([instrucciones](https://launchpad.net/~webupd8team/+archive/ubuntu/sublime-text-3)
+) ;
+
++ sudo add-apt-repository ppa:webupd8team/sublime-text-3
++ sudo apt-get update
++ sudo apt install sublime-text-installer
+
+Para usar sublime, el commando es `subl`
+
 ## Iniciando con Jekyll
+
+Instalar ruby
+
+```
+sudo apt install ruby-full
+```
+
+Instalar jekyll y bundler
+
+```
+sudo gem install jekyll
+sudo gem install bundler
+```
 
 Crear un sitio jekyll nuevo
 
@@ -223,10 +339,11 @@ Cuando sepa donde está instalado el tema, puede ver su contenido con el comando
 ls -la /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
 ```
 
-Pude usar el comando `cd` para navegar al directorio y de ahi ver el contenido del tema. También puede usar un navegador de archivos gráfico como Nautilus para abrir el directorio.
+Pude usar el comando `cd` para navegar al directorio y de ahi ver el contenido del tema. También puede usar un navegador de archivos gráfico como Nautilus o Thunar para abrir el directorio.
 
 ```
 nautilus /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
+thunar /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
 ```
 
 **Estudie el contenido de los directorios `_layouts` y `_includes`**
@@ -343,14 +460,17 @@ git push -u origin master
 Abra el url que corresponde a su página, [http://username.github.io](http://username.github.io)
 
 
+##Ejercicio Github
 
-Crear una cuenta github  
-Crear un repositorio para el codigo del proyecto  
-Crear un repositorio para el sitio
-
-Copiar los archivos del directorio _site al repositorio del sitio
-
-
++ Crear una cuenta github
++ Crear un repositorio para el codigo fuente de su proyecto
+	+ Una vez que tenga el repositorio creado en Github, initialice el repositorio dentro del directorio fuente de su sitio web.
+	+ Agregue los archivos a git. Haga commit. Haga push para enviar los cambios
+		+ Asegure que el directorio _site no forma parte del commit (ver .gitignore)
++ Crear un segundo repositorio para el sitio generado (no el codigo fuente sino el html que Jekyll genera)
+	+ Siga las convenciones de Github pages
+	+ Copiar los archivos del directorio _site al repositorio
+	+ Abra el url de su sitio nuevo.
 
 
 
