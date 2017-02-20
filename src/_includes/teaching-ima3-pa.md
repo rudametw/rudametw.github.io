@@ -51,7 +51,7 @@ Voici des supports pour le cours de Programmation Avancé. Je vous invite viveme
 
 Les sources LaTeX des supports ainsi que des exemples de code C vus en cours sont disponible dans ce dépôt github :
 
-[Supports](https://github.com/rudametw/supports_ima3_progav)
+[Supports LaTeX et exemples code C](https://github.com/rudametw/supports_ima3_progav)
 
 ##Travaux dirigés
 <!--[TD-Synthese-SD.pdf](ima3/TD-Synthese-SD.pdf) | -->
