@@ -47,6 +47,12 @@ Voici des supports pour le cours de Programmation Avancé. Je vous invite viveme
 [CM7-arbres-handouts-4pp.pdf](ima3/CM7-arbres-handouts-4pp.pdf) | 
 [CM7-arbres-handouts-6pp.pdf](ima3/CM7-arbres-handouts-6pp.pdf)  
 
+<hr />
+
+Les sources LaTeX des supports ainsi que des exemples de code C vus en cours sont disponible dans ce dépôt github :
+
+[Supports](https://github.com/rudametw/supports_ima3_progav)
+
 ##Travaux dirigés
 <!--[TD-Synthese-SD.pdf](ima3/TD-Synthese-SD.pdf) | -->
 [TD1.pdf](ima3/TD1.pdf) | 
