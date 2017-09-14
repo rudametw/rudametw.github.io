@@ -1,0 +1,6 @@
+<advancedsettings>
+  <video>
+    <subsdelayrange>180</subsdelayrange>  <!-- Delay range for subtitles, in seconds. -->
+    <audiodelayrange>180</audiodelayrange>  <!-- Delay range for audio/video sync, in seconds. -->
+  </video>
+</advancedsettings>
