@@ -3,7 +3,8 @@
 //=require vendor/jquery.fancybox.pack.js
 //=require custom
 //=require DeferCSS
-//=require recFp
+
+//old, points to antoine-vastel.fr, require recFp
 
 
     //this is where we apply opacity to the arrow
@@ -17,7 +18,7 @@
   //get height of window
   var windowHeight = $(window).height();
 
-  //set position as percentage of how far the user has scrolled 
+  //set position as percentage of how far the user has scrolled
   var position = topWindow / windowHeight;
   //invert the percentage
   position = 1 - position;
