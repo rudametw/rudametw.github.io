@@ -3,15 +3,15 @@ layout: large-page
 title: Courses | Walter Rudametkin] 
 ---
 
+			{% capture my_include %}{% include teaching-gbiaal-moodle.md %}{% endcapture %}
+            {{ my_include | markdownify }}
+
+	<hr>
    			{% capture my_include %}{% include teaching-ima3-pa.md %}{% endcapture %}
             {{ my_include | markdownify }}
-   
+
 	<hr>
    			{% capture my_include %}{% include teaching-ima2a4-cmo.md %}{% endcapture %}
-            {{ my_include | markdownify }}
-   
-	<hr>
-			{% capture my_include %}{% include teaching-gbiaal-moodle.md %}{% endcapture %}
             {{ my_include | markdownify }}
 
     <!--<hr>-->
