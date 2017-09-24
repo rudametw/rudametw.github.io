@@ -275,12 +275,6 @@ sudo gem install bundler
 <p>Crear un sitio jekyll nuevo</p>
 <figure class="highlight"><pre><code class="language-bash" data-lang="bash">jekyll new mi_sitio
 </code></pre></figure>
-<!--
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">--&gt;
-    &lt;!--jekyll new mi_sitio--&gt;
-&lt;!--</code></pre></figure>
--->
-
 <p>Entrar al directorio que fue creado</p>
 <figure class="highlight"><pre><code class="language-text" data-lang="text">cd mi_sitio
 </code></pre></figure>
@@ -362,16 +356,20 @@ Por cierto, si descarga un tema Jekyll desde internet, o si se basó en el sitio
 <p>Vamos a cubrir muy rápidamente la estructura de un sitio jekyll, pero es importante entender cada elemento. Si necesita mayor información consulte la documentación oficial<br>
 <a href="https://jekyllrb.com/docs/structure/">https://jekyllrb.com/docs/structure/</a></p>
 
-<p><hr />
-<code>_config.yml</code></p>
+<!--<hr />-->
+
+<hr>
+
+<p><code>_config.yml</code></p>
 
 <p>Este archivo contiene la configuración general del sitio. Usa un formato muy sencillo llamado yaml.</p>
 
 <p>Edite el archivo para empezar a llenar la información del sitio, puede comenzar por llenar el titulo del sitio, su correo electrónico, su usuario github (vamos a crear uno después si aun no tiene), usuario twitter, la descripción del sitio, etc.<br>
 <a href="https://jekyllrb.com/docs/configuration/">https://jekyllrb.com/docs/configuration/</a></p>
 
-<p><hr />
-<code>index.md</code></p>
+<hr>
+
+<p><code>index.md</code></p>
 
 <p>Esta es la página de inicio de su nuevo blog. Vea el contenido del archivo y note que inicia con un encabezado YAML. Las líneas que comienzan con <code>#</code> son comentarios.</p>
 <figure class="highlight"><pre><code class="language-yaml" data-lang="yaml">---
@@ -386,21 +384,24 @@ layout: home
 <p>Note que los archivos que no tienen un encabezado YAML serán copiados tal cual al sitio final. Esto le permite mezclar todo tipo de contenido en su sitio, o incluir archivos como imagenes o pdfs.<br>
 <a href="https://jekyllrb.com/docs/frontmatter/">https://jekyllrb.com/docs/frontmatter</a></p>
 
-<p><hr />
-<code>_layouts</code></p>
+<hr>
+
+<p><code>_layouts</code></p>
 
 <p>El directorio <code>_layouts</code> contiene los diseños de las páginas y las entradas de blog del sitio. La idea es que éstos archivos definen el diseño de cada tipo de página, y en el encabezado YAML uno define cual diseño usar. Un diseño va a proveer el código html y markdown que <em>envuelve</em> la página o la entrada de blog que escribe. Los diseños tienen derecho de incluir pedazos de código del directorio <code>_includes</code>.</p>
 
 <p>El tema por defecto, <code>minima</code>, tiene los diseños <code>default</code>, <code>home</code>, <code>page</code>, y <code>post</code>. Usted puede agregar los diseños que quiera, se puede basar en los diseños existentes (copiar y modificar los archivos de diseño del tema).</p>
 
-<p><hr />
-<code>_includes</code></p>
+<hr>
+
+<p><code>_includes</code></p>
 
 <p>Este directorio contendra los pedazos reutilizables de sus plantillas (&quot;templates&quot;). A veces se les conoce como parciales. Es común tener archivos con código html parcial para las cabezeras o pie de pǽginas, así como las barras de navegación.
 Veremos más sobre como funcionan, en particular cuando usemos temas diferentes.</p>
 
-<p><hr />
-<code>_posts</code></p>
+<hr>
+
+<p><code>_posts</code></p>
 
 <p>Este directorio contendrá las entradas de su blog. El término &#39;blog&#39; es flexible, hay muchos sitios que usan este directorio para entradas nuevas del sitio sin ser necesariamente un blog.</p>
 
@@ -409,13 +410,15 @@ Veremos más sobre como funcionan, en particular cuando usemos temas diferentes.
 
 <p>Por ejemplo, <code>2016-11-11-mi-primer-blog.md</code> es una entrada de blog válida siguiendo el formato markdown.</p>
 
-<p><hr />
-<code>about.md</code></p>
+<hr>
+
+<p><code>about.md</code></p>
 
 <p>El tema por defecto viene con éste archivo en el directorio principal del proyecto.  La ubicación del archivo puede ser molesto y no convenir a sus preferencias de organización del sitio por lo que muchos temas lo mueven de directorio. Recuerda que usted controla la ubicación de todos los archivos y el url en el que serán publicados.</p>
 
-<p><hr />
-<code>_site</code></p>
+<hr>
+
+<p><code>_site</code></p>
 
 <p>Este directorio contiene el sitio estático generado por Jekyll. Puede navegar en el directorio y ver todos los archivos. Es importante notar que los archivos que tenían encabezados YAML ahora son archivos .html completos.</p>
 
@@ -430,8 +433,9 @@ Veremos más sobre como funcionan, en particular cuando usemos temas diferentes.
 
 <p>Todos los URL finales son configurables, ya sea por su ubicación en el proyecto, o por que cambia la propiedad <code>permalink</code> del encabezado YAML.</p>
 
-<p><hr />
-<code>_data</code></p>
+<hr>
+
+<p><code>_data</code></p>
 
 <p>Pondremos elementos reutilisables, variables, y otras cosas en este directorio. Los datos pueden estar en archivos YAML, JSON o CSV.</p>
 
@@ -439,8 +443,9 @@ Veremos más sobre como funcionan, en particular cuando usemos temas diferentes.
 
 <p>Si usted crea otros directorios, como por ejemplo un directorio img que contiene sus imágenes, estos serán copiados al sitio final.</p>
 
-<p><hr />
-<code>Gemfile</code></p>
+<hr>
+
+<p><code>Gemfile</code></p>
 
 <p>Este archivo contiene las dependencias ruby para su sitio. Sirve para descargar y usar extensiones, plugins, temas y otras cosas.<br>
 <a href="http://jekyll.tips/jekyll-casts/gemfiles-and-the-bundler/">http://jekyll.tips/jekyll-casts/gemfiles-and-the-bundler/</a></p>
@@ -476,7 +481,7 @@ thunar /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
 </code></pre></figure>
 <p><strong>Estudie el contenido de los directorios <code>_layouts</code> y <code>_includes</code></strong></p>
 
-<p><hr /></p>
+<hr>
 
 <h3>Cambiar de tema</h3>
 
@@ -484,13 +489,13 @@ thunar /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
 
 <p>El tema también se puede sobreescribir si usted tiene archivos del mismo nombre y ubicación en su proyecto. Por ejemplo, si está usando un tema que le conviene pero que quiere modificar ligeramente, puede copiar los archivos del tema que desea modificar a su proyecto, y luego hacer las modificaciones pertinentes.</p>
 
-<p><hr /></p>
+<hr>
 
 <h4>Sin tema</h4>
 
 <p>Borre la propiedad <code>theme:</code>. Jekyll solo usará los elementos existentes dentro de su proyecto (usted deberá proveer todo los archivos de diseño). </p>
 
-<p><hr /></p>
+<hr>
 
 <h4>Instalando gems</h4>
 
@@ -507,7 +512,7 @@ thunar /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
 
 <p>Otra lista aquí <a href="https://github.com/planetjekyll/awesome-jekyll-themes#official-themes">https://github.com/planetjekyll/awesome-jekyll-themes#official-themes</a></p>
 
-<p><hr /></p>
+<hr>
 
 <h4>Descargando archivos zip</h4>
 
@@ -520,7 +525,7 @@ thunar /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
 <a href="https://jekyllthemes.io/">https://jekyllthemes.io/</a>
 <a href=""></a></p>
 
-<p><hr /></p>
+<hr>
 
 <h4>Descargando proyectos github</h4>
 
@@ -569,7 +574,7 @@ thunar /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
 <a href=""></a>
 <a href=""></a></p>
 
-<p><hr /></p>
+<hr>
 
 <h1>Git</h1>
 
@@ -632,7 +637,7 @@ git push -u origin master
 </ul></li>
 </ul>
 
-<p><hr /></p>
+<hr>
 
 <h1>Funciones avanzadas</h1>
 
