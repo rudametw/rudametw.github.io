@@ -17,4 +17,3 @@ _site/
 .sass-cache
 Gemfile.lock
 _site/
-pkg/
