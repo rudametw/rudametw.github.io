@@ -49,7 +49,7 @@
 
                     <div class="col-md-7">
                         <p>
-                            <strong>Telephone</strong> <span itemprop="telephone">(+33) 3 59 35 87 64 <br />
+                            <strong>Telephone</strong> <span itemprop="telephone">(+33) 3 59 35 87 64</span> <br />
                             <strong>Fax</strong> <span itemprop="faxNumber">&nbsp;&nbsp;Just email me :)</span> <br />
                             <strong>Work Email&nbsp;&nbsp;</strong> <a href="mailto:walter.rudametkin@univ&#8209;lille1.fr" itemprop="email">walter.rudametkin@univ-lille1.fr</a> <br />
                             <strong>Personal Email&nbsp;&nbsp;</strong><a href="mailto:rudametkin@gmail.com" itemprop="email">rudametkin@gmail.com</a>
