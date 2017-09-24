@@ -1,9 +1,9 @@
+#!/bin/bash
 #This builds a production site, makes sure urls are correctly set
 #Doesn't work because photos are no longer properly built!!!
 #jekyll build
 
 jekyll build --watch &
-
 JEKYLL_PID=$!
 
 echo
@@ -11,20 +11,27 @@ echo "Jekyll running with PID = $JEKYLL_PID"
 echo
 
 #Build clean version of site with production urls
-sleep 7
+sleep 9
+sleep 1
+echo
+echo "***********************"
+echo "  REGENERATING PHOTOS"
+echo "***********************"
 touch index.html
-
-echo "Finished first sleep, site should be valid in a couple of seconds"
 sleep 7
+sleep 1
 
 echo
 echo
 echo "Testing length _site/photos/index.html"
 echo
 LENGTH=`cat _site/photos/index.html | wc -l`
-if [[ $LENGTH -lt 10 ]];
+if [[ $LENGTH -lt 10 ]]  ||  [[ ! -f _site/photos/index.html ]] ;
 then
-	echo "Error, photos not properly created, size " $LENGTH
+	echo "ERROR, photos not properly created, length " $LENGTH
+	#kill $JEKYLL_PID
+	trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
+	#wait
 	exit 1
 fi
 
@@ -34,9 +41,11 @@ echo "Testing for localhost in _site/sitemap.xml"
 echo
 #LENGTH=`cat _site/photos/index.html | wc -l`
 LENGTH=`grep localhost _site/sitemap.xml | wc -l`
-if [[ $LENGTH -gt 0 ]];
+if [[ $LENGTH -gt 0 ]]  ||  [[ ! -f _site/sitemap.xml ]] ;
 then
-	echo "Error, localhost is in sitemap.xml, number of occurrences = " $LENGTH
+	echo "ERROR, localhost is in sitemap.xml or sitemap.xml doesn't exist, number of occurrences = " $LENGTH
+	#kill $JEKYLL_PID
+	trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
 	exit 1
 fi
 
@@ -53,7 +62,10 @@ sleep 1
 'cp' -uvarf _site/* ../ && git add ../ && echo "***** git status *****" && git status  && git commit -m "Update site" && git push
 
 sleep 3
-echo "kill $JEKYLL_PID"
-kill $JEKYLL_PID
-wait
+echo
+echo "Jekyll was PID $JEKYLL_PID, should be dead"
+trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
+#kill $JEKYLL_PID
+#wait
 echo "Jekyll finished"
+
