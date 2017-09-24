@@ -53,6 +53,7 @@ sleep 1
 'cp' -uvarf _site/* ../ && git add ../ && echo "***** git status *****" && git status  && git commit -m "Update site" && git push
 
 sleep 3
+echo "kill $JEKYLL_PID"
 kill $JEKYLL_PID
 wait
 echo "Jekyll finished"
