@@ -16,7 +16,7 @@ categories: [linux, nslu2, work-in-progress]
     </div>
 </div>
 
-<hr>
+---
 
 It's easy to setup additional IP addresses on Debian Linux. This is particularly useful for the NSLU which doesn't have a display so you need to remotely connect to it.
 

@@ -134,9 +134,6 @@ Crear un sitio jekyll nuevo
 jekyll new mi_sitio
 ```
 
-<!--{% highlight bash%}-->
-	<!--jekyll new mi_sitio-->
-<!--{% endhighlight %}-->
 
 Entrar al directorio que fue creado
 
@@ -220,7 +217,8 @@ Por cierto, si descarga un tema Jekyll desde internet, o si se basó en el sitio
 Vamos a cubrir muy rápidamente la estructura de un sitio jekyll, pero es importante entender cada elemento. Si necesita mayor información consulte la documentación oficial  
 [https://jekyllrb.com/docs/structure/](https://jekyllrb.com/docs/structure/)
 
-<hr />
+<!--<hr />-->
+---
 `_config.yml`
 
 Este archivo contiene la configuración general del sitio. Usa un formato muy sencillo llamado yaml.
@@ -228,7 +226,7 @@ Este archivo contiene la configuración general del sitio. Usa un formato muy se
 Edite el archivo para empezar a llenar la información del sitio, puede comenzar por llenar el titulo del sitio, su correo electrónico, su usuario github (vamos a crear uno después si aun no tiene), usuario twitter, la descripción del sitio, etc.  
 [https://jekyllrb.com/docs/configuration/](https://jekyllrb.com/docs/configuration/)
 
-<hr />
+---
 `index.md`
 
 Esta es la página de inicio de su nuevo blog. Vea el contenido del archivo y note que inicia con un encabezado YAML. Las líneas que comienzan con `#` son comentarios.
@@ -247,7 +245,7 @@ Todo archivo que tenga un encabezado YAML sera transformado por jekyll al constr
 Note que los archivos que no tienen un encabezado YAML serán copiados tal cual al sitio final. Esto le permite mezclar todo tipo de contenido en su sitio, o incluir archivos como imagenes o pdfs.  
 [https://jekyllrb.com/docs/frontmatter](https://jekyllrb.com/docs/frontmatter/)
 
-<hr />
+---
 `_layouts`
 
 El directorio `_layouts` contiene los diseños de las páginas y las entradas de blog del sitio. La idea es que éstos archivos definen el diseño de cada tipo de página, y en el encabezado YAML uno define cual diseño usar. Un diseño va a proveer el código html y markdown que _envuelve_ la página o la entrada de blog que escribe. Los diseños tienen derecho de incluir pedazos de código del directorio `_includes`.
@@ -255,14 +253,14 @@ El directorio `_layouts` contiene los diseños de las páginas y las entradas de
 El tema por defecto, `minima`, tiene los diseños `default`, `home`, `page`, y `post`. Usted puede agregar los diseños que quiera, se puede basar en los diseños existentes (copiar y modificar los archivos de diseño del tema).
 
 
-<hr />
+---
 `_includes`
 
 Este directorio contendra los pedazos reutilizables de sus plantillas ("templates"). A veces se les conoce como parciales. Es común tener archivos con código html parcial para las cabezeras o pie de pǽginas, así como las barras de navegación.
 Veremos más sobre como funcionan, en particular cuando usemos temas diferentes.
 
 
-<hr />
+---
 `_posts`
 
 Este directorio contendrá las entradas de su blog. El término 'blog' es flexible, hay muchos sitios que usan este directorio para entradas nuevas del sitio sin ser necesariamente un blog.
@@ -273,12 +271,12 @@ Cada entrada de blog debe ser contenido dentro de un archivo cuyo nombre deberá
 Por ejemplo, `2016-11-11-mi-primer-blog.md` es una entrada de blog válida siguiendo el formato markdown.
 
 
-<hr />
+---
 `about.md`
 
 El tema por defecto viene con éste archivo en el directorio principal del proyecto.  La ubicación del archivo puede ser molesto y no convenir a sus preferencias de organización del sitio por lo que muchos temas lo mueven de directorio. Recuerda que usted controla la ubicación de todos los archivos y el url en el que serán publicados.
 
-<hr />
+---
 `_site`
 
 Este directorio contiene el sitio estático generado por Jekyll. Puede navegar en el directorio y ver todos los archivos. Es importante notar que los archivos que tenían encabezados YAML ahora son archivos .html completos.
@@ -294,7 +292,7 @@ Por ejemplo,
 
 Todos los URL finales son configurables, ya sea por su ubicación en el proyecto, o por que cambia la propiedad `permalink` del encabezado YAML.
 
-<hr />
+---
 `_data`
 
 Pondremos elementos reutilisables, variables, y otras cosas en este directorio. Los datos pueden estar en archivos YAML, JSON o CSV.
@@ -303,7 +301,7 @@ Otros directorios
 
 Si usted crea otros directorios, como por ejemplo un directorio img que contiene sus imágenes, estos serán copiados al sitio final.
 
-<hr />
+---
 `Gemfile`
 
 Este archivo contiene las dependencias ruby para su sitio. Sirve para descargar y usar extensiones, plugins, temas y otras cosas.  
@@ -348,19 +346,19 @@ thunar /usr/lib/ruby/gems/2.3.0/gems/minima-2.0.0
 
 **Estudie el contenido de los directorios `_layouts` y `_includes`**
 
-<hr />
+---
 ###Cambiar de tema
 
 Dentro del archivo `_config.yml` puede cambiar o borrar la propiedad `theme: minima`. Recuerda que al cambiar el tema, los diseños (dentro del directorio `_layout`) pueden cambiar de nombre.
 
 El tema también se puede sobreescribir si usted tiene archivos del mismo nombre y ubicación en su proyecto. Por ejemplo, si está usando un tema que le conviene pero que quiere modificar ligeramente, puede copiar los archivos del tema que desea modificar a su proyecto, y luego hacer las modificaciones pertinentes.
 
-<hr />
+---
 ####Sin tema
 
 Borre la propiedad `theme:`. Jekyll solo usará los elementos existentes dentro de su proyecto (usted deberá proveer todo los archivos de diseño). 
 
-<hr />
+---
 ####Instalando gems
 
 La comunidad ruby provee una gran cantidad de paquetes que son facilmente instalables desde su repositorio central. Algunos temas Jekyll también están disponibles, por lo que puede instalarlos desde ahí.
@@ -376,7 +374,7 @@ La lista de gems los puede encontrar en [http://bestgems.org/search?q=jekyll+the
 
 Otra lista aquí [https://github.com/planetjekyll/awesome-jekyll-themes#official-themes](https://github.com/planetjekyll/awesome-jekyll-themes#official-themes)
 
-<hr />
+---
 ####Descargando archivos zip
 
 Hay una gran cantidad de temas para Jekyll que no existen como gems. Para usar esos temas, basta descargar el archivo, descomprimirlo, y copiar los archivos a los directorios correspondientes de su sitio.
@@ -389,7 +387,7 @@ Listas de temas :
 []()
 
 
-<hr />
+---
 ####Descargando proyectos github
 
 El proceso es similar a los archivos zip, es solo que la forma de descargar el proyecto es diferente. Deberá clonar el repositorio con el comando `git clone`, y de ahí copiar los archivos a su sitio, o copiar los archivos de su sitio al repositorio clonado.
@@ -421,7 +419,7 @@ Ligas para ayudar :
 []()
 []()
 
-<hr />
+---
 #Git
 Git (pronunciado "guit" ) es un software de control de versiones diseñado por Linus Torvalds, pensando en la eficiencia y la confiabilidad del mantenimiento de versiones de aplicaciones cuando éstas tienen un gran número de archivos de código fuente.
 
@@ -474,7 +472,7 @@ Abra el url que corresponde a su página, [http://username.github.io](http://use
 
 
 
-<hr />
+---
 
 # Funciones avanzadas
 
