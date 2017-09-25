@@ -45,10 +45,10 @@
 
 <!--======  synchronous =====-->
 <!-- Add custom CSS here -->
- {% stylesheet main %} 
+ {% stylesheet main %}
 
 <!-- Main Javascript -->
- {% javascript main.js %} 
+<!--{% javascript main.js %} -->
 <!--======  /synchronous =====-->
 
 <!--======  asynchronous =====-->
@@ -60,10 +60,11 @@
       <!--stylesheet.type = 'text/css';-->
       <!--document.getElementsByTagName('head')[0].appendChild(stylesheet);-->
 <!--</script>-->
-<!--======  /asynchronous =====-->
 
 <!--This option was used to defer javascript to load asynchronously, put in in footer for quick loading then asyncing page after-->
-<!--<script async type="text/javascript" src="{% asset_path main.js %}"></script>-->
+<script async type="text/javascript" src="{% asset_path main.js %}"></script>
+
+<!--======  /asynchronous =====-->
 
 <!-- <script> -->
 <!-- loadStyleSheet({% asset_path main.css %}); -->
