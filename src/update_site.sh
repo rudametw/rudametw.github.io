@@ -3,7 +3,8 @@
 #Doesn't work because photos are no longer properly built!!!
 #jekyll build
 
-jekyll build --watch &
+#jekyll build --watch &
+bundle exec jekyll build --watch &
 JEKYLL_PID=$!
 
 echo
