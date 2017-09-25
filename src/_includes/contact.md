@@ -10,7 +10,7 @@
                 </h1>
 
                 <h2>
-                    <span itemprop="jobTitle">Associate Professor</span> &mdash; <span itemprop="affiliation">Université de Lille 1</span>
+                    <span itemprop="jobTitle">Associate Professor</span> &mdash; <span itemprop="affiliation">University of Lille</span>
                 </h2>
                 <hr>
                 <h3>
@@ -18,7 +18,7 @@
                 </h3>
                 <hr>
                 <h3>
-                    <span itemprop="affiliation">Teaching unit: Polytech'Lille</span>
+                    <span itemprop="affiliation">Teaching unit: Polytech Lille</span>
                 </h3>
                 <hr>
                 <h3>Work Address</h3>
