@@ -60,13 +60,14 @@ sleep 1
 #Copy locally
 #'cp' -uvarf _site/* ../
 #Update site files, commit and push
-#'cp' -uarf _site/* ../ && git add ../ && echo "***** git status *****" && git status  && git commit -m "Update site" && git push
 'cp' -uvarf _site/* ../ && git add ../ && echo "***** git status *****" && git status  && git commit -m "Update site" && git push
 
 sleep 3
 echo
 echo "Jekyll was PID $JEKYLL_PID, should be dead"
 trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
+sleep 3
+echo
 #kill $JEKYLL_PID
 #wait
 echo "Jekyll finished"
