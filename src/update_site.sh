@@ -60,6 +60,7 @@ sleep 1
 #Copy locally
 #'cp' -uvarf _site/* ../
 #Update site files, commit and push
+#'cp' -uarf _site/* ../ && git add ../ && echo "***** git status *****" && git status  && git commit -m "Update site" && git push
 'cp' -uvarf _site/* ../ && git add ../ && echo "***** git status *****" && git status  && git commit -m "Update site" && git push
 
 sleep 3
