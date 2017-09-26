@@ -65,7 +65,7 @@ sleep 1
 sleep 3
 echo
 echo "Jekyll was PID $JEKYLL_PID, should be dead"
-trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
+#trap "trap - SIGTERM && kill -- -$$" SIGINT SIGTERM EXIT
 sleep 3
 echo
 #kill $JEKYLL_PID
