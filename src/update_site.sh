@@ -60,7 +60,7 @@ sleep 1
 #Copy locally
 #'cp' -uvarf _site/* ../
 #Update site files, commit and push
-'cp' -uvarf _site/* ../ && git add ../ && 'rm' ../debug.log  && echo "***** git status *****" && git status  && git commit -m "Update site" && git push
+'cp' -uvarf _site/* ../ && echo "REMOVING ../debug.log" && git add ../ && 'rm' ../debug.log  && echo "***** git status *****" && git status  && git commit -m "Update site" && git push
 #rm ../debug.log
 
 sleep 3
