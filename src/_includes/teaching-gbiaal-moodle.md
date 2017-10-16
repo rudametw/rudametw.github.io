@@ -47,36 +47,47 @@ Voici des supports pour le cours de base de données.
 
 ##Travaux pratiques
 
-####TP1 Tableur et cohérence de données
-[Sujet de TP1](gbiaal4sgbd/td_tp/TP1-tableur.pdf)
+####TP1 Modélisation en UML
+[Sujet de TP1](gbiaal4sgbd/td_tp/TP1-modelisation.pdf)
 
-[Fichier Calc/Excel avec les données](gbiaal4sgbd/td_tp/TP1-tableur.ods)
+####TP2 SQL1
+[Sujet de TP2 &mdash; On connait la chanson](gbiaal4sgbd/td_tp/TP2-SQL1-Chansons.pdf)
 
-####TP2 Modélisation en UML
-[Sujet de TP2](gbiaal4sgbd/td_tp/TP2-modelisation.pdf)
-
-####TP3 SQL1 (1/3)
-[Sujet de TP3 -- On connait la chanson](gbiaal4sgbd/td_tp/TP3-SQL1-Chansons.pdf)
-
+[Fichier SQL imprimable](gbiaal4sgbd/td_tp/chansons.sql.black.pdf)
+|
 [Fichier SQL pour créer la base de données chansons](gbiaal4sgbd/td_tp/chansons.sql)
 
 <!--
 [TP3 corrigé](gbiaal4sgbd/td_tp/TP3-SQL1-Chansons-avec-corrections.pdf)
 -->
 
-####TP4 SQL2 (2/3)
-[Sujet de TP4 -- On connait la chanson (requêtes update/alter)](gbiaal4sgbd/td_tp/TP4-SQL2-Chansons-deuxieme_partie.pdf)
+####TP3 SQL2
+[Sujet de TP3 &mdash; On connait la chanson (requêtes update/alter)](gbiaal4sgbd/td_tp/TP3-SQL2-Chansons-deuxieme_partie.pdf)
 
 <!--
 [Requêtes SQL du TP4 corrigées](gbiaal4sgbd/td_tp/TP4-SQL2-Chansons-deuxieme-partie-corrige.sql)
 -->
 
-####TP5 (SQL 3/3) -- Étudiants à l'étranger
-[Sujet de TP5 -- Étudiants à l'étranger](gbiaal4sgbd/td_tp/TP5-SQL3-Etudiants-etrangers.pdf)
+####TP4 SQL3 &mdash; Étudiants à l'étranger
+
+<!--
+[Sujet de TP4 - Étudiants à l'étranger](gbiaal4sgbd/td_tp/TP4-SQL3-Etudiants-etrangers.pdf)
+-->
+
+[Sujet de TP4 &mdash; Étudiants à l'étranger](gbiaal4sgbd/td_tp/TP-Etudiants-etrangers.pdf)
 
 [Fichier SQL pour créer les relations](gbiaal4sgbd/td_tp/relationsEtudiants.sql)
 
 [Fichier SQL pour insérer les données](gbiaal4sgbd/td_tp/donneesEtudiants.sql)
+
+[Fichier Calc/Excel avec les données](gbiaal4sgbd/td_tp/BDExcel.ods)
+
+
+####TP Notés Années Précedentes
+
+[TP Noté 2015 &mdash; Sujet "VideoClub"](gbiaal4sgbd/td_tp/TP-Noté-2015-videoclub.pdf)
+
+[TP Noté 2016 &mdash; Sujet "Course Bateau"](gbiaal4sgbd/td_tp/TP-Noté-2016-coursebateau.pdf)
 
 
 ##MOOC complémentaire à ce cours
