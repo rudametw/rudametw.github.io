@@ -4,6 +4,9 @@ Bonjour étudiants de Polytech'Lille Informatique et Microélectronique Automati
 
 Voici des supports pour le cours de Programmation Avancé. Je vous invite vivement à les reviser, analyser et critiquer. Si vous avez des questions merci de me contacter par mail ou d'envoyer votre question/remarque sur la liste de diffusion ima3 en me mettant en copie.
 
+Vous trouverez egalement les sources sur github
+[https://github.com/rudametw/supports\_ima3\_progav](https://github.com/rudametw/supports\_ima3\_progav)
+
 ##Support du Cours
 
 <!--[0 Introduction.pdf](ima3/CM0-Intro.pdf) |-->
