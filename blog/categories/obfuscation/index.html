@@ -9,9 +9,9 @@
 <meta name="author" content="Walter Rudametkin">
 <link rel="author" href="https://plus.google.com/+WalterRudametkin">
 
-<title>Blog | Walter Rudametkin</title>
+<title>category:&nbsp;Obfuscation</title>
 
-
+<meta name="description" content="Category: Obfuscation">
 
 <!-- Add custom CSS here -->
 <!-- <link type="text/css" rel="stylesheet" href="/assets/main.css"> -->
@@ -106,23 +106,29 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8">
-                               
-                        <h1><a href="/blog/posts/2017.10.01/presentation-obfuscation.html">Obfuscation</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/Obfuscation/"><span class="label label-primary">Obfuscation</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2017.10.01 
-                        
-                                &nbsp;
-                        
-                        <hr>
+                <h1 class="category">
+                    Category &nbsp;&nbsp; <span class="label label-warning">Obfuscation</span>
+                </h1>
 
-                        <p>This post is a general presentation about obfuscation and has been inspired by two sources:
+                <!-- blog entry -->
+                
+                <hr>
+                <h1>
+                    <a href="/blog/posts/2017.10.01/presentation-obfuscation.html">Obfuscation</a>
+                </h1>
+
+                <p class="lead">
+                    by <a href="/contact/">Walter Rudametkin</a> &nbsp;&nbsp;&nbsp;
+                     
+                        <a href="/blog/categories/Obfuscation/"> <span class="label label-primary">Obfuscation</span></a> 
+                    
+                </p>
+
+                <span class="glyphicon glyphicon-time"></span> Posted 2017.10.01 
+                &nbsp; 
+                <hr>
+
+                <p>This post is a general presentation about obfuscation and has been inspired by two sources:
 - <a href="http://www.dsi.unive.it/%7Eavp/collberg97taxonomy.pdf">A taxonomy of obfuscation transformations</a>
 - A <a href="https://fr.slideshare.net/auditmark/owasp-eu-tour-2013-lisbon-pedro-fortuna-protecting-java-script-source-code-using-obfuscation">presentation</a> of Pedro Fortuna, founder of <a href="https://jscrambler.com/">JSCrambler</a></p>
 
@@ -548,385 +554,8 @@ A <strong>&quot;+&quot;</strong> character indicates that the value of the metri
 This post also didn&#39;t tackle the complexity of creating efficient opaque predicates capable of resisting to deobfuscators.
 These different points may be treated in future posts on obfuscation.
 Meanwhile, you can refer to this <a href="http://www.dsi.unive.it/%7Eavp/collberg97taxonomy.pdf">article</a> for more details.</p>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2017.10.01/presentation-obfuscation.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
-                        <h1><a href="/blog/posts/2014.04.10/not-enough-threads.html">Not enough threads or processes &#58; "thread create failed"</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/bug/"><span class="label label-primary">bug</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2014.04.10 
-                        
-                                &mdash; Rennes, France
-                        
-                        <hr>
-
-                        <p>I started running into a weird problem that I didn&#39;t immediately identify. Some programs just started failing: libreoffice, chrome, chromium, firefox, eclipse, ...</p>
-
-<p>It was quite undeterministic and depended on the system ressources being fairly well used. I thought it was a RAM issue, not having enough memory would cause programs to fail. I have somewhat agressive ram settings, but, I also have 16 GB of RAM on my computer. Well, it wasn&#39;t a memory issue, I was able to reproduce the issue with loads of memory still left over.</p>
-
-<p>Here&#39;s some of the messages I was getting.</p>
-
-<p><em>Libreoffice:</em> (similar bug <a href="https://bugs.freedesktop.org/show_bug.cgi?id=73300">here</a>)</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">osl::Thread::create failed</code></pre></figure>
-
-<p><em>Java:</em></p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">java.lang.OutOfMemoryError: unable to create new native thread.</code></pre></figure>
-
-<p><em>Chrome and Chromium:</em></p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">pthread_create error: Resource temporarily unavailable</code></pre></figure>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2014.04.10/not-enough-threads.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
-                        <h1><a href="/blog/posts/2014.04.07/Chromium-video-acceleration.html">Make chromium faster with video acceleration</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/chromium/"><span class="label label-primary">chromium</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/feature/"><span class="label label-primary">feature</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2014.04.07 
-                        
-                                &mdash; Rennes, France
-                        
-                        <hr>
-
-                        <p>I tried this on my Dell e6530 and it seems to work pretty good.</p>
-
-<p><a href="http://www.borfast.com/blog/how-enable-webgl-google-chrome-linux-blacklisted-graphics-card">http://www.borfast.com/blog/how-enable-webgl-google-chrome-linux-blacklisted-graphics-card</a></p>
-
-<p>For video acceleration : 
-Go to <code>chrome://flags</code> &#8594; <code>Override software rendering list</code> &#8594; Set to <code>Enable</code></p>
-
-<p>This works for both Chrome and Chromium.</p>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2014.04.07/Chromium-video-acceleration.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
-                        <h1><a href="/blog/posts/2014.04.02/chrome-pdf-viewer-in-chromium-Fedora-20.html">Add Chrome PDF Viewer to Chromium on Fedora 20 x86_64</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/chromium/"><span class="label label-primary">chromium</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/feature/"><span class="label label-primary">feature</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2014.04.02 
-                        
-                                &mdash; Rennes, France
-                        
-                        <hr>
-
-                        <p>I really would like a PDF reader that saves the open pdf files in tabs, like a browser does. It would let me get back to reading whatever I was reading after a restart. Currently, I try to restart as little as possible, usually between 20 and 40 days in order to save all my open stuff. I would use Mendeley except the open tabs feature request has been open since 2009 and not implemented yet!!! <a href="http://feedback.mendeley.com/forums/4941-general/suggestions/263198-remember-open-tabs-and-position-within-pdfs">http://feedback.mendeley.com/forums/4941-general/suggestions/263198-remember-open-tabs-and-position-within-pdfs</a>.</p>
-
-<p>My answer for PDFs is to use my browser to store my open files. It might be a little overkill but it does the job decent enough. I mainly use Firefox + mozplugger + evince, but I also use the Chrome and Chromium browsers for different things including reading PDFs. Chrome has a simple PDF plugin that I like and its pretty fast, but Chromium doesn&#39;t have it because of licensing issues.</p>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2014.04.02/chrome-pdf-viewer-in-chromium-Fedora-20.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
-                        <h1><a href="/blog/posts/2014.03.23/Dell-e6430-touchpad-sensitivity.html">Reduce touchpad sensitivity on a Dell e6430</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/feature/"><span class="label label-primary">feature</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2014.03.23 
-                        
-                                &mdash; Rennes, France
-                        
-                        <hr>
-
-                        <p>I find the touchpad on my laptop way to sensitive by default. To change it, I&#39;ve found the following settings comfortable:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">xinput set-prop &quot;AlpsPS/2 ALPS DualPoint TouchPad&quot; &quot;Synaptics Finger&quot; 18 18 18</code></pre></figure>
-
-<p>I also have a wireless mouse that I sometimes use. It&#39;s way to sensitive. The following command makes it useable:</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">xinput set-prop &quot;HP Wireless Optical Mobile Mouse&quot; &quot;Device Accel Adaptive Deceleration&quot; 1.5</code></pre></figure>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2014.03.23/Dell-e6430-touchpad-sensitivity.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
-                        <h1><a href="/blog/posts/2014.03.19/Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.html">Acrobat reader cannot find libEGL.so.1 &#58; Fedora 20</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/bug/"><span class="label label-primary">bug</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2014.03.19 
-                        
-                                &mdash; Rennes, France
-                        
-                        <hr>
-
-                        <p>I use acrobat reader sometimes, like when people send me an annotated pdf or if Evince doesn&#39;t print it properly. My main pdf reader is Evince, but it&#39;s a bit buggy. Also, I use okular to annotate pdfs, which it does a fine job at.</p>
-
-<p>Anyhow, I was getting the following error after applying some updates: </p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">acroread: error while loading shared libraries: libEGL.so.1: cannot open shared object file: No such file or directory</code></pre></figure>
-
-<p>It took me a while to track down the problem, which has a simple solution, just find the missing symbolic link. I ran into this page that describes the issue but nobody had provided the proper command <a href="http://forums.fedoraforum.org/showthread.php?t=297151">http://forums.fedoraforum.org/showthread.php?t=297151</a>.</p>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2014.03.19/Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
-                        <h1><a href="/blog/posts/2014.03.12/Fr-alternate-keyboard-right-ctrl-key-bug.html">Fr alternative keyboard layout bug (fr-oss)&#58; right ctrl key not working</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/bug/"><span class="label label-primary">bug</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2014.03.12 
-                        
-                                &mdash; Rennes, France
-                        
-                        <hr>
-
-                        <p>I really like the &#39;alternative&#39; french keyboard layout on my computer, a.k.a fr-oss. I like to use the deadkeys for accents in french and spanish, and I really like the alt-gr + ctrl# for doing arrows and stuff like that.</p>
-
-<p>Earlier this year on my Fedora laptop (F20) for work the right ctrl key stopped working. It sucked because ctrl-arrows no longer jump through words in text documents. VLC right ctrl+Up/Down no longer changed the volume either, making me have to use both hands just for that. I figured it was a bug in Fedora so I found a neat command to fix the mapping while I waited for the problem to be fixed. However, some time later it happened to my wife&#39;s Ubuntu laptop and looking into it I found that the problem is comes from higher up the chain.</p>
-
-<p>Someone decided to map right ctrl to something &quot;new&quot; instead of letting it be the same as the left ctrl key. Sure, if programs used the &quot;new right control&quot; it might be great and super useful. But they don&#39;t, so the key does nothing. Kind of beats the purpose, huh?</p>
-
-<p><a href="https://bugs.freedesktop.org/show_bug.cgi?id=15804#c44">https://bugs.freedesktop.org/show_bug.cgi?id=15804#c44</a></p>
-
-<p>To fix the problem, here&#39;s the command you can run.</p>
-
-<figure class="highlight"><pre><code class="language-bash" data-lang="bash">xmodmap -e &#39;keycode 105 = Control_R&#39; -e &#39;clear Control&#39; -e &#39;add Control = Control_L Control_R&#39;</code></pre></figure>
-
-<p>However...</p>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2014.03.12/Fr-alternate-keyboard-right-ctrl-key-bug.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
-                        <h1><a href="/blog/posts/2014.03.07/My-father-tortures-me-with-beautiful-sunny-pictures.html">My father tortures me with beautiful, sunny pictures while I'm stuck in the rain</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/life/"><span class="label label-primary">life</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/fishing/"><span class="label label-primary">fishing</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2014.03.07 
-                        
-                                &mdash; Rennes, France and Ensenada, Mexico
-                        
-                        <hr>
-
-                        <p>My Dad is a wonderful person and loves his children a lot, but as of late, he&#39;s decided to torture me with pictures from the beautiful Pacific coast of Mexico. Anybody who&#39;s been to California knows just how much sun there is. All. Year. Round.</p>
-
-<p>Baja California is no different from California in that respect (well, it&#39;s even better IMHO).</p>
-
-<p>That&#39;s all nice and all but I haven&#39;t seen the sun since fall started, back in October 2013 (wooooo, so long ago). In Rennes, France−the region of Brittany−we get the same shitty weather that the english get, give or take a less-cloudy day or two. So, how do you think I feel when Dad sends me these beautiful pictures? It makes me wanna cry. I feel nostalgic thinking of all of our fishing trips. I miss the food. I miss the sun. I miss the people. I miss a whole lot of things.</p>
-
-<p>For example, here&#39;s a picture from last December.</p>
-
-<p><a      href=/photos/2013.12.13_Dad_fishing_trip/DSC_5013.JPG >
-<img    class="img-responsive" 
-        alt="Dad and a linkcod in the Bay of Ensenada" 
-        src=/photos/2013.12.13_Dad_fishing_trip/DSC_5013.JPG>
-</a></p>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2014.03.07/My-father-tortures-me-with-beautiful-sunny-pictures.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
-                        <h1><a href="/blog/posts/2014.03.05/Thunderbird-leading-spaces-bug.html">Thunderbird bug&#58; leading spaces are removed when character set is automatically converted</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/thunderbird/"><span class="label label-primary">thunderbird</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/bug/"><span class="label label-primary">bug</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2014.03.05 
-                        
-                                &mdash; Rennes, France
-                        
-                        <hr>
-
-                        <p>I ran into a weird bug that took me about 50 test emails to understand. Thunderbird appears to automatically convert your plain-text emails from one character set to another automatically if it detects that there is an incompatible character.</p>
-
-<p>However, the conversion isn&#39;t as smooth as it should be. In fact, in my case, all leading spaces in my neatly formatted plain-text format=flowed emails disappear.</p>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2014.03.05/Thunderbird-leading-spaces-bug.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
-                        <h1><a href="/blog/posts/2014.02.06/markdown-examples.html">Testing different markup options</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/markdown/"><span class="label label-primary">markdown</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/untidy/"><span class="label label-primary">untidy</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2014.02.06 
-                        
-                                &mdash; Rennes, France
-                        
-                        <hr>
-
-                        <p>This post is a test for markdown and Jekyll. I basically have all kinds of examples of how to do stuff in markdown, but it&#39;s not tidy at all.</p>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2014.02.06/markdown-examples.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
-                        <h1><a href="/blog/posts/2014.02.04/first-jekyll-github-pages-post.html">First post using jekyll</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/first-post/"><span class="label label-primary">first-post</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/jekyll/"><span class="label label-primary">jekyll</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/github-pages/"><span class="label label-primary">github-pages</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2014.02.04 
-                        
-                                &nbsp;
-                        
-                        <hr>
-
-                        <p>This is the my first post after configuring my site to use github pages, and more specifically, after I started using Jekyll.</p>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2014.02.04/first-jekyll-github-pages-post.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
-                        <h1><a href="/blog/posts/2011.09.17/Linux-webdav-box.net.html">Mount your Box.Net account using WebDAV</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/webdav/"><span class="label label-primary">webdav</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/cloud/"><span class="label label-primary">cloud</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2011.09.17 
-                        
-                                &mdash; Grenoble, France
-                        
-                        <hr>
-
-                        <p>It&#39;s pretty easy to setup box.net with webdav and to have your files automatically saved to box.net. I got 50gb of storage space on box.net when I bought an HP Touchpad 32gb on firesale.</p>
-
-<p>However, because it&#39;s not a paid or professional account, I can&#39;t really do anything with it.</p>
-
-<p>UPDATE: I don&#39;t use this setup because box.net is just too slow and some people have been complaining that they don&#39;t implement webdav properly. I really wish they&#39;d come up with a client for Linux like Dropbox has.</p>
-
-<p>Originally posted on Ubuntu Forums: <a href="http://ubuntuforums.org/showthread.php?t=202761&page=4">http://ubuntuforums.org/showthread.php?t=202761&amp;page=4</a></p>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2011.09.17/Linux-webdav-box.net.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
-                        <h1><a href="/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html">NSLU2 Linux Gateway</a></h1>
-                        <p class="lead">by <a href="/contact">Walter Rudametkin</a>  &nbsp;&nbsp;&nbsp;
-                        
-                            
-                                    <a href="/blog/categories/linux/"><span class="label label-primary">linux</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/nslu2/"><span class="label label-primary">nslu2</span></a>
-                                    &nbsp;
-                            
-                                    <a href="/blog/categories/work-in-progress/"><span class="label label-primary">work-in-progress</span></a>
-                                    &nbsp;
-                            
-                        </p>
-                        
-                        <span class="glyphicon glyphicon-time"></span> Posted 2010.07.29 
-                        
-                                &mdash; Rennes, France
-                        
-                        <hr>
-
-                        <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-            <img src="/img/wip3.jpg" alt="Work in progress"/>
-        </div>
-        <div class="col-md-7">
-            <img src="/img/nslu2.jpg" alt="NSLU2.jpg"/>
-        </div>
-    </div>
-</div>
-
-<hr>
-
-<p>It&#39;s easy to setup additional IP addresses on Debian Linux. This is particularly useful for the NSLU which doesn&#39;t have a display so you need to remotely connect to it.</p>
-
-<p>Having more than one virtual network interface allows us to have both a DHCP address and a static IP address, making the NSLU2 accessible pretty much always.</p>
-
-
-                        <a class="btn btn-primary" href="/blog/posts/2010.07.29/NSLU2-multiple-network-itfs.html">Read More<span class="glyphicon glyphicon-chevron-right"></span></a>
-                
+ <a class="btn btn-primary" href="/blog/posts/2017.10.01/presentation-obfuscation.html">Read More <span
+                    class="glyphicon glyphicon-chevron-right"></span></a> 
 
             </div>
             <div class="col-md-4">
@@ -989,7 +618,6 @@ Go to <code>chrome://flags</code> &#8594; <code>Override software rendering list
     </div>
 
     <hr>
-
     <div class="banner">
     <div class="container">
         <div class="row">
