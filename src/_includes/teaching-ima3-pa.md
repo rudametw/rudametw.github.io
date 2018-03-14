@@ -7,6 +7,18 @@ Voici des supports pour le cours de Programmation Avancé. Je vous invite viveme
 Vous trouverez egalement les sources sur github
 [https://github.com/rudametw/supports\_ima3\_progav](https://github.com/rudametw/supports\_ima3\_progav)
 
+---
+
+##NOUVEAUX : Supports du Dr. Vincent Aranega
+
+###Table de hachage
+[CM8-hash-2018.pdf](ima3/CM8-hash-2018.pdf)
+
+###Pointeurs de fonction
+[CM8-pointeur-de-fonction-2018.pdf](ima3/CM8-pointeur-de-fonction-2018.pdf)
+
+---
+
 ##Support du Cours
 
 <!--[0 Introduction.pdf](ima3/CM0-Intro.pdf) |-->
