@@ -3,6 +3,9 @@ layout: large-page
 title: Courses | Walter Rudametkin] 
 ---
 
+   			{% capture my_include %}{% include teaching-git.md %}{% endcapture %}
+            {{ my_include | markdownify }}
+	<hr>
    			{% capture my_include %}{% include teaching-ima3-pa.md %}{% endcapture %}
             {{ my_include | markdownify }}
 	<hr>
