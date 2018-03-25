@@ -1,6 +1,6 @@
 #IMA3 − Programmation Avancé (PA)
 
-Bonjour étudiants de Polytech'Lille Informatique et Microélectronique Automatique
+Bonjour étudiants de Polytech Lille Informatique et Microélectronique Automatique
 
 Voici des supports pour le cours de Programmation Avancé. Je vous invite vivement à les reviser, analyser et critiquer. Si vous avez des questions merci de me contacter par mail ou d'envoyer votre question/remarque sur la liste de diffusion ima3 en me mettant en copie.
 
