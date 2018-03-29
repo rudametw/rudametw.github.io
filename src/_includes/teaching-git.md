@@ -14,6 +14,9 @@ Vous trouverez egalement les sources sur github :
 [Cours GIT (6 slides/page)](https://github.com/rudametw/Learning-Git/raw/master/PDFs/slides-handouts-6pp.pdf) |
 [Cours GIT (8 slides/page)](https://github.com/rudametw/Learning-Git/raw/master/PDFs/slides-handouts-8pp.pdf)
 
+[Cours GIT avec animations (1 slides/page)](https://github.com/rudametw/Learning-Git/raw/master/PDFs/slides-animations.pdf)
+
+
 ###TP (estimé à 3h)
 
 [TP Git ](https://github.com/rudametw/Learning-Git/raw/master/PDFs/TPGit.pdf) |
