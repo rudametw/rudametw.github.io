@@ -80,7 +80,7 @@ Les sources LaTeX des supports ainsi que des exemples de code C vus en cours son
 ##Travaux pratiques
 [TP1.pdf](ima3/TP1.pdf) | 
 [TP2.pdf](ima3/TP2.pdf) | 
-[TP3.pdf](ima3/TP3.pdf) | 
+[TP3.pdf](ima3/TP3.pdf) (optionnel --- remplacé par TP Git) | 
 [TP4.pdf](ima3/TP4.pdf) | 
 [TP5.pdf](ima3/TP5.pdf) | 
 [TP6.pdf](ima3/TP6.pdf) | 
@@ -106,6 +106,4 @@ Les sources LaTeX des supports ainsi que des exemples de code C vus en cours son
 
 ###Pointeurs de fonction
 [CM8-pointeur-de-fonction-2018.pdf](ima3/CM8-pointeur-de-fonction-2018.pdf)
-
----
 
