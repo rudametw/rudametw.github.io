@@ -9,16 +9,6 @@ Vous trouverez egalement les sources sur github
 
 ---
 
-##NOUVEAUX : Supports du Dr. Vincent Aranega
-
-###Table de hachage
-[CM8-hash-2018.pdf](ima3/CM8-hash-2018.pdf)
-
-###Pointeurs de fonction
-[CM8-pointeur-de-fonction-2018.pdf](ima3/CM8-pointeur-de-fonction-2018.pdf)
-
----
-
 ##Support du Cours
 
 <!--[0 Introduction.pdf](ima3/CM0-Intro.pdf) |-->
@@ -30,37 +20,45 @@ Vous trouverez egalement les sources sur github
 <!--[CM1-structures-handouts-6pp.pdf]	(ima3/CM1-structures-handouts-6pp.pdf)-->
 
 
-[CM0-Intro.pdf](ima3/CM0-Intro.pdf) | 
-[CM0-Intro-handouts-4pp.pdf](ima3/CM0-Intro-handouts-4pp.pdf) | 
-[CM0-Intro-handouts-6pp.pdf](ima3/CM0-Intro-handouts-6pp.pdf)  
+[CM0-Intro.pdf](ima3/CM0-Intro.pdf) |
+[CM0-Intro-handouts-4pp.pdf](ima3/CM0-Intro-handouts-4pp.pdf) |
+[CM0-Intro-handouts-6pp.pdf](ima3/CM0-Intro-handouts-6pp.pdf) |
+[CM0-Intro-handouts-8pp.pdf](ima3/CM0-Intro-handouts-8pp.pdf)  
 
 [CM1-structures.pdf](ima3/CM1-structures.pdf) | 
 [CM1-structures-handouts-4pp.pdf](ima3/CM1-structures-handouts-4pp.pdf) | 
-[CM1-structures-handouts-6pp.pdf](ima3/CM1-structures-handouts-6pp.pdf)  
+[CM1-structures-handouts-6pp.pdf](ima3/CM1-structures-handouts-6pp.pdf) | 
+[CM1-structures-handouts-8pp.pdf](ima3/CM1-structures-handouts-8pp.pdf)  
 
 [CM2-listes.pdf](ima3/CM2-listes.pdf) | 
 [CM2-listes-handouts-4pp.pdf](ima3/CM2-listes-handouts-4pp.pdf) | 
-[CM2-listes-handouts-6pp.pdf](ima3/CM2-listes-handouts-6pp.pdf)  
+[CM2-listes-handouts-6pp.pdf](ima3/CM2-listes-handouts-6pp.pdf) |
+[CM2-listes-handouts-8pp.pdf](ima3/CM2-listes-handouts-8pp.pdf)  
 
 [CM3-malloc.pdf](ima3/CM3-malloc.pdf) | 
 [CM3-malloc-handouts-4pp.pdf](ima3/CM3-malloc-handouts-4pp.pdf) | 
-[CM3-malloc-handouts-6pp.pdf](ima3/CM3-malloc-handouts-6pp.pdf)  
+[CM3-malloc-handouts-6pp.pdf](ima3/CM3-malloc-handouts-6pp.pdf) |
+[CM3-malloc-handouts-8pp.pdf](ima3/CM3-malloc-handouts-8pp.pdf)  
 
-[CM4-recursivité.pdf](ima3/CM4-recursivité.pdf) | 
-[CM4-recursivité-handouts-4pp.pdf](ima3/CM4-recursivité-handouts-4pp.pdf) | 
-[CM4-recursivité-handouts-6pp.pdf](ima3/CM4-recursivité-handouts-6pp.pdf)  
+[CM4-recursivite.pdf](ima3/CM4-recursivite.pdf) | 
+[CM4-recursivite-handouts-4pp.pdf](ima3/CM4-recursivite-handouts-4pp.pdf) | 
+[CM4-recursivite-handouts-6pp.pdf](ima3/CM4-recursivite-handouts-6pp.pdf) |
+[CM4-recursivite-handouts-8pp.pdf](ima3/CM4-recursivite-handouts-8pp.pdf) 
 
 [CM5-fichiers.pdf](ima3/CM5-fichiers.pdf) | 
 [CM5-fichiers-handouts-4pp.pdf](ima3/CM5-fichiers-handouts-4pp.pdf) | 
-[CM5-fichiers-handouts-6pp.pdf](ima3/CM5-fichiers-handouts-6pp.pdf)  
+[CM5-fichiers-handouts-6pp.pdf](ima3/CM5-fichiers-handouts-6pp.pdf) |
+[CM5-fichiers-handouts-8pp.pdf](ima3/CM5-fichiers-handouts-8pp.pdf)  
 
 [CM6-Listes_variantes.pdf](ima3/CM6-Listes_variantes.pdf) | 
 [CM6-Listes_variantes-handouts-4pp.pdf](ima3/CM6-Listes_variantes-handouts-4pp.pdf) | 
-[CM6-Listes_variantes-handouts-6pp.pdf](ima3/CM6-Listes_variantes-handouts-6pp.pdf)  
+[CM6-Listes_variantes-handouts-6pp.pdf](ima3/CM6-Listes_variantes-handouts-6pp.pdf) |
+[CM6-Listes_variantes-handouts-8pp.pdf](ima3/CM6-Listes_variantes-handouts-8pp.pdf)  
 
 [CM7-arbres.pdf](ima3/CM7-arbres.pdf) | 
-[CM7-arbres-handouts-4pp.pdf](ima3/CM7-arbres-handouts-4pp.pdf) | 
-[CM7-arbres-handouts-6pp.pdf](ima3/CM7-arbres-handouts-6pp.pdf)  
+[CM7-arbres-handouts-4pp.pdf](ima3/CM7-arbres-handouts-4pp.pdf) |
+[CM7-arbres-handouts-6pp.pdf](ima3/CM7-arbres-handouts-6pp.pdf) |
+[CM7-arbres-handouts-8pp.pdf](ima3/CM7-arbres-handouts-8pp.pdf)
 
 ---
 
@@ -100,3 +98,14 @@ Les sources LaTeX des supports ainsi que des exemples de code C vus en cours son
 
 <!--####TP2 Modélisation en UML-->
 <!--[Sujet de TP2](gbiaal4sgbd/td_tp/TP2-modelisation.pdf)-->
+
+##Supports du Dr. Vincent Aranega
+
+###Table de hachage
+[CM8-hash-2018.pdf](ima3/CM8-hash-2018.pdf)
+
+###Pointeurs de fonction
+[CM8-pointeur-de-fonction-2018.pdf](ima3/CM8-pointeur-de-fonction-2018.pdf)
+
+---
+
