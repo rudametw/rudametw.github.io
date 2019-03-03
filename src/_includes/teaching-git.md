@@ -1,4 +1,3 @@
-<!--#Cours de Git-->
 #Introduction à Git
 
 Bonjour étudiants de Polytech Lille, GIS et IMA.
