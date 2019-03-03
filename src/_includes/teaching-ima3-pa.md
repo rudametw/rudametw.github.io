@@ -6,6 +6,7 @@ Voici des supports pour le cours de Programmation Avancé. Je vous invite viveme
 
 Vous trouverez egalement les sources sur github
 [https://github.com/rudametw/supports\_ima3\_progav](https://github.com/rudametw/supports\_ima3\_progav)
+<span class="fa fa-github-square fa-fw"></span>
 
 ---
 
@@ -54,8 +55,8 @@ Vous trouverez egalement les sources sur github
 ---
 
 Les sources LaTeX des supports ainsi que des exemples de code C vus en cours sont disponible dans ce dépôt github :
-
 [Supports LaTeX et exemples code C](https://github.com/rudametw/supports_ima3_progav)
+<span class="fa fa-github-square fa-fw"></span>
 
 ##Travaux dirigés
 <!--[TD-Synthese-SD.pdf](ima3/TD-Synthese-SD.pdf) | -->

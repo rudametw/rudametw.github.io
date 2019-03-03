@@ -5,8 +5,19 @@ Bonjour étudiants de Polytech Lille, GIS et IMA.
 
 Voici des supports pour le cours et le TP de Git. Je vous invite vivement à les reviser, analyser et critiquer et corriger.
 
+<!--Vous trouverez egalement les sources sur github :-->
+<!--[<span class="fa fa-github-square fa-fw"></span>https://github.com/rudametw/Learning-Git](https://github.com/rudametw/Learning-Git)-->
+
+<!--Vous trouverez egalement les sources sur github :-->
+<!--<a href="https://github.com/rudametw/Learning-Git">-->
+<!--<span class="fa fa-github-square fa-fw"></span>-->
+<!--https://github.com/rudametw/Learning-Git-->
+<!--</a>-->
+
 Vous trouverez egalement les sources sur github :
 [https://github.com/rudametw/Learning-Git](https://github.com/rudametw/Learning-Git)
+<span class="fa fa-github-square fa-fw"></span>
+
 
 
 ###Supports de cours
