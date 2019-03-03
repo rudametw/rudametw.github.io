@@ -3,27 +3,46 @@ layout: large-page
 title: Courses | Walter Rudametkin]
 ---
 
-   			{% capture my_include %}{% include teaching-git.md %}{% endcapture %}
-            {{ my_include | markdownify }}
-	<hr>
-	<hr>
-	<hr>
-   			{% capture my_include %}{% include teaching-ima3-pa.md %}{% endcapture %}
-            {{ my_include | markdownify }}
-	<hr>
-	<hr>
-	<hr>
-			{% capture my_include %}{% include teaching-gbiaal-moodle.md %}{% endcapture %}
-            {{ my_include | markdownify }}
-
-	<hr>
-	<hr>
-	<hr>
-   			{% capture my_include %}{% include teaching-ima2a4-cmo.md %}{% endcapture %}
-            {{ my_include | markdownify }}
-
-    <!--<hr>-->
-			<!--{% capture my_include %}{% include teaching.md %}{% endcapture %}-->
-            <!--{{ my_include | markdownify }}-->
+<div class="container">
+	<div class="row">
+		<div class="col-md-3" id="leftCol">
+			<!--<h3>Cours</h3>-->
+			<ul class="nav nav-stacked" id="sidebar">
+				<li class="active"><a href="#Git">[IMA et GIS] Git</a></li>
+				<li><a href="#PA">[IMA3] Programmation Avancé</a></li>
+				<li><a href="#BD">[GBIAAL4] Bases de données</a></li>
+				<li><a href="#CMO">[IMA2A4] Conception modélisation objet</a></li>
+			</ul>
+		</div>
+		<!--<div class="col-md-9" id="mainCol">-->
+		<div class="col-xs-9 col-sm-9 col-sm-offset-0 col-md-9 col-md-offset-0" id="mainCol">
+			<div id="Git" style="padding-top:0em; padding-bottom:2em;">
+				<!--<div  style="margin-top:-180px;padding-top:180px">-->
+				{% capture my_include %}{% include teaching-git.md %}{% endcapture %}
+				{{ my_include | markdownify }}
+			</div>
 
 
+			<!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
+			<div id="PA" style="padding-top:3em; padding-bottom:2em">
+				{% capture my_include %}{% include teaching-ima3-pa.md %}{% endcapture %}
+				{{ my_include | markdownify }}
+			</div>
+
+
+			<!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
+			<div id="BD" style="padding-top:3em; padding-bottom:2em">
+				{% capture my_include %}{% include teaching-gbiaal-moodle.md %}{% endcapture %}
+				{{ my_include | markdownify }}
+			</div>
+
+
+			<!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
+			<div id="CMO" style="padding-top:3em; padding-bottom:2em">
+				{% capture my_include %}{% include teaching-ima2a4-cmo.md %}{% endcapture %}
+				{{ my_include | markdownify }}
+			</div>
+
+		</div>
+	</div>
+</div>

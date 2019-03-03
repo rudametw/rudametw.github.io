@@ -4,5 +4,7 @@
 //= require vendor/jquery.fancybox
 //= require landing-page
 //= require arrow
+/*//= require navbar-fix*/
+//= require sidebar
 
 // removed //= require vendor/google-fonts

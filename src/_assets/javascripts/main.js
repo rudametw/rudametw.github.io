@@ -3,6 +3,7 @@
 //=require vendor/jquery.fancybox.pack.js
 //=require custom
 //=require DeferCSS
+//=require sidebar.js
 
 //old, points to antoine-vastel.fr, require recFp
 
