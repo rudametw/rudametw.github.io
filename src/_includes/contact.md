@@ -42,7 +42,7 @@
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     Parc scientifique de la Haute Borne<br />
                                     &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <span itemprop="streetAddress">40 avenue Halley</span> <br /> 
+                                    <span itemprop="streetAddress">40 avenue Halley</span> <br />
                                     &nbsp;&nbsp;&nbsp;&nbsp;
                                     <span itemprop="postalCode">F-59650</span>
                                     <span itemprop="addressLocality">Villeneuve d’Ascq</span> <br />
