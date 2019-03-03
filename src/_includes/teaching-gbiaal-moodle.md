@@ -1,4 +1,4 @@
-#GB-IAAL4 - Initiation aux bases de données (SGBD)
+#GB-IAAL4 - Initiation aux bases de données
 
 Bonjour étudiants de Polytech Lille en Biologie et Agro Alimentaire !!!
 
