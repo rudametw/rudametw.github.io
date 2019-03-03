@@ -118,7 +118,7 @@ Les sources LaTeX des supports ainsi que des exemples de code C vus en cours son
 [CM8-pointeur-de-fonction-current-handouts-8pp.pdf](ima3/CM8-pointeur-de-fonction-current-handouts-8pp.pdf)
 
 ####Complément
-[http://www.newty.de/fpt/zip/f_fpt.pdf](http://www.newty.de/fpt/zip/f_fpt.pdf)
+[http://www.newty.de/fpt/zip/f\_fpt.pdf](http://www.newty.de/fpt/zip/f_fpt.pdf)
 
-[http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_14___Pointeur_de_fonction.pdf](http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_14___Pointeur_de_fonction.pdf)
+[http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM\_14\_\_\_Pointeur\_de\_fonction.pdf](http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_14___Pointeur_de_fonction.pdf)
 
