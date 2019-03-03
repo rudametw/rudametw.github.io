@@ -82,7 +82,7 @@ Les sources LaTeX des supports ainsi que des exemples de code C vus en cours son
 <!--[TP9.pdf](ima3/TP9.pdf) | -->
 <!--[TP10.pdf](ima3/TP10.pdf)  -->
 
-[TP1\_listes_contigues\_redirections.pdf](ima3/TP1_listes_contigues_redirections.pdf)
+[TP1\_listes\_contigues\_redirections.pdf](ima3/TP1_listes_contigues_redirections.pdf)
 
 [TP2\_listes\_contigues\_fichiers.pdf](ima3/TP2_listes_contigues_fichiers.pdf)
 
