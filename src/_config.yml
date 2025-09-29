@@ -20,9 +20,9 @@ url: http://rudametw.github.io
 #Replaces file in _plugins
 #gems:
 plugins:
-  - jekyll-gallery-generator
   - jekyll-assets
   - jekyll-sitemap
+# - jekyll-gallery-generator
 
 #Not used anymore. I added an index.html to all directories to solve this.
 #The only problem is the gallery is not created at startup.
