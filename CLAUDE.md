@@ -3,7 +3,8 @@
 ## What this repo is
 
 Personal academic site for Walter Rudametkin (Full Professor, University of Rennes /
-IRISA). Sections: Home, Publications, Teaching, Research, Blog, Photos, Contact.
+IRISA). Sections: Home, Publications, Teaching, Blog, Contact (Research retired into
+the blog on 2026-09-12; Photos retired to a redirect page).
 Served at https://rudametw.github.io/ via GitHub Pages.
 
 We are porting it from Jekyll (broken, unmaintainable gem tree) to Hugo.
@@ -337,7 +338,7 @@ of the rendered HTML finds **0** local broken links and **0** unrendered Markdow
 |---|---|---|
 | 12 posts | `_posts/*.md` | `.md`; `{% highlight %}` → fences; 2 `url:` pins |
 | `blog/_index.md` | — | `outputs: [HTML, RSS]` — the site's only feed |
-| `contact/`, `research/`, 4 research pages | wrapper front matter + `_includes/*.md` body | `.md` |
+| 5 research pages → **blog posts** (2026-09-12) | `_includes/*.md` | dated from git, tagged, `archived: lille`, old `/research/…/` URLs as `…/index.html` aliases (uglyURLs would otherwise rewrite them) |
 | `teaching/_index.md` | wrapper HTML with the 4 fragments inlined where the includes were | `.md` with raw HTML; stray `]` removed from the title |
 | `publications/_index.html` | `publications/index.html` body | **`.html`** + the "Up-to-date publications" HAL/Scholar block and TODO the author asked for |
 | `_index.html` (home) | `index.html` body between navbar and footer | **`.html`**; `aliases: [/CICOMP/]` |

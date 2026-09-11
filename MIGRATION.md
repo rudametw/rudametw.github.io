@@ -434,3 +434,27 @@ The contact-page portrait is the old one (TODO: newer photo).
   `WalterRudametkin.jpg` stay in `static/img/` (rule 8: nothing deleted).
 - Footer "Find me" order now matches `/contact/` Elsewhere: Am I Unique,
   Scholar, HAL, ORCID, GitHub, LinkedIn.
+
+---
+
+## 2026-09-12 — Research tab retired: five pages became blog posts
+
+Author's call. The Research tab only held 2014–2015 Lille-era position offers.
+`move-content.sh` now generates five blog posts from those fragments
+(`research_post` helper): dates are each fragment's first commit in git
+(2014-09-11, 2014-10-24, 2015-01-15 ×2), `place: Lille, France`,
+`archived: lille` (the post template now shows the notice), and topic
+categories: `positions` on all five, plus `phd`/`master`, `cloud`,
+`monitoring`, `dynamic-software`, `static-analysis`, `optimisation`.
+
+URL contract kept: each post carries the old `/research/…/` URL as an alias.
+**Gotcha**: the blog section has `uglyURLs`, and Hugo applies that to a post's
+aliases too, so `/research/x/` was emitted as `/research/x.html`. Aliases are
+therefore spelled `/research/x/index.html`. Contract 224/224.
+
+Words unchanged. Syntax changes per post: first heading dropped when it *is*
+the title, otherwise demoted to `##` ("Open Ph.D. Position"); the Ph.D. pages'
+`<a href=X.pdf><h1>Title</h1></a>` became `[Title](/research/<dir>/X.pdf)`;
+relative PDF links made absolute; the index post's links point at the posts.
+Research removed from nav and footer; the home card links
+`/blog/categories/positions/` instead of `/research/`.

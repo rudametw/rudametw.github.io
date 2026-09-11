@@ -1,18 +1,18 @@
 ---
-layout: large-page
-title: Research | Walter Rudametkin
+title: "Dynamic monitoring to find and diagnose software bugs in cloud applications"
+place: Lille, France
+categories: [positions, phd, cloud, monitoring]
 archived: lille
+aliases:
+  - /research/cloud-monitoring-and-repair/index.html
 ---
+
 <!-- # Dr. Walter Andrew Rudametkin Ivey   -->
 
-# Open Ph.D. Position
+## Open Ph.D. Position
 
 <!--[#Static analysis and runtime monitoring to ensure the consistency of dynamic applications](help)-->
-<a href="cloud-monitoring-and-repair.pdf">
-<h1>
-        Dynamic monitoring to find and diagnose software bugs in cloud applications
-</h1>
-</a>
+[Dynamic monitoring to find and diagnose software bugs in cloud applications](/research/cloud-monitoring-and-repair/cloud-monitoring-and-repair.pdf)
 
 ## Summary
 Cloud applications are composed of a myriad of software components distributed across heterogeneous physical and virtual systems. These systems are inherently difficult to debug, diagnose and repair.
@@ -51,4 +51,4 @@ Parc Scientifique de la Haute Borne
 ## More information
 Please read the entire proposal before contacting the supervisors.
 
-[Dynamic monitoring to find and diagnose software bugs in cloud application](cloud-monitoring-and-repair.pdf)
+[Dynamic monitoring to find and diagnose software bugs in cloud application](/research/cloud-monitoring-and-repair/cloud-monitoring-and-repair.pdf)

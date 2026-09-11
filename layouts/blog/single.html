@@ -1,6 +1,7 @@
 {{- /* Port of _layouts/blog-post.html. */ -}}
 {{ define "main" }}
 <article class="post">
+  {{ partial "archived.html" . }}
   <h1>{{ .Title }}</h1>
   {{ partial "post-meta.html" . }}
   <hr>

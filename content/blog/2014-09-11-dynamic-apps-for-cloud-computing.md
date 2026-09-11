@@ -1,11 +1,15 @@
 ---
-layout: large-page
-title: Research | Walter Rudametkin
+title: "Applications Dynamiques pour le Cloud Computing"
+place: Lille, France
+categories: [positions, master, cloud, dynamic-software]
 archived: lille
+aliases:
+  - /research/dynamic-apps-for-cloud-computing/index.html
 ---
+
 <!-- # Dr. Walter Andrew Rudametkin Ivey   -->
 
-# Applications Dynamiques pour le Cloud Computing
+
 
 ## Supervision
 [Walter Rudametkin](mailto:Walter.Rudametkin@polytech-lille.fr) (Maître de conférences - Spirals)

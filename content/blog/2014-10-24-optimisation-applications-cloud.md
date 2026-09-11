@@ -1,11 +1,15 @@
 ---
-layout: large-page
-title: Research | Walter Rudametkin
+title: "Gestion et Optimisation d’Applications dans le Cloud"
+place: Lille, France
+categories: [positions, master, cloud, optimisation]
 archived: lille
+aliases:
+  - /research/optimisation-applications-cloud/index.html
 ---
+
 <!-- # Dr. Walter Andrew Rudametkin Ivey   -->
 
-# Gestion et Optimisation d’Applications dans le Cloud
+
 
 ## Supervision
 [Walter Rudametkin](mailto:Walter.Rudametkin@polytech-lille.fr) (Maître de conférences - Spirals)

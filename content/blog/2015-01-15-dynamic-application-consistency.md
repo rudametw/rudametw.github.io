@@ -1,17 +1,18 @@
 ---
-layout: large-page
-title: Research | Walter Rudametkin
+title: "Static analysis and runtime monitoring to ensure the consistency of dynamic applications"
+place: Lille, France
+categories: [positions, phd, dynamic-software, static-analysis]
 archived: lille
+aliases:
+  - /research/dynamic-application-consistency/index.html
 ---
+
 <!-- # Dr. Walter Andrew Rudametkin Ivey   -->
 
-# Open Ph.D. Position
+## Open Ph.D. Position
 
 <!--[#Static analysis and runtime monitoring to ensure the consistency of dynamic applications](help)-->
-<a href="dynamic-application-consistency.pdf">
-<h1>Static analysis and runtime monitoring to ensure the consistency of dynamic applications
-</h1>
-</a>
+[Static analysis and runtime monitoring to ensure the consistency of dynamic applications](/research/dynamic-application-consistency/dynamic-application-consistency.pdf)
 
 ## Summary
 Modern software engineering techniques allow building applications that change at runtime, without stopping. We call these applications Dynamic Applications. However, changing applications at runtime to cause inconsistencies that lead to failure. This Ph.D thesis will focus on state-of-the-art tools to analyse and verify that applications remain consistent and function properly despite dynamic change.
@@ -43,4 +44,4 @@ Parc Scientifique de la Haute Borne
 ## More information
 Please read the proposal before contacting the supervisors.
 
-[Static analysis and runtime monitoring to ensure the consistency of dynamic applications (pdf)](dynamic-application-consistency.pdf)
+[Static analysis and runtime monitoring to ensure the consistency of dynamic applications (pdf)](/research/dynamic-application-consistency/dynamic-application-consistency.pdf)

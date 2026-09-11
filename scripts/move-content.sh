@@ -20,6 +20,7 @@
 #              two posts get `url:` pinned (Hugo reads the dots in their names as
 #              file extensions and truncates the slug)
 #   all .md    the two Redcarpet-isms above are fixed in fragments as well
+#   research   the five research pages are blog posts now (see research_post below)
 #   fragments  _includes/*.md were pulled into pages via
 #              {% capture %}{% include X.md %}{% endcapture %}{{ … | markdownify }}.
 #              Hugo has no include-and-markdownify; the fragment body is inlined
@@ -77,7 +78,7 @@ fragment()     { commonmark < "${SRC}/_includes/$1"; }
 # `--lib`: only define the functions above (used by the teaching awk callback).
 [[ "${1:-}" == "--lib" ]] && return 0 2>/dev/null
 
-mkdir -p "${OUT}/blog" "${OUT}/research" "${OUT}/teaching" "${OUT}/publications"
+mkdir -p "${OUT}/blog" "${OUT}/teaching" "${OUT}/publications"
 
 # ---------------------------------------------------------------- posts (12)
 for f in "${SRC}"/_posts/*.md; do
@@ -103,19 +104,59 @@ outputs: [HTML, RSS]   # the one feed on the site; see hugo.toml [outputs]
 ---
 MD
 
-# ------------------------------------------------- fragment pages: research
-# (contact/_index.md is HAND-WRITTEN since 2026-09-11 — new Rennes contact
-#  details from the author. Not generated. Do not add it back here.)
-{ front_matter "${SRC}/research/index.html" | lille_era; fragment research.md; } > "${OUT}/research/_index.md"
-for pair in \
-  "cloud-monitoring-and-repair:cloud-dynamic-monitoring-and-repair.md" \
-  "dynamic-application-consistency:dynamic-application-consistency.md" \
-  "dynamic-apps-for-cloud-computing:dynamic-apps-cloud-computing.md" \
-  "optimisation-applications-cloud:optimisation-applications-cloud.md"
-do
-  page="${pair%%:*}"; frag="${pair##*:}"
-  { front_matter "${SRC}/research/${page}/index.html" | lille_era; fragment "${frag}"; } > "${OUT}/research/${page}.md"
-done
+# ------------------------------------------- research pages -> blog posts (2026-09-12)
+# Author's call: the Research tab showed 2014-2015 Lille-era position offers and
+# nothing current. Each page becomes a dated blog post (date = first commit of
+# the fragment, from git history), tagged by topic, stamped `archived: lille`,
+# with the old /research/... URL kept as an alias so the URL contract holds.
+# Words unchanged. Syntax changes, per post:
+#   - the first heading is dropped when it equals the post title (the template
+#     prints the title), otherwise demoted one level ("Open Ph.D. Position")
+#   - the Ph.D. pages' "<a href=X.pdf><h1>Title</h1></a>" becomes "[Title](/research/<dir>/X.pdf)"
+#   - relative "X.pdf" links become absolute /research/<dir>/X.pdf (the PDFs are static)
+#   - the index page's relative links point at the new posts
+research_post() {  # <date> <slug> <fragment> <old dir> <title> <categories>
+  local date="$1" slug="$2" frag="$3" dir="$4" title="$5" cats="$6" alias
+  # Spelled out to index.html: the blog section has uglyURLs, and Hugo applies
+  # that to a post's aliases too, so "/research/x/" would be written "/research/x.html".
+  alias="/research/${dir:+$dir/}index.html"
+  {
+    printf -- '---\ntitle: "%s"\nplace: Lille, France\ncategories: [%s]\narchived: lille\naliases:\n  - %s\n---\n\n' "$title" "$cats" "$alias"
+    fragment "$frag" \
+      | python3 -c '
+import re,sys
+dir_, title = sys.argv[1], sys.argv[2]; s=sys.stdin.read()
+# first heading: drop it when it is the title (the template prints the title),
+# otherwise keep it one level down (e.g. "Open Ph.D. Position" above the summary)
+lines=s.split("\n")
+for i,l in enumerate(lines):
+    if not l.strip() or l.lstrip().startswith("<!--"): continue
+    m=re.match(r"^(#+)\s*(.*?)\s*$", l)
+    if m:
+        lines[i] = "" if m.group(2).lower()==title.lower() else "## "+m.group(2)
+    break
+s="\n".join(lines)
+s=re.sub(r"<a href=\"([^\"/]+\.pdf)\">\s*<h1>\s*(.*?)\s*</h1>\s*</a>", lambda m: f"[{m.group(2)}](/research/{dir_}/{m.group(1)})", s, flags=re.S)
+s=re.sub(r"(href=\"|\]\()([^\"/)#]+\.pdf)", lambda m: f"{m.group(1)}/research/{dir_}/{m.group(2)}", s)
+sys.stdout.write(s)' "$dir" "$title"
+  } > "${OUT}/blog/${date}-${slug}.md"
+}
+research_post 2015-01-15 cloud-monitoring-and-repair     cloud-dynamic-monitoring-and-repair.md cloud-monitoring-and-repair \
+  "Dynamic monitoring to find and diagnose software bugs in cloud applications" "positions, phd, cloud, monitoring"
+research_post 2015-01-15 dynamic-application-consistency dynamic-application-consistency.md     dynamic-application-consistency \
+  "Static analysis and runtime monitoring to ensure the consistency of dynamic applications" "positions, phd, dynamic-software, static-analysis"
+research_post 2014-09-11 dynamic-apps-for-cloud-computing dynamic-apps-cloud-computing.md       dynamic-apps-for-cloud-computing \
+  "Applications Dynamiques pour le Cloud Computing" "positions, master, cloud, dynamic-software"
+research_post 2014-10-24 optimisation-applications-cloud optimisation-applications-cloud.md     optimisation-applications-cloud \
+  "Gestion et Optimisation d’Applications dans le Cloud" "positions, master, cloud, optimisation"
+research_post 2014-09-11 open-positions                  research.md                            "" \
+  "Open positions" "positions, phd, master"
+# the index post linked its proposals by relative name; point them at the posts
+sed -i -e 's|](optimisation-applications-cloud)|](/blog/posts/2014.10.24/optimisation-applications-cloud.html)|' \
+       -e 's|](dynamic-apps-for-cloud-computing)|](/blog/posts/2014.09.11/dynamic-apps-for-cloud-computing.html)|' \
+       -e 's|](dynamic-application-consistency)|](/blog/posts/2015.01.15/dynamic-application-consistency.html)|' \
+       -e 's|](cloud-monitoring-and-repair)|](/blog/posts/2015.01.15/cloud-monitoring-and-repair.html)|' \
+       "${OUT}/blog/2014-09-11-open-positions.md"
 
 # -------------------------------------------------------------------- teaching
 # Wrapper HTML kept; each capture/include/markdownify triple becomes the fragment
