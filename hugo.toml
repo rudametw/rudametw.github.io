@@ -61,13 +61,24 @@ summaryLength = 70
 [sitemap]
   filename = "sitemap.xml"
 
-# The old site had no feeds. One RSS feed for the blog section is worth having;
-# per-category and home feeds would only add URLs that never existed.
+# The old site had no feeds. One RSS feed for /blog/ is worth having; it is
+# switched on in content/blog/_index.md (`outputs: [HTML, RSS]`). Nothing else
+# gets a feed — contact/, research/ etc. are sections too and would otherwise
+# each grow an index.xml that never existed.
 [outputs]
   home     = ["HTML"]
-  section  = ["HTML", "RSS"]
+  section  = ["HTML"]
   taxonomy = ["HTML"]
   term     = ["HTML"]
+
+# Two pages are hand-written HTML, not Markdown: the home page body and the
+# publications list (content/_index.html, content/publications/_index.html).
+# Hugo >= 0.163 refuses .html content files by default ('! ^text/html$').
+# Running Markdown over that HTML would turn its indented lines into code
+# blocks, so lift the denial. A list of only negations allows everything else;
+# a positive pattern here would silently lock Markdown out.
+[security]
+  allowContent = ['! ^text/org$']
 
 [minify]
   [minify.tdewolff.html]

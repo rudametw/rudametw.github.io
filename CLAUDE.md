@@ -90,14 +90,10 @@ matched the contract byte-for-byte). The working `hugo.toml` combination is:
 | `/blog/categories/<cat>/` | `taxonomies.category = "categories"` + `permalinks.taxonomy/term.categories` | front matter keeps Jekyll's `categories:` key |
 | lowercase category paths | `capitalizeListTitles = false` | with path-lowering off, Hugo's "Bug" title leaked into `/blog/categories/Bug/` |
 
-Two per-post traps found for phase 2:
-
-- **`2011-09-17-Linux-webdav-box.net.md`** — Hugo treats `.net` as an extension
-  and emits `Linux-webdav-box.html`. Pin it with front matter
-  `url: /blog/posts/2011.09.17/Linux-webdav-box.net.html`. Check every post
-  whose slug contains a dot.
-- Jekyll's `layout: blog-post` key is harmless to Hugo; leave it (rule 7, small
-  diffs) or drop it — either way it does nothing.
+**Dotted slugs** (resolved in phase 2): Hugo reads a dot in a filename as an
+extension and truncates the slug. Two posts are affected — `…Linux-webdav-box.net`
+and `…libEGL.so.1-Fedora-20` — and get `url:` pinned by `move-content.sh`.
+Jekyll's `layout: blog-post` key is left in place; Hugo ignores it.
 
 Verification loop:
 
@@ -151,7 +147,7 @@ Regenerate with:
 ./check-urls.sh --inventory-archive
 ```
 
-Current contract: **225 URLs**. `urls-orphans.txt` is a worklist of what still
+Current contract: **224 URLs**. `urls-orphans.txt` is a worklist of what still
 needs a keep / redirect / drop call — **5 entries**:
 
 ```
@@ -176,7 +172,7 @@ preserving their demo pages would have been pointless.
 
 Contract size over the session: 260 (corrupt) -> 218 (repaired) -> 216 (vendor
 pruned) -> 220 (`/docs/` swept in full) -> 225 (teaching exercise files in,
-`advancedsettings.xml` out).
+`advancedsettings.xml` out) -> 224 (`diverse-logo-pngs.zip` out).
 
 ### Why `--inventory-archive` and not the live crawl
 
@@ -193,7 +189,8 @@ site, and 206 of 210 unique sitemap paths resolve to a real file there (the othe
 
 ## `static/` — populated in phase 1 (`scripts/copy-static.sh`)
 
-288 files, **123 MB**: `docs/` 55 MB (all 16 files), `teaching/` 43 MB (148 PDFs
+287 files, **107 MB**: `docs/` 39 MB (15 files — `diverse-logo-pngs.zip`, 16 MB,
+dropped by the author 2026-09-11 and pruned from the contract), `teaching/` 43 MB (148 PDFs
 + 6 `.ods`/`.sql` exercise files), `img/` 22 MB (103 web images; the 8 `.xcf` GIMP
 sources stayed behind), `photos/` 3 MB (the 6 blog-post images), plus
 `favicon.ico`, `robots.txt` (same file, sitemap URL flipped to https),
@@ -201,8 +198,7 @@ sources stayed behind), `photos/` 3 MB (the 6 blog-post images), plus
 verbatim as the meta-refresh redirect it always was.
 
 The script is idempotent (`cp -n`) and never deletes. Re-run it if the archive
-gains a file. Two zips dominate the size: `diverse-logo-pngs.zip` 16 MB and
-`diverse-logo-svg.zip` 7.8 MB — candidates if the author ever wants to trim.
+gains a file.
 
 Not copied, by decision: `photos/` galleries (569 MB), `fancybox/`,
 `font-awesome/`, `fonts/`, `assets/` (rule 1b), `*.py`/`*.sh` under `teaching/`
@@ -330,6 +326,39 @@ two bibtex pages.
 **that file does not exist** anywhere in the archive. It is a 404 on the live site
 today, not something the migration introduces. Rule 6 says report, not fix:
 the author supplies the file or drops the link.
+
+## `content/` — populated in phase 2 (`scripts/move-content.sh`)
+
+23 files. Verified: `./check-urls.sh` → **224/224, missing 0**; a site-wide scan
+of the rendered HTML finds **0** local broken links and **0** unrendered Markdown
+(literal `#### `, ` ``` `, `](`, `{%`) outside code blocks.
+
+| Content | From | Form |
+|---|---|---|
+| 12 posts | `_posts/*.md` | `.md`; `{% highlight %}` → fences; 2 `url:` pins |
+| `blog/_index.md` | — | `outputs: [HTML, RSS]` — the site's only feed |
+| `contact/`, `research/`, 4 research pages | wrapper front matter + `_includes/*.md` body | `.md` |
+| `teaching/_index.md` | wrapper HTML with the 4 fragments inlined where the includes were | `.md` with raw HTML; stray `]` removed from the title |
+| `publications/_index.html` | `publications/index.html` body | **`.html`** + the "Up-to-date publications" HAL/Scholar block and TODO the author asked for |
+| `_index.html` (home) | `index.html` body between navbar and footer | **`.html`**; `aliases: [/CICOMP/]` |
+| `photos/_index.md` | phase 1 | retire page, 8 aliases |
+
+**Redcarpet → CommonMark.** Two syntax habits from the old renderer break under
+Goldmark and are fixed mechanically by the script's `commonmark()` filter, which
+is fence-aware so `#comments` inside code blocks are never touched:
+
+- `####Title` (no space) was a heading in Redcarpet; CommonMark prints the hashes.
+  → `#### Title`. 23 in posts, 57 in fragments.
+- A lone `<br>` line opens an HTML block that swallows the following Markdown
+  until a blank line. → blank line inserted after it. 2 in posts, 29 in fragments.
+
+**`.html` content files** need `[security] allowContent = ['! ^text/org$']` in
+`hugo.toml` — Hugo ≥ 0.163 denies `text/html` content by default. Keep that list
+negations-only: a positive pattern silently locks Markdown out.
+
+The home page's inline `<style>` block (lines 5–87 of `src/index.html`) and its
+`head-open-head-tag.html` meta are **not** in content — they are template, for
+phase 3.
 
 ## Content staleness (report only, do not fix)
 
@@ -503,8 +532,12 @@ all kept.
 ## Working style
 
 - One phase per session, ending in a commit. Phases: (1) scaffold + `hugo.toml`
-  — **done 2026-09-11**, (2) content move, (3) template port, (4) URL
-  verification, (5) publications page, (6) CI workflow.
+  — **done 2026-09-11**, (2) content move — **done 2026-09-11, contract 224/224**,
+  (3) template port, (4) URL verification, (5) publications page, (6) CI workflow.
+- Content is produced by `scripts/move-content.sh` from the archive. **Edit the
+  script, not `content/`**, until the author starts editing prose there; the
+  script header lists every transformation it performs. Audit any file with
+  `diff ~/git/archive/jekyll-src/src/_posts/X.md content/blog/X.md`.
 - `layouts/{baseof,single,list}.html` are **phase-1 stubs**, unstyled, marked
   TEMPORARY in a comment. They exist so every page renders and `check-urls.sh`
   is meaningful. Phase 3 replaces them; do not grow them in phase 2.

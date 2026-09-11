@@ -36,8 +36,11 @@ copy() {  # copy <relative path>
   if cp -n "${SRC}/${rel}" "${DST}/${rel}"; then n=$((n+1)); fi
 }
 
-# docs/: every file, whatever the extension.
-while IFS= read -r f; do copy "${f#"${SRC}"/}"; done < <(find "${SRC}/docs" -type f)
+# docs/: every file, whatever the extension — except diverse-logo-pngs.zip
+# (16 MB, author dropped it 2026-09-11; the svg and fonts kits stay).
+while IFS= read -r f; do copy "${f#"${SRC}"/}"; done < <(
+  find "${SRC}/docs" -type f ! -name 'diverse-logo-pngs.zip'
+)
 
 # teaching/ and research/: documents and exercise files, not pages or tooling.
 while IFS= read -r f; do copy "${f#"${SRC}"/}"; done < <(

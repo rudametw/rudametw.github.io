@@ -80,9 +80,12 @@ served_urls() {
 # (for /fancybox/demo/) even where jekyll-sitemap listed it. Dropped from the
 # contract on the author's instruction: Bootstrap, jQuery and fancybox all go
 # away under hard constraint 1b, so preserving their demo pages is pointless.
+# Also dropped by the author (2026-09-11): advancedsettings.xml, a Kodi config
+# that was never site content, and diverse-logo-pngs.zip (16 MB).
 prune_vendor() {
   grep -v -e '^/fancybox/' -e '^/font-awesome/' -e '^/node_modules/' \
-          -e '^/advancedsettings\.xml$'   # Kodi config, never site content (dropped 2026-09-11)
+          -e '^/advancedsettings\.xml$' \
+          -e '^/docs/diverse-logo/diverse-logo-pngs\.zip$'
 }
 
 # urls-orphans.txt is a worklist of "served, not in the sitemap, needs a

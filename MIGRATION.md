@@ -175,3 +175,61 @@ posts, 16 categories, `/blog/`), 5 research, `/teaching/`, `/publications/`,
 research,teaching,publications}/`, and the 5 research pages. Then
 `./check-urls.sh` should read `missing: 0`.
 Write it as a reviewable script per working style.
+
+---
+
+## 2026-09-11 (later still) — Phase 2: content move — DONE
+
+```
+hugo --minify --cleanDestinationDir && ./check-urls.sh
+contract: 224  built: 226  missing: 0      (new: /blog/categories/, /blog/index.xml)
+```
+
+Plus automated checks over the rendered site: 0 broken local links, 0 unrendered
+Markdown outside code blocks, 0 leftover Liquid. Fragment prose diffed verbatim
+against `_includes/` (contact is byte-identical; the others differ only by the
+two syntax fixes below, auditable with `diff`).
+
+### Done
+
+- `scripts/move-content.sh` (reviewable, idempotent) produced all 23 content
+  files; its header lists every transformation. **Edit the script, not `content/`.**
+- `diverse-logo-pngs.zip` removed from `static/`, `copy-static.sh` and the
+  contract (author). Contract 225 → 224. `static/` is 287 files / 107 MB.
+
+### Found and fixed on the way
+
+- **Hugo ≥ 0.163 denies `.html` content files.** `[security] allowContent =
+  ['! ^text/org$']`. My first attempt used a positive pattern, which replaced the
+  default and locked Markdown out — keep it negations-only.
+- **A second dotted slug**: `…libEGL.so.1-Fedora-20` — pinned like the `.net` one.
+- **Redcarpet → CommonMark**: `####Title` without a space (80 occurrences) and a
+  lone `<br>` line swallowing the Markdown after it (31). Fixed by a fence-aware
+  awk filter so `#comments` in code blocks are untouched.
+- **RSS leaked onto every section** (`section = ["HTML","RSS"]` applies to
+  contact/, research/…). Now off globally, on for `/blog/` via front matter.
+
+### Decisions taken
+
+- Teaching page keeps its Bootstrap-grid wrapper HTML in content for now; phase 3
+  restyles it. Its front-matter title had a stray `]` — removed.
+- Publications: old `scholar.google.fr` link replaced by the author's current
+  Scholar URL; "Up-to-date publications" block with HAL + Scholar added at the
+  top with a `TODO(author)` that the list stops at 2015.
+- Home: content = body between navbar and footer includes only. Its 80-line
+  inline `<style>` and the `<head>` meta are template → phase 3.
+
+### For the author
+
+- `/docs/ICPS08-demo-NFCMuseum-cr.pdf` is still a dead link on the publications
+  page (pre-existing).
+- Retire-page wording (`content/photos/_index.md`) is still a placeholder.
+
+### Next — phase 3 (template port)
+
+Port `_layouts/default.html`, `_includes/{head,navbar,footer,well}.html`,
+`blog-post.html`, `category_index.html`, `blog/index.html` (the post loop) into
+`layouts/`, replacing the phase-1 stubs. Hand-written CSS in `assets/css/`
+replacing Bootstrap 3 + jQuery (rule 1b). Drop `Photos` from the nav. Output the
+Liquid → Go translation table (working style). Use `~/git/archive/old-site-crawl/`
+as the visual reference; `hugo server` for a live check.

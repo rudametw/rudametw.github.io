@@ -1,0 +1,147 @@
+#!/usr/bin/env bash
+# scripts/move-content.sh — phase 2: bring the Jekyll pages and posts into content/.
+#
+# Rule 6 applies: the words are the author's. This script MOVES text and fixes
+# syntax only. Every transformation it performs is listed here:
+#
+#   posts      {% highlight LANG [linenos] %} ... {% endhighlight %}  ->  ```LANG ... ```
+#              "####Title" -> "#### Title"   (Redcarpet made that a heading; CommonMark
+#              needs the space or prints the hashes)
+#              a lone "<br>" line gets a blank line after it (in CommonMark a raw
+#              HTML line opens a block that swallows the Markdown that follows,
+#              until a blank line; Redcarpet did not)
+#              two posts get `url:` pinned (Hugo reads the dots in their names as
+#              file extensions and truncates the slug)
+#   all .md    the two Redcarpet-isms above are fixed in fragments as well
+#   fragments  _includes/*.md were pulled into pages via
+#              {% capture %}{% include X.md %}{% endcapture %}{{ … | markdownify }}.
+#              Hugo has no include-and-markdownify; the fragment body is inlined
+#              into the page's content file at the same spot. Words unchanged.
+#   home       src/index.html carries its own <head>, navbar and footer. Only the
+#              body between the navbar and footer includes is content; the rest
+#              is template (phase 3). Aliases /CICOMP/ (a stale copy of an old
+#              home page) here.
+#   publications  hand-written HTML, copied as-is into an .html content file.
+#              One addition the author asked for: an "Up-to-date publications"
+#              block (HAL + Scholar) and a TODO that the list stops at 2015. The
+#              old scholar.google.fr link is replaced by the author's current one.
+#   teaching   front-matter title had a stray "]" — removed. Nothing else.
+#
+# Idempotent: overwrites its own outputs, touches nothing else.
+
+set -euo pipefail
+export LC_ALL=C
+export SELF="${BASH_SOURCE[0]}"
+
+SRC="${SRC:-${HOME}/git/archive/jekyll-src/src}"
+OUT="${OUT:-content}"
+[[ -d "${SRC}/_posts" ]] || { echo "source not found: ${SRC}" >&2; exit 2; }
+
+# front_matter <file>  — print the YAML block of a Jekyll page, delimiters included
+front_matter() { awk 'NR==1 && /^---/{p=1; print; next} p && /^---/{print; exit} p{print}' "$1"; }
+# body <file>          — everything after the front matter
+body()         { awk 'NR==1 && /^---/{p=1; next} p==1 && /^---/{p=2; next} p==2{print}' "$1"; }
+# commonmark            — Redcarpet -> CommonMark syntax fixes, applied to every
+#                        Markdown file that comes across. Fence-aware: nothing
+#                        inside a ``` block is touched (bash comments start with #).
+commonmark() {
+  awk '
+    /^```/            { infence = !infence; print; next }
+    infence           { print; next }
+    /^#{1,6}[^# ]/    { sub(/^#+/, "&" " ") }
+    { print }
+    /^<br>[[:space:]]*$/ { print "" }
+  '
+}
+# fragment <name>      — an _includes/*.md, words unchanged, syntax fixed
+fragment()     { commonmark < "${SRC}/_includes/$1"; }
+
+# `--lib`: only define the functions above (used by the teaching awk callback).
+[[ "${1:-}" == "--lib" ]] && return 0 2>/dev/null
+
+mkdir -p "${OUT}/blog" "${OUT}/contact" "${OUT}/research" "${OUT}/teaching" "${OUT}/publications"
+
+# ---------------------------------------------------------------- posts (12)
+for f in "${SRC}"/_posts/*.md; do
+  name=$(basename "$f")
+  sed -E \
+    -e 's/\{% *highlight +([A-Za-z0-9_+-]+)( +linenos)? *%\}/```\1/' \
+    -e 's/\{% *endhighlight *%\}/```/' \
+    "$f" | commonmark > "${OUT}/blog/${name}"
+done
+# Two slugs contain dots. Hugo reads them as file extensions and would emit
+# Linux-webdav-box.html and Acrobat-reader-cannot-find-libEGL.html. Pin the URL.
+sed -i '1a url: /blog/posts/2011.09.17/Linux-webdav-box.net.html' \
+  "${OUT}/blog/2011-09-17-Linux-webdav-box.net.md"
+sed -i '1a url: /blog/posts/2014.03.19/Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.html' \
+  "${OUT}/blog/2014-03-19-Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.md"
+
+cat > "${OUT}/blog/_index.md" <<'MD'
+---
+title: Blog
+outputs: [HTML, RSS]   # the one feed on the site; see hugo.toml [outputs]
+---
+MD
+
+# ------------------------------------------------- fragment pages: contact, research
+{ front_matter "${SRC}/contact/index.html";  fragment contact.md;  } > "${OUT}/contact/_index.md"
+{ front_matter "${SRC}/research/index.html"; fragment research.md; } > "${OUT}/research/_index.md"
+for pair in \
+  "cloud-monitoring-and-repair:cloud-dynamic-monitoring-and-repair.md" \
+  "dynamic-application-consistency:dynamic-application-consistency.md" \
+  "dynamic-apps-for-cloud-computing:dynamic-apps-cloud-computing.md" \
+  "optimisation-applications-cloud:optimisation-applications-cloud.md"
+do
+  page="${pair%%:*}"; frag="${pair##*:}"
+  { front_matter "${SRC}/research/${page}/index.html"; fragment "${frag}"; } > "${OUT}/research/${page}.md"
+done
+
+# -------------------------------------------------------------------- teaching
+# Wrapper HTML kept; each capture/include/markdownify triple becomes the fragment
+# itself, surrounded by blank lines so Goldmark renders the Markdown inside <div>.
+{
+  front_matter "${SRC}/teaching/index.html" | sed 's/Rudametkin\]$/Rudametkin/'
+  body "${SRC}/teaching/index.html" | awk -v src="${SRC}" '
+    /\{% *capture my_include *%\}\{% *include / {
+      match($0, /include +[^ %]+/); frag = substr($0, RSTART+8, RLENGTH-8)
+      cmd = "bash -c '"'"'source " ENVIRON["SELF"] " --lib; commonmark'"'"' < " src "/_includes/" frag
+      print ""; while ((cmd | getline line) > 0) print line; close(cmd); print ""
+      next
+    }
+    /\{\{ *my_include *\| *markdownify *\}\}/ { next }
+    { print }'
+} > "${OUT}/teaching/_index.md"
+
+# ---------------------------------------------------------------- publications
+{
+  front_matter "${SRC}/publications/index.html"
+  cat <<'HTML'
+
+<!-- TODO(author): this list stops at 2015. Update it by hand; do not let a
+     script backfill it. Up-to-date sources are linked just below. -->
+<div class="up-to-date-publications">
+  <strong>Up-to-date publications:</strong>
+  <a href="https://inria.hal.science/search/index/?q=%2A&amp;rows=30&amp;authIdPerson_i=16377&amp;sort=publicationDate_tdate+desc" rel="noopener noreferrer">HAL</a>
+  &middot;
+  <a href="https://scholar.google.com/citations?user=vJQGm9kAAAAJ&amp;hl=fr&amp;oi=ao" rel="noopener noreferrer">Google Scholar</a>
+</div>
+HTML
+  body "${SRC}/publications/index.html" \
+    | sed 's|http://scholar.google.fr/citations?user=vJQGm9kAAAAJ;\?|https://scholar.google.com/citations?user=vJQGm9kAAAAJ\&hl=fr\&oi=ao|g'
+} > "${OUT}/publications/_index.html"
+
+# ------------------------------------------------------------------------ home
+{
+  cat <<'YAML'
+---
+title: Walter Rudametkin
+aliases:
+  - /CICOMP/
+---
+YAML
+  # body between `{% include navbar.html %}` and `{% include footer.html %}`
+  awk '/\{% *include navbar\.html *%\}/{p=1; next} /\{% *include footer\.html *%\}/{p=0} p' "${SRC}/index.html"
+} > "${OUT}/_index.html"
+
+echo "content/ now:"; find "${OUT}" -type f | sort | sed 's/^/  /'
+echo "leftover Liquid (must be empty):"; grep -rnE '\{%|\{\{' "${OUT}" || echo "  none"
