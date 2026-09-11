@@ -408,3 +408,29 @@ The contact-page portrait is the old one (TODO: newer photo).
 3. Photos retire-page wording; publication list (stops at 2015); the dead
    `ICPS08-demo-NFCMuseum-cr.pdf` link.
 4. Push `hugo-site`, set Pages → Source → GitHub Actions, watch the first run.
+
+---
+
+## 2026-09-12 — Landing page round 4 (author's punch list)
+
+- Hero: kicker now "Full Professor · University of Rennes [ESIR] · IRISA · Inria ·
+  IUF", every institution linked; tagline "Software engineering for privacy and
+  security: device fingerprinting, software diversity, supply chain security."
+  Both bold and larger, heavier text-shadow, a light haze over the whole photo
+  (deeper under the text). Checked at 1400px and 400px.
+- Links added site-wide where the names appear: ESIR, IRISA, Inria Rennes, the
+  author's IUF profile page, DiverSE, Spirals, University of Rennes.
+- Removed: the recognition strip (IUF / CNIL / Am I Unique / venues) and the
+  card-3 opener "The thread running through all of it."
+- Career: IUF membership as its own row under Full Professor; HDR title
+  "Improving the Security and Privacy of the Web through Browser
+  Fingerprinting"; links to HDR slides and master's-thesis slides
+  (`/docs/DynamicTracing.pdf`).
+- **`/docs/RUDAMETKIN_HDR_slides.pdf` is a deliberately broken link** (author's
+  instruction) until the file is added to `static/docs/`. It is the one BROKEN
+  the link check reports; do not "fix" it by removing the link.
+- New portrait `static/img/walter-rudametkin.jpg` (640×800, 51 KB) cropped 4:5
+  from `PROFILE/profile photo.jpeg`; used on `/contact/`. The old `me.jpg` and
+  `WalterRudametkin.jpg` stay in `static/img/` (rule 8: nothing deleted).
+- Footer "Find me" order now matches `/contact/` Elsewhere: Am I Unique,
+  Scholar, HAL, ORCID, GitHub, LinkedIn.

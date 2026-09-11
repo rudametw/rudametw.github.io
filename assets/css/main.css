@@ -88,13 +88,15 @@ blockquote { margin: 1rem 0; padding-left: 1rem; border-left: 5px solid var(--ru
 .hero { position: relative; display: flex; align-items: center; justify-content: center; text-align: center; color: #fff;
   min-height: clamp(18rem, 52vh, 28rem); padding: 3rem 1rem 3.5rem;
   background: #123 url(/img/dolphins4-optimized.jpg) center 40% / cover no-repeat;
-  text-shadow: 0 1px 2px rgba(0,0,0,.7), 0 0 24px rgba(0,0,0,.35); }
-.hero::after { content: ""; position: absolute; inset: auto 0 0 0; height: 55%; pointer-events: none;
-  background: linear-gradient(to bottom, rgba(0,10,30,0), rgba(0,10,30,.45)); }   /* legibility only where the text sits; no haze on the sky */
+  text-shadow: 0 1px 3px rgba(0,0,0,.85), 0 2px 12px rgba(0,0,0,.6), 0 0 32px rgba(0,0,0,.4); }
+.hero::after { content: ""; position: absolute; inset: 0; pointer-events: none;   /* a very light haze, deeper under the text */
+  background: linear-gradient(to bottom, rgba(0,10,30,.18), rgba(0,10,30,.18) 40%, rgba(0,10,30,.5)); }
 .hero > * { position: relative; z-index: 1; }
-.hero .kicker { margin: 0 0 0.5rem; font-size: clamp(0.8rem, 0.7rem + 0.4vw, 0.95rem); letter-spacing: 0.14em; text-transform: uppercase; opacity: .95; }
+.hero .kicker { margin: 0 0 0.6rem; font-size: clamp(0.95rem, 0.85rem + 0.45vw, 1.15rem); font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+.hero a { color: #fff; text-decoration: underline; text-decoration-color: rgba(255,255,255,.55); text-underline-offset: 0.2em; }
+.hero a:hover { text-decoration-color: #fff; }
 .hero h1 { margin: 0; font-size: clamp(2.2rem, 1.4rem + 4vw, 4.25rem); letter-spacing: -0.01em; }
-.hero .tagline { max-width: 40rem; margin: 0.75rem auto 1.5rem; font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.3rem); font-weight: 300; }
+.hero .tagline { max-width: 44rem; margin: 0.75rem auto 1.6rem; font-size: clamp(1.15rem, 1rem + 0.7vw, 1.5rem); font-weight: 700; line-height: 1.4; }
 .hero-actions, .banner .social { display: flex; flex-wrap: wrap; justify-content: center; gap: 0.6rem; list-style: none; margin: 0; padding: 0; }
 .hero-actions a, .banner .social a { display: inline-flex; align-items: center; gap: 0.5em; padding: 0.65rem 1.2rem; background: #fff; color: #333;
   border: 1px solid #ccc; border-radius: 3px; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; text-shadow: none; }
@@ -117,10 +119,6 @@ blockquote { margin: 1rem 0; padding-left: 1rem; border-left: 5px solid var(--ru
 .card p { margin: 0 0 0.6rem; font-size: 0.97rem; }
 .card ul { margin: 0; padding-left: 1.1rem; font-size: 0.93rem; }
 .card .muted { color: var(--muted); font-size: 0.9rem; }
-.stats { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr)); list-style: none; margin: 0; padding: 0; }
-.stats li { padding: 1rem 1.2rem; border-left: 4px solid var(--link); background: var(--paper-2); border-radius: 0 6px 6px 0; }
-.stats strong { display: block; font-size: 1.15rem; }
-.stats span { color: var(--muted); font-size: 0.93rem; }
 .timeline { list-style: none; margin: 0; padding: 0; max-width: var(--prose); }
 .timeline li { display: grid; grid-template-columns: 7.5rem 1fr; gap: 0 1rem; padding: 0.7rem 0; border-top: 1px solid var(--rule); }
 .timeline li:first-child { border-top: 0; }

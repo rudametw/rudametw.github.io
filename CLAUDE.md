@@ -478,6 +478,9 @@ two files concatenate into one fingerprinted `site.css` in `partials/head.html`.
   not fit the pattern are kept and single-spaced via `:has()`.
 - **Never `pkill -f` / `pgrep -f` a pattern from inside a Bash tool call** — the
   pattern matches the calling shell's own command line and kills it.
+- **Known-broken link, on purpose**: `/docs/RUDAMETKIN_HDR_slides.pdf` on the
+  home page Career list. The author will add the file; until then the link
+  checker reports exactly one BROKEN. Leave it.
 
 ## `.github/workflows/hugo.yml` — phase 6
 
