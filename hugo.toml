@@ -1,0 +1,78 @@
+# hugo.toml — rudametw.github.io
+#
+# Phase 1 scaffold. Every non-default setting here exists to reproduce a URL that
+# the old Jekyll site served; see urls-before.txt and CLAUDE.md "URL preservation".
+
+baseURL      = "https://rudametw.github.io/"
+title        = "Walter Rudametkin"
+locale       = "en"
+
+# Jekyll's :title permalink token kept the filename's case
+# (…/Thunderbird-leading-spaces-bug.html, …/NSLU2-multiple-network-itfs.html).
+# Hugo lowercases paths unless told not to.
+disablePathToLower = true
+
+# Side effect of the above: Hugo title-cases list titles ("bug" -> "Bug") and,
+# with path lowering off, that capital leaks into /blog/categories/Bug/. The old
+# URLs are lowercase. Templates can capitalise for display; paths must not.
+capitalizeListTitles = false
+
+# Jekyll posts carry their date in the filename (2014-02-04-slug.md) and have no
+# `date:` in front matter. :filename fills date AND slug from the filename, so the
+# slug is the case-preserved remainder — exactly what Jekyll's :title produced.
+[frontmatter]
+  date = [":filename", ":default"]
+
+# Old scheme (src/_config.yml):  permalink: /blog/posts/:year.:month.:day/:title.html
+# The .html suffix is produced by uglyURLs below, not by the pattern.
+[permalinks]
+  [permalinks.page]
+    blog = "/blog/posts/:year.:month.:day/:slug"
+  # Category pages: /blog/categories/<cat>/ (see [taxonomies]).
+  [permalinks.taxonomy]
+    categories = "/blog/categories/"
+  [permalinks.term]
+    categories = "/blog/categories/:slug/"
+
+# Only the blog section used file-style URLs; everything else was /dir/.
+[uglyURLs]
+  blog = true
+
+# Replaces src/_plugins/generate_categories.rb, which wrote /blog/categories/<cat>/.
+# Only `category` — the old site had no tags. Front matter keeps Jekyll's key
+# `categories:`; the /blog/ prefix comes from the taxonomy/term permalinks below.
+[taxonomies]
+  category = "categories"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      # Posts and content fragments contain raw HTML (tables, <img>, <a>). Redcarpet
+      # passed it through; Goldmark strips it unless unsafe is set.
+      unsafe = true
+    [markup.goldmark.extensions]
+      # Redcarpet was configured with exactly these two.
+      strikethrough = true
+      table         = true
+
+# Jekyll's excerpt_separator. Hugo honours the same marker natively.
+summaryLength = 70
+
+[sitemap]
+  filename = "sitemap.xml"
+
+# The old site had no feeds. One RSS feed for the blog section is worth having;
+# per-category and home feeds would only add URLs that never existed.
+[outputs]
+  home     = ["HTML"]
+  section  = ["HTML", "RSS"]
+  taxonomy = ["HTML"]
+  term     = ["HTML"]
+
+[minify]
+  [minify.tdewolff.html]
+    keepWhitespace = false
+
+# Pages that are served verbatim from static/ and must never be treated as
+# content: Google Search Console verification, the projet-al redirect stub.
+# (Nothing to configure — listed here so nobody "cleans them up".)

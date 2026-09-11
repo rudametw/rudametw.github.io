@@ -1,0 +1,10 @@
+{{/* TEMPORARY phase-1 stub — see baseof.html. Serves home, sections, taxonomies, terms. */}}
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+<ul>
+{{ range .Pages }}
+  <li><a href="{{ .RelPermalink }}">{{ .Title }}</a>{{ with .Date }} <small>{{ .Format "2006-01-02" }}</small>{{ end }}</li>
+{{ end }}
+</ul>
+{{ end }}

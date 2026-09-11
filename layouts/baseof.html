@@ -1,0 +1,27 @@
+<!--
+  TEMPORARY phase-1 stub. Replaced in phase 3 by the port of
+  src/_layouts/default.html + _includes/{head,navbar,footer,well}.html.
+  Exists only so Hugo renders every page and check-urls.sh can verify the URL
+  scheme. No styling on purpose.
+-->
+<!DOCTYPE html>
+<html lang="{{ site.Language.Lang }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/publications/">Publications</a>
+    <a href="/teaching/">Teaching</a>
+    <a href="/research/">Research</a>
+    <a href="/blog/">Blog</a>
+    <a href="/contact/">Contact</a>
+  </nav>
+  <main>
+    {{ block "main" . }}{{ end }}
+  </main>
+</body>
+</html>

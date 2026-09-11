@@ -69,6 +69,10 @@ served_urls() {
         \( -path "${root}/src" -o -path "${root}/.git" -o -path "${root}/public" \) -prune -o \
         \( -name '*.html' -o -name '*.pdf' -o -name '*.xml' \) -print
     [[ -d "${root}/docs" ]] && find "${root}/docs" -type f
+    # teaching/ likewise: exercise files (.ods, .sql) sit next to the PDFs
+    # that reference them and were served the same way.
+    [[ -d "${root}/teaching" ]] && find "${root}/teaching" -type f \
+        \( -name '*.ods' -o -name '*.sql' -o -name '*.zip' \)
   } | sed "s|^${root}||"
 }
 
@@ -77,7 +81,8 @@ served_urls() {
 # contract on the author's instruction: Bootstrap, jQuery and fancybox all go
 # away under hard constraint 1b, so preserving their demo pages is pointless.
 prune_vendor() {
-  grep -v -e '^/fancybox/' -e '^/font-awesome/' -e '^/node_modules/'
+  grep -v -e '^/fancybox/' -e '^/font-awesome/' -e '^/node_modules/' \
+          -e '^/advancedsettings\.xml$'   # Kodi config, never site content (dropped 2026-09-11)
 }
 
 # urls-orphans.txt is a worklist of "served, not in the sitemap, needs a
@@ -89,8 +94,10 @@ prune_vendor() {
 #                 an orphan. Hugo generates it.
 #   /docs/*       author's ruling, 2026-09-11: all keepers. Links there are
 #                 shared directly, so absence from a page proves nothing.
+#   teaching exercise files (.ods/.sql/.zip): kept, same reasoning as /docs/ —
+#                 they are the material the course PDFs point students at.
 prune_orphan_noise() {
-  grep -v -e '^/sitemap\.xml$' -e '^/docs/'
+  grep -v -e '^/sitemap\.xml$' -e '^/docs/' -e '^/teaching/.*\.\(ods\|sql\|zip\)$'
 }
 
 write_contract() {

@@ -111,3 +111,67 @@ Explicitly deferred at the author's instruction. When it resumes:
 `hugo` v0.166.0+extended is on the host PATH at `~/.local/bin/hugo` (installed in
 the `arch` distrobox, exported with `distrobox-export`). Plain `hugo` works from
 any shell. If it ever disappears from PATH, re-check that export.
+
+---
+
+## 2026-09-11 (later) — Phase 1: scaffold + `hugo.toml` — DONE
+
+Author's brief: "perform all reasonable actions and take decisions for me."
+Decisions taken are marked **[decided]** and can be reversed cheaply.
+
+### Done
+
+- **`hugo.toml`** reproducing the old URL scheme. Verified by building two real
+  posts (the ones with capitals and a dot in the name): 10/10 blog URLs matched
+  the contract byte-for-byte, then the test posts were removed again. Findings
+  baked into the config: `:filename` fills date *and* case-preserved slug;
+  `uglyURLs` per section supplies the `.html`; `capitalizeListTitles = false`
+  because Hugo's "Bug" title otherwise leaks into `/blog/categories/Bug/`;
+  taxonomy stays `categories` so Jekyll front matter is untouched, with the
+  `/blog/` prefix coming from taxonomy/term permalinks. Zero build warnings.
+- **`layouts/{baseof,single,list}.html`** — deliberately unstyled stubs so every
+  page renders. Phase 3 replaces them.
+- **`content/photos/_index.md`** — the retire page with 8 aliases. All 9 photo
+  URLs resolve. Body is one placeholder line marked `TODO(author)`.
+- **`scripts/copy-static.sh`** — reviewable, idempotent, never deletes. Ran it:
+  288 files / 123 MB into `static/`.
+- **`check-urls.sh`** — sweep now also takes teaching `.ods/.sql/.zip` exercise
+  files; `advancedsettings.xml` pruned. Contract **225**, worklist **5**.
+
+### Verification
+
+```
+hugo --minify --cleanDestinationDir && ./check-urls.sh
+contract: 225  built: 189  missing: 38
+```
+
+**All 38 MISSING are content pages** — phase 2's exact worklist: 29 blog (12
+posts, 16 categories, `/blog/`), 5 research, `/teaching/`, `/publications/`,
+`/contact/`, `/CICOMP/`. Every static contract item (187) passes.
+
+### [decided] this session
+
+- `/CICOMP/` (a stale 35 KB copy of an old home page) → alias to `/` in phase 2.
+- `/projet-al/` (meta-refresh to a Google Doc) → served verbatim from `static/`.
+- `/advancedsettings.xml` (Kodi config) → dropped from contract and site.
+- Teaching `.ods/.sql` exercise files → kept, copied, in contract; same
+  reasoning as `/docs/`.
+- The three `_old`/`.old` teaching PDFs → copied and served (10.4 MB); left on
+  the worklist in case the author wants them gone.
+- `img/*.xcf` GIMP sources (8 files, 3.1 MB) → not copied. Not web content.
+- `robots.txt` → same file, sitemap URL flipped to https.
+- RSS: one feed for `/blog/` only; none for home, categories, or terms.
+
+### Found, for the author
+
+- **`2011-09-17-Linux-webdav-box.net.md` needs `url:` pinned** in front matter
+  or Hugo eats the `.net`. Recorded in CLAUDE.md; applies in phase 2.
+- `diverse-logo-pngs.zip` alone is 16 MB of the 123 MB. Fine for Pages; noted.
+
+### Next — phase 2 (content move)
+
+12 posts (+ the `url:` pin), `index.html` → `content/_index.md` with the
+`/CICOMP/` alias, the `_includes/*.md` content fragments → `content/{contact,
+research,teaching,publications}/`, and the 5 research pages. Then
+`./check-urls.sh` should read `missing: 0`.
+Write it as a reviewable script per working style.

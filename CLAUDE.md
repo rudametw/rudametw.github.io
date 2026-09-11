@@ -79,24 +79,25 @@ permalink:    /blog/posts/:year.:month.:day/:title.html
 category_dir: /blog/categories
 ```
 
-so:
+**Reproduced and verified in phase 1** (2 real posts built, 10/10 blog URLs
+matched the contract byte-for-byte). The working `hugo.toml` combination is:
 
-```toml
-[permalinks]
-  blog = "/blog/posts/:year.:month.:day/:title.html"
+| Old behaviour | Setting | Why |
+|---|---|---|
+| date from filename `2014-02-04-slug.md` | `[frontmatter] date = [":filename", ":default"]` | posts have no `date:`; `:filename` fills date **and** slug |
+| `:title` = case-preserved filename slug | `permalinks.page.blog = "/blog/posts/:year.:month.:day/:slug"` + `disablePathToLower = true` | Hugo's `:title` would urlize the *front-matter* title |
+| `.html` suffix | `[uglyURLs] blog = true` | not in the pattern — Hugo appends it |
+| `/blog/categories/<cat>/` | `taxonomies.category = "categories"` + `permalinks.taxonomy/term.categories` | front matter keeps Jekyll's `categories:` key |
+| lowercase category paths | `capitalizeListTitles = false` | with path-lowering off, Hugo's "Bug" title leaked into `/blog/categories/Bug/` |
 
-[taxonomies]
-  category = "blog/categories"
-```
+Two per-post traps found for phase 2:
 
-Two traps in that translation:
-
-- Jekyll's `:title` preserves the filename's case; Hugo's `:slug`/`:title` lowercases
-  by default. Live URLs have capitals (`/blog/posts/2014.03.05/Thunderbird-leading-spaces-bug.html`,
-  `NSLU2-multiple-network-itfs.html`). Set `disablePathToLower = true` or pin each
-  post's `slug:` in front matter.
-- The `.html` suffix means these are *not* directory-style URLs. Hugo needs
-  `uglyURLs` for the blog section, or explicit `url:` per post.
+- **`2011-09-17-Linux-webdav-box.net.md`** — Hugo treats `.net` as an extension
+  and emits `Linux-webdav-box.html`. Pin it with front matter
+  `url: /blog/posts/2011.09.17/Linux-webdav-box.net.html`. Check every post
+  whose slug contains a dot.
+- Jekyll's `layout: blog-post` key is harmless to Hugo; leave it (rule 7, small
+  diffs) or drop it — either way it does nothing.
 
 Verification loop:
 
@@ -150,23 +151,21 @@ Regenerate with:
 ./check-urls.sh --inventory-archive
 ```
 
-Current contract: **220 URLs**, after `/docs/` was swept in full (see below).
-`urls-orphans.txt` is a worklist of what still needs a keep / redirect / drop
-call — now **6 entries**, with `/sitemap.xml` and all `/docs/*` filtered out as
-already settled:
+Current contract: **225 URLs**. `urls-orphans.txt` is a worklist of what still
+needs a keep / redirect / drop call — **5 entries**:
 
 ```
-/advancedsettings.xml                     <- Kodi config, unrelated to the site
-/projet-al/                               <- meta-refresh redirect to a Google Doc
-/research/water-quality-datascience/M2-Water-quality-datascience.pdf
-/teaching/gbiaal4sgbd/cours/7_Recapitulatif_handouts_old.pdf
-/teaching/gbiaal4sgbd/cours/7_Recapitulatif_old.pdf
-/teaching/gbiaal4sgbd/td_tp/TP-Noté-2015-videoclub.old.pdf
+/projet-al/                               <- kept as a verbatim static redirect stub (phase 1)
+/research/water-quality-datascience/M2-Water-quality-datascience.pdf   <- copied; outside /docs/
+/teaching/gbiaal4sgbd/cours/7_Recapitulatif_handouts_old.pdf           <- copied (5.2 MB)
+/teaching/gbiaal4sgbd/cours/7_Recapitulatif_old.pdf                    <- copied (5.2 MB)
+/teaching/gbiaal4sgbd/td_tp/TP-Noté-2015-videoclub.old.pdf             <- copied
 ```
 
-Note `/research/water-quality-datascience/M2-Water-quality-datascience.pdf` is
-under `/research/`, not `/docs/`, so the "all `/docs/` are keepers" ruling does
-not cover it. Still needs a decision.
+All five are *served* by the phase-1 build (they are in `static/`); they stay on
+the worklist only because the author may still want to drop the `_old` files.
+Filtered out as settled: `/sitemap.xml`, all `/docs/*`, teaching exercise files
+(`.ods`/`.sql`/`.zip`). Dropped outright: `/advancedsettings.xml` (Kodi config).
 
 **Vendor junk is pruned from the contract** (author's call, 2026-09-11).
 `prune_vendor()` drops `/fancybox/`, `/font-awesome/` and `/node_modules/` from
@@ -176,7 +175,8 @@ site content. Bootstrap, jQuery and fancybox all go away under rule 1b, so
 preserving their demo pages would have been pointless.
 
 Contract size over the session: 260 (corrupt) -> 218 (repaired) -> 216 (vendor
-pruned) -> 220 (`/docs/` swept in full).
+pruned) -> 220 (`/docs/` swept in full) -> 225 (teaching exercise files in,
+`advancedsettings.xml` out).
 
 ### Why `--inventory-archive` and not the live crawl
 
@@ -191,14 +191,23 @@ site, and 206 of 210 unique sitemap paths resolve to a real file there (the othe
 
 `--inventory` (live) is kept and fixed, but needs network access.
 
-## Assets that must move into `static/`
+## `static/` — populated in phase 1 (`scripts/copy-static.sh`)
 
-- **162 PDFs, 75 MB** at the worktree root — 157 are in the sitemap. Mostly
-  `teaching/gbiaal4sgbd/` course material. These are URL-contract items, not
-  decoration: they must land at the same paths under `static/`.
-- `img/` — 25 MB.
-- `photos/` — **569 MB**, against GitHub Pages' 1 GB limit. See Photos below;
-  do not copy this tree without asking.
+288 files, **123 MB**: `docs/` 55 MB (all 16 files), `teaching/` 43 MB (148 PDFs
++ 6 `.ods`/`.sql` exercise files), `img/` 22 MB (103 web images; the 8 `.xcf` GIMP
+sources stayed behind), `photos/` 3 MB (the 6 blog-post images), plus
+`favicon.ico`, `robots.txt` (same file, sitemap URL flipped to https),
+`google462956b09535940b.html`, `.nojekyll`, and `projet-al/index.html` served
+verbatim as the meta-refresh redirect it always was.
+
+The script is idempotent (`cp -n`) and never deletes. Re-run it if the archive
+gains a file. Two zips dominate the size: `diverse-logo-pngs.zip` 16 MB and
+`diverse-logo-svg.zip` 7.8 MB — candidates if the author ever wants to trim.
+
+Not copied, by decision: `photos/` galleries (569 MB), `fancybox/`,
+`font-awesome/`, `fonts/`, `assets/` (rule 1b), `*.py`/`*.sh` under `teaching/`
+(author tooling), `advancedsettings.xml`, `sitemap.xml` (Hugo generates it), and
+every built `.html` page (content phase).
 
 ## Verified inventory of the old site
 
@@ -227,10 +236,12 @@ Layout `default.html` is a Bootstrap 3 two-column grid: `.col-md-8` content +
 `.col-md-4` sidebar (`well.html`), with `navbar.html` above and `footer.html`
 below. Nav is Home / Publications / Teaching / Research / Blog / Photos / Contact.
 
-Two sections exist on disk but appear in neither the nav nor the crawl:
-`src/CICOMP/` and `src/projet-al/` (old course pages). `/CICOMP/` is in the
-sitemap; `/projet-al/` is in neither the sitemap nor the crawl, i.e. a true
-orphan. Report both, let the author decide.
+Two directories exist at the built root with no Jekyll source: `CICOMP/` and
+`projet-al/`. `CICOMP/index.html` is a 35 KB stale copy of an old *home page*
+("Official Home Page | Sitio Oficial"), in the sitemap. **Decision (phase 1):
+alias `/CICOMP/` to `/`** — add it to `content/_index.md` `aliases:` in phase 2.
+`projet-al/index.html` is a meta-refresh to a Google Doc; copied verbatim to
+`static/`, so it keeps doing exactly that.
 
 Vendored front-end to be deleted per rule 1b: `bootstrap.css`, `bootstrap.js`,
 `jquery-latest.js`, `jquery.fancybox.*`, `font-awesome.css`, a remote
@@ -424,8 +435,9 @@ tree in the archive.
 Author's call: **one retire-notice page at `/photos/`, with the 8 gallery URLs
 aliased onto it.** Nothing is pruned from `urls-before.txt`.
 
-Not built yet — phase 1 has not started. When it does, this is the shape
-(`content/photos/_index.md`):
+**Built in phase 1** as `content/photos/_index.md`. Body is one placeholder
+sentence marked `TODO(author)` — the wording is the author's to write (rule 6).
+Verified: all 9 URLs resolve; Hugo writes each alias as a meta-refresh stub.
 
 ```yaml
 ---
@@ -442,12 +454,8 @@ aliases:
 ---
 ```
 
-Hugo writes each alias as a real redirect stub in `public/`, so all 9 URLs
-resolve and `check-urls.sh` goes clean. Note the alias paths carry capitals and
-underscores — do not lowercase them, or the old URLs break.
-
-The body text is the author's to write (rule 6). Until this page exists, these 9
-are the expected residual MISSING set.
+The alias paths carry capitals and underscores — do not lowercase them, or the
+old URLs break.
 
 ### Photo assets kept in `static/photos/` — DONE
 
@@ -494,9 +502,13 @@ all kept.
 
 ## Working style
 
-- One phase per session, ending in a commit. Phases: (1) scaffold + `hugo.toml`,
-  (2) content move, (3) template port, (4) URL verification, (5) publications
-  pipeline, (6) CI workflow.
+- One phase per session, ending in a commit. Phases: (1) scaffold + `hugo.toml`
+  — **done 2026-09-11**, (2) content move, (3) template port, (4) URL
+  verification, (5) publications page, (6) CI workflow.
+- `layouts/{baseof,single,list}.html` are **phase-1 stubs**, unstyled, marked
+  TEMPORARY in a comment. They exist so every page renders and `check-urls.sh`
+  is meaningful. Phase 3 replaces them; do not grow them in phase 2.
+- Build with `hugo --minify --cleanDestinationDir`, never `rm -rf public`.
 - For bulk file moves, **write a reviewable shell script** rather than performing
   dozens of individual edits. The author reviews before it runs.
 - When porting a template, output a table of every Liquid construct translated and
