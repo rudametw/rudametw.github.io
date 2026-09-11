@@ -324,3 +324,40 @@ Google font did not load).
 
 Profile/contact text (stale), retire-page wording, publication list; optionally
 download Lato (OFL) into `static/fonts/` for the original typeface.
+
+---
+
+## 2026-09-11 (late) — Design round 2: fonts, icons, spacing, publications box
+
+Author's punch list, all done and verified by screenshot:
+
+- **Gap between navbar and hero** — one bug caused both this *and* the missing
+  gap on /blog/: `.wrap { padding: 0 1rem }` (a class) beat `main { padding-block }`
+  (an element), so pages with `.wrap` had no top padding while the home `<main>`
+  (no `.wrap`) had it. `.wrap` now sets `padding-inline` only; `#home main` is 0.
+- **Bold group titles on /publications/** — headings were `font-weight: 500`,
+  which Lato/Arial lack, so it fell to 400. Now 700.
+- **ORCID/HAL/Scholar regrouped** as buttons in the green box; the bare links
+  under the `<h1>` are cut by `move-content.sh` (author's call). "Scholar", not
+  "Google Scholar", here and in the footer.
+- **Glyphs back** on hero and footer buttons — see CLAUDE.md "Fonts and icons".
+- **Lato self-hosted** from the author's `Lato.zip`.
+
+Also, under "make it modern but light": sticky navbar; dark gradient over the
+hero photo so the type reads; `theme-color` and OpenGraph meta.
+
+### Recommendations not implemented (design decisions for the author)
+
+1. **Home hero**: swap the fishing photo for a portrait + two-line bio + the three
+   buttons. Says "researcher" before "hobbies"; also makes the profile rewrite
+   the natural moment to do it.
+2. **"Recent publications" on the home page**, 5 items, fed from a HAL BibTeX
+   export through the `bib2yaml` idea that was shelved — the one place a small
+   data pipeline would pay for itself.
+3. **Publications page as a list with a year column and type filters** instead of
+   the 2013 `<TABLE>` markup; static, no JS needed for the layout.
+4. **Dark mode** via `prefers-color-scheme` — ~15 lines with the existing tokens.
+5. **Mobile nav**: a `<details>` disclosure instead of wrapping to two rows.
+6. **Contrast**: nav links `#777` on `#f8f8f8` are borderline (≈4.3:1); `#666` passes.
+7. **WOFF2** for Lato (needs `fonttools`), `loading="lazy"` on content images
+   (belongs in the rewritten home page, not in a template).

@@ -33,6 +33,8 @@
 #              One addition the author asked for: an "Up-to-date publications"
 #              block (HAL + Scholar) and a TODO that the list stops at 2015. The
 #              old scholar.google.fr link is replaced by the author's current one.
+#              The bare ORCID/Scholar links under the <h1> are removed — they
+#              now live as buttons in that block (author's call, 2026-09-11).
 #   teaching   front-matter title had a stray "]" — removed. Nothing else.
 #
 # Idempotent: overwrites its own outputs, touches nothing else.
@@ -135,15 +137,18 @@ done
   cat <<'HTML'
 
 <!-- TODO(author): this list stops at 2015. Update it by hand; do not let a
-     script backfill it. Up-to-date sources are linked just below. -->
+     script backfill it. Up-to-date sources are the buttons just below. -->
 <div class="up-to-date-publications">
   <strong>Up-to-date publications:</strong>
-  <a href="https://inria.hal.science/search/index/?q=%2A&amp;rows=30&amp;authIdPerson_i=16377&amp;sort=publicationDate_tdate+desc" rel="noopener noreferrer">HAL</a>
-  &middot;
-  <a href="https://scholar.google.com/citations?user=vJQGm9kAAAAJ&amp;hl=fr&amp;oi=ao" rel="noopener noreferrer">Google Scholar</a>
+  <a class="btn" href="https://inria.hal.science/search/index/?q=%2A&amp;rows=30&amp;authIdPerson_i=16377&amp;sort=publicationDate_tdate+desc" rel="noopener noreferrer"><i class="icon icon-hal"></i>HAL</a>
+  <a class="btn" href="https://scholar.google.com/citations?user=vJQGm9kAAAAJ&amp;hl=fr&amp;oi=ao" rel="noopener noreferrer"><i class="icon icon-scholar"></i>Scholar</a>
+  <a class="btn" href="https://orcid.org/0000-0003-2903-7600" rel="noopener noreferrer"><i class="icon icon-orcid"></i>ORCID</a>
 </div>
 HTML
+  # The body's own ORCID + Scholar lines (between the <h1>'s <hr> and the next
+  # <hr>) moved into the box above; drop them, keep one <hr>. Author's call.
   body "${SRC}/publications/index.html" \
+    | awk '/^<h1>/{h=1} h && /^<hr>/{n++; if(n==1){print; skip=1; next} if(n==2){skip=0; h=0; next}} !skip' \
     | sed 's|http://scholar.google.fr/citations?user=vJQGm9kAAAAJ;\?|https://scholar.google.com/citations?user=vJQGm9kAAAAJ\&hl=fr\&oi=ao|g'
 } > "${OUT}/publications/_index.html"
 

@@ -4,6 +4,13 @@
    Sections: tokens, base, navbar, hero, banner+footer, layout, blog, publications,
    Bootstrap-compat shim for markup that still lives in content/. */
 
+/* ---------- fonts: Lato, self-hosted (static/fonts/lato, SIL OFL) ---------- */
+@font-face { font-family: "Lato"; font-weight: 300; font-style: normal; font-display: swap; src: url(/fonts/lato/Lato-Light.ttf) format("truetype"); }
+@font-face { font-family: "Lato"; font-weight: 400; font-style: normal; font-display: swap; src: url(/fonts/lato/Lato-Regular.ttf) format("truetype"); }
+@font-face { font-family: "Lato"; font-weight: 400; font-style: italic; font-display: swap; src: url(/fonts/lato/Lato-Italic.ttf) format("truetype"); }
+@font-face { font-family: "Lato"; font-weight: 700; font-style: normal; font-display: swap; src: url(/fonts/lato/Lato-Bold.ttf) format("truetype"); }
+@font-face { font-family: "Lato"; font-weight: 700; font-style: italic; font-display: swap; src: url(/fonts/lato/Lato-BoldItalic.ttf) format("truetype"); }
+
 /* ---------- tokens ---------- */
 :root {
   --ink: #333;  --muted: #777;  --rule: #e7e7e7;  --paper: #fff;  --paper-2: #f8f8f8;
@@ -19,7 +26,7 @@
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
 body { margin: 0; font: 16px/1.6 var(--font); color: var(--ink); background: var(--paper); }
-h1, h2, h3, h4 { font-weight: 500; line-height: 1.15; margin: 1.2em 0 0.5em; }
+h1, h2, h3, h4 { font-weight: 700; line-height: 1.15; margin: 1.2em 0 0.5em; }
 h1 { font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.25rem); }
 h2 { font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.75rem); }
 h3 { font-size: 1.25rem; }  h4 { font-size: 1.1rem; }
@@ -34,11 +41,11 @@ code { padding: 0.1em 0.3em; background: #f5f5f5; border-radius: 3px; color: #c7
 pre { overflow-x: auto; padding: 0.75rem 1rem; background: #f5f5f5; border: 1px solid #ccc; border-radius: 4px; }
 pre code { padding: 0; background: none; color: inherit; }
 blockquote { margin: 1rem 0; padding-left: 1rem; border-left: 5px solid #eee; color: var(--muted); }
-.wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 1rem; }
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: 1rem; }
 .lead { font-size: 1.15rem; font-weight: 300; }
 
 /* ---------- navbar (was Bootstrap .navbar-default) ---------- */
-.site-nav { background: var(--paper-2); border-bottom: 1px solid var(--rule); }
+.site-nav { position: sticky; top: 0; z-index: 10; background: var(--paper-2); border-bottom: 1px solid var(--rule); }
 .site-nav nav { display: flex; flex-wrap: wrap; align-items: center; min-height: 50px; }
 .site-nav .brand { color: #777; font-weight: 700; font-size: 1.125rem; padding: 0.8rem 0; margin-right: auto; }
 .site-nav .brand:hover { color: #333; text-decoration: none; }
@@ -51,16 +58,16 @@ blockquote { margin: 1rem 0; padding-left: 1rem; border-left: 5px solid #eee; co
 .intro-header {
   display: flex; align-items: center; justify-content: center; text-align: center;
   min-height: min(88vh, 46rem); padding: 4rem 1rem; color: #fff;
-  background: #123 url(/img/dolphins4-optimized.jpg) center/cover no-repeat;
+  background: linear-gradient(rgba(0,20,40,.25), rgba(0,20,40,.55)), #123 url(/img/dolphins4-optimized.jpg) center/cover no-repeat;
   text-shadow: 0 1px 3px rgba(0,0,0,.6);
 }
-.intro-message > h1 { font-size: clamp(2.5rem, 1.5rem + 5vw, 5rem); font-weight: 400; margin: 0 0 0.5rem; }
-.intro-message > h3 { font-size: clamp(1.1rem, 1rem + 1vw, 1.75rem); font-weight: 400; margin: 0; }
+.intro-message > h1 { font-size: clamp(2.5rem, 1.5rem + 5vw, 5rem); font-weight: 700; letter-spacing: -0.01em; margin: 0 0 0.5rem; }
+.intro-message > h3 { font-size: clamp(1.1rem, 1rem + 1vw, 1.6rem); font-weight: 300; margin: 0; }
 .intro-message a { color: #fff; }
 .intro-divider { width: clamp(12rem, 30%, 24rem); border-top: 1px solid rgba(255,255,255,.6); margin: 1.5rem auto; }
 .intro-social-buttons { justify-content: center; gap: 0.75rem; margin: 0; }
 .intro-social-buttons .btn, .banner .social a {
-  display: inline-block; padding: 0.7rem 1.4rem; background: #fff; color: #333; border: 1px solid #ccc;
+  display: inline-flex; align-items: center; gap: 0.5em; padding: 0.7rem 1.4rem; background: #fff; color: #333; border: 1px solid #ccc;
   border-radius: 3px; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; text-shadow: none;
 }
 .intro-social-buttons .btn:hover, .banner .social a:hover { background: #e6e6e6; color: #333; text-decoration: none; }
@@ -78,7 +85,8 @@ blockquote { margin: 1rem 0; padding-left: 1rem; border-left: 5px solid #eee; co
 .archived { margin: 1.5rem 0 0; padding: 0.6rem 1rem; background: #fcf8e3; border: 1px solid #faebcc; border-radius: 4px; color: #8a6d3b; font-size: 0.95rem; }
 
 /* ---------- layout ---------- */
-main { padding-block: 1rem 3rem; }
+main { padding-block: 1.5rem 3rem; }
+#home main { padding-block: 0; }          /* the hero sits flush under the navbar */
 main.with-sidebar { display: grid; gap: 2rem; grid-template-columns: minmax(0, 1fr); }
 @media (min-width: 62em) { main.with-sidebar { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); } }
 main.with-sidebar > div, .post, .post-summary { max-width: var(--prose); }
@@ -92,11 +100,13 @@ main.with-sidebar > div, .post, .post-summary { max-width: var(--prose); }
 .label { display: inline-block; padding: 0.2em 0.6em 0.3em; border-radius: 0.25em; background: var(--link); color: #fff; font-size: 0.7em; font-weight: 700; vertical-align: middle; }
 .label-warning { background: #f0ad4e; }
 .post-summary + hr { margin-top: 2.5rem; }
-.btn { display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--link); border-radius: 4px; background: var(--link); color: #fff; }
+.btn { display: inline-flex; align-items: center; gap: 0.45em; padding: 0.4rem 0.9rem; border: 1px solid var(--link); border-radius: 4px; background: var(--link); color: #fff; }
 .btn:hover { background: #3071a9; border-color: #285e8e; color: #fff; text-decoration: none; }
 
 /* ---------- publications page (hand-written <table> markup) ---------- */
-.up-to-date-publications { padding: 0.6rem 1rem; background: #dff0d8; border: 1px solid #d6e9c6; border-radius: 4px; color: #3c763d; margin: 1rem 0; }
+.up-to-date-publications { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem 0.75rem; padding: 0.75rem 1rem; background: #dff0d8; border: 1px solid #d6e9c6; border-radius: 4px; color: #3c763d; margin: 1rem 0; }
+.up-to-date-publications .btn { background: #fff; color: #3c763d; border-color: #b9dba9; padding: 0.35rem 0.8rem; }
+.up-to-date-publications .btn:hover { background: #3c763d; color: #fff; border-color: #3c763d; }
 table .lead { font-size: 1rem; font-weight: 400; margin: 0 0 0.75rem; }
 
 /* ---------- Bootstrap 3 compatibility shim ----------
@@ -129,8 +139,3 @@ table .lead { font-size: 1rem; font-weight: 400; margin: 0 0 0.75rem; }
 .content-section-a, .content-section-b { padding: 3rem 0; }
 .content-section-b { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--paper-2); }
 .section-heading { margin-bottom: 1rem; }
-/* Font Awesome 4 icons used in content, as plain glyphs */
-.fa-download::before { content: "\2193\00A0"; }
-.fa-external-link-square::before { content: "\2197\00A0"; }
-.fa-video-camera::before { content: "\25B6\00A0"; }
-.fa-search::before { content: "\1F50D\00A0"; }

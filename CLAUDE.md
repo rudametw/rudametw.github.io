@@ -435,6 +435,24 @@ stack starts with `"Lato"` so the original typeface is used if it is ever
 self-hosted (`static/fonts/`, `@font-face` in `main.css` — OFL licence, no CDN);
 until then it falls back to Helvetica/Arial as the old site did offline.
 
+## Fonts and icons — self-hosted, no CDN
+
+**Lato** (SIL OFL) lives in `static/fonts/lato/` — Light, Regular, Italic, Bold,
+BoldItalic, 384 KB of TTF plus `OFL.txt` — declared with `@font-face` at the top of
+`main.css`. Lato has no 500 weight: headings are 700, so "bold" is bold. Source
+`Lato.zip` is gitignored. Converting to WOFF2 would shave ~40% but needs a tool
+(`fonttools`/`woff2`) — optional.
+
+**Icons** are CSS masks over inline SVG data URIs in `assets/css/icons.css` (7 KB),
+coloured by `currentColor`. `<i class="icon icon-github"></i>` in templates; the
+old content's `fa-github-square`, `fa-download`… classes map onto the same rules,
+so nothing in `content/` had to change. Outlines are Font Awesome 4.0 glyphs
+extracted from the archive's `fonts/fontawesome-webfont.svg` (a font is fine to
+embed under the OFL); the ORCID mark is drawn by hand because FA4 has none.
+That FA release predates `graduation-cap`, so Scholar uses the book glyph.
+Regenerate by re-running the Python in the 2026-09-11 MIGRATION.md entry; the
+two files concatenate into one fingerprinted `site.css` in `partials/head.html`.
+
 ## `.github/workflows/hugo.yml` — phase 6
 
 Pinned `hugo_extended_0.166.0` `.deb` from GitHub releases, `hugo --minify --gc`,

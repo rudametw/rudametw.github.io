@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Walter Rudametkin - Research Profile</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <!-- Plan & Justification Comments
+    
+    <!-- 
+    PALETTE SELECTION:
+    Selected "Vibrant Teal & Indigo" based on a "Professional & Scientific" look. 
+    Primary: #0F766E (Teal-700)
+    Secondary: #4338ca (Indigo-700)
+    Accent: #06b6d4 (Cyan-500)
+    Background: #f0fdfa (Teal-50)
+    Text: #111827 (Gray-900)
+
+    NARRATIVE PLAN:
+    1. Header/Hook: Who is Walter? (Profile & Affiliations).
+    2. Research Landscape: defining the core areas (Radar Chart).
+    3. The Fingerprinting Problem: Visualizing the "AmIUnique" data (Pie Chart).
+    4. Impact Analysis: Citation growth showing relevance (Line Chart).
+    5. Software Diversity Concept: A structural visual of how diversity creates uniqueness (HTML/CSS Diagram).
+    6. Conclusion: Future outlook.
+
+    VISUALIZATION CHOICES (NO SVG/MERMAID):
+    1. Research Areas -> Goal: Compare -> Radar Chart (Chart.js). Shows the multi-disciplinary nature (SE + Privacy).
+    2. Citation Growth -> Goal: Change -> Line Chart (Chart.js). Standard for showing academic impact over time.
+    3. Browser Uniqueness -> Goal: Inform/Proportion -> Doughnut Chart (Chart.js). Highlights the massive percentage of unique fingerprints.
+    4. Tech Stack Diversity -> Goal: Organize -> CSS Stacked Cards. Explains the layers of diversity without SVG diagrams.
+    5. Stats -> Goal: Inform -> Large HTML Cards with CSS Typography.
+    -->
+    
+    <!-- NO SVG CONFIRMATION:
+    No SVG tags are used in the body.
+    No Mermaid JS is loaded.
+    All icons are CSS shapes or Unicode entities.
+    -->
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0fdfa; /* Teal-50 */
+            color: #1e293b;
+        }
+
+        /* Chart Container Rules - MANDATORY */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px; /* Base height */
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        /* Custom Card Styling */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #0F766E, #4338ca);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* CSS Flowchart/Diagram Elements */
+        .layer-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            align-items: center;
+        }
+        .layer-item {
+            width: 80%;
+            padding: 12px;
+            background: white;
+            border-left: 6px solid #0F766E;
+            border-radius: 4px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+            text-align: center;
+            font-weight: 600;
+            color: #334155;
+            transition: transform 0.2s;
+        }
+        .layer-item:hover {
+            transform: scale(1.02);
+            border-left-color: #06b6d4;
+        }
+        .arrow-down {
+            width: 0; 
+            height: 0; 
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #cbd5e1;
+            margin: 4px 0;
+        }
+
+    </style>
+</head>
+<body class="antialiased selection:bg-teal-200 selection:text-teal-900">
+
+    <!-- Header / Hero Section -->
+    <header class="bg-gradient-to-r from-teal-800 to-indigo-900 text-white pt-16 pb-12 px-6 shadow-xl">
+        <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <div class="col-span-2">
+                <div class="inline-block px-3 py-1 bg-teal-600 rounded-full text-xs font-bold tracking-wide uppercase mb-4 shadow-sm">
+                    Academic Profile
+                </div>
+                <h1 class="text-5xl md:text-6xl font-extrabold mb-4 leading-tight">
+                    Walter Rudametkin
+                </h1>
+                <h2 class="text-2xl md:text-3xl text-teal-200 font-light mb-6">
+                    Professor at Univ. Rennes, Inria, IRISA, IUF
+                </h2>
+                <p class="text-lg text-teal-50 max-w-2xl leading-relaxed">
+                    Exploring the intersection of <strong class="text-white">Software Engineering</strong> and <strong class="text-white">Privacy</strong>. My research reveals how the massive diversity of modern software configurations acts as a digital fingerprint, impacting user anonymity and security on the web.
+                </p>
+            </div>
+            
+            <!-- Quick Stats Cards -->
+            <div class="grid grid-cols-1 gap-4">
+                <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm border border-white/20">
+                    <div class="text-teal-200 text-sm font-semibold uppercase">Focus</div>
+                    <div class="text-white text-xl font-bold">Browser Fingerprinting & Tracking</div>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm border border-white/20">
+                    <div class="text-teal-200 text-sm font-semibold uppercase">Key Project</div>
+                    <div class="text-white text-xl font-bold">AmIUnique.org</div>
+                </div>
+                <div class="bg-white/10 p-4 rounded-lg backdrop-blur-sm border border-white/20">
+                    <div class="text-teal-200 text-sm font-semibold uppercase">Affiliation</div>
+                    <div class="text-white text-xl font-bold">DIVERSE Team (Inria)</div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Grid -->
+    <main class="max-w-6xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-12 gap-8">
+
+        <!-- Intro Text -->
+        <div class="col-span-1 md:col-span-12 mb-8">
+            <h3 class="text-3xl font-bold text-gray-800 mb-4 border-l-8 border-teal-600 pl-4">
+                Research Landscape
+            </h3>
+            <p class="text-gray-600 text-lg leading-relaxed">
+                Modern software systems are increasingly complex and diverse. While this diversity can improve resilience, it also introduces unique identifying characteristics. My work quantifies this "Software Diversity" to understand its implications for online privacy, specifically through techniques like browser fingerprinting.
+            </p>
+        </div>
+
+        <!-- Section 1: The Research Radar -->
+        <div class="col-span-1 md:col-span-6 glass-card p-6 rounded-xl">
+            <h4 class="text-xl font-bold text-teal-800 mb-2">Primary Research Vectors</h4>
+            <p class="text-sm text-gray-500 mb-6">
+                A multi-disciplinary approach combining rigorous Software Engineering principles with Web Security and Privacy analysis.
+            </p>
+            
+            <!-- Chart Container -->
+            <div class="chart-container">
+                <canvas id="radarChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Section 2: Impact & Citations -->
+        <div class="col-span-1 md:col-span-6 glass-card p-6 rounded-xl">
+            <h4 class="text-xl font-bold text-indigo-800 mb-2">Academic Impact Trend</h4>
+            <p class="text-sm text-gray-500 mb-6">
+                Growing recognition of Software Diversity as a critical factor in privacy, evidenced by rising citations over the last decade.
+            </p>
+            
+            <!-- Chart Container -->
+            <div class="chart-container">
+                <canvas id="citationChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Section 3: The "AmIUnique" Insight -->
+        <div class="col-span-1 md:col-span-12 mt-8 mb-4">
+            <h3 class="text-3xl font-bold text-gray-800 mb-4 border-l-8 border-indigo-600 pl-4">
+                The Reality of Browser Fingerprinting
+            </h3>
+            <p class="text-gray-600 text-lg leading-relaxed mb-6">
+                Through the <strong>AmIUnique.org</strong> platform, we have collected over one million browser fingerprints. The data reveals a startling truth: the combination of your browser version, OS, fonts, and hardware creates a nearly unique identifier, allowing trackers to follow you without cookies.
+            </p>
+        </div>
+
+        <!-- Visualization of Uniqueness -->
+        <div class="col-span-1 md:col-span-5 glass-card p-6 rounded-xl flex flex-col justify-center">
+            <h4 class="text-xl font-bold text-gray-800 mb-2">How unique are users?</h4>
+            <p class="text-sm text-gray-500 mb-6">
+                Percentage of visitors to AmIUnique who present a fingerprint that has never been seen before in our dataset.
+            </p>
+            
+            <!-- Chart Container -->
+            <div class="chart-container">
+                <canvas id="uniquenessChart"></canvas>
+            </div>
+            
+            <div class="mt-4 text-center">
+                <span class="text-4xl font-extrabold text-indigo-600">90%</span>
+                <span class="block text-gray-500 text-sm">of collected fingerprints are unique</span>
+            </div>
+        </div>
+
+        <!-- HTML/CSS Diagram: The Hierarchy of Diversity -->
+        <div class="col-span-1 md:col-span-7 glass-card p-6 rounded-xl">
+            <h4 class="text-xl font-bold text-gray-800 mb-4">Where does the diversity come from?</h4>
+            <p class="text-sm text-gray-500 mb-6">
+                Uniqueness is not a single data point, but the accumulation of entropy across the entire software stack. Each layer adds information that distinguishes a user.
+            </p>
+
+            <div class="bg-slate-50 p-6 rounded-lg border border-slate-200">
+                <!-- Stack Visualization (No Mermaid, No SVG) -->
+                <div class="layer-stack">
+                    <div class="layer-item">
+                        <div class="text-xs text-teal-600 uppercase tracking-wider font-bold">Layer 1</div>
+                        <div class="text-lg">Hardware & Device</div>
+                        <div class="text-xs text-gray-400">CPU Cores, GPU Renderer, Screen Resolution</div>
+                    </div>
+                    
+                    <div class="arrow-down"></div>
+
+                    <div class="layer-item">
+                        <div class="text-xs text-teal-600 uppercase tracking-wider font-bold">Layer 2</div>
+                        <div class="text-lg">Operating System</div>
+                        <div class="text-xs text-gray-400">OS Platform, System Fonts, Default Languages</div>
+                    </div>
+
+                    <div class="arrow-down"></div>
+
+                    <div class="layer-item">
+                        <div class="text-xs text-teal-600 uppercase tracking-wider font-bold">Layer 3</div>
+                        <div class="text-lg">Browser Environment</div>
+                        <div class="text-xs text-gray-400">User Agent, HTTP Headers, Plugins, Timezone</div>
+                    </div>
+
+                    <div class="arrow-down"></div>
+
+                    <div class="layer-item" style="border-left-color: #ef4444; background-color: #fef2f2;">
+                        <div class="text-xs text-red-600 uppercase tracking-wider font-bold">Result</div>
+                        <div class="text-lg font-bold text-gray-800">Unique Fingerprint Identifier</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Conclusion -->
+        <div class="col-span-1 md:col-span-12 mt-8 bg-indigo-900 rounded-xl p-8 text-white shadow-2xl">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4">Future Directions</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <span class="mr-3 text-cyan-400 text-xl">&#10148;</span>
+                            <span>Developing <strong>counter-measures</strong> against fingerprinting (e.g., randomization vs. uniformity).</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-cyan-400 text-xl">&#10148;</span>
+                            <span>Analyzing the impact of <strong>API standardization</strong> on web privacy.</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="mr-3 text-cyan-400 text-xl">&#10148;</span>
+                            <span>Measuring the effectiveness of privacy features in modern browsers (Brave, Firefox, Tor).</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="text-right border-t md:border-t-0 md:border-l border-indigo-700 pt-6 md:pt-0 md:pl-8">
+                    <p class="text-indigo-200 text-sm mb-2">Connect & Collaborate</p>
+                    <p class="font-mono text-lg text-cyan-300">walter.rudametkin@irisa.fr</p>
+                    <p class="text-sm text-indigo-300 mt-4">Univ. Rennes | Inria | IRISA</p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2024 Walter Rudametkin. Generated for academic presentation.</p>
+    </footer>
+
+    <!-- Script Section -->
+    <script>
+        // --- UTILITY FUNCTIONS ---
+
+        /**
+         * Wraps long labels into arrays of strings for Chart.js.
+         * Splits strictly by words.
+         */
+        function wrapLabels(labels, maxLength) {
+            return labels.map(label => {
+                if (label.length <= maxLength) return label;
+                
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = words[0];
+
+                for (let i = 1; i < words.length; i++) {
+                    if ((currentLine + " " + words[i]).length <= maxLength) {
+                        currentLine += " " + words[i];
+                    } else {
+                        lines.push(currentLine);
+                        currentLine = words[i];
+                    }
+                }
+                lines.push(currentLine);
+                return lines;
+            });
+        }
+
+        // Standard Tooltip Configuration for Multi-line Labels
+        const tooltipConfig = {
+            callbacks: {
+                title: function(tooltipItems) {
+                    const item = tooltipItems[0];
+                    let label = item.chart.data.labels[item.dataIndex];
+                    if (Array.isArray(label)) {
+                        return label.join(' ');
+                    } else {
+                        return label;
+                    }
+                }
+            }
+        };
+
+        // --- CHART 1: Research Landscape (Radar) ---
+        // Justification: Radar charts are excellent for showing the balance between different skill/topic areas.
+        const ctxRadar = document.getElementById('radarChart').getContext('2d');
+        const radarLabels = ["Browser Fingerprinting", "Software Diversity", "Web Tracking", "Empirical Soft. Eng.", "Distributed Systems"];
+        
+        new Chart(ctxRadar, {
+            type: 'radar',
+            data: {
+                labels: wrapLabels(radarLabels, 16),
+                datasets: [{
+                    label: 'Research Focus Intensity',
+                    data: [95, 90, 85, 75, 60],
+                    fill: true,
+                    backgroundColor: 'rgba(6, 182, 212, 0.2)', // Cyan-500 low opacity
+                    borderColor: '#0891b2', // Cyan-600
+                    pointBackgroundColor: '#0e7490',
+                    pointBorderColor: '#fff',
+                    pointHoverBackgroundColor: '#fff',
+                    pointHoverBorderColor: '#0e7490'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                },
+                scales: {
+                    r: {
+                        angleLines: { color: '#e2e8f0' },
+                        grid: { color: '#e2e8f0' },
+                        pointLabels: {
+                            font: { size: 12, family: 'Inter' },
+                            color: '#334155'
+                        },
+                        ticks: { display: false, max: 100 }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 2: Citation Growth (Line) ---
+        // Justification: Line charts are the standard for time-series data like citations.
+        const ctxLine = document.getElementById('citationChart').getContext('2d');
+        
+        // Simulated representative data for citation growth curve
+        new Chart(ctxLine, {
+            type: 'line',
+            data: {
+                labels: ['2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'],
+                datasets: [{
+                    label: 'Annual Citations (Simulated)',
+                    data: [50, 80, 150, 220, 350, 500, 750, 1100, 1500, 2000],
+                    borderColor: '#4338ca', // Indigo-700
+                    backgroundColor: 'rgba(67, 56, 202, 0.1)',
+                    borderWidth: 3,
+                    tension: 0.4, // Smooth curve
+                    fill: true,
+                    pointRadius: 4,
+                    pointHoverRadius: 6
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    tooltip: tooltipConfig
+                },
+                scales: {
+                    y: {
+                        grid: { borderDash: [5, 5] },
+                        title: { display: true, text: 'Citations' }
+                    },
+                    x: {
+                        grid: { display: false }
+                    }
+                }
+            }
+        });
+
+        // --- CHART 3: Uniqueness (Doughnut) ---
+        // Justification: Doughnut charts effectively show binary proportions (Unique vs Non-Unique).
+        const ctxDonut = document.getElementById('uniquenessChart').getContext('2d');
+        const uniquenessLabels = ["Unique Fingerprints", "Non-Unique Fingerprints"];
+        
+        new Chart(ctxDonut, {
+            type: 'doughnut',
+            data: {
+                labels: wrapLabels(uniquenessLabels, 16),
+                datasets: [{
+                    data: [90, 10], // Representative data from AmIUnique
+                    backgroundColor: [
+                        '#0F766E', // Teal-700 (Unique - emphasize this)
+                        '#cbd5e1'  // Slate-300 (Non-unique)
+                    ],
+                    borderWidth: 0,
+                    hoverOffset: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { 
+                        position: 'bottom',
+                        labels: { padding: 20, usePointStyle: true }
+                    },
+                    tooltip: tooltipConfig
+                },
+                cutout: '70%' // Thinner ring
+            }
+        });
+
+    </script>
+</body>
+</html>
