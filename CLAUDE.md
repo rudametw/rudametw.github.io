@@ -29,8 +29,8 @@ content/{_index.md,publications/,teaching/,research/,blog/,photos/,contact/}
 layouts/            # ported from the old Jekyll _layouts/_includes, owned by us
 assets/             # SCSS/CSS/JS
 static/{img,docs}/
-data/publications.yaml
-scripts/bib2yaml.py
+data/publications.yaml    # NOT USED - see Publications below
+scripts/bib2yaml.py       # NOT USED - see Publications below
 check-urls.sh
 urls-before.txt     # the URL contract — see below
 .github/workflows/hugo.yml
@@ -53,8 +53,9 @@ urls-before.txt     # the URL contract — see below
    `~/git/archive/old-site-crawl/` as the visual reference for what each page
    must still contain.
 2. **Do not add npm, gem, or Python runtime dependencies to the build.** The build
-   must be a single pinned `hugo` binary. `scripts/bib2yaml.py` is run manually by
-   the author, not by CI.
+   must be a single pinned `hugo` binary. (`scripts/bib2yaml.py` was to be run
+   manually by the author, never by CI — but it is not part of this migration;
+   see Publications.)
 3. **Never commit `public/` or any built HTML.**
 4. **Never edit `urls-before.txt`.** It is the contract, not a working file.
 5. **Never `git push --force`** without explicit instruction in that turn.
@@ -103,6 +104,26 @@ Verification loop:
 hugo --minify && ./check-urls.sh
 ```
 
+**Hugo lives in the `arch` distrobox, not on the host.** This machine is Fedora
+Atomic ("Zirconium") and Hugo is `/usr/bin/hugo` inside the `arch` box only
+(`v0.166.0+extended+withdeploy`).
+
+If you are working *inside* the arch box, plain `hugo` is correct. But Claude Code
+runs its shell on the **host** — `/run/.containerenv` is absent and
+`/etc/os-release` says `ID="zirconium"` — so from an agent shell the call must be
+wrapped. The repo is visible in the box at the same path:
+
+```bash
+distrobox enter arch -- bash -lc 'cd ~/git/rudametw.github.io && hugo --minify'
+./check-urls.sh          # pure bash, runs fine on the host
+```
+
+If `hugo: command not found` appears, that is this, not a missing install.
+
+The `extended` build matters if SCSS is ever compiled through Hugo Pipes. Per
+rule 2 the build is a single pinned `hugo` binary, so pin `0.166.0` in
+`.github/workflows/hugo.yml` to match.
+
 Iterate until `check-urls.sh` reports no MISSING entries. Fix by adding
 `aliases` to front matter, not by changing `urls-before.txt`.
 
@@ -110,36 +131,77 @@ Orphan URLs (present on the live site, absent from `sitemap.xml`) are flagged
 separately by the script as ORPHAN. Do not auto-create pages for them; list them
 and let the author decide keep / redirect / drop.
 
-## Blocking issues found on inspection (2026-09-11)
+## URL contract: how it was rebuilt (2026-09-11)
 
-These are unresolved. Read before starting phase 1.
+The first `urls-before.txt` was corrupt and has been regenerated. Background, so
+nobody reintroduces the bug:
 
-1. **`urls-before.txt` is corrupt — 210 of its 260 lines are unsatisfiable.**
-   `src/_config.yml` sets `url: http://rudametw.github.io` (http), but
-   `check-urls.sh` defaults `SITE_URL` to `https://rudametw.github.io`. The
-   `normalise()` sed therefore never strips the prefix off sitemap `<loc>`
-   values; the fallback rule `s|^\([^/]\)|/\1|` prepends a slash instead,
-   yielding lines like `/http://rudametw.github.io/blog/`. Verify with
-   `grep -c '^/http' urls-before.txt`.
-   Knock-on effect: `urls-orphans.txt` (`comm -13 sitemap crawl`) lists all 50
-   crawled URLs as ORPHAN, because the mangled sitemap set intersects the crawl
-   set nowhere. **The orphan list is currently meaningless.**
-   Fix is in `check-urls.sh` (make `normalise` scheme-insensitive), then
-   regenerate with `./check-urls.sh --inventory`. Rule 4 forbids hand-editing
-   `urls-before.txt`; regenerating it from a fixed script is the intended path.
-   Ask before regenerating — it overwrites the contract.
+`src/_config.yml` declares `url: http://rudametw.github.io`, so every `<loc>` in
+the generated `sitemap.xml` is **http**. The site is served over **https**, with
+a 301 from http. `check-urls.sh` used to strip the prefix by matching `${SITE_URL}`
+(https), so it never matched; the fallback rule prepended a slash instead and wrote
+210 unusable lines of the form `/http://rudametw.github.io/blog/`. Orphan detection
+then compared two disjoint sets and flagged everything.
 
-2. **The crawl is partial: 50 HTML files vs. 218 `<loc>` entries in the
-   sitemap.** `~/git/archive/old-site-crawl/` never captured the blog posts or
-   photo galleries. `~/git/archive/old-site-crawl.old/` (not mentioned above,
-   present on disk) has the same 50 files, so re-crawling did not help. The
-   rendering oracle covers the top-level pages only; for anything under
-   `/blog/posts/` or `/photos/`, read the built HTML in
-   `~/git/archive/jekyll-src/` root instead (that worktree contains both the
-   Jekyll source under `src/` and the committed build output at its root).
+Fixes applied to `check-urls.sh`:
 
-3. **`hugo` is not installed** (`command -v hugo` fails). The verification loop
-   cannot run yet. Installing it needs the author's go-ahead per the rules below.
+- `normalise()` strips scheme and host **by pattern**, not by matching `${SITE_URL}`.
+  The contract is a set of paths; scheme and host are not part of it.
+- Percent-decoding on both sides, so the sitemap's
+  `/docs/APSCC-2010-Managing%20dynamic%20...pdf` matches the on-disk file whose
+  name contains literal spaces. Without this, two publication PDFs read as MISSING.
+- `LC_ALL=C`, because `comm` needs both inputs in the same collation as the `sort`
+  that produced them.
+- New `--inventory-archive` mode (now the preferred one), which builds the contract
+  offline from the `jekyll-final` worktree instead of crawling the live site.
+
+Regenerate with:
+
+```bash
+./check-urls.sh --inventory-archive
+```
+
+Current contract: **216 URLs**. And **7 orphans** in `urls-orphans.txt`, awaiting
+the author's keep / redirect / drop call:
+
+```
+/advancedsettings.xml                     <- Kodi config, unrelated to the site
+/docs/RUDAMETKIN_HDR.pdf                  <- the HDR thesis; almost certainly keep
+/projet-al/                               <- meta-refresh redirect to a Google Doc
+/research/water-quality-datascience/M2-Water-quality-datascience.pdf
+/teaching/gbiaal4sgbd/cours/7_Recapitulatif_handouts_old.pdf
+/teaching/gbiaal4sgbd/cours/7_Recapitulatif_old.pdf
+/teaching/gbiaal4sgbd/td_tp/TP-Noté-2015-videoclub.old.pdf
+```
+
+**Vendor junk is pruned from the contract** (author's call, 2026-09-11).
+`prune_vendor()` drops `/fancybox/`, `/font-awesome/` and `/node_modules/` from
+*both* the sitemap and the built-output side. This removed `/fancybox/demo/` and
+`/fancybox/demo/iframe.html`, which jekyll-sitemap had listed as if they were
+site content — hence 216 rather than 218. Bootstrap, jQuery and fancybox all go
+away under rule 1b, so preserving their demo pages would have been pointless.
+
+### Why `--inventory-archive` and not the live crawl
+
+`~/git/archive/old-site-crawl/` holds only **50** HTML files against the sitemap's
+218 entries — wget's link-following never reached the blog posts or galleries.
+`old-site-crawl.old/` (also on disk, not described below) has the same 50. The
+crawl is a usable rendering oracle for top-level pages **only**.
+
+The full oracle is the `jekyll-final` worktree: its root is the committed *built*
+site, and 206 of 210 unique sitemap paths resolve to a real file there (the other
+4 differ only by percent-encoding). Read rendered output from there, not the crawl.
+
+`--inventory` (live) is kept and fixed, but needs network access.
+
+## Assets that must move into `static/`
+
+- **162 PDFs, 75 MB** at the worktree root — 157 are in the sitemap. Mostly
+  `teaching/gbiaal4sgbd/` course material. These are URL-contract items, not
+  decoration: they must land at the same paths under `static/`.
+- `img/` — 25 MB.
+- `photos/` — **569 MB**, against GitHub Pages' 1 GB limit. See Photos below;
+  do not copy this tree without asking.
 
 ## Verified inventory of the old site
 
@@ -177,18 +239,54 @@ Vendored front-end to be deleted per rule 1b: `bootstrap.css`, `bootstrap.js`,
 `jquery-latest.js`, `jquery.fancybox.*`, `font-awesome.css`, a remote
 `google-fonts.css`, plus `OSData.swf` and `recFp.js`.
 
-## Publications: the source of truth is HTML, not BibTeX
+## Publications
 
-`src/publications/publications.json` exists but **nothing references it** — it is
-dead data. The live page is hand-written HTML in `src/publications/index.html`:
-ORCID and Scholar links, then `<TABLE>` blocks of theses, book chapters,
-conference and journal papers. Only one `.bib` file exists in the whole repo
-(`docs/bibtex/Rudametkin10.bib`), and it backs two standalone pages.
+**Source of truth: `src/publications/index.html`.** Port that page's markup and
+its links to the PDFs. Do **not** use `src/publications/publications.json` — it
+is dead data, referenced from nowhere in the site, and it does not match what
+the page actually shows.
 
-So the `scripts/bib2yaml.py` + `data/publications.yaml` pipeline in the target
-layout above is a **plan, not a port**. Phase 5 has to start by deciding where
-the bibliography actually comes from (author's BibTeX file? HAL? ORCID export?).
-Ask before writing the converter.
+`scripts/bib2yaml.py` and `data/publications.yaml` in the target layout above are
+therefore **not part of this migration**. There is one `.bib` file in the whole
+repo (`docs/bibtex/Rudametkin10.bib`) backing two standalone pages
+(`/docs/bibtex/Rudametkin10.html`, `/docs/bibtex/Rudametkin10_bib.html`); carry
+those across as-is. Drop `publications.json` and `publications-template.json`.
+
+The page links 9 local files, all of them under `/docs/` and all present in
+`urls-before.txt`:
+
+```
+/docs/WalterRudametkin.thesis.FINAL.pdf        /docs/DynamicTracing.pdf
+/docs/WalterRudametkin.slides.FINAL.pdf        /docs/SAC12-americo.pdf
+/docs/MasterThesis-WalterRudametkin-FINAL.pdf  /docs/Rudametkin-APSCC-2010-slides.pdf
+/docs/APSCC-2010-Managing dynamic service-oriented component architectures.pdf
+/docs/Resilience in dynamic component-based applications.pdf
+/docs/bibtex/Rudametkin10_bib.html
+```
+
+Two of those filenames contain literal spaces and appear percent-encoded in the
+sitemap. `check-urls.sh` decodes both sides before comparing; keep the files
+named as they are rather than renaming them, or the old URLs break.
+
+### TODO: the publication list is out of date
+
+The ported page must carry a visible TODO. The newest year appearing anywhere in
+`index.html` is **2015**, so the list is roughly a decade stale: it predates the
+author's HDR, the move to Rennes, and the promotion to Full Professor.
+**Do not invent or backfill entries** — rule 6. The author updates it by hand.
+
+Canonical up-to-date sources, to link from the page as "Up-to-date publications":
+
+- HAL: <https://inria.hal.science/search/index/?q=%2A&rows=30&authIdPerson_i=16377&sort=publicationDate_tdate+desc>
+- Google Scholar: <https://scholar.google.com/citations?user=vJQGm9kAAAAJ&hl=fr&oi=ao>
+
+The existing page already links ORCID (`0000-0003-2903-7600`) and an older
+Scholar URL (`scholar.google.fr/citations?user=vJQGm9kAAAAJ`) — same user id,
+so replace it with the one above rather than keeping both.
+
+Note `/docs/RUDAMETKIN_HDR.pdf` exists on disk and is served, but is listed in
+neither the sitemap nor the publications page. It shows up in `urls-orphans.txt`.
+It is almost certainly a keeper — confirm with the author and link it.
 
 ## Content staleness (report only, do not fix)
 
@@ -196,6 +294,32 @@ The live site predates a move and a promotion. Grep for and report occurrences o
 `Lille`, `Polytech`, `Spirals`, `CRIStAL`, `Associate Professor`, `google+`,
 `brandyourself`, `univ-lille1`, `Inria Lille`. Produce a file+line list. The author
 edits these manually.
+
+**Done — see `STALE-CONTENT.md`** (regenerate by re-running the greps against
+`~/git/archive/jekyll-src/src/`). **55 distinct lines across 12 files** (the
+per-term totals in the report sum to more, because many lines match several terms
+at once — e.g. "Polytech Lille"). By file:
+
+| File | Lines | What is stale |
+|---|---|---|
+| `index.html` | 16 | Affiliation block, Spirals/Inria Lille logos, bio |
+| `_includes/contact.md` | 9 | Job title, both email addresses, postal address |
+| `_includes/cloud-dynamic-monitoring-and-repair.md` | 5 | Team member titles and emails |
+| `_includes/optimisation-applications-cloud.md` | 4 | idem |
+| `_includes/dynamic-apps-cloud-computing.md` | 4 | idem |
+| `_includes/dynamic-application-consistency.md` | 4 | idem |
+| `photos/2014.01.16_.../index.html` | 3 | incidental prose mentions |
+| `photos/2013.12.13_.../index.html` | 3 | idem |
+| `_includes/footer.html` | 3 | `google+`, `brandyourself` social links |
+| `_includes/teaching-gbiaal-moodle.md` | 2 | Polytech Lille course intro, moodle URL |
+| `_includes/teaching-ima3-pa.md` | 1 | idem |
+| `_includes/teaching-git.md` | 1 | idem |
+
+Note the images `img/polytech-lille.jpg` and `img/inria-lille.jpg` are affiliation
+logos that go stale with the text. Rule 8 — ask before deleting anything under
+`static/img/`.
+
+Port the words unchanged (rule 6). The author does a single editing pass afterwards.
 
 ## Where to read the old site from
 
@@ -247,11 +371,68 @@ redundant: history remains in this repo's `.git`, on GitHub under the
 **Never write to, move, delete, or `git gc` anything under `~/git/archive/`.**
 Reading is expected and encouraged.
 
-## Photos
+## Photos — NOT being migrated (decision, 2026-09-11)
 
-The old repo carries multiple GB of images. GitHub Pages has a 1 GB published-site
-limit. Photos are being reduced or moved off-repo. Do not copy the full photo tree
-into `static/` without asking.
+The author is not migrating `/photos/`. `jekyll-gallery-generator` is therefore
+**skipped**, not replaced: no Hugo gallery template is to be written.
+
+Verified scope before skipping: the plugin's output is confined to `/photos/`.
+Only `_layouts/gallery_page.html` references the gallery layouts, the source
+`photos/*/index.html` files are empty `<html></html>` stubs the plugin filled in,
+and `_config.yml` points it at `dir: photos`. Nothing outside `/photos/` depends
+on it. Skipping it costs nothing elsewhere.
+
+This also removes the 569 MB problem: the old repo carried multiple GB of images
+against GitHub Pages' 1 GB published-site limit. Do not copy the photo tree into
+`static/`. Rule 8 still applies — ask before deleting anything under the photos
+tree in the archive.
+
+### Open: 9 live URLs will break
+
+These are in `urls-before.txt` and **will be reported MISSING** by
+`check-urls.sh` until a decision is made:
+
+```
+/photos/
+/photos/2013.07.27_Saint_Malo/
+/photos/2013.12.13_Dad_fishing_trip/
+/photos/2014.01.16_Dad_keeps_torturing_me_with_these_pictures/
+/photos/2014.02.25_rennes_at_night/
+/photos/2014.03.01_Rennes_market_and_oyster_snack/
+/photos/2014.03.04_Beach_Trip_to_La_Baule_and_Guerande/
+/photos/2014.03.09_Bonnets_Rouges_Walk_in_Rennes/
+/photos/2014.03.23_Fisheye_at_Place_De_La_Marie_Rennes/
+```
+
+They are deliberately **left in the contract** rather than pruned, so the failure
+stays visible instead of disappearing quietly. Options: a single `/photos/` page
+saying the galleries are retired with the 8 gallery URLs aliased to it; let them
+404; or host them elsewhere and redirect. Author's call — then prune or alias.
+
+### Open: one blog post embeds photos inline
+
+`_posts/2014-03-07-My-father-tortures-me-with-beautiful-sunny-pictures.md` does not
+merely link the galleries — it `<img src=>`s individual JPEGs out of them. Dropping
+`/photos/` wholesale leaves that post full of broken images, and rule 6 forbids
+rewriting the post to remove them.
+
+It needs 6 files, **3.0 MB total** — trivial next to the 569 MB tree:
+
+```
+/photos/2013.12.13_Dad_fishing_trip/DSC_4995.JPG   (+ thumbs/DSC_4995.JPG)
+/photos/2013.12.13_Dad_fishing_trip/DSC_5013.JPG
+/photos/2013.12.13_Dad_fishing_trip/DSC_5027.JPG
+/photos/2013.12.13_Dad_fishing_trip/DSC_5033.JPG
+/photos/2014.01.16_Dad_keeps_torturing_me_with_these_pictures/thumbs/DSC_5128.JPG
+```
+
+Recommend copying just these 6 into `static/photos/` at their existing paths, so
+the post renders unchanged. The post also links the two gallery index pages, which
+would still 404 pending the decision above.
+
+`/photos/` is additionally linked from `_includes/navbar.html` and
+`_includes/footer.html` — drop the nav entry when porting those, or it points at a
+dead page.
 
 ## Working style
 
