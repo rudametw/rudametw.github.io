@@ -104,21 +104,10 @@ Verification loop:
 hugo --minify && ./check-urls.sh
 ```
 
-**Hugo lives in the `arch` distrobox, not on the host.** This machine is Fedora
-Atomic ("Zirconium") and Hugo is `/usr/bin/hugo` inside the `arch` box only
-(`v0.166.0+extended+withdeploy`).
-
-If you are working *inside* the arch box, plain `hugo` is correct. But Claude Code
-runs its shell on the **host** — `/run/.containerenv` is absent and
-`/etc/os-release` says `ID="zirconium"` — so from an agent shell the call must be
-wrapped. The repo is visible in the box at the same path:
-
-```bash
-distrobox enter arch -- bash -lc 'cd ~/git/rudametw.github.io && hugo --minify'
-./check-urls.sh          # pure bash, runs fine on the host
-```
-
-If `hugo: command not found` appears, that is this, not a missing install.
+`hugo` is `v0.166.0+extended+withdeploy`, exported to the host at
+`~/.local/bin/hugo`. Plain `hugo` works from any shell, agent shells included.
+(It is installed in the `arch` distrobox and exported with `distrobox-export`; if
+it ever vanishes from PATH, that export is what to re-check.)
 
 The `extended` build matters if SCSS is ever compiled through Hugo Pipes. Per
 rule 2 the build is a single pinned `hugo` binary, so pin `0.166.0` in
@@ -387,10 +376,7 @@ against GitHub Pages' 1 GB published-site limit. Do not copy the photo tree into
 `static/`. Rule 8 still applies — ask before deleting anything under the photos
 tree in the archive.
 
-### Open: 9 live URLs will break
-
-These are in `urls-before.txt` and **will be reported MISSING** by
-`check-urls.sh` until a decision is made:
+### The 9 gallery URLs stay in the contract
 
 ```
 /photos/
@@ -404,35 +390,52 @@ These are in `urls-before.txt` and **will be reported MISSING** by
 /photos/2014.03.23_Fisheye_at_Place_De_La_Marie_Rennes/
 ```
 
-They are deliberately **left in the contract** rather than pruned, so the failure
-stays visible instead of disappearing quietly. Options: a single `/photos/` page
-saying the galleries are retired with the 8 gallery URLs aliased to it; let them
-404; or host them elsewhere and redirect. Author's call — then prune or alias.
+Author's decision: **keep them** — do not prune them from `urls-before.txt`.
+`check-urls.sh` will report them MISSING until each is either served by a real
+page or covered by an `aliases:` entry. That is intended: the breakage stays
+visible rather than being quietly defined away.
 
-### Open: one blog post embeds photos inline
+Two of them are linked from a blog post (below), so they are not purely
+decorative. Still open: whether they get a retire-notice page, aliases to one,
+or redirects off-site.
 
-`_posts/2014-03-07-My-father-tortures-me-with-beautiful-sunny-pictures.md` does not
-merely link the galleries — it `<img src=>`s individual JPEGs out of them. Dropping
-`/photos/` wholesale leaves that post full of broken images, and rule 6 forbids
-rewriting the post to remove them.
+### Photo assets kept in `static/photos/` — DONE
 
-It needs 6 files, **3.0 MB total** — trivial next to the 569 MB tree:
+`_posts/2014-03-07-My-father-tortures-me-with-beautiful-sunny-pictures.md` does
+not merely link the galleries, it `<img src=>`s individual JPEGs out of them.
+Rule 6 forbids rewriting the post, so the images it needs were copied across
+(verified byte-identical against the archive):
 
 ```
-/photos/2013.12.13_Dad_fishing_trip/DSC_4995.JPG   (+ thumbs/DSC_4995.JPG)
-/photos/2013.12.13_Dad_fishing_trip/DSC_5013.JPG
-/photos/2013.12.13_Dad_fishing_trip/DSC_5027.JPG
-/photos/2013.12.13_Dad_fishing_trip/DSC_5033.JPG
-/photos/2014.01.16_Dad_keeps_torturing_me_with_these_pictures/thumbs/DSC_5128.JPG
+static/photos/2013.12.13_Dad_fishing_trip/DSC_4995.JPG
+static/photos/2013.12.13_Dad_fishing_trip/DSC_5013.JPG
+static/photos/2013.12.13_Dad_fishing_trip/DSC_5027.JPG
+static/photos/2013.12.13_Dad_fishing_trip/DSC_5033.JPG
+static/photos/2013.12.13_Dad_fishing_trip/thumbs/DSC_4995.JPG
+static/photos/2014.01.16_Dad_keeps_torturing_me_with_these_pictures/thumbs/DSC_5128.JPG
 ```
 
-Recommend copying just these 6 into `static/photos/` at their existing paths, so
-the post renders unchanged. The post also links the two gallery index pages, which
-would still 404 pending the decision above.
+3.0 MB total. These are the **only** files from the 569 MB photo tree that belong
+in `static/`. If another page turns out to reference a gallery image, add that
+file here — do not copy a whole gallery directory, and do not edit the post.
 
-`/photos/` is additionally linked from `_includes/navbar.html` and
-`_includes/footer.html` — drop the nav entry when porting those, or it points at a
-dead page.
+### Porting rule: drop `Photos` from the nav
+
+`/photos/` is referenced from `_includes/navbar.html` (line 20) and
+`_includes/footer.html` (line 48). Both live only in the read-only archive; there
+is no `layouts/` in this repo yet, so there is nothing to edit until phase 3.
+
+**When porting those two partials, omit the `Photos` `<li>` entirely** — along
+with its adjacent `footer-menu-divider` `<li>` in the footer, or the separator
+dots come out wrong. Nav becomes:
+
+```
+Home | Publications | Teaching | Research | Blog | Contact
+```
+
+Do not leave the link pointing at a page that will not exist. This is the one
+`/photos/` reference that gets removed rather than preserved; the blog post's
+inline images and the 9 contract URLs are kept.
 
 ## Working style
 

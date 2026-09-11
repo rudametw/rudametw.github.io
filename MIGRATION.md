@@ -50,24 +50,30 @@ See the Publications section of CLAUDE.md.
   `/fancybox/demo/` pages jekyll-sitemap had listed as site content.
 - **Photos are not being migrated.** `jekyll-gallery-generator` is skipped, not
   replaced. Verified its output is confined to `/photos/`, so skipping costs
-  nothing elsewhere. This also retires the 569 MB / 1 GB Pages-limit problem.
+  nothing elsewhere. Retires the 569 MB / 1 GB Pages-limit problem.
+- **The 9 `/photos/` gallery URLs stay in the contract.** Not pruned. They will
+  report MISSING until served or aliased; that visibility is the point.
+- **The 6 photo files the blog post embeds were copied** into `static/photos/`
+  at their existing paths, verified byte-identical against the archive. 3.0 MB.
+  These are the only files from the photo tree that belong in `static/`.
+- **`Photos` comes out of the nav when navbar/footer are ported** (phase 3).
+  See the porting rule in CLAUDE.md.
+
+### Done this session
+
+`static/photos/` — 6 files, 3.0 MB. The first content in the repo.
 
 ### Open questions for the author
 
-1. **The 9 `/photos/` URLs in the contract** will report MISSING. Left in
-   deliberately so the breakage stays visible. Retire-notice page with aliases,
-   plain 404, or host elsewhere and redirect?
-2. **One blog post embeds photos inline.**
-   `2014-03-07-My-father-tortures-me-...md` `<img>`s individual JPEGs out of the
-   galleries. Rule 6 forbids editing the post, so dropping `/photos/` entirely
-   breaks it. Recommend copying just the 6 referenced files (**3.0 MB**) into
-   `static/photos/` at their existing paths. Needs a yes.
-3. **The 7 orphans** in `urls-orphans.txt` — keep, redirect, or drop?
+1. **The 9 `/photos/` URLs** are kept but nothing serves them yet. Retire-notice
+   page with the 8 gallery URLs aliased to it, plain 404, or redirect off-site?
+   Until then they are the expected residual MISSING set.
+2. **The 7 orphans** in `urls-orphans.txt` — keep, redirect, or drop?
    `/docs/RUDAMETKIN_HDR.pdf` looks like a keeper that was never linked.
    `/advancedsettings.xml` is a Kodi config file and looks like a stray.
    `/projet-al/` is a meta-refresh to a Google Doc.
    The three `*_old.pdf` / `*.old.pdf` teaching files are probably droppable.
-4. **The publication list stops at 2015** — author updates by hand; HAL and
+3. **The publication list stops at 2015** — author updates by hand; HAL and
    Scholar links are recorded in CLAUDE.md for the "Up-to-date publications"
    block.
 
@@ -79,15 +85,10 @@ See the Publications section of CLAUDE.md.
 - Taxonomy `category = "blog/categories"` to replace the Ruby plugin, 16 terms.
 - Copy 162 PDFs (75 MB) to `static/` at identical paths — they are contract items.
 - Then `hugo --minify && ./check-urls.sh` and iterate. Expect the 9 `/photos/`
-  URLs to be the residual MISSING set until question 1 is answered.
+  URLs as the residual MISSING set until question 1 is answered.
 
 ### Environment note
 
-`hugo` v0.166.0+extended lives in the **`arch` distrobox**, not on the host.
-Inside that box plain `hugo` works. An agent shell runs on the host
-(`/run/.containerenv` absent, `/etc/os-release` says `zirconium`), so from there
-it must be wrapped:
-
-```bash
-distrobox enter arch -- bash -lc 'cd ~/git/rudametw.github.io && hugo --minify'
-```
+`hugo` v0.166.0+extended is on the host PATH at `~/.local/bin/hugo` (installed in
+the `arch` distrobox, exported with `distrobox-export`). Plain `hugo` works from
+any shell. If it ever disappears from PATH, re-check that export.
