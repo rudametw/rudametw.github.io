@@ -55,6 +55,23 @@ normalise() {
   | urldecode
 }
 
+# What counts as a served URL inside a site tree, given a root directory on $1.
+#
+# Pages and documents anywhere (*.html, *.xml, *.pdf), PLUS every file under
+# docs/ whatever its extension. The author shares /docs/ links directly, so a
+# file there is a live URL even when no page links it — that is how the three
+# diverse-logo .zip files and Rudametkin10.bib were missed by an
+# extension-only sweep.
+served_urls() {
+  local root="$1"
+  {
+    find "${root}" \
+        \( -path "${root}/src" -o -path "${root}/.git" -o -path "${root}/public" \) -prune -o \
+        \( -name '*.html' -o -name '*.pdf' -o -name '*.xml' \) -print
+    [[ -d "${root}/docs" ]] && find "${root}/docs" -type f
+  } | sed "s|^${root}||"
+}
+
 # Vendored third-party junk. Never site content, even where it was served and
 # (for /fancybox/demo/) even where jekyll-sitemap listed it. Dropped from the
 # contract on the author's instruction: Bootstrap, jQuery and fancybox all go
@@ -63,10 +80,17 @@ prune_vendor() {
   grep -v -e '^/fancybox/' -e '^/font-awesome/' -e '^/node_modules/'
 }
 
-# sitemap.xml cannot appear in its own <loc> list, so it always looks like an
-# orphan. It is not one — Hugo generates it. Drop it from the orphan report only.
+# urls-orphans.txt is a worklist of "served, not in the sitemap, needs a
+# keep/redirect/drop decision". Two classes are filtered out because they are
+# already settled — they stay in the CONTRACT either way, this only keeps the
+# worklist honest:
+#
+#   /sitemap.xml  cannot appear in its own <loc> list, so it always looks like
+#                 an orphan. Hugo generates it.
+#   /docs/*       author's ruling, 2026-09-11: all keepers. Links there are
+#                 shared directly, so absence from a page proves nothing.
 prune_orphan_noise() {
-  grep -v -e '^/sitemap\.xml$'
+  grep -v -e '^/sitemap\.xml$' -e '^/docs/'
 }
 
 write_contract() {
@@ -104,10 +128,7 @@ build_inventory_archive() {
   # flow). src/ is the Jekyll source and is not served.
   echo "==> Scanning built output at ${ARCHIVE}"
   local built_urls
-  built_urls=$(cd "${ARCHIVE}" && find . \
-      \( -path ./src -o -path ./.git \) -prune -o \
-      \( -name '*.html' -o -name '*.pdf' -o -name '*.xml' \) -print \
-    | sed 's|^\.||' | normalise | prune_vendor | sort -u)
+  built_urls=$(served_urls "${ARCHIVE}" | normalise | prune_vendor | sort -u)
 
   write_contract \
     "$(printf '%s\n%s\n' "${sitemap_urls}" "${built_urls}")" \
@@ -178,8 +199,7 @@ verify() {
   [[ -d "${PUBLIC_DIR}" ]] || { red "${PUBLIC_DIR}/ not found. Run: hugo --minify"; exit 2; }
 
   local built
-  built=$(find "${PUBLIC_DIR}" \( -name '*.html' -o -name '*.xml' -o -name '*.pdf' \) \
-    | sed "s|^${PUBLIC_DIR}||" | normalise | sort -u)
+  built=$(served_urls "${PUBLIC_DIR}" | normalise | sort -u)
 
   # Hugo writes alias stubs as real files, so they appear in `built` automatically.
   local missing

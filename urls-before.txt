@@ -41,8 +41,12 @@
 /docs/SAC12-americo.pdf
 /docs/WalterRudametkin.slides.FINAL.pdf
 /docs/WalterRudametkin.thesis.FINAL.pdf
+/docs/bibtex/Rudametkin10.bib
 /docs/bibtex/Rudametkin10.html
 /docs/bibtex/Rudametkin10_bib.html
+/docs/diverse-logo/diverse-logo-fonts.zip
+/docs/diverse-logo/diverse-logo-pngs.zip
+/docs/diverse-logo/diverse-logo-svg.zip
 /google462956b09535940b.html
 /photos/
 /photos/2013.07.27_Saint_Malo/

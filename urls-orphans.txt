@@ -1,5 +1,4 @@
 /advancedsettings.xml
-/docs/RUDAMETKIN_HDR.pdf
 /projet-al/
 /research/water-quality-datascience/M2-Water-quality-datascience.pdf
 /teaching/gbiaal4sgbd/cours/7_Recapitulatif_handouts_old.pdf

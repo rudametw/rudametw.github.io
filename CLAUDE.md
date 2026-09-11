@@ -150,12 +150,13 @@ Regenerate with:
 ./check-urls.sh --inventory-archive
 ```
 
-Current contract: **216 URLs**. And **7 orphans** in `urls-orphans.txt`, awaiting
-the author's keep / redirect / drop call:
+Current contract: **220 URLs**, after `/docs/` was swept in full (see below).
+`urls-orphans.txt` is a worklist of what still needs a keep / redirect / drop
+call — now **6 entries**, with `/sitemap.xml` and all `/docs/*` filtered out as
+already settled:
 
 ```
 /advancedsettings.xml                     <- Kodi config, unrelated to the site
-/docs/RUDAMETKIN_HDR.pdf                  <- the HDR thesis; almost certainly keep
 /projet-al/                               <- meta-refresh redirect to a Google Doc
 /research/water-quality-datascience/M2-Water-quality-datascience.pdf
 /teaching/gbiaal4sgbd/cours/7_Recapitulatif_handouts_old.pdf
@@ -163,12 +164,19 @@ the author's keep / redirect / drop call:
 /teaching/gbiaal4sgbd/td_tp/TP-Noté-2015-videoclub.old.pdf
 ```
 
+Note `/research/water-quality-datascience/M2-Water-quality-datascience.pdf` is
+under `/research/`, not `/docs/`, so the "all `/docs/` are keepers" ruling does
+not cover it. Still needs a decision.
+
 **Vendor junk is pruned from the contract** (author's call, 2026-09-11).
 `prune_vendor()` drops `/fancybox/`, `/font-awesome/` and `/node_modules/` from
 *both* the sitemap and the built-output side. This removed `/fancybox/demo/` and
 `/fancybox/demo/iframe.html`, which jekyll-sitemap had listed as if they were
-site content — hence 216 rather than 218. Bootstrap, jQuery and fancybox all go
-away under rule 1b, so preserving their demo pages would have been pointless.
+site content. Bootstrap, jQuery and fancybox all go away under rule 1b, so
+preserving their demo pages would have been pointless.
+
+Contract size over the session: 260 (corrupt) -> 218 (repaired) -> 216 (vendor
+pruned) -> 220 (`/docs/` swept in full).
 
 ### Why `--inventory-archive` and not the live crawl
 
@@ -273,9 +281,44 @@ The existing page already links ORCID (`0000-0003-2903-7600`) and an older
 Scholar URL (`scholar.google.fr/citations?user=vJQGm9kAAAAJ`) — same user id,
 so replace it with the one above rather than keeping both.
 
-Note `/docs/RUDAMETKIN_HDR.pdf` exists on disk and is served, but is listed in
-neither the sitemap nor the publications page. It shows up in `urls-orphans.txt`.
-It is almost certainly a keeper — confirm with the author and link it.
+Note `/docs/RUDAMETKIN_HDR.pdf` is served but listed in neither the sitemap nor
+this page. Confirmed a keeper (see `/docs/` below) — it is in the contract. It
+arguably belongs *on* this page; author's call.
+
+## `/docs/` — all keepers (decision, 2026-09-11)
+
+Author's ruling: **every file under `/docs/` is a keeper.** Links there have been
+shared directly over the years, so "no page links it" is not evidence that a URL
+is dead. `/docs/` is therefore excluded from the orphan worklist — not from the
+contract.
+
+This exposed a hole in the inventory. The sweep matched `*.html`, `*.pdf`, `*.xml`
+only, so three `.zip` files and a `.bib` were served but absent from the contract.
+`served_urls()` now takes **every file under `docs/` whatever its extension**, plus
+pages and documents elsewhere. Contract went 216 → 220.
+
+### TODO for the author: 5 files under `/docs/` that no page links
+
+All are in the contract and will be preserved. Listed because they are invisible
+from the site itself — worth confirming each is still wanted:
+
+| File | Note |
+|---|---|
+| `/docs/RUDAMETKIN_HDR.pdf` | The HDR thesis. Never linked from any page — probably *should* be, from Publications. |
+| `/docs/Developing_Adaptable_Components_Using_Dynamic_Languages.pdf` | Paper, not in the publications list either. |
+| `/docs/diverse-logo/diverse-logo-fonts.zip` | DiverSE team logo kit. |
+| `/docs/diverse-logo/diverse-logo-pngs.zip` | idem |
+| `/docs/diverse-logo/diverse-logo-svg.zip` | idem |
+
+The 11 other `/docs/` files are all linked from `publications/index.html` or the
+two bibtex pages.
+
+### Pre-existing broken link — do not fix silently
+
+`src/publications/index.html` links `/docs/ICPS08-demo-NFCMuseum-cr.pdf` and
+**that file does not exist** anywhere in the archive. It is a 404 on the live site
+today, not something the migration introduces. Rule 6 says report, not fix:
+the author supplies the file or drops the link.
 
 ## Content staleness (report only, do not fix)
 
@@ -376,28 +419,35 @@ against GitHub Pages' 1 GB published-site limit. Do not copy the photo tree into
 `static/`. Rule 8 still applies — ask before deleting anything under the photos
 tree in the archive.
 
-### The 9 gallery URLs stay in the contract
+### The 9 gallery URLs: retire notice + aliases (decision, 2026-09-11)
 
+Author's call: **one retire-notice page at `/photos/`, with the 8 gallery URLs
+aliased onto it.** Nothing is pruned from `urls-before.txt`.
+
+Not built yet — phase 1 has not started. When it does, this is the shape
+(`content/photos/_index.md`):
+
+```yaml
+---
+title: Photos
+aliases:
+  - /photos/2013.07.27_Saint_Malo/
+  - /photos/2013.12.13_Dad_fishing_trip/
+  - /photos/2014.01.16_Dad_keeps_torturing_me_with_these_pictures/
+  - /photos/2014.02.25_rennes_at_night/
+  - /photos/2014.03.01_Rennes_market_and_oyster_snack/
+  - /photos/2014.03.04_Beach_Trip_to_La_Baule_and_Guerande/
+  - /photos/2014.03.09_Bonnets_Rouges_Walk_in_Rennes/
+  - /photos/2014.03.23_Fisheye_at_Place_De_La_Marie_Rennes/
+---
 ```
-/photos/
-/photos/2013.07.27_Saint_Malo/
-/photos/2013.12.13_Dad_fishing_trip/
-/photos/2014.01.16_Dad_keeps_torturing_me_with_these_pictures/
-/photos/2014.02.25_rennes_at_night/
-/photos/2014.03.01_Rennes_market_and_oyster_snack/
-/photos/2014.03.04_Beach_Trip_to_La_Baule_and_Guerande/
-/photos/2014.03.09_Bonnets_Rouges_Walk_in_Rennes/
-/photos/2014.03.23_Fisheye_at_Place_De_La_Marie_Rennes/
-```
 
-Author's decision: **keep them** — do not prune them from `urls-before.txt`.
-`check-urls.sh` will report them MISSING until each is either served by a real
-page or covered by an `aliases:` entry. That is intended: the breakage stays
-visible rather than being quietly defined away.
+Hugo writes each alias as a real redirect stub in `public/`, so all 9 URLs
+resolve and `check-urls.sh` goes clean. Note the alias paths carry capitals and
+underscores — do not lowercase them, or the old URLs break.
 
-Two of them are linked from a blog post (below), so they are not purely
-decorative. Still open: whether they get a retire-notice page, aliases to one,
-or redirects off-site.
+The body text is the author's to write (rule 6). Until this page exists, these 9
+are the expected residual MISSING set.
 
 ### Photo assets kept in `static/photos/` — DONE
 
@@ -433,9 +483,14 @@ dots come out wrong. Nav becomes:
 Home | Publications | Teaching | Research | Blog | Contact
 ```
 
-Do not leave the link pointing at a page that will not exist. This is the one
-`/photos/` reference that gets removed rather than preserved; the blog post's
-inline images and the 9 contract URLs are kept.
+Note the reason is *not* that `/photos/` will 404 — the retire-notice page above
+means it resolves. The point is that a retired section should not be advertised
+in the primary nav: the page exists to keep old inbound links and bookmarks
+working, not to invite new visits.
+
+This is the one `/photos/` reference that gets removed rather than preserved. The
+blog post's inline images, the 9 contract URLs, and the retire page itself are
+all kept.
 
 ## Working style
 
