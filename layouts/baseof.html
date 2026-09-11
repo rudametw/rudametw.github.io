@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang="{{ site.Language.Lang }}">
 {{ partial "head.html" . }}
-<body{{ if .IsHome }} id="home"{{ end }}>
+<body class="kind-{{ .Kind }}{{ with .Section }} sec-{{ . }}{{ end }}"{{ if .IsHome }} id="home"{{ end }}>
 {{ partial "navbar.html" . }}
 {{- $blog := or (eq .Section "blog") (eq .Kind "term") (eq .Kind "taxonomy") }}
 {{- if .IsHome }}

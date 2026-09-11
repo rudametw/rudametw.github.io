@@ -5,3 +5,5 @@ resources/_gen/
 # local before/after screenshots, not site content
 COMPARE/
 Lato.zip
+# author-provided profile sources, never published verbatim
+PROFILE/

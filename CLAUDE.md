@@ -437,11 +437,13 @@ until then it falls back to Helvetica/Arial as the old site did offline.
 
 ## Fonts and icons — self-hosted, no CDN
 
-**Lato** (SIL OFL) lives in `static/fonts/lato/` — Light, Regular, Italic, Bold,
-BoldItalic, 384 KB of TTF plus `OFL.txt` — declared with `@font-face` at the top of
-`main.css`. Lato has no 500 weight: headings are 700, so "bold" is bold. Source
-`Lato.zip` is gitignored. Converting to WOFF2 would shave ~40% but needs a tool
-(`fonttools`/`woff2`) — optional.
+**Lato** (SIL OFL) lives in `static/fonts/lato/` as **WOFF** — Light, Regular,
+Italic, Bold, BoldItalic, 192 KB total (was 376 KB of TTF) plus `OFL.txt` —
+declared with `@font-face` at the top of `main.css`. Lato has no 500 weight:
+headings are 700, so "bold" is bold. Source `Lato.zip` is gitignored. WOFF2 would
+be ~15% smaller still but `fonttools` needs the `brotli` Python module for it
+(`python-brotli`); convert with `/usr/bin/python3` + `fontTools.ttLib` (the plain
+`python3` on PATH is a different interpreter without fontTools).
 
 **Icons** are CSS masks over inline SVG data URIs in `assets/css/icons.css` (7 KB),
 coloured by `currentColor`. `<i class="icon icon-github"></i>` in templates; the
@@ -452,6 +454,30 @@ embed under the OFL); the ORCID mark is drawn by hand because FA4 has none.
 That FA release predates `graduation-cap`, so Scholar uses the book glyph.
 Regenerate by re-running the Python in the 2026-09-11 MIGRATION.md entry; the
 two files concatenate into one fingerprinted `site.css` in `partials/head.html`.
+
+## Design system notes (2026-09-11)
+
+- **Colours are tokens** in `:root`; **dark mode** is one `@media
+  (prefers-color-scheme: dark)` block that only redefines tokens. Light is the
+  default; there is no toggle. Never hard-code a colour outside the tokens block
+  except on the two photo backgrounds (hero, banner), which are white-on-photo in
+  both schemes. Headless Chromium's `--force-dark-mode` does **not** flip
+  `prefers-color-scheme` for page content — to check dark mode, copy a built page
+  into `public/`, inject the dark `:root{…}` block as a `<style>`, and serve
+  `public/` with `python3 -m http.server`.
+- **Navbar**: 44px, all bold, `#666` links (≥ 4.5:1 on `#f8f8f8`). Below 48em it is
+  a CSS-only disclosure: hidden checkbox + `<label>` (a `<details>` element cannot
+  be forced open by CSS on wide screens, which is why it is not one).
+- **Hero**: `min-height: clamp(18rem, 52vh, 28rem)`, no full overlay — only a
+  bottom gradient under the text — so the page below is visible on arrival.
+- **Teaching**: course titles carry a `.tag-archived` pill (added by
+  `move-content.sh`); rows of the form *slides | handouts-4pp | handouts-6pp | …*
+  are turned into `<table class="course-files">` by
+  `scripts/teaching-tables.py`, a stdin→stdout Markdown filter. Presentation
+  only — the author's words and links are unchanged. Link-only paragraphs that do
+  not fit the pattern are kept and single-spaced via `:has()`.
+- **Never `pkill -f` / `pgrep -f` a pattern from inside a Bash tool call** — the
+  pattern matches the calling shell's own command line and kills it.
 
 ## `.github/workflows/hugo.yml` — phase 6
 
@@ -475,8 +501,8 @@ at once — e.g. "Polytech Lille"). By file:
 
 | File | Lines | What is stale |
 |---|---|---|
-| `index.html` | 16 | Affiliation block, Spirals/Inria Lille logos, bio |
-| `_includes/contact.md` | 9 | Job title, both email addresses, postal address |
+| `index.html` | 16 | **Resolved 2026-09-11** — profile rewritten (Rennes / IRISA / Inria / IUF) |
+| `_includes/contact.md` | 9 | **Resolved 2026-09-11** — contact page rewritten with the new addresses |
 | `_includes/cloud-dynamic-monitoring-and-repair.md` | 5 | Team member titles and emails |
 | `_includes/optimisation-applications-cloud.md` | 4 | idem |
 | `_includes/dynamic-apps-cloud-computing.md` | 4 | idem |
@@ -637,10 +663,14 @@ all kept.
   verification (`check-urls.sh` is also a CI gate), (5) publications page (hand
   HTML + HAL/Scholar block, done in phase 2), (6) CI workflow. What remains is the
   author's: profile/contact rewrite, retire-page wording, publication list.
-- Content is produced by `scripts/move-content.sh` from the archive. **Edit the
-  script, not `content/`**, until the author starts editing prose there; the
-  script header lists every transformation it performs. Audit any file with
+- Most of `content/` is produced by `scripts/move-content.sh` from the archive.
+  **Edit the script, not `content/`**, for those files; the script header lists
+  every transformation. Audit any file with
   `diff ~/git/archive/jekyll-src/src/_posts/X.md content/blog/X.md`.
+- **Two pages are hand-written and author-owned** (2026-09-11, from the author's
+  `PROFILE/` notes — gitignored, never published verbatim): `content/_index.html`
+  (the profile) and `content/contact/_index.html`. The script no longer touches
+  them. Edit them directly. Rule 6 applies to them the normal way from now on.
 - `layouts/` is the phase-3 port (see below). No theme, no framework, no JS.
 - Build with `hugo --minify --cleanDestinationDir`, never `rm -rf public`.
 - For bulk file moves, **write a reviewable shell script** rather than performing

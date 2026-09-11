@@ -24,11 +24,12 @@
 #              {% capture %}{% include X.md %}{% endcapture %}{{ … | markdownify }}.
 #              Hugo has no include-and-markdownify; the fragment body is inlined
 #              into the page's content file at the same spot. Words unchanged.
-#   home       the google+ social button is removed (author's call)
-#   home       src/index.html carries its own <head>, navbar and footer. Only the
-#              body between the navbar and footer includes is content; the rest
-#              is template (phase 3). Aliases /CICOMP/ (a stale copy of an old
-#              home page) here.
+#   home, contact  NOT generated any more (2026-09-11): both are hand-written
+#              from the author's new profile and contact details. The old
+#              bodies remain in the archive.
+#   teaching   every course title gets an [archived] tag (author's call);
+#              "slides | handouts-4pp | …" link rows become tables
+#              (scripts/teaching-tables.py; author's call, presentation only).
 #   publications  hand-written HTML, copied as-is into an .html content file.
 #              One addition the author asked for: an "Up-to-date publications"
 #              block (HAL + Scholar) and a TODO that the list stops at 2015. The
@@ -76,7 +77,7 @@ fragment()     { commonmark < "${SRC}/_includes/$1"; }
 # `--lib`: only define the functions above (used by the teaching awk callback).
 [[ "${1:-}" == "--lib" ]] && return 0 2>/dev/null
 
-mkdir -p "${OUT}/blog" "${OUT}/contact" "${OUT}/research" "${OUT}/teaching" "${OUT}/publications"
+mkdir -p "${OUT}/blog" "${OUT}/research" "${OUT}/teaching" "${OUT}/publications"
 
 # ---------------------------------------------------------------- posts (12)
 for f in "${SRC}"/_posts/*.md; do
@@ -102,8 +103,9 @@ outputs: [HTML, RSS]   # the one feed on the site; see hugo.toml [outputs]
 ---
 MD
 
-# ------------------------------------------------- fragment pages: contact, research
-{ front_matter "${SRC}/contact/index.html"  | lille_era; fragment contact.md;  } > "${OUT}/contact/_index.md"
+# ------------------------------------------------- fragment pages: research
+# (contact/_index.md is HAND-WRITTEN since 2026-09-11 — new Rennes contact
+#  details from the author. Not generated. Do not add it back here.)
 { front_matter "${SRC}/research/index.html" | lille_era; fragment research.md; } > "${OUT}/research/_index.md"
 for pair in \
   "cloud-monitoring-and-repair:cloud-dynamic-monitoring-and-repair.md" \
@@ -129,7 +131,10 @@ done
     }
     /\{\{ *my_include *\| *markdownify *\}\}/ { next }
     { print }'
-} > "${OUT}/teaching/_index.md"
+} | sed -E 's|^# (.+)$|# \1 <span class="tag tag-archived">archived</span>|' \
+  | python3 "$(dirname "${BASH_SOURCE[0]}")/teaching-tables.py" > "${OUT}/teaching/_index.md"
+# ^ every course title on that page is a Lille-era course (author, 2026-09-11):
+#   the tag is the per-course version of the yellow notice at the top.
 
 # ---------------------------------------------------------------- publications
 {
@@ -153,20 +158,9 @@ HTML
 } > "${OUT}/publications/_index.html"
 
 # ------------------------------------------------------------------------ home
-{
-  cat <<'YAML'
----
-title: "Walter Rudametkin | Official Home Page | Sitio Oficial"
-description: "Walter Rudametkin | Welcome to Walter's home page. Research, projects, blog or send him an email."
-aliases:
-  - /CICOMP/
----
-YAML
-  # body between `{% include navbar.html %}` and `{% include footer.html %}`,
-  # minus the google+ button (author: drop google+ and brandyourself).
-  awk '/\{% *include navbar\.html *%\}/{p=1; next} /\{% *include footer\.html *%\}/{p=0} p' "${SRC}/index.html" \
-    | awk '/<li><a href="https:\/\/www\.google\.com\/\+WalterRudametkin"/{skip=1} skip && /<\/li>/{skip=0; next} !skip' 
-} > "${OUT}/_index.html"
+# content/_index.html is HAND-WRITTEN since 2026-09-11 (profile rewritten by the
+# author's brief: Rennes / IRISA / Inria / IUF, privacy & security focus). The old
+# Jekyll body is no longer copied. Do not add it back here.
 
 echo "content/ now:"; find "${OUT}" -type f | sort | sed 's/^/  /'
 echo "leftover Liquid (must be empty):"; grep -rnE '\{%|\{\{' "${OUT}" || echo "  none"

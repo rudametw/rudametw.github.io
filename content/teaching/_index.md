@@ -24,7 +24,7 @@ archived: lille
 <div id="Git" style="padding-top:0em; padding-bottom:2em;">
 <!--<div  style="margin-top:-180px;padding-top:180px">-->
 
-# Introduction à Git
+# Introduction à Git <span class="tag tag-archived">archived</span>
 
 Bonjour étudiants de Polytech Lille, GIS et IMA.
 
@@ -43,8 +43,6 @@ Vous trouverez egalement les sources sur github :
 [https://github.com/rudametw/Learning-Git](https://github.com/rudametw/Learning-Git)
 <span class="fa fa-github-square fa-fw"></span>
 
-
-
 ### Supports de cours
 [Cours GIT (1 slides/page)](https://github.com/rudametw/Learning-Git/raw/master/PDFs/slides.pdf) |
 [Cours GIT (4 slides/page)](https://github.com/rudametw/Learning-Git/raw/master/PDFs/slides-handouts-4pp.pdf) |
@@ -52,7 +50,6 @@ Vous trouverez egalement les sources sur github :
 [Cours GIT (8 slides/page)](https://github.com/rudametw/Learning-Git/raw/master/PDFs/slides-handouts-8pp.pdf)
 
 [Cours GIT avec animations (1 slides/page)](https://github.com/rudametw/Learning-Git/raw/master/PDFs/slides-animations.pdf)
-
 
 ### TP (estimé à 3h)
 
@@ -66,11 +63,10 @@ Vous trouverez egalement les sources sur github :
 
 </div>
 
-
 <!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
 <div id="PA" style="padding-top:3em; padding-bottom:2em">
 
-# IMA3 − Programmation Avancé (PA)
+# IMA3 − Programmation Avancé (PA) <span class="tag tag-archived">archived</span>
 
 Bonjour étudiants de Polytech Lille Informatique et Microélectronique Automatique
 
@@ -84,45 +80,16 @@ Vous trouverez egalement les sources sur github
 
 ## Support du Cours
 
-[CM0-Intro.pdf](ima3/CM0-Intro.pdf) |
-[CM0-Intro-handouts-4pp.pdf](ima3/CM0-Intro-handouts-4pp.pdf) |
-[CM0-Intro-handouts-6pp.pdf](ima3/CM0-Intro-handouts-6pp.pdf) |
-[CM0-Intro-handouts-8pp.pdf](ima3/CM0-Intro-handouts-8pp.pdf)
-
-[CM1-structures.pdf](ima3/CM1-structures.pdf) |
-[CM1-structures-handouts-4pp.pdf](ima3/CM1-structures-handouts-4pp.pdf) |
-[CM1-structures-handouts-6pp.pdf](ima3/CM1-structures-handouts-6pp.pdf) |
-[CM1-structures-handouts-8pp.pdf](ima3/CM1-structures-handouts-8pp.pdf)
-
-[CM2-listes.pdf](ima3/CM2-listes.pdf) |
-[CM2-listes-handouts-4pp.pdf](ima3/CM2-listes-handouts-4pp.pdf) |
-[CM2-listes-handouts-6pp.pdf](ima3/CM2-listes-handouts-6pp.pdf) |
-[CM2-listes-handouts-8pp.pdf](ima3/CM2-listes-handouts-8pp.pdf)
-
-[CM3-malloc.pdf](ima3/CM3-malloc.pdf) |
-[CM3-malloc-handouts-4pp.pdf](ima3/CM3-malloc-handouts-4pp.pdf) |
-[CM3-malloc-handouts-6pp.pdf](ima3/CM3-malloc-handouts-6pp.pdf) |
-[CM3-malloc-handouts-8pp.pdf](ima3/CM3-malloc-handouts-8pp.pdf)
-
-[CM4-recursivite.pdf](ima3/CM4-recursivite.pdf) |
-[CM4-recursivite-handouts-4pp.pdf](ima3/CM4-recursivite-handouts-4pp.pdf) |
-[CM4-recursivite-handouts-6pp.pdf](ima3/CM4-recursivite-handouts-6pp.pdf) |
-[CM4-recursivite-handouts-8pp.pdf](ima3/CM4-recursivite-handouts-8pp.pdf)
-
-[CM5-fichiers.pdf](ima3/CM5-fichiers.pdf) |
-[CM5-fichiers-handouts-4pp.pdf](ima3/CM5-fichiers-handouts-4pp.pdf) |
-[CM5-fichiers-handouts-6pp.pdf](ima3/CM5-fichiers-handouts-6pp.pdf) |
-[CM5-fichiers-handouts-8pp.pdf](ima3/CM5-fichiers-handouts-8pp.pdf)
-
-[CM6-Listes_variantes.pdf](ima3/CM6-Listes_variantes.pdf) |
-[CM6-Listes_variantes-handouts-4pp.pdf](ima3/CM6-Listes_variantes-handouts-4pp.pdf) |
-[CM6-Listes_variantes-handouts-6pp.pdf](ima3/CM6-Listes_variantes-handouts-6pp.pdf) |
-[CM6-Listes_variantes-handouts-8pp.pdf](ima3/CM6-Listes_variantes-handouts-8pp.pdf)
-
-[CM7-arbres.pdf](ima3/CM7-arbres.pdf) |
-[CM7-arbres-handouts-4pp.pdf](ima3/CM7-arbres-handouts-4pp.pdf) |
-[CM7-arbres-handouts-6pp.pdf](ima3/CM7-arbres-handouts-6pp.pdf) |
-[CM7-arbres-handouts-8pp.pdf](ima3/CM7-arbres-handouts-8pp.pdf)
+<table class="course-files">
+<tr><th scope="row">CM0-Intro</th><td><a href="ima3/CM0-Intro.pdf">Diapos</a></td><td><a href="ima3/CM0-Intro-handouts-4pp.pdf">4 / page</a></td><td><a href="ima3/CM0-Intro-handouts-6pp.pdf">6 / page</a></td><td><a href="ima3/CM0-Intro-handouts-8pp.pdf">8 / page</a></td></tr>
+<tr><th scope="row">CM1-structures</th><td><a href="ima3/CM1-structures.pdf">Diapos</a></td><td><a href="ima3/CM1-structures-handouts-4pp.pdf">4 / page</a></td><td><a href="ima3/CM1-structures-handouts-6pp.pdf">6 / page</a></td><td><a href="ima3/CM1-structures-handouts-8pp.pdf">8 / page</a></td></tr>
+<tr><th scope="row">CM2-listes</th><td><a href="ima3/CM2-listes.pdf">Diapos</a></td><td><a href="ima3/CM2-listes-handouts-4pp.pdf">4 / page</a></td><td><a href="ima3/CM2-listes-handouts-6pp.pdf">6 / page</a></td><td><a href="ima3/CM2-listes-handouts-8pp.pdf">8 / page</a></td></tr>
+<tr><th scope="row">CM3-malloc</th><td><a href="ima3/CM3-malloc.pdf">Diapos</a></td><td><a href="ima3/CM3-malloc-handouts-4pp.pdf">4 / page</a></td><td><a href="ima3/CM3-malloc-handouts-6pp.pdf">6 / page</a></td><td><a href="ima3/CM3-malloc-handouts-8pp.pdf">8 / page</a></td></tr>
+<tr><th scope="row">CM4-recursivite</th><td><a href="ima3/CM4-recursivite.pdf">Diapos</a></td><td><a href="ima3/CM4-recursivite-handouts-4pp.pdf">4 / page</a></td><td><a href="ima3/CM4-recursivite-handouts-6pp.pdf">6 / page</a></td><td><a href="ima3/CM4-recursivite-handouts-8pp.pdf">8 / page</a></td></tr>
+<tr><th scope="row">CM5-fichiers</th><td><a href="ima3/CM5-fichiers.pdf">Diapos</a></td><td><a href="ima3/CM5-fichiers-handouts-4pp.pdf">4 / page</a></td><td><a href="ima3/CM5-fichiers-handouts-6pp.pdf">6 / page</a></td><td><a href="ima3/CM5-fichiers-handouts-8pp.pdf">8 / page</a></td></tr>
+<tr><th scope="row">CM6-Listes_variantes</th><td><a href="ima3/CM6-Listes_variantes.pdf">Diapos</a></td><td><a href="ima3/CM6-Listes_variantes-handouts-4pp.pdf">4 / page</a></td><td><a href="ima3/CM6-Listes_variantes-handouts-6pp.pdf">6 / page</a></td><td><a href="ima3/CM6-Listes_variantes-handouts-8pp.pdf">8 / page</a></td></tr>
+<tr><th scope="row">CM7-arbres</th><td><a href="ima3/CM7-arbres.pdf">Diapos</a></td><td><a href="ima3/CM7-arbres-handouts-4pp.pdf">4 / page</a></td><td><a href="ima3/CM7-arbres-handouts-6pp.pdf">6 / page</a></td><td><a href="ima3/CM7-arbres-handouts-8pp.pdf">8 / page</a></td></tr>
+</table>
 
 ---
 
@@ -140,7 +107,6 @@ Les sources LaTeX des supports ainsi que des exemples de code C vus en cours son
 [TD6\_alternative\_FIFO-LIFO.pdf](ima3/TD6_alternative_FIFO-LIFO.pdf) |
 [TD7.pdf](ima3/TD7.pdf) |
 [TD-Synthese-SD.pdf](ima3/TD-Synthese-SD.pdf)
-
 
 ## Travaux pratiques
 <!--[TP1.pdf](ima3/TP1.pdf) | -->
@@ -174,34 +140,31 @@ Les sources LaTeX des supports ainsi que des exemples de code C vus en cours son
 
 [TP9\_genericite.pdf](ima3/TP9_genericite.pdf)
 
-
 ## Supports du Dr. Vincent Aranega
 
 ### Table de hachage
-[CM8-hash-current.pdf](ima3/CM8-hash-current.pdf) |
-[CM8-hash-current-handouts-4pp.pdf](ima3/CM8-hash-current-handouts-4pp.pdf) |
-[CM8-hash-current-handouts-6pp.pdf](ima3/CM8-hash-current-handouts-6pp.pdf) |
-[CM8-hash-current-handouts-8pp.pdf](ima3/CM8-hash-current-handouts-8pp.pdf) |
+
+<table class="course-files">
+<tr><th scope="row">CM8-hash-current</th><td><a href="ima3/CM8-hash-current.pdf">Diapos</a></td><td><a href="ima3/CM8-hash-current-handouts-4pp.pdf">4 / page</a></td><td><a href="ima3/CM8-hash-current-handouts-6pp.pdf">6 / page</a></td><td><a href="ima3/CM8-hash-current-handouts-8pp.pdf">8 / page</a></td></tr>
+</table>
 
 ### Pointeurs de fonction
-[CM8-pointeur-de-fonction-current.pdf](ima3/CM8-pointeur-de-fonction-current.pdf) |
-[CM8-pointeur-de-fonction-current-handouts-4pp.pdf](ima3/CM8-pointeur-de-fonction-current-handouts-4pp.pdf) |
-[CM8-pointeur-de-fonction-current-handouts-6pp.pdf](ima3/CM8-pointeur-de-fonction-current-handouts-6pp.pdf) |
-[CM8-pointeur-de-fonction-current-handouts-8pp.pdf](ima3/CM8-pointeur-de-fonction-current-handouts-8pp.pdf)
+
+<table class="course-files">
+<tr><th scope="row">CM8-pointeur-de-fonction-current</th><td><a href="ima3/CM8-pointeur-de-fonction-current.pdf">Diapos</a></td><td><a href="ima3/CM8-pointeur-de-fonction-current-handouts-4pp.pdf">4 / page</a></td><td><a href="ima3/CM8-pointeur-de-fonction-current-handouts-6pp.pdf">6 / page</a></td><td><a href="ima3/CM8-pointeur-de-fonction-current-handouts-8pp.pdf">8 / page</a></td></tr>
+</table>
 
 #### Complément
 [http://www.newty.de/fpt/zip/f\_fpt.pdf](http://www.newty.de/fpt/zip/f_fpt.pdf)
 
 [http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM\_14\_\_\_Pointeur\_de\_fonction.pdf](http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_14___Pointeur_de_fonction.pdf)
 
-
 </div>
-
 
 <!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
 <div id="BD" style="padding-top:3em; padding-bottom:2em">
 
-# GB-IAAL4 - Initiation aux bases de données
+# GB-IAAL4 - Initiation aux bases de données <span class="tag tag-archived">archived</span>
 
 Bonjour étudiants de Polytech Lille en Biologie et Agro Alimentaire !!!
 
@@ -211,22 +174,17 @@ Voici des supports pour le cours de base de données.
 
 <!--[https://moodle.polytech-lille.fr/course/view.php?id=97](https://moodle.polytech-lille.fr/course/view.php?id=97)-->
 
-
 ## Support du Cours
 
-[1 Objectifs.pdf](gbiaal4sgbd/cours/1_Objectifs.pdf) | [1 Objectives handouts.pdf](gbiaal4sgbd/cours/1_Objectifs_handouts.pdf)
-
-[2 Analyse.pdf](gbiaal4sgbd/cours/2_Analyse.pdf) | [2 Analyse (handouts).pdf](gbiaal4sgbd/cours/2_Analyse_handouts.pdf)
-
-[3 Modelisation.pdf](gbiaal4sgbd/cours/3.0_Modelisation.pdf) | [3 modelisation (handouts).pdf](gbiaal4sgbd/cours/3.1_Modelisation_sans_solutions_exos_handouts.pdf) | [3 modelisation solutions aux exos (handouts).pdf](gbiaal4sgbd/cours/3.2_modelisation_exos_handouts.pdf)
-
-[4 BD Relationnelles.pdf](gbiaal4sgbd/cours/4.0_BD_Relationnelles.pdf) | [4 BD Relationnelles (handouts).pdf](gbiaal4sgbd/cours/4.0_BD_Relationnelles_handouts.pdf)
-
-[4.1 Conversion Modèle Conceptuel à Relationnelle.pdf](gbiaal4sgbd/cours/4.1_BD_Relationnelles_Conversion.pdf) | [4.1 Conversion Modèle Conceptuel à Relationnelle (handouts).pdf](gbiaal4sgbd/cours/4.1_BD_Relationnelles_Conversion_handouts.pdf)
-
-[4.2 Exercices de Conversion Modèle Conceptuel à Relationnelle.pdf](gbiaal4sgbd/cours/4.2_BD_Relationnelles_exercises.pdf) | [4.2 Exercices de Conversion Modèle Conceptuel à Relationnelle (handouts).pdf](gbiaal4sgbd/cours/4.2_BD_Relationnelles_exercises_handouts.pdf)
-
-[5 SQL.pdf](gbiaal4sgbd/cours/5_SQL.pdf) | [5 SQL (handouts).pdf](gbiaal4sgbd/cours/5_SQL_handouts.pdf)
+<table class="course-files">
+<tr><th scope="row">1 Objectifs</th><td><a href="gbiaal4sgbd/cours/1_Objectifs.pdf">Diapos</a></td><td><a href="gbiaal4sgbd/cours/1_Objectifs_handouts.pdf">1 Objectives handouts</a></td></tr>
+<tr><th scope="row">2 Analyse</th><td><a href="gbiaal4sgbd/cours/2_Analyse.pdf">Diapos</a></td><td><a href="gbiaal4sgbd/cours/2_Analyse_handouts.pdf">(handouts)</a></td></tr>
+<tr><th scope="row">3 Modelisation</th><td><a href="gbiaal4sgbd/cours/3.0_Modelisation.pdf">Diapos</a></td><td><a href="gbiaal4sgbd/cours/3.1_Modelisation_sans_solutions_exos_handouts.pdf">(handouts)</a></td><td><a href="gbiaal4sgbd/cours/3.2_modelisation_exos_handouts.pdf">solutions aux exos (handouts)</a></td></tr>
+<tr><th scope="row">4 BD Relationnelles</th><td><a href="gbiaal4sgbd/cours/4.0_BD_Relationnelles.pdf">Diapos</a></td><td><a href="gbiaal4sgbd/cours/4.0_BD_Relationnelles_handouts.pdf">(handouts)</a></td></tr>
+<tr><th scope="row">4.1 Conversion Modèle Conceptuel à Relationnelle</th><td><a href="gbiaal4sgbd/cours/4.1_BD_Relationnelles_Conversion.pdf">Diapos</a></td><td><a href="gbiaal4sgbd/cours/4.1_BD_Relationnelles_Conversion_handouts.pdf">(handouts)</a></td></tr>
+<tr><th scope="row">4.2 Exercices de Conversion Modèle Conceptuel à Relationnelle</th><td><a href="gbiaal4sgbd/cours/4.2_BD_Relationnelles_exercises.pdf">Diapos</a></td><td><a href="gbiaal4sgbd/cours/4.2_BD_Relationnelles_exercises_handouts.pdf">(handouts)</a></td></tr>
+<tr><th scope="row">5 SQL</th><td><a href="gbiaal4sgbd/cours/5_SQL.pdf">Diapos</a></td><td><a href="gbiaal4sgbd/cours/5_SQL_handouts.pdf">(handouts)</a></td></tr>
+</table>
 
 [6 SQL2.pdf](gbiaal4sgbd/cours/6_SQL2.pdf) | [6 SQL2 (expanded, une slide par animation).pdf](gbiaal4sgbd/cours/6_SQL2_expanded.pdf) | [6 SQL2 (handouts).pdf](gbiaal4sgbd/cours/6_SQL2_handouts.pdf)
 
@@ -235,7 +193,6 @@ Voici des supports pour le cours de base de données.
 [6 SQL2 Example de Jointure.pdf](gbiaal4sgbd/cours/6_SQL2_jointure_example.pdf)
 
 [7 Recapitulatif.pdf](gbiaal4sgbd/cours/7_Recapitulatif.pdf) | [7 Recapitulatif (handouts).pdf](gbiaal4sgbd/cours/7_Recapitulatif_handouts.pdf) | [7 Recapitulatif (exercises corrigés).pdf](gbiaal4sgbd/cours/7_Recapitulatif_exercises_corrig_s.pdf)
-
 
 ## Travaux dirigés
 <!--[4.2 BD Relationnelles exercises.pdf](gbiaal4sgbd/td_tp/4.2_BD_Relationnelles_exercises.pdf)-->
@@ -246,7 +203,6 @@ Voici des supports pour le cours de base de données.
 [6 SQL2 exercices.pdf](gbiaal4sgbd/cours/6_SQL2_exercices.pdf) | Correction à Venir (n'oubliez pas de me rappeler de le poster !)
 
 <!--| [6 SQL2 exercices corrigées.pdf](gbiaal4sgbd/cours/6_SQL2_exercices_corrigees.pdf) -->
-
 
 ## Travaux pratiques
 
@@ -285,13 +241,11 @@ Voici des supports pour le cours de base de données.
 
 [Fichier Calc/Excel avec les données](gbiaal4sgbd/td_tp/BDExcel.ods)
 
-
 #### TP Notés Années Précedentes
 
 [TP Noté 2015 &mdash; Sujet "VideoClub"](gbiaal4sgbd/td_tp/TP-Noté-2015-videoclub.pdf)
 
 [TP Noté 2016 &mdash; Sujet "Course Bateau"](gbiaal4sgbd/td_tp/TP-Noté-2016-coursebateau.pdf)
-
 
 ## MOOC complémentaire à ce cours
 
@@ -303,11 +257,10 @@ Le contenu de ce MOOC peut vous aider à mieux comprendre les bases de données 
 
 </div>
 
-
 <!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
 <div id="CMO" style="padding-top:3em; padding-bottom:2em">
 
-# IMA2A4 - Conception Modélisation Objet (CMO)
+# IMA2A4 - Conception Modélisation Objet (CMO) <span class="tag tag-archived">archived</span>
 
 Bonjour mes chers apprentis en IMA4 !!!
 
@@ -326,51 +279,19 @@ Voici les supports du cours et les TPs.
 
 <!--[3 Concepts Avancés](ima2a4/3_conceptsAvances.pdf) | [3 Concepts Avancés (handouts)](ima2a4/3_conceptsAvances-handouts.pdf)-->
 
-
-[0 Introduction.pdf](ima2a4/0_Introduction.pdf) | 
-[0 Introduction-handouts-4pp.pdf](ima2a4/0_Introduction-handouts-4pp.pdf) | 
-[0 Introduction-handouts-6pp.pdf](ima2a4/0_Introduction-handouts-6pp.pdf)
-
-[1 ConceptsDeBase.pdf](ima2a4/1_ConceptsDeBase.pdf) | 
-[1 ConceptsDeBase-handouts-4pp.pdf](ima2a4/1_ConceptsDeBase-handouts-4pp.pdf) | 
-[1 ConceptsDeBase-handouts-6pp.pdf](ima2a4/1_ConceptsDeBase-handouts-6pp.pdf)
-
-[2 baseJava.pdf](ima2a4/2_baseJava.pdf) | 
-[2 baseJava-handouts-4pp.pdf](ima2a4/2_baseJava-handouts-4pp.pdf) | 
-[2 baseJava-handouts-6pp.pdf](ima2a4/2_baseJava-handouts-6pp.pdf)
-
-[3 conceptsAvances.pdf](ima2a4/3_conceptsAvances.pdf) 
-[3 conceptsAvances-handouts-4pp.pdf](ima2a4/3_conceptsAvances-handouts-4pp.pdf) | 
-[3 conceptsAvances-handouts-6pp.pdf](ima2a4/3_conceptsAvances-handouts-6pp.pdf)
-
-[4 exceptions.pdf](ima2a4/4_exceptions.pdf) | 
-[4 exceptions-handouts-4pp.pdf](ima2a4/4_exceptions-handouts-4pp.pdf) | 
-[4 exceptions-handouts-6pp.pdf](ima2a4/4_exceptions-handouts-6pp.pdf)
-
-[4 exceptions avancees.pdf](ima2a4/4_exceptions_avancees.pdf) | 
-[4 exceptions avancees-handouts-4pp.pdf](ima2a4/4_exceptions_avancees-handouts-4pp.pdf) | 
-[4 exceptions avancees-handouts-6pp.pdf](ima2a4/4_exceptions_avancees-handouts-6pp.pdf)
-
-[5 collections.pdf](ima2a4/5_collections.pdf) | 
-[5 collections-handouts-4pp.pdf](ima2a4/5_collections-handouts-4pp.pdf) | 
-[5 collections-handouts-6pp.pdf](ima2a4/5_collections-handouts-6pp.pdf)
-
-[5 collections-deuxNouveauSlide.pdf](ima2a4/5_collections-deuxNouveauSlide.pdf) | 
-[5 collections-deuxNouveauSlide-handouts-4pp.pdf](ima2a4/5_collections-deuxNouveauSlide-handouts-4pp.pdf) | 
-[5 collections-deuxNouveauSlide-handouts-6pp.pdf](ima2a4/5_collections-deuxNouveauSlide-handouts-6pp.pdf)
-
-[6 packages et visibility.pdf](ima2a4/6_packages_et_visibility.pdf) | 
-[6 packages et visibility-handouts-4pp.pdf](ima2a4/6_packages_et_visibility-handouts-4pp.pdf) | 
-[6 packages et visibility-handouts-6pp.pdf](ima2a4/6_packages_et_visibility-handouts-6pp.pdf)
-
-[7 serialisation.pdf](ima2a4/7_serialisation.pdf) | 
-[7 serialisation-handouts-4pp.pdf](ima2a4/7_serialisation-handouts-4pp.pdf) | 
-[7 serialisation-handouts-6pp.pdf](ima2a4/7_serialisation-handouts-6pp.pdf)
-
-[8 gui.pdf](ima2a4/8_gui.pdf) | 
-[8 gui-handouts-4pp.pdf](ima2a4/8_gui-handouts-4pp.pdf) | 
-[8 gui-handouts-6pp.pdf](ima2a4/8_gui-handouts-6pp.pdf)
-
+<table class="course-files">
+<tr><th scope="row">0 Introduction</th><td><a href="ima2a4/0_Introduction.pdf">Diapos</a></td><td><a href="ima2a4/0_Introduction-handouts-4pp.pdf">4 / page</a></td><td><a href="ima2a4/0_Introduction-handouts-6pp.pdf">6 / page</a></td></tr>
+<tr><th scope="row">1 ConceptsDeBase</th><td><a href="ima2a4/1_ConceptsDeBase.pdf">Diapos</a></td><td><a href="ima2a4/1_ConceptsDeBase-handouts-4pp.pdf">4 / page</a></td><td><a href="ima2a4/1_ConceptsDeBase-handouts-6pp.pdf">6 / page</a></td></tr>
+<tr><th scope="row">2 baseJava</th><td><a href="ima2a4/2_baseJava.pdf">Diapos</a></td><td><a href="ima2a4/2_baseJava-handouts-4pp.pdf">4 / page</a></td><td><a href="ima2a4/2_baseJava-handouts-6pp.pdf">6 / page</a></td></tr>
+<tr><th scope="row">3 conceptsAvances</th><td><a href="ima2a4/3_conceptsAvances.pdf">Diapos</a></td><td><a href="ima2a4/3_conceptsAvances-handouts-4pp.pdf">4 / page</a></td><td><a href="ima2a4/3_conceptsAvances-handouts-6pp.pdf">6 / page</a></td></tr>
+<tr><th scope="row">4 exceptions</th><td><a href="ima2a4/4_exceptions.pdf">Diapos</a></td><td><a href="ima2a4/4_exceptions-handouts-4pp.pdf">4 / page</a></td><td><a href="ima2a4/4_exceptions-handouts-6pp.pdf">6 / page</a></td></tr>
+<tr><th scope="row">4 exceptions avancees</th><td><a href="ima2a4/4_exceptions_avancees.pdf">Diapos</a></td><td><a href="ima2a4/4_exceptions_avancees-handouts-4pp.pdf">4 / page</a></td><td><a href="ima2a4/4_exceptions_avancees-handouts-6pp.pdf">6 / page</a></td></tr>
+<tr><th scope="row">5 collections</th><td><a href="ima2a4/5_collections.pdf">Diapos</a></td><td><a href="ima2a4/5_collections-handouts-4pp.pdf">4 / page</a></td><td><a href="ima2a4/5_collections-handouts-6pp.pdf">6 / page</a></td></tr>
+<tr><th scope="row">5 collections-deuxNouveauSlide</th><td><a href="ima2a4/5_collections-deuxNouveauSlide.pdf">Diapos</a></td><td><a href="ima2a4/5_collections-deuxNouveauSlide-handouts-4pp.pdf">4 / page</a></td><td><a href="ima2a4/5_collections-deuxNouveauSlide-handouts-6pp.pdf">6 / page</a></td></tr>
+<tr><th scope="row">6 packages et visibility</th><td><a href="ima2a4/6_packages_et_visibility.pdf">Diapos</a></td><td><a href="ima2a4/6_packages_et_visibility-handouts-4pp.pdf">4 / page</a></td><td><a href="ima2a4/6_packages_et_visibility-handouts-6pp.pdf">6 / page</a></td></tr>
+<tr><th scope="row">7 serialisation</th><td><a href="ima2a4/7_serialisation.pdf">Diapos</a></td><td><a href="ima2a4/7_serialisation-handouts-4pp.pdf">4 / page</a></td><td><a href="ima2a4/7_serialisation-handouts-6pp.pdf">6 / page</a></td></tr>
+<tr><th scope="row">8 gui</th><td><a href="ima2a4/8_gui.pdf">Diapos</a></td><td><a href="ima2a4/8_gui-handouts-4pp.pdf">4 / page</a></td><td><a href="ima2a4/8_gui-handouts-6pp.pdf">6 / page</a></td></tr>
+</table>
 
 ## Travaux pratiques
 [TP1: Prise en main du JDK](ima2a4/sujet1.pdf)

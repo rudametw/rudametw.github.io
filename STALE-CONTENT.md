@@ -9,13 +9,15 @@ The site predates a move from Lille to Rennes and a promotion to Full Professor.
 
 | Where | Ruling | Done |
 |---|---|---|
-| `index.html` (home) | Employer/profile text is stale. **Author writes a new profile later.** Ported as-is meanwhile. | postponed |
+| `index.html` (home) | Employer/profile text is stale. | **rewritten 2026-09-11** from `PROFILE/` — `content/_index.html`, hand-written |
 | `_includes/*.md` (research, teaching, contact) | Lille-era pages (University of Lille, Polytech, Spirals). Author moved to **University of Rennes / IRISA / Inria Rennes / ESIR in September 2022**. Kept as historical content. | stamped `archived: lille`; the template shows a notice |
 | `google+`, `brandyourself` (footer, home) | Drop and remove. | removed in the footer port and by `move-content.sh` |
 
-`_includes/contact.md` carries the old e-mail addresses and job title. It has the
-archived notice like the rest, but it is a *contact* page — it wants the same
-rewrite as the profile, not archiving. Flagged, not fixed.
+`_includes/contact.md` carried the old e-mail addresses and job title —
+**rewritten 2026-09-11** as `content/contact/_index.html` from the author's
+contact note (irisa.fr for research, univ-rennes.fr for teaching/admin, IRISA
+address, office F333, no telephone). The research and teaching pages keep the
+archived notice; they are historical content.
 
 Vendor directories excluded. Line numbers are against the Jekyll source, not the
 built output.
