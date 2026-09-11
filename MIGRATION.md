@@ -488,3 +488,34 @@ Research removed from nav and footer; the home card links
   (commit c1aa69a); `prune_vendor` drops them. No page linked them.
 - Gotcha recorded: never feed a Python program to `python3 -` via heredoc inside a
   pipeline — the heredoc replaces the pipe as stdin.
+
+---
+
+## 2026-09-12 — Round 6: publications pipeline, news dates and nav, fixes
+
+- **DrawnApart HAL ids** un-swapped: 2022 → hal-03526240, 2026 → hal-05701262.
+- **Branch**: local `master` renamed `jekyll-site`. Remote rename is done in the
+  GitHub UI (Settings → Branches → rename `master`), which keeps redirects; then
+  `git fetch --prune` locally. The `jekyll-final` tag and the archive bundle are
+  unaffected.
+- **Teaching**: the SI option links its ESIR page; sidebar anchors fixed (`#AL`,
+  `#Git` — the Git entry pointed at `#topOfPage`); `[id] { scroll-margin-top }` so
+  in-page anchors land below the sticky bar.
+- **News**: in the nav (after About) and footer; dates may be `"YYYY"`, `"YYYY-MM"`
+  or `"YYYY-MM-DD"` and render as "2025", "May 2023", "3 October 2025"; `/news/`
+  is a centred 60rem column. The paper entries are still the terse placeholders —
+  the author asked for "proud that our paper … with <authors> was accepted at
+  <venue> <year>" phrasing from the BibTeX, which needs the download below.
+- **Publications pipeline** (rules 2 and 5 respected: manual, no build deps):
+  - `scripts/fetch-hal-bibtex.sh` → `publications.bib` (HAL API, rows=5000).
+  - `scripts/bib2yaml.py` → `data/publications.yaml`. Parses HAL BibTeX with no
+    libraries; guesses `type` (journal / conference / workshop / chapter / hdr /
+    thesis / report / other); **merges** with the previous YAML so the author's
+    `type`, `rank`, `note`, `tags`, `hide`, `links`, `venue_short` survive, and
+    manual entries (id not `hal-…`) and HAL-dropped entries are kept. Tested on a
+    HAL-shaped sample incl. re-import.
+  - `layouts/publications/section.html` renders the YAML grouped by type then
+    year with rank/note pills and HAL/DOI/PDF/extra links — **and falls back to
+    the hand-written 2015 page while the YAML does not exist**, so the switch is
+    automatic on first import.
+- **Network**: this sandbox cannot reach HAL; the author runs the fetch.

@@ -1,0 +1,66 @@
+{{- /* /publications/
+       With data/publications.yaml present (scripts/fetch-hal-bibtex.sh +
+       scripts/bib2yaml.py) the list is rendered from it, grouped by type then
+       year, with the author's rank / note / venue_short / extra links. Without
+       the data file, the hand-written page body (content/publications/_index.html,
+       the 2015 list) is shown unchanged, so the switch happens automatically on
+       the first import. */ -}}
+{{ define "main" }}
+{{- $pubs := hugo.Data.publications }}
+{{- if $pubs }}
+{{ partial "archived.html" . }}
+<div class="up-to-date-publications">
+  <strong>Up-to-date publications:</strong>
+  <a class="btn" href="https://inria.hal.science/search/index/?q=%2A&amp;rows=30&amp;authIdPerson_i=16377&amp;sort=publicationDate_tdate+desc"><i class="icon icon-hal"></i>HAL</a>
+  <a class="btn" href="https://scholar.google.com/citations?user=vJQGm9kAAAAJ&amp;hl=fr&amp;oi=ao"><i class="icon icon-scholar"></i>Scholar</a>
+  <a class="btn" href="https://orcid.org/0000-0003-2903-7600"><i class="icon icon-orcid"></i>ORCID</a>
+</div>
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+{{- $types := slice (dict "key" "journal" "label" "Journal articles")
+                    (dict "key" "conference" "label" "Conference papers")
+                    (dict "key" "workshop" "label" "Workshop papers")
+                    (dict "key" "chapter" "label" "Book chapters")
+                    (dict "key" "hdr" "label" "Habilitation")
+                    (dict "key" "thesis" "label" "Theses")
+                    (dict "key" "report" "label" "Reports")
+                    (dict "key" "other" "label" "Other") }}
+{{- $shown := where $pubs "hide" "!=" true }}
+<nav class="pub-types" aria-label="Publication types">
+  {{- range $types }}{{ $n := len (where $shown "type" .key) }}{{ if $n }}<a href="#{{ .key }}">{{ .label }} <span>{{ $n }}</span></a>{{ end }}{{ end }}
+</nav>
+{{- range $types }}
+  {{- $group := where $shown "type" .key }}
+  {{- if $group }}
+<section class="pub-group" id="{{ .key }}">
+  <h2>{{ .label }}</h2>
+  <ol class="pubs">
+  {{- range sort $group "year" "desc" }}
+    <li>
+      <span class="pub-year">{{ .year }}</span>
+      <div>
+        <div class="pub-title">{{ with .url }}<a href="{{ . }}">{{ end }}{{ .title }}{{ with .url }}</a>{{ end }}</div>
+        <div class="pub-authors">
+          {{- range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if in $a "Rudametkin" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}
+        </div>
+        <div class="pub-venue">{{ or .venue_short .venue }}{{ with .address }}, {{ . }}{{ end }}{{ with .year }}, {{ . }}{{ end }}.
+          {{- with .rank }} <span class="label pub-rank">{{ . }}</span>{{ end }}
+          {{- with .note }} <span class="label pub-note">{{ . }}</span>{{ end }}
+        </div>
+        <div class="pub-links">
+          {{- with .url }}<a href="{{ . }}"><i class="icon icon-hal"></i>HAL</a>{{ end }}
+          {{- with .doi }}<a href="https://doi.org/{{ . }}"><i class="icon icon-external"></i>DOI</a>{{ end }}
+          {{- with .pdf }}<a href="{{ . }}"><i class="icon icon-download"></i>PDF</a>{{ end }}
+          {{- range $k, $v := .links }}<a href="{{ $v }}"><i class="icon icon-download"></i>{{ title $k }}</a>{{ end }}
+        </div>
+      </div>
+    </li>
+  {{- end }}
+  </ol>
+</section>
+  {{- end }}
+{{- end }}
+{{- else }}
+{{ partial "archived.html" . }}{{ .Content }}
+{{- end }}
+{{ end }}

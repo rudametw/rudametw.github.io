@@ -8,7 +8,7 @@
     <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
     <label for="nav-toggle" class="nav-toggle-label" aria-label="Menu">&#9776; Menu</label>
     <ul>
-      {{- range slice (slice "About" "/") (slice "Publications" "/publications/") (slice "Teaching" "/teaching/") (slice "Blog" "/blog/") (slice "Contact" "/contact/") }}
+      {{- range slice (slice "About" "/") (slice "News" "/news/") (slice "Publications" "/publications/") (slice "Teaching" "/teaching/") (slice "Blog" "/blog/") (slice "Contact" "/contact/") }}
       {{- $path := index . 1 }}
       {{- $active := or (eq $.RelPermalink $path) (and (ne $path "/") (hasPrefix $.RelPermalink $path)) }}
       <li><a href="{{ $path }}"{{ if $active }} class="active" aria-current="page"{{ end }}>{{ index . 0 }}</a></li>

@@ -246,52 +246,34 @@ Vendored front-end to be deleted per rule 1b: `bootstrap.css`, `bootstrap.js`,
 
 ## Publications
 
-**Source of truth: `src/publications/index.html`.** Port that page's markup and
-its links to the PDFs. Do **not** use `src/publications/publications.json` — it
-is dead data, referenced from nowhere in the site, and it does not match what
-the page actually shows.
+Two states, switched automatically by the presence of `data/publications.yaml`:
 
-`scripts/bib2yaml.py` and `data/publications.yaml` in the target layout above are
-therefore **not part of this migration**. There is one `.bib` file in the whole
-repo (`docs/bibtex/Rudametkin10.bib`) backing two standalone pages
-(`/docs/bibtex/Rudametkin10.html`, `/docs/bibtex/Rudametkin10_bib.html`); carry
-those across as-is. Drop `publications.json` and `publications-template.json`.
+1. **Before the first import** (current): `content/publications/_index.html` is
+   the hand-written 2015 list ported from `src/publications/index.html`, with
+   the HAL/Scholar/ORCID buttons on top. Do not use `publications.json` (dead).
+2. **After**: `layouts/publications/section.html` renders `data/publications.yaml`
+   grouped by type then year, with the author's `rank` / `note` pills and
+   HAL / DOI / PDF / extra links. `.Content` (the front-matter page body) is
+   shown under the title, so keep it short then.
 
-The page links 9 local files, all of them under `/docs/` and all present in
-`urls-before.txt`:
+Pipeline, run by the author, never by CI:
 
-```
-/docs/WalterRudametkin.thesis.FINAL.pdf        /docs/DynamicTracing.pdf
-/docs/WalterRudametkin.slides.FINAL.pdf        /docs/SAC12-americo.pdf
-/docs/MasterThesis-WalterRudametkin-FINAL.pdf  /docs/Rudametkin-APSCC-2010-slides.pdf
-/docs/APSCC-2010-Managing dynamic service-oriented component architectures.pdf
-/docs/Resilience in dynamic component-based applications.pdf
-/docs/bibtex/Rudametkin10_bib.html
+```bash
+./scripts/fetch-hal-bibtex.sh    # HAL API -> publications.bib (rows=5000)
+./scripts/bib2yaml.py            # publications.bib -> data/publications.yaml (merge)
 ```
 
-Two of those filenames contain literal spaces and appear percent-encoded in the
-sitemap. `check-urls.sh` decodes both sides before comparing; keep the files
-named as they are rather than renaming them, or the old URLs break.
+`bib2yaml.py` rewrites HAL fields on every import and **preserves** the author's
+`type`, `rank`, `note`, `tags`, `hide`, `links`, `venue_short`, plus any entry
+whose id does not start with `hal-` (manual) or that HAL no longer returns. Type
+is guessed once (`inproceedings`→conference, or workshop if the venue says so;
+`article`→journal; `phdthesis` with "habilitation"→hdr) and then left alone if
+set by hand. Commit both `publications.bib` and the YAML.
 
-### TODO: the publication list is out of date
-
-The ported page must carry a visible TODO. The newest year appearing anywhere in
-`index.html` is **2015**, so the list is roughly a decade stale: it predates the
-author's HDR, the move to Rennes, and the promotion to Full Professor.
-**Do not invent or backfill entries** — rule 6. The author updates it by hand.
-
-Canonical up-to-date sources, to link from the page as "Up-to-date publications":
-
-- HAL: <https://inria.hal.science/search/index/?q=%2A&rows=30&authIdPerson_i=16377&sort=publicationDate_tdate+desc>
-- Google Scholar: <https://scholar.google.com/citations?user=vJQGm9kAAAAJ&hl=fr&oi=ao>
-
-The existing page already links ORCID (`0000-0003-2903-7600`) and an older
-Scholar URL (`scholar.google.fr/citations?user=vJQGm9kAAAAJ`) — same user id,
-so replace it with the one above rather than keeping both.
-
-Note `/docs/RUDAMETKIN_HDR.pdf` is served but listed in neither the sitemap nor
-this page. Confirmed a keeper (see `/docs/` below) — it is in the contract. It
-arguably belongs *on* this page; author's call.
+The old page links 9 local files under `/docs/` (all in the contract); when the
+data page takes over, attach them to entries via `links:` (e.g. `slides:`,
+`pdf_local:`) so they stay reachable. Two of those filenames contain spaces —
+keep them as they are.
 
 ## `/docs/` — all keepers (decision, 2026-09-11)
 
@@ -483,6 +465,10 @@ two files concatenate into one fingerprinted `site.css` in `partials/head.html`.
   pattern matches the calling shell's own command line and kills it.
 - **Never `python3 - <<'PY'` inside a pipeline** — the heredoc becomes stdin and
   the piped data is lost. Put the filter in a file (`scripts/*.py`).
+- **Checking minified HTML**: attributes lose their quotes (`href=#AL`), so grep
+  for the value, not for `href="…"`.
+- **No network from the agent sandbox**: `curl` is refused. Anything that
+  downloads (HAL BibTeX, fonts) is run by the author.
 - **Known-broken link, on purpose**: `/docs/RUDAMETKIN_HDR_slides.pdf` on the
   home page Career list. The author will add the file; until then the link
   checker reports exactly one BROKEN. Leave it.

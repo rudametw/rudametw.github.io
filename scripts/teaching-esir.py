@@ -9,7 +9,8 @@ the ESIR title is not tagged.
 import io, sys
 page = sys.stdin.read()
 esir = io.open(sys.argv[1], encoding="utf-8").read()
+# the old Git entry pointed at #topOfPage (it was the first section); it gets its own anchor now
 page = page.replace('<li class="active"><a href="#topOfPage">',
-                    '<li><a href="#AL">[ESIR SI] Architectures Logicielles</a></li>\n<li><a href="#topOfPage">', 1)
+                    '<li><a href="#AL">[ESIR SI] Architectures Logicielles</a></li>\n<li><a href="#Git">', 1)
 page = page.replace('<div id="Git" ', esir.rstrip() + '\n\n<div id="Git" ', 1)
 sys.stdout.write(page)

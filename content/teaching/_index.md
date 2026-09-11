@@ -13,7 +13,7 @@ title: Courses | Walter Rudametkin
 <!--<h3>Cours</h3>-->
 <ul class="nav nav-stacked" id="sidebar">
 <li><a href="#AL">[ESIR SI] Architectures Logicielles</a></li>
-<li><a href="#topOfPage">[IMA et GIS] Git</a></li>
+<li><a href="#Git">[IMA et GIS] Git</a></li>
 <li><a href="#PA">[IMA3] Programmation Avancé</a></li>
 <li><a href="#BD">[GBIAAL4] Bases de données</a></li>
 <li><a href="#CMO">[IMA2A4] Conception modélisation objet</a></li>
@@ -25,7 +25,7 @@ title: Courses | Walter Rudametkin
 
 # Architectures Logicielles
 
-[ESIR](https://esir.univ-rennes.fr/) — deuxième année (bac+4), spécialité Informatique, option Systèmes d'Information (SI).
+[ESIR](https://esir.univ-rennes.fr/) — deuxième année (bac+4), [spécialité Informatique, option Systèmes d'Information (SI)](https://esir.univ-rennes.fr/spe-informatique-option-systemes-dinformation-si).
 
 [Projet Architectures Logicielles](/projet-al/)
 
