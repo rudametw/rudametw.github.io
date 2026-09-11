@@ -1,0 +1,30 @@
+# News, newest first on the site. One entry per item:
+#   date:  "YYYY-MM-DD" or "YYYY-MM" or "YYYY" — shown as written, sorted as text,
+#          so keep the year-first form. Ties keep the order of this file.
+#   text:  Markdown (links, emphasis) and inline HTML both work.
+#   link:  optional — a blog post for the long version, or any URL.
+#          Rendered as "Read more ›" after the text.
+- date: "2026"
+  text: "**EXADPrinter** — device fingerprinting on Android. [Paper on HAL](https://inria.hal.science/hal-05585898v1)."
+- date: "2026"
+  text: "**DrawnApart**, second publication — GPU fingerprinting from the browser. [Paper on HAL](https://inria.hal.science/hal-03526240v1)."
+- date: "2025"
+  text: "**FP-Rainbow** — browser fingerprinting. [Paper on HAL](https://inria.hal.science/hal-04932081v1)."
+- date: "2022"
+  text: "**DrawnApart** — telling apart identical GPUs from unprivileged web APIs. [Paper on HAL](https://inria.hal.science/hal-05701262v1) · [explainer on the Am I Unique blog](https://blog.amiunique.org/an-explicative-article-on-drawnapart-a-gpu-fingerprinting-technique/)."
+- date: "2022"
+  text: "**Price to Play** — trackers in Android apps. [Paper on HAL](https://inria.hal.science/hal-03559973v1)."
+- date: "2021"
+  text: "**FP-Redemption** — browser fingerprinting. [Paper on HAL](https://inria.hal.science/hal-03212726v1)."
+- date: "2020"
+  text: "**FP-Crawlers** — browser fingerprinting. [Paper on HAL](https://inria.hal.science/hal-02441653v1)."
+- date: "2018"
+  text: "**FP-Stalker** — tracking browser fingerprint evolution over time. [Paper on HAL](https://inria.hal.science/hal-01652021v1)."
+- date: "2018"
+  text: "**FP-Scanner** — detecting inconsistent browser fingerprints. [Paper on HAL](https://inria.hal.science/hal-01820197v1)."
+- date: "2018"
+  text: "**FP-Tester** — browser fingerprinting. [Paper on HAL](https://inria.hal.science/hal-01717158v1)."
+- date: "2016"
+  text: "**Beauty and the Beast** — how unique modern browsers are. [Paper on HAL](https://inria.hal.science/hal-01285470v2)."
+- date: "2015"
+  text: "**Blink** — fingerprint randomisation with virtual machines. [Paper on HAL](https://inria.hal.science/hal-01121108v1)."

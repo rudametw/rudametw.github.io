@@ -1,0 +1,6 @@
+{{- /* /news/ — every entry of data/news.yaml. */ -}}
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+{{ .Content }}
+{{ partial "news-list.html" (dict) }}
+{{ end }}

@@ -1,5 +1,3 @@
 /projet-al/
 /research/water-quality-datascience/M2-Water-quality-datascience.pdf
-/teaching/gbiaal4sgbd/cours/7_Recapitulatif_handouts_old.pdf
-/teaching/gbiaal4sgbd/cours/7_Recapitulatif_old.pdf
 /teaching/gbiaal4sgbd/td_tp/TP-Noté-2015-videoclub.old.pdf

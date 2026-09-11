@@ -1,0 +1,2 @@
+{{- /* {{< news limit="7" >}} in content — the home page uses it. */ -}}
+{{ partial "news-list.html" (dict "limit" (.Get "limit")) }}

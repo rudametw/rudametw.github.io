@@ -27,25 +27,19 @@ Cette thèse se focalise sur (i) le design d'une infrastructure logicielle pour 
 ## Supervisors
 [Martin Monperrus](mailto:Martin.Monperrus@univ-lille1.fr) (Associate Professor)
 <br>
-
 [Walter Rudametkin](mailto:Walter.Rudametkin@polytech-lille.fr) (Associate Professor)
 <br>
-
 [Romain Rouvoy](mailto:Romain.Rouvoy@univ-lille1.fr) (Associate Professor - HDR)
 
 ## Research center
 [Spirals Research Group](https://team.inria.fr/spirals/)
 <br>
-
 Inria Lille - Nord Europe
 <br>
-
 Parc Scientifique de la Haute Borne
 <br>
-
 40, avenue Halley - Bat. B, Park Plaza
 <br>
-
 59650 Villeneuve d'Ascq – FRANCE
 
 ## More information

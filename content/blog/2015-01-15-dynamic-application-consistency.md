@@ -23,22 +23,17 @@ Les approches de génie logiciel modernes permettent la construction d'applicati
 ## Supervisors
 [Walter Rudametkin](mailto:Walter.Rudametkin@polytech-lille.fr) (Maître de conférences - Spirals)
 <br>
-
 [Lionel Seinturier](mailto:Lionel.Seinturier@univ-lille1.fr) (Professeur - Spirals)
 
 ## Research center
 [Spirals Research Group](https://team.inria.fr/spirals/)
 <br>
-
 Inria Lille - Nord Europe
 <br>
-
 Parc Scientifique de la Haute Borne
 <br>
-
 40, avenue Halley - Bat. B, Park Plaza
 <br>
-
 59650 Villeneuve d'Ascq – FRANCE
 
 ## More information

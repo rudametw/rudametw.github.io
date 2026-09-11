@@ -3,8 +3,8 @@
 ## What this repo is
 
 Personal academic site for Walter Rudametkin (Full Professor, University of Rennes /
-IRISA). Sections: Home, Publications, Teaching, Blog, Contact (Research retired into
-the blog on 2026-09-12; Photos retired to a redirect page).
+IRISA). Sections: About (`/`), Publications, Teaching, Blog, Contact, plus `/news/`
+(Research retired into the blog on 2026-09-12; Photos retired to a redirect page).
 Served at https://rudametw.github.io/ via GitHub Pages.
 
 We are porting it from Jekyll (broken, unmaintainable gem tree) to Hugo.
@@ -471,17 +471,30 @@ two files concatenate into one fingerprinted `site.css` in `partials/head.html`.
   be forced open by CSS on wide screens, which is why it is not one).
 - **Hero**: `min-height: clamp(18rem, 52vh, 28rem)`, no full overlay — only a
   bottom gradient under the text — so the page below is visible on arrival.
-- **Teaching**: course titles carry a `.tag-archived` pill (added by
-  `move-content.sh`); rows of the form *slides | handouts-4pp | handouts-6pp | …*
+- **Teaching**: Lille course titles carry an "Archived in 2022" `.tag-archived`
+  pill (added by `move-content.sh`); the current ESIR course comes first from
+  `scripts/fragments/teaching-esir.md` (author-owned) via `scripts/teaching-esir.py`;
+  rows of the form *slides | handouts-4pp | handouts-6pp | …*
   are turned into `<table class="course-files">` by
   `scripts/teaching-tables.py`, a stdin→stdout Markdown filter. Presentation
   only — the author's words and links are unchanged. Link-only paragraphs that do
   not fit the pattern are kept and single-spaced via `:has()`.
 - **Never `pkill -f` / `pgrep -f` a pattern from inside a Bash tool call** — the
   pattern matches the calling shell's own command line and kills it.
+- **Never `python3 - <<'PY'` inside a pipeline** — the heredoc becomes stdin and
+  the piped data is lost. Put the filter in a file (`scripts/*.py`).
 - **Known-broken link, on purpose**: `/docs/RUDAMETKIN_HDR_slides.pdf` on the
   home page Career list. The author will add the file; until then the link
   checker reports exactly one BROKEN. Leave it.
+
+## News (`data/news.yaml`)
+
+Terse dated announcements. Fields: `date` (shown as written; sorted as text, so
+year-first: `"2026"`, `"2026-03"`, `"2026-03-14"`; ties keep file order), `text`
+(Markdown, inline HTML allowed), optional `link` (rendered "Read more ›" — usually
+a blog post). Rendered by `partials/news-list.html`; the home page uses the
+shortcode `{{< news limit="7" >}}`; `/news/` shows all. Adding news = editing the
+YAML; no rebuild logic to touch.
 
 ## `.github/workflows/hugo.yml` — phase 6
 

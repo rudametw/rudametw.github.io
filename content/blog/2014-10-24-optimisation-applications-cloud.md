@@ -14,22 +14,17 @@ aliases:
 ## Supervision
 [Walter Rudametkin](mailto:Walter.Rudametkin@polytech-lille.fr) (Maître de conférences - Spirals)
 <br>
-
 [Lionel Seinturier](mailto:Lionel.Seinturier@univ-lille1.fr) (Professeur - Spirals)
 
 ## Lieu
 [Spirals Research Group](https://team.inria.fr/spirals/)
 <br>
-
 Inria Lille - Nord Europe
 <br>
-
 Parc Scientifique de la Haute Borne
 <br>
-
 40, avenue Halley - Bat. B, Park Plaza
 <br>
-
 59650 Villeneuve d'Ascq – FRANCE
 
 ## Contexte
@@ -62,14 +57,10 @@ Nous comptons proposer un sujet de thèse comme poursuite de ce travail ou un po
 ## Références
 [1] Gregory D. Abowd and Elizabeth D. Mynatt. 2000. Charting past, present, and future research in ubiquitous computing. ACM Trans. Comput.-Hum. Interact. 7, 1 (March 2000), 29-58. 
 <br>
-
 [2] Klaus Pohl, Günter Böckle, and Frank J. van der Linden. Software Product Line Engineering: Foundations, Principles and Techniques. Springer-Verlag, 2005.
 <br>
-
 [3] Mark Harman, S. Afshin Mansouri, and Yuanyuan Zhang. 2012. Search-based software engineering: Trends, techniques and applications. ACM Comput. Surv. 45, 1, Article 11 (December 2012), 61 pages.
 <br>
-
 [4] G. S Blair, N. Bencomo, and R B. France. Models@ run.time. IEEE Computer, 42(10):22-27, 2009. 
 <br>
-
 [5] Automated Selection and Configuration of Cloud Environments Using Software Product Lines Principles. Clément Quinton, Daniel Romero and Laurence Duchien. In Proceedings of the 7th IEEE International Conference on Cloud Computing, CLOUD'14 . Anchorage, Alaska (USA), 27-02 June/July 2014. 

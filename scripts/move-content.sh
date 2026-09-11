@@ -7,9 +7,10 @@
 #   posts      {% highlight LANG [linenos] %} ... {% endhighlight %}  ->  ```LANG ... ```
 #              "####Title" -> "#### Title"   (Redcarpet made that a heading; CommonMark
 #              needs the space or prints the hashes)
-#              a lone "<br>" line gets a blank line after it (in CommonMark a raw
-#              HTML line opens a block that swallows the Markdown that follows,
-#              until a blank line; Redcarpet did not)
+#              a lone "<br>" line that FOLLOWS a blank line gets a blank line after
+#              it (there it opens an HTML block that swallows the Markdown after
+#              it; Redcarpet did not). A "<br>" inside a paragraph — address and
+#              name lists — is left alone, so those stay single-spaced.
 #              an indented line that starts with a tag loses its indentation:
 #              4+ spaces at the start of a block is an indented CODE block in
 #              CommonMark, so the contact page's pretty-printed HTML rendered as
@@ -37,6 +38,8 @@
 #              old scholar.google.fr link is replaced by the author's current one.
 #              The bare ORCID/Scholar links under the <h1> are removed — they
 #              now live as buttons in that block (author's call, 2026-09-11).
+#              The dead ICPS08 link points at docs/icps08-nfcmuseum.pdf (added
+#              by the author 2026-09-12).
 #   teaching   front-matter title had a stray "]" — removed. Nothing else.
 #
 # Idempotent: overwrites its own outputs, touches nothing else.
@@ -69,7 +72,8 @@ commonmark() {
     /^#{1,6}[^# ]/    { sub(/^#+/, "&" " ") }
     /^[[:space:]]+</  { sub(/^[[:space:]]+/, "") }
     { print }
-    /^<br>[[:space:]]*$/ { print "" }
+    prevblank && /^<br>[[:space:]]*$/ { print "" }
+    { prevblank = ($0 ~ /^[[:space:]]*$/) }
   '
 }
 # fragment <name>      — an _includes/*.md, words unchanged, syntax fixed
@@ -162,7 +166,7 @@ sed -i -e 's|](optimisation-applications-cloud)|](/blog/posts/2014.10.24/optimis
 # Wrapper HTML kept; each capture/include/markdownify triple becomes the fragment
 # itself, surrounded by blank lines so Goldmark renders the Markdown inside <div>.
 {
-  front_matter "${SRC}/teaching/index.html" | sed 's/Rudametkin\]$/Rudametkin/' | lille_era
+  front_matter "${SRC}/teaching/index.html" | sed 's/Rudametkin\]$/Rudametkin/'
   body "${SRC}/teaching/index.html" | commonmark | awk -v src="${SRC}" '
     /\{% *capture my_include *%\}\{% *include / {
       match($0, /include +[^ %]+/); frag = substr($0, RSTART+8, RLENGTH-8)
@@ -172,10 +176,12 @@ sed -i -e 's|](optimisation-applications-cloud)|](/blog/posts/2014.10.24/optimis
     }
     /\{\{ *my_include *\| *markdownify *\}\}/ { next }
     { print }'
-} | sed -E 's|^# (.+)$|# \1 <span class="tag tag-archived">archived</span>|' \
-  | python3 "$(dirname "${BASH_SOURCE[0]}")/teaching-tables.py" > "${OUT}/teaching/_index.md"
-# ^ every course title on that page is a Lille-era course (author, 2026-09-11):
-#   the tag is the per-course version of the yellow notice at the top.
+} | sed -E 's|^# (.+)$|# \1 <span class="tag tag-archived">archived in 2022</span>|' \
+  | python3 "$(dirname "${BASH_SOURCE[0]}")/teaching-tables.py" \
+  | python3 "$(dirname "${BASH_SOURCE[0]}")/teaching-esir.py" "$(dirname "${BASH_SOURCE[0]}")/fragments/teaching-esir.md" > "${OUT}/teaching/_index.md"
+# ^ every Lille course title gets the pill (author: "archived in 2022"); the
+#   page-level notice was dropped on 2026-09-12 at the author's request.
+#   scripts/fragments/teaching-esir.md is the author-owned ESIR entry.
 
 # ---------------------------------------------------------------- publications
 {
@@ -195,7 +201,8 @@ HTML
   # <hr>) moved into the box above; drop them, keep one <hr>. Author's call.
   body "${SRC}/publications/index.html" \
     | awk '/^<h1>/{h=1} h && /^<hr>/{n++; if(n==1){print; skip=1; next} if(n==2){skip=0; h=0; next}} !skip' \
-    | sed 's|http://scholar.google.fr/citations?user=vJQGm9kAAAAJ;\?|https://scholar.google.com/citations?user=vJQGm9kAAAAJ\&hl=fr\&oi=ao|g'
+    | sed -e 's|http://scholar.google.fr/citations?user=vJQGm9kAAAAJ;\?|https://scholar.google.com/citations?user=vJQGm9kAAAAJ\&hl=fr\&oi=ao|g' \
+          -e 's|/docs/ICPS08-demo-NFCMuseum-cr\.pdf|/docs/icps08-nfcmuseum.pdf|g'
 } > "${OUT}/publications/_index.html"
 
 # ------------------------------------------------------------------------ home

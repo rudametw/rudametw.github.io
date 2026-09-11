@@ -85,7 +85,8 @@ served_urls() {
 prune_vendor() {
   grep -v -e '^/fancybox/' -e '^/font-awesome/' -e '^/node_modules/' \
           -e '^/advancedsettings\.xml$' \
-          -e '^/docs/diverse-logo/diverse-logo-pngs\.zip$'
+          -e '^/docs/diverse-logo/diverse-logo-pngs\.zip$' \
+          -e '/old/' -e '_old\.pdf$'   # superseded course material, removed by the author 2026-09-12
 }
 
 # urls-orphans.txt is a worklist of "served, not in the sitemap, needs a

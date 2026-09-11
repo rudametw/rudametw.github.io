@@ -1,0 +1,9 @@
+{{- /* Renders data/news.yaml, newest first. Pass (dict "limit" N) to cap it.
+       `sort` is stable, so entries sharing a date keep the file's order. */ -}}
+{{- $items := sort hugo.Data.news "date" "desc" }}
+{{- with .limit }}{{ $items = first (int .) $items }}{{ end }}
+<ul class="news">
+{{- range $items }}
+  <li><time>{{ .date }}</time><div>{{ .text | markdownify }}{{ with .link }} <a class="more" href="{{ . }}">Read more &rsaquo;</a>{{ end }}</div></li>
+{{- end }}
+</ul>

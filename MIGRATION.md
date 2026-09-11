@@ -458,3 +458,33 @@ the title, otherwise demoted to `##` ("Open Ph.D. Position"); the Ph.D. pages'
 relative PDF links made absolute; the index post's links point at the posts.
 Research removed from nav and footer; the home card links
 `/blog/categories/positions/` instead of `/research/`.
+
+---
+
+## 2026-09-12 — Round 5: news system, About, teaching, facts, contract 204
+
+- **News**: `data/news.yaml` (date / text / optional link; text is Markdown and
+  may contain HTML), `partials/news-list.html`, shortcode `{{< news limit="7" >}}`
+  on the home page, `/news/` lists everything (`layouts/news/section.html`).
+  Sorted by `date` as text, ties in file order. Seeded with the author's twelve
+  papers, 2015–2026, HAL links. Not in the nav (author did not ask); reachable
+  from the home page.
+- **Home → About** in nav and footer; the URL stays `/`.
+- **Facts confirmed by the author**: HDR 2021 (manuscript link now HAL
+  `tel-03370277`); IUF October 2022 – September 2027; Am I Unique since 2014.
+  Research card 1 links the twelve papers; Blink is under countermeasures.
+  HDR slides link stays broken on purpose.
+- **Contact**: `walter.rudametkin@inria.fr` under the irisa.fr address.
+- **Teaching**: page-level archived notice removed; pills read "Archived in 2022";
+  first entry is the current ESIR course *Architectures Logicielles* (2e année,
+  bac+4, spécialité Informatique, option SI) linking `/projet-al/`, from
+  `scripts/fragments/teaching-esir.md` via `scripts/teaching-esir.py`.
+- **Blog**: the `<br>` rule in `commonmark()` now only fires for a `<br>` that
+  starts a block; `<br>` inside a paragraph (addresses, supervisor lists) is left
+  alone, so those are single-spaced again. Sidebar "'Tis me blog matie" removed.
+- **Publications**: the ICPS08 link points at `docs/icps08-nfcmuseum.pdf` (added
+  by the author).
+- **Contract 224 → 204**: the author deleted every `old/` and `_old` teaching file
+  (commit c1aa69a); `prune_vendor` drops them. No page linked them.
+- Gotcha recorded: never feed a Python program to `python3 -` via heredoc inside a
+  pipeline — the heredoc replaces the pipe as stdin.

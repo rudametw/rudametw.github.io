@@ -1,7 +1,6 @@
 ---
 layout: large-page
 title: Courses | Walter Rudametkin
-archived: lille
 ---
 <div id="topOfPage" style="margin-top:-3em;padding-bottom:3em"></div>
 
@@ -13,7 +12,8 @@ archived: lille
 <div class="col-md-3" id="leftCol">
 <!--<h3>Cours</h3>-->
 <ul class="nav nav-stacked" id="sidebar">
-<li class="active"><a href="#topOfPage">[IMA et GIS] Git</a></li>
+<li><a href="#AL">[ESIR SI] Architectures Logicielles</a></li>
+<li><a href="#topOfPage">[IMA et GIS] Git</a></li>
 <li><a href="#PA">[IMA3] Programmation Avancé</a></li>
 <li><a href="#BD">[GBIAAL4] Bases de données</a></li>
 <li><a href="#CMO">[IMA2A4] Conception modélisation objet</a></li>
@@ -21,10 +21,20 @@ archived: lille
 </div>
 <!--<div class="col-md-9" id="mainCol">-->
 <div class="col-xs-9 col-sm-9 col-sm-offset-0 col-md-9 col-md-offset-0" id="mainCol">
+<div id="AL" style="padding-top:0em; padding-bottom:2em;">
+
+# Architectures Logicielles
+
+[ESIR](https://esir.univ-rennes.fr/) — deuxième année (bac+4), spécialité Informatique, option Systèmes d'Information (SI).
+
+[Projet Architectures Logicielles](/projet-al/)
+
+</div>
+
 <div id="Git" style="padding-top:0em; padding-bottom:2em;">
 <!--<div  style="margin-top:-180px;padding-top:180px">-->
 
-# Introduction à Git <span class="tag tag-archived">archived</span>
+# Introduction à Git <span class="tag tag-archived">archived in 2022</span>
 
 Bonjour étudiants de Polytech Lille, GIS et IMA.
 
@@ -66,7 +76,7 @@ Vous trouverez egalement les sources sur github :
 <!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
 <div id="PA" style="padding-top:3em; padding-bottom:2em">
 
-# IMA3 − Programmation Avancé (PA) <span class="tag tag-archived">archived</span>
+# IMA3 − Programmation Avancé (PA) <span class="tag tag-archived">archived in 2022</span>
 
 Bonjour étudiants de Polytech Lille Informatique et Microélectronique Automatique
 
@@ -164,7 +174,7 @@ Les sources LaTeX des supports ainsi que des exemples de code C vus en cours son
 <!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
 <div id="BD" style="padding-top:3em; padding-bottom:2em">
 
-# GB-IAAL4 - Initiation aux bases de données <span class="tag tag-archived">archived</span>
+# GB-IAAL4 - Initiation aux bases de données <span class="tag tag-archived">archived in 2022</span>
 
 Bonjour étudiants de Polytech Lille en Biologie et Agro Alimentaire !!!
 
@@ -260,7 +270,7 @@ Le contenu de ce MOOC peut vous aider à mieux comprendre les bases de données 
 <!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
 <div id="CMO" style="padding-top:3em; padding-bottom:2em">
 
-# IMA2A4 - Conception Modélisation Objet (CMO) <span class="tag tag-archived">archived</span>
+# IMA2A4 - Conception Modélisation Objet (CMO) <span class="tag tag-archived">archived in 2022</span>
 
 Bonjour mes chers apprentis en IMA4 !!!
 
