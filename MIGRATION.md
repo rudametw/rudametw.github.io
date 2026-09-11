@@ -286,3 +286,41 @@ In CLAUDE.md, "layouts/ and assets/css/". Notable drift: All Tags is alphabetica
 5. Once live, decide the fate of `master` (the Jekyll branch) — nothing has been
    force-pushed or deleted.
 6. Remove the Bootstrap shim from `main.css` after rewriting home/teaching/publications.
+
+---
+
+## 2026-09-11 (night) — Visual pass with headless Chromium
+
+The author compared screenshots (`COMPARE/`) and found the first CSS ugly: navy
+bar, uncoloured hero buttons, poor hero type, stacked columns. Answer to "what
+should I install?": nothing — `/usr/bin/chromium --headless` on the host gives
+screenshots, which was the missing feedback loop. Tailwind was declined: rules
+1b and 2 (no framework, no npm), and not needed.
+
+### Bugs the screenshots exposed (would not show in URL/link checks)
+
+- **Contact page rendered its HTML as a code block.** The fragment is
+  pretty-printed with 4–16-space indentation; in CommonMark an indented line at
+  block start is an indented *code* block. `commonmark()` now strips leading
+  whitespace from lines that begin with `<`. Teaching lost its stray `</div>`
+  leaks the same way (its wrapper now goes through the filter too).
+- **Four post titles showed `&#58;` literally** — Jekyll's YAML-safe colon,
+  escaped again by Hugo. Decoded to `:` and emitted as single-quoted YAML (one
+  title contains double quotes). Bonus: `<title>` tags are now correct too.
+- **Bootstrap column shim never applied**: `.row > [class*="col-"]` outranked
+  `.col-lg-5`. Width rules are now `.row > .col-*`. Home, contact and teaching
+  regained their two-column layouts.
+
+### CSS redesigned to match the old site
+
+Light navbar (#f8f8f8, grey links, subtle active), photo hero with white
+uppercase letter-spaced buttons and text-shadow, 16px body, 46rem prose column,
+Bootstrap-3 link blue, photo "Find me" banner (bay2-2-optimized.jpg), inline
+`code` styled like Bootstrap. ~140 lines. Fonts: Lato first in the stack for
+optional self-hosting, Helvetica/Arial fallback (what the old site used when the
+Google font did not load).
+
+### Still the author's
+
+Profile/contact text (stale), retire-page wording, publication list; optionally
+download Lato (OFL) into `static/fonts/` for the original typeface.

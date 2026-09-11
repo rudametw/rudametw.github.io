@@ -1,7 +1,7 @@
 ---
 url: /blog/posts/2014.03.19/Acrobat-reader-cannot-find-libEGL.so.1-Fedora-20.html
 layout: blog-post
-title: Acrobat reader cannot find libEGL.so.1 &#58; Fedora 20
+title: 'Acrobat reader cannot find libEGL.so.1 : Fedora 20'
 place: Rennes, France
 categories: [linux, bug]
 ---

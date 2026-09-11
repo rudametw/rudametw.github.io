@@ -9,20 +9,20 @@ archived: lille
 <!--<div id="Git2" style="padding-top:-2em"></div>-->
 
 <div class="container">
-	<div class="row">
-		<div class="col-md-3" id="leftCol">
-			<!--<h3>Cours</h3>-->
-			<ul class="nav nav-stacked" id="sidebar">
-				<li class="active"><a href="#topOfPage">[IMA et GIS] Git</a></li>
-				<li><a href="#PA">[IMA3] Programmation Avancé</a></li>
-				<li><a href="#BD">[GBIAAL4] Bases de données</a></li>
-				<li><a href="#CMO">[IMA2A4] Conception modélisation objet</a></li>
-			</ul>
-		</div>
-		<!--<div class="col-md-9" id="mainCol">-->
-		<div class="col-xs-9 col-sm-9 col-sm-offset-0 col-md-9 col-md-offset-0" id="mainCol">
-			<div id="Git" style="padding-top:0em; padding-bottom:2em;">
-				<!--<div  style="margin-top:-180px;padding-top:180px">-->
+<div class="row">
+<div class="col-md-3" id="leftCol">
+<!--<h3>Cours</h3>-->
+<ul class="nav nav-stacked" id="sidebar">
+<li class="active"><a href="#topOfPage">[IMA et GIS] Git</a></li>
+<li><a href="#PA">[IMA3] Programmation Avancé</a></li>
+<li><a href="#BD">[GBIAAL4] Bases de données</a></li>
+<li><a href="#CMO">[IMA2A4] Conception modélisation objet</a></li>
+</ul>
+</div>
+<!--<div class="col-md-9" id="mainCol">-->
+<div class="col-xs-9 col-sm-9 col-sm-offset-0 col-md-9 col-md-offset-0" id="mainCol">
+<div id="Git" style="padding-top:0em; padding-bottom:2em;">
+<!--<div  style="margin-top:-180px;padding-top:180px">-->
 
 # Introduction à Git
 
@@ -64,11 +64,11 @@ Vous trouverez egalement les sources sur github :
 [Cheatsheets : git, bash, markdown](https://github.com/rudametw/Learning-Git/raw/master/PDFs/git\_bash\_markdown.pdf) |
 [Cheatsheets : git, bash, markdown (2 per page)](https://github.com/rudametw/Learning-Git/raw/master/PDFs/git\_bash\_markdown-2pp.pdf)
 
-			</div>
+</div>
 
 
-			<!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
-			<div id="PA" style="padding-top:3em; padding-bottom:2em">
+<!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
+<div id="PA" style="padding-top:3em; padding-bottom:2em">
 
 # IMA3 − Programmation Avancé (PA)
 
@@ -195,11 +195,11 @@ Les sources LaTeX des supports ainsi que des exemples de code C vus en cours son
 [http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM\_14\_\_\_Pointeur\_de\_fonction.pdf](http://dept-info.labri.fr/ENSEIGNEMENT/programmation1/cours/CM_14___Pointeur_de_fonction.pdf)
 
 
-			</div>
+</div>
 
 
-			<!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
-			<div id="BD" style="padding-top:3em; padding-bottom:2em">
+<!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
+<div id="BD" style="padding-top:3em; padding-bottom:2em">
 
 # GB-IAAL4 - Initiation aux bases de données
 
@@ -301,11 +301,11 @@ Vous pouvez également vous inscrire sur le MOOC Base de données relationnelles
 
 Le contenu de ce MOOC peut vous aider à mieux comprendre les bases de données et est complémentaire au contenu et aux activités du cours.
 
-			</div>
+</div>
 
 
-			<!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
-			<div id="CMO" style="padding-top:3em; padding-bottom:2em">
+<!--<div style="background-color:#F0F0F0F0; padding-top:1em; padding-bottom:2em">-->
+<div id="CMO" style="padding-top:3em; padding-bottom:2em">
 
 # IMA2A4 - Conception Modélisation Objet (CMO)
 
@@ -390,8 +390,8 @@ Voici les supports du cours et les TPs.
 <!--[TP9.pdf](ima2a4/tp9.pdf) | -->
 <!--[TP10.pdf](ima2a4/tp10.pdf)  -->
 
-			</div>
+</div>
 
-		</div>
-	</div>
+</div>
+</div>
 </div>

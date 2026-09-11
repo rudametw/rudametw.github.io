@@ -6,14 +6,14 @@ categories: [linux, nslu2, work-in-progress]
 ---
 
 <div class="container">
-    <div class="row">
-        <div class="col-md-4">
-			<img src="/img/wip3.jpg" alt="Work in progress"/>
-		</div>
-        <div class="col-md-7">
-			<img src="/img/nslu2.jpg" alt="NSLU2.jpg"/>
-        </div>
-    </div>
+<div class="row">
+<div class="col-md-4">
+<img src="/img/wip3.jpg" alt="Work in progress"/>
+</div>
+<div class="col-md-7">
+<img src="/img/nslu2.jpg" alt="NSLU2.jpg"/>
+</div>
+</div>
 </div>
 
 ---

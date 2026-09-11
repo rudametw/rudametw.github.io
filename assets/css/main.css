@@ -1,110 +1,134 @@
-/* rudametw.github.io — hand-written, replaces Bootstrap 3 + jQuery + Font Awesome.
-   Palette and type sizes come from the old sidebar.css / landing-page.css.
-   Sections: tokens, base, chrome (nav/banner/footer), layout, blog, publications,
-   Bootstrap compatibility shim for markup that lives in content/. */
+/* rudametw.github.io — hand-written; replaces Bootstrap 3 + jQuery + Font Awesome.
+   Modelled on the old StartBootstrap "Landing Page" look: light navbar, photo hero
+   with white boxed buttons, narrow prose column, photo "Find me" banner.
+   Sections: tokens, base, navbar, hero, banner+footer, layout, blog, publications,
+   Bootstrap-compat shim for markup that still lives in content/. */
 
 /* ---------- tokens ---------- */
 :root {
-  --navy: #111155;  --navy-dark: #000044;  --navy-line: #000033;
-  --lavender: #aaaacc;
-  --ink: #333;  --muted: #6b6b7b;  --rule: #ddd;  --paper: #fff;  --paper-2: #f8f8f8;
-  --link: #1a4aa8;  --link-hover: #0b2f7a;
-  --wrap: 72rem;
-  --fs-0: clamp(1rem, 0.95rem + 0.3vw, 1.125rem);
-  --fs-1: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
-  --fs-2: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
-  --fs-3: clamp(2rem, 1.4rem + 2.5vw, 3.5rem);
-  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
-  --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --ink: #333;  --muted: #777;  --rule: #e7e7e7;  --paper: #fff;  --paper-2: #f8f8f8;
+  --link: #428bca;  --link-hover: #2a6496;            /* Bootstrap 3 blues, as before */
+  --navy: #111155;  --lavender: #aaaacc;
+  --wrap: 73rem;      /* Bootstrap's 1170px container */
+  --prose: 46rem;     /* comfortable line length for articles */
+  --font: "Lato", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --mono: Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 /* ---------- base ---------- */
 *, *::before, *::after { box-sizing: border-box; }
 html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-body { margin: 0; font: var(--fs-0)/1.6 var(--font); color: var(--ink); background: var(--paper); }
-h1, h2, h3, h4 { line-height: 1.2; margin: 1.4em 0 0.5em; }
-h1 { font-size: var(--fs-2); }  h2 { font-size: var(--fs-1); }  h3, h4 { font-size: 1.1em; }
-a { color: var(--link); }  a:hover { color: var(--link-hover); }
+body { margin: 0; font: 16px/1.6 var(--font); color: var(--ink); background: var(--paper); }
+h1, h2, h3, h4 { font-weight: 500; line-height: 1.15; margin: 1.2em 0 0.5em; }
+h1 { font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.25rem); }
+h2 { font-size: clamp(1.4rem, 1.2rem + 0.8vw, 1.75rem); }
+h3 { font-size: 1.25rem; }  h4 { font-size: 1.1rem; }
+a { color: var(--link); text-decoration: none; }
+a:hover { color: var(--link-hover); text-decoration: underline; }
 img { max-width: 100%; height: auto; }
-hr { border: 0; border-top: 1px solid var(--rule); margin: 1.5rem 0; }
+hr { border: 0; border-top: 1px solid #eee; margin: 1.25rem 0; }
 table { border-collapse: collapse; max-width: 100%; }
 td, th { vertical-align: top; padding: 0.25rem 0.5rem 0.25rem 0; }
-pre, code { font-family: var(--mono); font-size: 0.9em; }
-pre { overflow-x: auto; padding: 0.75rem 1rem; background: var(--paper-2); border: 1px solid var(--rule); border-radius: 4px; }
-blockquote { margin: 1rem 0; padding-left: 1rem; border-left: 4px solid var(--rule); color: var(--muted); }
+pre, code { font-family: var(--mono); font-size: 0.875em; }
+code { padding: 0.1em 0.3em; background: #f5f5f5; border-radius: 3px; color: #c7254e; }
+pre { overflow-x: auto; padding: 0.75rem 1rem; background: #f5f5f5; border: 1px solid #ccc; border-radius: 4px; }
+pre code { padding: 0; background: none; color: inherit; }
+blockquote { margin: 1rem 0; padding-left: 1rem; border-left: 5px solid #eee; color: var(--muted); }
 .wrap { max-width: var(--wrap); margin: 0 auto; padding: 0 1rem; }
-.lead { font-size: var(--fs-1); font-weight: 300; }
+.lead { font-size: 1.15rem; font-weight: 300; }
 
-/* ---------- chrome ---------- */
-.site-nav { background: var(--navy); color: #fff; }
-.site-nav nav { display: flex; flex-wrap: wrap; align-items: center; gap: 0.25rem 1rem; min-height: 3.25rem; }
-.site-nav .brand { color: #fff; font-weight: 600; text-decoration: none; margin-right: auto; }
-.site-nav ul { display: flex; flex-wrap: wrap; gap: 0.1rem; list-style: none; margin: 0; padding: 0; }
-.site-nav li a { display: block; padding: 0.9rem 0.8rem; color: var(--lavender); text-decoration: none; }
-.site-nav li a:hover, .site-nav li a.active { background: #fff; color: var(--navy); }
-.banner { background: var(--navy-dark); color: var(--lavender); padding: 3rem 0; }
-.banner h2 { margin: 0 0 1rem; font-size: var(--fs-2); color: #fff; }
-.banner .social { display: flex; flex-wrap: wrap; gap: 0.75rem; list-style: none; margin: 0; padding: 0; }
-.banner .social a { display: inline-block; padding: 0.6rem 1.2rem; border: 1px solid var(--lavender); border-radius: 4px; color: #fff; text-decoration: none; }
-.banner .social a:hover { background: #fff; color: var(--navy); }
-.site-footer { background: var(--paper-2); padding: 1.5rem 0; text-align: center; font-size: 0.9em; color: var(--muted); }
-.footer-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 0.5rem; list-style: none; margin: 0 0 0.5rem; padding: 0; }
-.footer-menu li + li::before { content: "\22C5"; margin-right: 0.5rem; }
-.archived { margin: 1rem 0; padding: 0.75rem 1rem; background: #fff8e1; border-left: 4px solid #e0a800; color: #5a4300; }
+/* ---------- navbar (was Bootstrap .navbar-default) ---------- */
+.site-nav { background: var(--paper-2); border-bottom: 1px solid var(--rule); }
+.site-nav nav { display: flex; flex-wrap: wrap; align-items: center; min-height: 50px; }
+.site-nav .brand { color: #777; font-weight: 700; font-size: 1.125rem; padding: 0.8rem 0; margin-right: auto; }
+.site-nav .brand:hover { color: #333; text-decoration: none; }
+.site-nav ul { display: flex; flex-wrap: wrap; list-style: none; margin: 0; padding: 0; }
+.site-nav li a { display: block; padding: 0.9rem 0.85rem; color: #777; }
+.site-nav li a:hover { color: #333; text-decoration: none; }
+.site-nav li a.active { color: #555; background: var(--rule); }
+
+/* ---------- hero (was index.html's inline <style> + landing-page.css) ---------- */
+.intro-header {
+  display: flex; align-items: center; justify-content: center; text-align: center;
+  min-height: min(88vh, 46rem); padding: 4rem 1rem; color: #fff;
+  background: #123 url(/img/dolphins4-optimized.jpg) center/cover no-repeat;
+  text-shadow: 0 1px 3px rgba(0,0,0,.6);
+}
+.intro-message > h1 { font-size: clamp(2.5rem, 1.5rem + 5vw, 5rem); font-weight: 400; margin: 0 0 0.5rem; }
+.intro-message > h3 { font-size: clamp(1.1rem, 1rem + 1vw, 1.75rem); font-weight: 400; margin: 0; }
+.intro-message a { color: #fff; }
+.intro-divider { width: clamp(12rem, 30%, 24rem); border-top: 1px solid rgba(255,255,255,.6); margin: 1.5rem auto; }
+.intro-social-buttons { justify-content: center; gap: 0.75rem; margin: 0; }
+.intro-social-buttons .btn, .banner .social a {
+  display: inline-block; padding: 0.7rem 1.4rem; background: #fff; color: #333; border: 1px solid #ccc;
+  border-radius: 3px; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; text-shadow: none;
+}
+.intro-social-buttons .btn:hover, .banner .social a:hover { background: #e6e6e6; color: #333; text-decoration: none; }
+.arrow-wrap { display: none; }               /* the animated scroll arrow needed arrow.css + JS */
+
+/* ---------- "Find me" banner + footer (landing-page.css) ---------- */
+.banner { padding: clamp(3rem, 8vw, 6rem) 0; color: #fff; text-shadow: 0 1px 3px rgba(0,0,0,.5);
+  background: #234 url(/img/bay2-2-optimized.jpg) center/cover no-repeat; }
+.banner .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 1.5rem 3rem; }
+.banner h2 { margin: 0; font-size: clamp(2rem, 1.5rem + 2vw, 3rem); font-weight: 400; }
+.banner .social { display: flex; flex-wrap: wrap; gap: 0.75rem; list-style: none; margin: 0; padding: 0; margin-left: auto; }
+.site-footer { background: var(--paper-2); padding: 1.5rem 0 1rem; text-align: center; font-size: 0.85rem; color: var(--muted); }
+.footer-menu { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 0.6rem; list-style: none; margin: 0 0 0.5rem; padding: 0; font-size: 1rem; }
+.footer-menu li + li::before { content: "\22C5"; margin-right: 0.6rem; color: var(--muted); }
+.archived { margin: 1.5rem 0 0; padding: 0.6rem 1rem; background: #fcf8e3; border: 1px solid #faebcc; border-radius: 4px; color: #8a6d3b; font-size: 0.95rem; }
 
 /* ---------- layout ---------- */
-main { padding-block: 1.5rem 3rem; }
+main { padding-block: 1rem 3rem; }
 main.with-sidebar { display: grid; gap: 2rem; grid-template-columns: minmax(0, 1fr); }
-@media (min-width: 60em) { main.with-sidebar { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); } }
-.sidebar .well { background: var(--paper-2); border: 1px solid #e3e3e3; border-radius: 4px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; }
+@media (min-width: 62em) { main.with-sidebar { grid-template-columns: minmax(0, 2fr) minmax(0, 1fr); } }
+main.with-sidebar > div, .post, .post-summary { max-width: var(--prose); }
+.sidebar .well { background: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 4px; padding: 1rem 1.25rem; margin-bottom: 1.25rem; box-shadow: inset 0 1px 1px rgba(0,0,0,.05); }
 .sidebar h4 { margin-top: 0; }
 .sidebar ul { list-style: none; margin: 0; padding: 0; }
 
 /* ---------- blog ---------- */
 .byline { margin: 0.25rem 0 0; }
 .post-date { color: var(--muted); margin: 0.25rem 0 0; }
-.label { display: inline-block; padding: 0.1em 0.5em; border-radius: 0.25em; background: var(--link); color: #fff; font-size: 0.75em; font-weight: 600; vertical-align: middle; }
-.label-warning { background: #e0a800; color: #222; }
+.label { display: inline-block; padding: 0.2em 0.6em 0.3em; border-radius: 0.25em; background: var(--link); color: #fff; font-size: 0.7em; font-weight: 700; vertical-align: middle; }
+.label-warning { background: #f0ad4e; }
 .post-summary + hr { margin-top: 2.5rem; }
-.btn { display: inline-block; padding: 0.45rem 1rem; border: 1px solid var(--link); border-radius: 4px; color: var(--link); text-decoration: none; }
-.btn:hover { background: var(--link); color: #fff; }
-.btn-lg { padding: 0.65rem 1.4rem; font-size: 1.1em; }
+.btn { display: inline-block; padding: 0.4rem 0.9rem; border: 1px solid var(--link); border-radius: 4px; background: var(--link); color: #fff; }
+.btn:hover { background: #3071a9; border-color: #285e8e; color: #fff; text-decoration: none; }
 
 /* ---------- publications page (hand-written <table> markup) ---------- */
-.up-to-date-publications { padding: 0.75rem 1rem; background: var(--paper-2); border-left: 4px solid var(--navy); margin: 1rem 0; }
-table .lead { font-size: 1em; font-weight: 400; margin: 0 0 0.75rem; }
+.up-to-date-publications { padding: 0.6rem 1rem; background: #dff0d8; border: 1px solid #d6e9c6; border-radius: 4px; color: #3c763d; margin: 1rem 0; }
+table .lead { font-size: 1rem; font-weight: 400; margin: 0 0 0.75rem; }
 
 /* ---------- Bootstrap 3 compatibility shim ----------
-   The home, teaching and publications bodies still carry Bootstrap class names
-   (rule 1b keeps the content, drops the framework). Enough here to lay them
-   out; the classes themselves stay in content/ until the author rewrites it. */
+   The home, teaching, contact and publications bodies still carry Bootstrap class
+   names (rule 1b keeps the content, drops the framework). Enough to lay them out;
+   remove once the author rewrites those pages. */
 .container { max-width: var(--wrap); margin: 0 auto; padding: 0 1rem; }
-.row { display: flex; flex-wrap: wrap; gap: 0 1.5rem; }
+.row { display: flex; flex-wrap: wrap; gap: 0 2rem; }
 .row > [class*="col-"] { flex: 1 1 100%; min-width: 0; }
 @media (min-width: 48em) {
-  .col-xs-6, .col-sm-6, .col-md-6, .col-lg-6 { flex-basis: calc(50% - 0.75rem); }
-  .col-sm-9, .col-md-9, .col-xs-9 { flex-basis: calc(75% - 0.75rem); }
-  .col-md-3, .col-lg-3 { flex-basis: calc(25% - 0.75rem); }
-  .col-md-4 { flex-basis: calc(33.333% - 0.75rem); }  .col-md-8 { flex-basis: calc(66.666% - 0.75rem); }
-  .col-md-5, .col-lg-5 { flex-basis: calc(41.666% - 0.75rem); }  .col-md-7 { flex-basis: calc(58.333% - 0.75rem); }
-  .col-md-12, .col-lg-12 { flex-basis: 100%; }
+  /* `.row >` prefix keeps these ahead of the `.row > [class*="col-"]` reset above */
+  .row > .col-xs-6, .row > .col-sm-6, .row > .col-md-6, .row > .col-lg-6 { flex-basis: calc(50% - 1rem); }
+  .row > .col-sm-9, .row > .col-md-9, .row > .col-xs-9 { flex-basis: calc(75% - 1rem); }
+  .row > .col-md-3, .row > .col-lg-3 { flex-basis: calc(25% - 1rem); }
+  .row > .col-md-4, .row > .col-lg-4 { flex-basis: calc(33.333% - 1rem); }
+  .row > .col-md-8, .row > .col-lg-8 { flex-basis: calc(66.666% - 1rem); }
+  .row > .col-md-5, .row > .col-lg-5 { flex-basis: calc(41.666% - 1rem); }
+  .row > .col-md-7, .row > .col-lg-7 { flex-basis: calc(58.333% - 1rem); }
+  .row > .col-md-12, .row > .col-lg-12 { flex-basis: 100%; }
+  .row > .col-lg-offset-2 { margin-left: calc(16.666% + 1rem); }
 }
 .img-responsive { display: block; max-width: 100%; height: auto; }
 .list-inline { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .list-unstyled, .nav { list-style: none; padding: 0; }
 .nav-stacked a { display: block; padding: 0.4rem 0; }
 .text-muted { color: var(--muted); }  .small { font-size: 0.85em; }
-.well { background: var(--paper-2); border: 1px solid #e3e3e3; border-radius: 4px; padding: 1rem 1.25rem; }
-.btn-default { border-color: var(--rule); color: var(--ink); background: #fff; }
-/* home page hero (was index.html's inline <style> + landing-page.css) */
-.intro-header { background: var(--navy-dark) url(/img/dolphins4-optimized.jpg) center/cover no-repeat; color: #fff; text-align: center; padding: clamp(3rem, 12vw, 8rem) 0; }
-.intro-message > h1 { font-size: var(--fs-3); margin: 0; text-shadow: 0 1px 6px rgba(0,0,0,.5); }
-.intro-message > h3 { font-size: var(--fs-1); font-weight: 300; text-shadow: 0 1px 4px rgba(0,0,0,.5); }
-.intro-divider { width: 30%; border-top: 1px solid rgba(255,255,255,.4); margin: 1.5rem auto; }
-.intro-social-buttons { justify-content: center; }
-.intro-social-buttons .btn { color: #fff; border-color: rgba(255,255,255,.7); background: transparent; }
-.intro-social-buttons .btn:hover { background: #fff; color: var(--navy); }
-.arrow-wrap { display: none; }               /* the animated scroll arrow needed arrow.css + JS */
+.well { background: #f5f5f5; border: 1px solid #e3e3e3; border-radius: 4px; padding: 1rem 1.25rem; }
+.btn-default { background: #fff; color: #333; border-color: #ccc; }  .btn-default:hover { background: #e6e6e6; color: #333; }
+.btn-lg { padding: 0.65rem 1.2rem; font-size: 1.1rem; }
+.content-section-a, .content-section-b { padding: 3rem 0; }
+.content-section-b { border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); background: var(--paper-2); }
+.section-heading { margin-bottom: 1rem; }
 /* Font Awesome 4 icons used in content, as plain glyphs */
 .fa-download::before { content: "\2193\00A0"; }
 .fa-external-link-square::before { content: "\2197\00A0"; }

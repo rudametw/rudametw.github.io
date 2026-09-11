@@ -9,8 +9,8 @@ archived: lille
 
 <!--[#Static analysis and runtime monitoring to ensure the consistency of dynamic applications](help)-->
 <a href="dynamic-application-consistency.pdf">
-    <h1>Static analysis and runtime monitoring to ensure the consistency of dynamic applications
-    </h1>
+<h1>Static analysis and runtime monitoring to ensure the consistency of dynamic applications
+</h1>
 </a>
 
 ## Summary

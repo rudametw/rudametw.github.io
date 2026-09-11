@@ -1,6 +1,6 @@
 ---
 layout: blog-post
-title: Not enough threads or processes &#58; "thread create failed"
+title: 'Not enough threads or processes : "thread create failed"'
 place: Rennes, France
 categories: [linux, bug]
 ---

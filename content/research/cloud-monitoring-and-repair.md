@@ -9,9 +9,9 @@ archived: lille
 
 <!--[#Static analysis and runtime monitoring to ensure the consistency of dynamic applications](help)-->
 <a href="cloud-monitoring-and-repair.pdf">
-    <h1>
+<h1>
         Dynamic monitoring to find and diagnose software bugs in cloud applications
-    </h1>
+</h1>
 </a>
 
 ## Summary

@@ -1,6 +1,6 @@
 ---
 layout: blog-post
-title: Fr alternative keyboard layout bug (fr-oss)&#58; right ctrl key not working
+title: 'Fr alternative keyboard layout bug (fr-oss): right ctrl key not working'
 place: Rennes, France
 categories: [linux, bug]
 ---

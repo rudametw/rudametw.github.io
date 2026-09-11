@@ -401,15 +401,39 @@ file it ports and what was dropped.
 
 ### CSS
 
-`assets/css/main.css`, 112 lines, custom properties + grid/flex + `clamp()`.
-Palette and sizes lifted from the old `sidebar.css`/`landing-page.css` (navy
-`#111155`, lavender `#aaaacc`). System font stack — the remote Lato is gone.
+`assets/css/main.css`, ~140 lines, custom properties + grid/flex + `clamp()`.
+Modelled on the old StartBootstrap look (see "Visual check" below); the remote
+Lato is gone, `"Lato"` stays first in the stack for optional self-hosting.
 Includes a **Bootstrap 3 compatibility shim** (~25 lines: `.container`, `.row`,
 `.col-*`, `.lead`, `.btn`, `.well`, `.img-responsive`) because the home, teaching
 and publications *bodies* still carry Bootstrap class names — rule 1b keeps the
 content, drops the framework. Remove the shim once the author rewrites those
 pages. Four Font Awesome icons used in content are rendered as glyphs via
 `::before`; brand icons (GitHub, LinkedIn) render as their text labels.
+
+## Visual check — headless Chromium, no install needed
+
+`/usr/bin/chromium` is on the host. With `hugo server` running:
+
+```bash
+chromium --headless=new --no-sandbox --disable-gpu --hide-scrollbars \
+  --window-size=1400,1000 --screenshot=COMPARE/auto/home.png http://localhost:1313/
+```
+
+`COMPARE/` is gitignored and holds the author's before/after captures (`* old.png`
+from the live Jekyll site, `* new.png` from Hugo) plus `auto/` for these. Use a
+tall `--window-size` (e.g. `1400,2600`) for full-page shots. This is how the
+2026-09-11 design pass was iterated; it found two rendering *bugs* the URL and
+link checks could not: HTML rendered as a code block (indented tags — now fixed
+in `commonmark()`), and `&#58;` shown literally in four post titles (now decoded
+into single-quoted YAML by `move-content.sh`).
+
+Design intent for `main.css`: **look like the old site**, not a new one — light
+`#f8f8f8` navbar, photo hero with white uppercase boxed buttons, 16px body in a
+46rem prose column, photo "Find me" banner, Bootstrap-3 blues for links. The font
+stack starts with `"Lato"` so the original typeface is used if it is ever
+self-hosted (`static/fonts/`, `@font-face` in `main.css` — OFL licence, no CDN);
+until then it falls back to Helvetica/Arial as the old site did offline.
 
 ## `.github/workflows/hugo.yml` — phase 6
 

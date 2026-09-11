@@ -10,6 +10,13 @@
 #              a lone "<br>" line gets a blank line after it (in CommonMark a raw
 #              HTML line opens a block that swallows the Markdown that follows,
 #              until a blank line; Redcarpet did not)
+#              an indented line that starts with a tag loses its indentation:
+#              4+ spaces at the start of a block is an indented CODE block in
+#              CommonMark, so the contact page's pretty-printed HTML rendered as
+#              source. Only lines beginning with "<" are touched; Markdown list
+#              nesting (which needs its indentation) never starts with "<".
+#              a title containing "&#58;" (Jekyll's YAML-safe colon) becomes ":"
+#              in a quoted YAML string; Hugo would otherwise show the entity
 #              two posts get `url:` pinned (Hugo reads the dots in their names as
 #              file extensions and truncates the slug)
 #   all .md    the two Redcarpet-isms above are fixed in fragments as well
@@ -56,6 +63,7 @@ commonmark() {
     /^```/            { infence = !infence; print; next }
     infence           { print; next }
     /^#{1,6}[^# ]/    { sub(/^#+/, "&" " ") }
+    /^[[:space:]]+</  { sub(/^[[:space:]]+/, "") }
     { print }
     /^<br>[[:space:]]*$/ { print "" }
   '
@@ -74,7 +82,9 @@ for f in "${SRC}"/_posts/*.md; do
   sed -E \
     -e 's/\{% *highlight +([A-Za-z0-9_+-]+)( +linenos)? *%\}/```\1/' \
     -e 's/\{% *endhighlight *%\}/```/' \
-    "$f" | commonmark > "${OUT}/blog/${name}"
+    "$f" | commonmark \
+    | awk 'NR<=6 && /^title: .*&#[0-9]+;/ { gsub(/&#58;/, ":"); t = substr($0, 8); gsub(/\047/, "\047\047", t); $0 = "title: \047" t "\047" } { print }' \
+    > "${OUT}/blog/${name}"
 done
 # Two slugs contain dots. Hugo reads them as file extensions and would emit
 # Linux-webdav-box.html and Acrobat-reader-cannot-find-libEGL.html. Pin the URL.
@@ -108,7 +118,7 @@ done
 # itself, surrounded by blank lines so Goldmark renders the Markdown inside <div>.
 {
   front_matter "${SRC}/teaching/index.html" | sed 's/Rudametkin\]$/Rudametkin/' | lille_era
-  body "${SRC}/teaching/index.html" | awk -v src="${SRC}" '
+  body "${SRC}/teaching/index.html" | commonmark | awk -v src="${SRC}" '
     /\{% *capture my_include *%\}\{% *include / {
       match($0, /include +[^ %]+/); frag = substr($0, RSTART+8, RLENGTH-8)
       cmd = "bash -c '"'"'source " ENVIRON["SELF"] " --lib; commonmark'"'"' < " src "/_includes/" frag

@@ -28,10 +28,10 @@ This is [an example](http://example.com/ "Title") inline link.
 <p><strong>Placeholder text by:</strong>
 </p>
 <ul>
-	<li><a href="http://spaceipsum.com/">Space Ipsum</a>
-	</li>
-	<li><a href="http://cupcakeipsum.com/">Cupcake Ipsum</a>
-	</li>
+<li><a href="http://spaceipsum.com/">Space Ipsum</a>
+</li>
+<li><a href="http://cupcakeipsum.com/">Cupcake Ipsum</a>
+</li>
 </ul>
 
 ---
