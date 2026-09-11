@@ -1,6 +1,7 @@
 ---
 layout: large-page
 title: Research | Walter Rudametkin
+archived: lille
 ---
 <!-- # Dr. Walter Andrew Rudametkin Ivey   -->
 

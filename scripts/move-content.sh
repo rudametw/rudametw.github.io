@@ -17,6 +17,7 @@
 #              {% capture %}{% include X.md %}{% endcapture %}{{ … | markdownify }}.
 #              Hugo has no include-and-markdownify; the fragment body is inlined
 #              into the page's content file at the same spot. Words unchanged.
+#   home       the google+ social button is removed (author's call)
 #   home       src/index.html carries its own <head>, navbar and footer. Only the
 #              body between the navbar and footer includes is content; the rest
 #              is template (phase 3). Aliases /CICOMP/ (a stale copy of an old
@@ -39,6 +40,12 @@ OUT="${OUT:-content}"
 
 # front_matter <file>  — print the YAML block of a Jekyll page, delimiters included
 front_matter() { awk 'NR==1 && /^---/{p=1; print; next} p && /^---/{print; exit} p{print}' "$1"; }
+# lille_era <fm>       — adds `archived: lille` to a front-matter block. The
+#                        research, teaching and contact pages were written at the
+#                        University of Lille (Polytech Lille, Spirals), before the
+#                        author moved to Rennes in September 2022. The template
+#                        shows a notice; the words below it are untouched.
+lille_era()    { sed '$i archived: lille'; }
 # body <file>          — everything after the front matter
 body()         { awk 'NR==1 && /^---/{p=1; next} p==1 && /^---/{p=2; next} p==2{print}' "$1"; }
 # commonmark            — Redcarpet -> CommonMark syntax fixes, applied to every
@@ -84,8 +91,8 @@ outputs: [HTML, RSS]   # the one feed on the site; see hugo.toml [outputs]
 MD
 
 # ------------------------------------------------- fragment pages: contact, research
-{ front_matter "${SRC}/contact/index.html";  fragment contact.md;  } > "${OUT}/contact/_index.md"
-{ front_matter "${SRC}/research/index.html"; fragment research.md; } > "${OUT}/research/_index.md"
+{ front_matter "${SRC}/contact/index.html"  | lille_era; fragment contact.md;  } > "${OUT}/contact/_index.md"
+{ front_matter "${SRC}/research/index.html" | lille_era; fragment research.md; } > "${OUT}/research/_index.md"
 for pair in \
   "cloud-monitoring-and-repair:cloud-dynamic-monitoring-and-repair.md" \
   "dynamic-application-consistency:dynamic-application-consistency.md" \
@@ -93,14 +100,14 @@ for pair in \
   "optimisation-applications-cloud:optimisation-applications-cloud.md"
 do
   page="${pair%%:*}"; frag="${pair##*:}"
-  { front_matter "${SRC}/research/${page}/index.html"; fragment "${frag}"; } > "${OUT}/research/${page}.md"
+  { front_matter "${SRC}/research/${page}/index.html" | lille_era; fragment "${frag}"; } > "${OUT}/research/${page}.md"
 done
 
 # -------------------------------------------------------------------- teaching
 # Wrapper HTML kept; each capture/include/markdownify triple becomes the fragment
 # itself, surrounded by blank lines so Goldmark renders the Markdown inside <div>.
 {
-  front_matter "${SRC}/teaching/index.html" | sed 's/Rudametkin\]$/Rudametkin/'
+  front_matter "${SRC}/teaching/index.html" | sed 's/Rudametkin\]$/Rudametkin/' | lille_era
   body "${SRC}/teaching/index.html" | awk -v src="${SRC}" '
     /\{% *capture my_include *%\}\{% *include / {
       match($0, /include +[^ %]+/); frag = substr($0, RSTART+8, RLENGTH-8)
@@ -134,13 +141,16 @@ HTML
 {
   cat <<'YAML'
 ---
-title: Walter Rudametkin
+title: "Walter Rudametkin | Official Home Page | Sitio Oficial"
+description: "Walter Rudametkin | Welcome to Walter's home page. Research, projects, blog or send him an email."
 aliases:
   - /CICOMP/
 ---
 YAML
-  # body between `{% include navbar.html %}` and `{% include footer.html %}`
-  awk '/\{% *include navbar\.html *%\}/{p=1; next} /\{% *include footer\.html *%\}/{p=0} p' "${SRC}/index.html"
+  # body between `{% include navbar.html %}` and `{% include footer.html %}`,
+  # minus the google+ button (author: drop google+ and brandyourself).
+  awk '/\{% *include navbar\.html *%\}/{p=1; next} /\{% *include footer\.html *%\}/{p=0} p' "${SRC}/index.html" \
+    | awk '/<li><a href="https:\/\/www\.google\.com\/\+WalterRudametkin"/{skip=1} skip && /<\/li>/{skip=0; next} !skip' 
 } > "${OUT}/_index.html"
 
 echo "content/ now:"; find "${OUT}" -type f | sort | sed 's/^/  /'

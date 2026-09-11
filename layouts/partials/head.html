@@ -1,0 +1,17 @@
+{{- /* Port of _includes/head-open-head-tag.html + head.html.
+       Dropped on purpose: Google Analytics (Universal Analytics, UA-48705379-1,
+       shut down by Google in 2024 — dead code and a third-party script),
+       <link rel=author> to Google+ (author: drop), the remote Lato web font and
+       main.js (rule 1b: no jQuery, no remote assets). */ -}}
+{{- $css := resources.Get "css/main.css" | minify | fingerprint }}
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="author" content="Walter Rudametkin">
+<title>{{ .Title }}</title>
+{{ with .Description }}<meta name="description" content="{{ . }}">{{ end }}
+<link rel="icon" href="/favicon.ico">
+<link rel="canonical" href="{{ .Permalink }}">
+{{ range .AlternativeOutputFormats }}<link rel="{{ .Rel }}" type="{{ .MediaType.Type }}" href="{{ .Permalink }}" title="{{ site.Title }}">{{ end }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
+</head>

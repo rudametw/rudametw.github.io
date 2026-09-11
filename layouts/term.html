@@ -1,0 +1,5 @@
+{{- /* Port of _layouts/category_index.html: `site.categories[page.category]`. */ -}}
+{{ define "main" }}
+<h1 class="category">Category <span class="label label-warning">{{ .Title }}</span></h1>
+{{- range .Pages.ByDate.Reverse }}<hr>{{ partial "post-summary.html" . }}{{ end }}
+{{ end }}

@@ -1,0 +1,24 @@
+{{- /* Port of _includes/well.html ("Current Tags", "All Tags", the no-comments
+       note). Words unchanged. */ -}}
+<aside class="sidebar">
+  {{- with .GetTerms "categories" }}
+  <div class="well">
+    <h4>Current Tags</h4>
+    <ul>{{ range . }}<li><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></li>{{ end }}</ul>
+  </div>
+  {{- end }}
+  <div class="well">
+    <h4>All Tags</h4>
+    <ul>
+      <li><a href="/blog/">All</a></li>
+      {{- range site.Taxonomies.categories.Alphabetical }}
+      <li><a href="{{ .Page.RelPermalink }}">{{ .Page.Title }}</a></li>
+      {{- end }}
+    </ul>
+  </div>
+  <div class="well">
+    <h4>'Tis me blog matie</h4>
+    <p>Sorry, no comments enabled for now because I'm using a simple static site generator (maybe I'll try out disqus another day).</p>
+    <p>But if you like what you see, send me an <a href="/contact/">email</a>.</p>
+  </div>
+</aside>

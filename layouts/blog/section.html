@@ -1,0 +1,4 @@
+{{- /* Port of src/blog/index.html: `{% for post in site.posts %}` (newest first). */ -}}
+{{ define "main" }}
+{{- range .RegularPages.ByDate.Reverse }}{{ partial "post-summary.html" . }}{{ end }}
+{{ end }}

@@ -1,6 +1,7 @@
 ---
 layout: large-page
 title: Courses | Walter Rudametkin
+archived: lille
 ---
 <div id="topOfPage" style="margin-top:-3em;padding-bottom:3em"></div>
 

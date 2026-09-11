@@ -1,0 +1,11 @@
+{{- /* One entry of a post listing (blog/index.html and category_index.html).
+       Jekyll `post.excerpt` = content before <!--more-->; Hugo .Summary honours
+       the same marker (10 of 12 posts have one; the other two get the first
+       ~70 words instead of the first paragraph). */ -}}
+<article class="post-summary">
+  <h1><a href="{{ .RelPermalink }}">{{ .Title }}</a></h1>
+  {{ partial "post-meta.html" . }}
+  <hr>
+  {{ .Summary }}
+  <p><a class="btn" href="{{ .RelPermalink }}">Read more &rsaquo;</a></p>
+</article>

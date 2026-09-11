@@ -360,6 +360,65 @@ The home page's inline `<style>` block (lines 5–87 of `src/index.html`) and it
 `head-open-head-tag.html` meta are **not** in content — they are template, for
 phase 3.
 
+## `layouts/` and `assets/css/` — phase 3 (template port)
+
+Hugo ≥ 0.146 flat layout system. Each file's header comment names the Jekyll
+file it ports and what was dropped.
+
+| Hugo | Ports | Notes |
+|---|---|---|
+| `baseof.html` | `default`, `large-page`, `full-page` layouts | one base; blog + term pages get the two-column grid with the sidebar, home is full-bleed, the rest one column |
+| `partials/head.html` | `head-open-head-tag.html`, `head.html` | **dropped**: Google Analytics (UA property, shut down 2024), `<link rel=author>` to Google+, remote Lato font, `main.js` |
+| `partials/navbar.html` | `navbar.html` | Photos removed; no hamburger — the list wraps |
+| `partials/footer.html` | `footer.html` | **dropped**: google+, brandyourself, the Google+ publisher line, Photos; **rewritten** because untrue: "Built using Jekyll, Bootstrap" and the HTML 4.01 badge. Added HAL + ORCID next to LinkedIn/GitHub/Scholar |
+| `partials/sidebar.html` | `well.html` | Current Tags / All Tags / the no-comments note, words unchanged |
+| `partials/post-meta.html`, `post-summary.html` | the byline + excerpt blocks that `blog-post`, `category_index` and `blog/index.html` each duplicated | |
+| `partials/archived.html` | — | notice for pages stamped `archived: lille` |
+| `home.html` | `index.html` (as layout) | emits the body as-is |
+| `section.html`, `single.html` | `large-page.html` | content only, no auto-listing |
+| `blog/section.html` | `blog/index.html` | `site.posts` loop |
+| `blog/single.html` | `blog-post.html` | |
+| `term.html` | `category_index.html` + `_plugins/generate_categories.rb` | |
+| `taxonomy.html`, `404.html` | — | new |
+| not ported | `blog-post-image`, `gallery_*`, `thumbnail-gallery`, `blog-*-original.html` | unused / photos retired |
+
+### Liquid → Go translation table
+
+| Liquid | Go template | Drift |
+|---|---|---|
+| `{% include x.html %}` | `{{ partial "x.html" . }}` | none |
+| `{{ content }}` | `{{ .Content }}` / `{{ block "main" . }}` | none |
+| `{% for post in site.posts %}` | `range .RegularPages.ByDate.Reverse` | explicit sort; Hugo's default is weight then date |
+| `site.categories[page.category]` | `.Pages.ByDate.Reverse` on the term page | same set, same order |
+| `{% for category in page.categories %}` + `/blog/categories/{{ category }}/` | `range .GetTerms "categories"` + `.RelPermalink` | URL comes from the taxonomy permalink, not a literal |
+| `{% for category in site.categories %}{{ category \| first }}` | `range site.Taxonomies.categories.Alphabetical` | Jekyll iterated in insertion order; now alphabetical |
+| `{{ post.excerpt }}` / `{{ post.excerpt \| markdownify }}` | `{{ .Summary }}` | both honour `<!--more-->`; 2 posts lack it — Jekyll took the first paragraph, Hugo the first ~70 words |
+| `{{ page.date \| date: "%Y.%m.%d" }}` | `.Date.Format "2006.01.02"` | none |
+| `{% if page.place == page.place.blank? %}` | `{{ with .Params.place }}` | none |
+| `page.title` / `page.description` | `.Title` / `.Description` | home title/description moved from the template into front matter |
+| `{% stylesheet main %}` (jekyll-assets) | `resources.Get "css/main.css" \| minify \| fingerprint` | Hugo Pipes, no dependency |
+| `{% asset_path main.js %}` | — | no JS on the site |
+
+### CSS
+
+`assets/css/main.css`, 112 lines, custom properties + grid/flex + `clamp()`.
+Palette and sizes lifted from the old `sidebar.css`/`landing-page.css` (navy
+`#111155`, lavender `#aaaacc`). System font stack — the remote Lato is gone.
+Includes a **Bootstrap 3 compatibility shim** (~25 lines: `.container`, `.row`,
+`.col-*`, `.lead`, `.btn`, `.well`, `.img-responsive`) because the home, teaching
+and publications *bodies* still carry Bootstrap class names — rule 1b keeps the
+content, drops the framework. Remove the shim once the author rewrites those
+pages. Four Font Awesome icons used in content are rendered as glyphs via
+`::before`; brand icons (GitHub, LinkedIn) render as their text labels.
+
+## `.github/workflows/hugo.yml` — phase 6
+
+Pinned `hugo_extended_0.166.0` `.deb` from GitHub releases, `hugo --minify --gc`,
+then **`./check-urls.sh` as a gate** before `upload-pages-artifact` /
+`deploy-pages`. Triggers on push to `hugo-site` — edit the branch filter if the
+branch is renamed. Repository setting needed once: Pages → Source → GitHub
+Actions. Not yet run; there is no network here.
+
 ## Content staleness (report only, do not fix)
 
 The live site predates a move and a promotion. Grep for and report occurrences of:
@@ -531,16 +590,16 @@ all kept.
 
 ## Working style
 
-- One phase per session, ending in a commit. Phases: (1) scaffold + `hugo.toml`
-  — **done 2026-09-11**, (2) content move — **done 2026-09-11, contract 224/224**,
-  (3) template port, (4) URL verification, (5) publications page, (6) CI workflow.
+- One phase per session, ending in a commit. Phases — **all done 2026-09-11**:
+  (1) scaffold + `hugo.toml`, (2) content move, (3) template port, (4) URL
+  verification (`check-urls.sh` is also a CI gate), (5) publications page (hand
+  HTML + HAL/Scholar block, done in phase 2), (6) CI workflow. What remains is the
+  author's: profile/contact rewrite, retire-page wording, publication list.
 - Content is produced by `scripts/move-content.sh` from the archive. **Edit the
   script, not `content/`**, until the author starts editing prose there; the
   script header lists every transformation it performs. Audit any file with
   `diff ~/git/archive/jekyll-src/src/_posts/X.md content/blog/X.md`.
-- `layouts/{baseof,single,list}.html` are **phase-1 stubs**, unstyled, marked
-  TEMPORARY in a comment. They exist so every page renders and `check-urls.sh`
-  is meaningful. Phase 3 replaces them; do not grow them in phase 2.
+- `layouts/` is the phase-3 port (see below). No theme, no framework, no JS.
 - Build with `hugo --minify --cleanDestinationDir`, never `rm -rf public`.
 - For bulk file moves, **write a reviewable shell script** rather than performing
   dozens of individual edits. The author reviews before it runs.

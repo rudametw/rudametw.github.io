@@ -1,0 +1,4 @@
+{{- /* Port of large-page.html for the section pages (contact, research,
+       teaching, publications, photos): content only, no auto-listing — the old
+       pages linked their children by hand. */ -}}
+{{ define "main" }}{{ partial "archived.html" . }}{{ .Content }}{{ end }}

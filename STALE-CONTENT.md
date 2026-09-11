@@ -5,6 +5,18 @@ Generated 2026-09-11 from `~/git/archive/jekyll-src/src/` at tag `jekyll-final`.
 **Report only — do not fix (CLAUDE.md rule 6).** The author edits these by hand.
 The site predates a move from Lille to Rennes and a promotion to Full Professor.
 
+## Author's rulings (2026-09-11)
+
+| Where | Ruling | Done |
+|---|---|---|
+| `index.html` (home) | Employer/profile text is stale. **Author writes a new profile later.** Ported as-is meanwhile. | postponed |
+| `_includes/*.md` (research, teaching, contact) | Lille-era pages (University of Lille, Polytech, Spirals). Author moved to **University of Rennes / IRISA / Inria Rennes / ESIR in September 2022**. Kept as historical content. | stamped `archived: lille`; the template shows a notice |
+| `google+`, `brandyourself` (footer, home) | Drop and remove. | removed in the footer port and by `move-content.sh` |
+
+`_includes/contact.md` carries the old e-mail addresses and job title. It has the
+archived notice like the rest, but it is a *contact* page — it wants the same
+rewrite as the profile, not archiving. Flagged, not fixed.
+
 Vendor directories excluded. Line numbers are against the Jekyll source, not the
 built output.
 

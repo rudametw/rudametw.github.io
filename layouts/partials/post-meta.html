@@ -1,0 +1,7 @@
+{{- /* The byline block that blog-post.html, category_index.html and blog/index.html
+       each repeated. Jekyll: `{{ page.date | date: "%Y.%m.%d" }}` and the
+       `page.place` custom key. */ -}}
+<p class="lead byline">by <a href="/contact/">Walter Rudametkin</a>
+  {{- range .GetTerms "categories" }} <a href="{{ .RelPermalink }}"><span class="label">{{ .LinkTitle }}</span></a>{{ end }}
+</p>
+<p class="post-date">Posted {{ .Date.Format "2006.01.02" }}{{ with .Params.place }} &mdash; {{ . }}{{ end }}</p>

@@ -1,0 +1,9 @@
+{{- /* Port of _layouts/blog-post.html. */ -}}
+{{ define "main" }}
+<article class="post">
+  <h1>{{ .Title }}</h1>
+  {{ partial "post-meta.html" . }}
+  <hr>
+  {{ .Content }}
+</article>
+{{ end }}

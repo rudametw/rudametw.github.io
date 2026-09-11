@@ -2,6 +2,7 @@
 layout: full-page
 title: Contact | Walter Rudametkin
 description: Walter Rudametkin Professional and Personal Email Telephone Address Contact Information
+archived: lille
 ---
 <!-- # Dr. Walter Andrew Rudametkin Ivey   -->
 <div class="container">

@@ -1,0 +1,14 @@
+{{- /* Port of _includes/navbar.html. Photos dropped (author: retired section,
+       kept only for inbound links). No hamburger/JS: the list wraps. */ -}}
+<header class="site-nav">
+  <nav class="wrap" aria-label="Main">
+    <a class="brand" href="/">walter.rudametkin</a>
+    <ul>
+      {{- range slice (slice "Home" "/") (slice "Publications" "/publications/") (slice "Teaching" "/teaching/") (slice "Research" "/research/") (slice "Blog" "/blog/") (slice "Contact" "/contact/") }}
+      {{- $path := index . 1 }}
+      {{- $active := or (eq $.RelPermalink $path) (and (ne $path "/") (hasPrefix $.RelPermalink $path)) }}
+      <li><a href="{{ $path }}"{{ if $active }} class="active" aria-current="page"{{ end }}>{{ index . 0 }}</a></li>
+      {{- end }}
+    </ul>
+  </nav>
+</header>

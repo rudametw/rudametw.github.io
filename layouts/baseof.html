@@ -1,27 +1,23 @@
-<!--
-  TEMPORARY phase-1 stub. Replaced in phase 3 by the port of
-  src/_layouts/default.html + _includes/{head,navbar,footer,well}.html.
-  Exists only so Hugo renders every page and check-urls.sh can verify the URL
-  scheme. No styling on purpose.
--->
+{{- /* Port of src/_layouts/{default,large-page,full-page}.html. One base, three
+       shapes chosen by the page: blog pages get the two-column layout with the
+       old "well" sidebar; the home page is full-bleed; everything else is one
+       wide column (large-page). */ -}}
 <!DOCTYPE html>
 <html lang="{{ site.Language.Lang }}">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ if not .IsHome }}{{ .Title }} | {{ end }}{{ site.Title }}</title>
-</head>
-<body>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/publications/">Publications</a>
-    <a href="/teaching/">Teaching</a>
-    <a href="/research/">Research</a>
-    <a href="/blog/">Blog</a>
-    <a href="/contact/">Contact</a>
-  </nav>
-  <main>
-    {{ block "main" . }}{{ end }}
-  </main>
+{{ partial "head.html" . }}
+<body{{ if .IsHome }} id="home"{{ end }}>
+{{ partial "navbar.html" . }}
+{{- $blog := or (eq .Section "blog") (eq .Kind "term") (eq .Kind "taxonomy") }}
+{{- if .IsHome }}
+<main id="content">{{ block "main" . }}{{ end }}</main>
+{{- else if $blog }}
+<main id="content" class="wrap with-sidebar">
+  <div>{{ block "main" . }}{{ end }}</div>
+  {{ partial "sidebar.html" . }}
+</main>
+{{- else }}
+<main id="content" class="wrap">{{ block "main" . }}{{ end }}</main>
+{{- end }}
+{{ partial "footer.html" . }}
 </body>
 </html>

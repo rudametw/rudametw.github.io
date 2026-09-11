@@ -1,8 +1,2 @@
-{{/* TEMPORARY phase-1 stub — see baseof.html */}}
-{{ define "main" }}
-<article>
-  <h1>{{ .Title }}</h1>
-  {{ with .Date }}<time datetime="{{ .Format "2006-01-02" }}">{{ .Format "2 January 2006" }}</time>{{ end }}
-  {{ .Content }}
-</article>
-{{ end }}
+{{- /* Port of large-page.html for leaf pages (the four research pages). */ -}}
+{{ define "main" }}{{ partial "archived.html" . }}{{ .Content }}{{ end }}

@@ -233,3 +233,56 @@ Port `_layouts/default.html`, `_includes/{head,navbar,footer,well}.html`,
 replacing Bootstrap 3 + jQuery (rule 1b). Drop `Photos` from the nav. Output the
 Liquid → Go translation table (working style). Use `~/git/archive/old-site-crawl/`
 as the visual reference; `hugo server` for a live check.
+
+---
+
+## 2026-09-11 (evening) — Phases 3–6: templates, CSS, CI — DONE
+
+```
+hugo --minify --cleanDestinationDir && ./check-urls.sh
+contract: 224  built: 227  missing: 0     (new: /blog/categories/, /blog/index.xml, /404.html)
+```
+
+0 broken local links; 0 remote assets, scripts or fonts anywhere in `public/`;
+Photos absent from nav and footer; archived notice on the 7 Lille-era pages and
+nowhere else; 12 posts on `/blog/`, "All Tags" identical to the 16 contract
+categories.
+
+### Author rulings applied
+
+- **Home profile is stale → postponed.** Ported verbatim (minus the google+
+  button). The author writes a new profile. `content/_index.html` still carries
+  Bootstrap markup; the CSS shim lays it out until then.
+- **`_includes/*` are Lille-era (pre-September 2022)** → stamped `archived: lille`
+  by `move-content.sh`; `partials/archived.html` shows a one-line notice. Words
+  untouched. `contact/` got the notice too but really needs the same rewrite as
+  the profile — old e-mails and title.
+- **google+ / brandyourself → removed** from footer (template) and home (script).
+
+### Decisions taken
+
+- Google Analytics (UA-48705379-1) dropped: UA was shut down by Google in 2024,
+  so it was dead code plus a third-party script.
+- Footer credit "Built using Jekyll, Bootstrap…" and the HTML 4.01 badge replaced
+  — they would have been false. HAL and ORCID added to the "Find me" row.
+- No JavaScript at all. The nav wraps instead of collapsing; the home page's
+  animated scroll arrow (needed arrow.css + JS) is hidden.
+- `blog/categories/` (index of categories) and `404.html` exist now; neither did
+  before.
+
+### Liquid → Go table
+
+In CLAUDE.md, "layouts/ and assets/css/". Notable drift: All Tags is alphabetical
+(was insertion order); the 2 posts without `<!--more-->` summarise by word count.
+
+### Left for the author
+
+1. New profile for `/` and new `/contact/` (stale employer, e-mails, title).
+2. `content/photos/_index.md` wording (placeholder).
+3. Publication list (stops at 2015) and the dead `ICPS08-demo-NFCMuseum-cr.pdf` link.
+4. Enable Pages → Source → GitHub Actions, push `hugo-site`, watch the first run.
+   The workflow has not executed yet (no network here). PyYAML is not installed
+   locally, so the YAML was not machine-validated — it is 53 straightforward lines.
+5. Once live, decide the fate of `master` (the Jekyll branch) — nothing has been
+   force-pushed or deleted.
+6. Remove the Bootstrap shim from `main.css` after rewriting home/teaching/publications.
