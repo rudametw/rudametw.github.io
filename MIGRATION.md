@@ -608,3 +608,27 @@ Contract 204/204; only BROKEN is the intended HDR slides link.
 - **arXiv 2606.30119** ("On the Internet, Nobody Knows You're an LLM Bot") added
   as a preprint entry and as a June 2026 news item.
 - 58 entries. Contract 204/204; only BROKEN is the intended HDR slides link.
+
+---
+
+## 2026-09-12 — Round 10: HAL complete; CORE and Scholar links; SEAMS/CANS/DAIS ranked
+
+- The author linked the unclaimed author forms in HAL: `hal-diff.sh` now reports
+  47/47. `curl` was permitted this time, so the import was refreshed from HAL
+  (47 entries); the seven previously hand-keyed entries merged into HAL's data with
+  their extras intact. HAL's French duplicate of the PhD thesis (`tel-00957942`)
+  is `hide: true`.
+- **CORE links** found via web search (the portal 403s direct fetches): PETS 1442
+  (A), SEAMS 2281 (A), ICSA/WICSA 791 (A), CLOUD 631 (B), CCNC 616 (B), SEAA 464
+  (B today; the author's list says C for 2009 — kept), SCC 674 (B today; author's
+  list A for 2008 — kept), CANS 982 (B, set), DAIS 801 (C, set), SAC 59 ("multi-
+  conference" today, no letter; the author's B kept). APSCC, NOTERE and the
+  workshops (MADWeb, IWPE, EuroDW, CloudDP, JLDP, MW4SOC) are not CORE-ranked.
+  SPLC: B on the 2024 paper (< 5 years, author's rule); 2016 stays A.
+- **Scholar Metrics** (2026 edition, fetched): USENIX Security #1, S&P #3, NDSS
+  #7, PoPETs #13 (Computer Security & Cryptography); WWW #3 (Databases &
+  Information Systems); JSS #3, EMSE #7 (Software Systems). New `gs_url`
+  preserved key; Scholar pills link to the sub-category page. The author's
+  contemporaneous values were kept where they existed; PETS papers got the 2026
+  value, labelled as such. TOPS/TWEB are not in Scholar's top 20.
+- 59 entries (58 shown). Contract 204/204; only BROKEN is the intended HDR slides link.

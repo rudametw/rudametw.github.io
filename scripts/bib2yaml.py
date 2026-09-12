@@ -17,6 +17,7 @@ Each entry in the YAML is flat. Two kinds of keys:
       acceptance    acceptance rate, e.g. "13%"
       impact_factor e.g. "4.457" (journals)
       gs_rank   e.g. "Google Scholar (Computer Security) #2"
+      gs_url    the Scholar Metrics page for that sub-category
       award     e.g. "Best Paper Award", "CNIL-Inria Privacy Protection Award 2018"
       note      anything else: "Co-first authors …", "Collaboration with Mozilla"
       tags      list, free
@@ -34,7 +35,7 @@ import re, sys, os, datetime
 
 BIB = sys.argv[1] if len(sys.argv) > 1 else "publications.bib"
 OUT = sys.argv[2] if len(sys.argv) > 2 else "data/publications.yaml"
-MANUAL_KEYS = ("type", "rank", "rank_url", "acceptance", "impact_factor", "gs_rank", "award", "note", "tags", "hide", "links", "venue_short")
+MANUAL_KEYS = ("type", "rank", "rank_url", "acceptance", "impact_factor", "gs_rank", "gs_url", "award", "note", "tags", "hide", "links", "venue_short")
 
 # ---------------------------------------------------------------- BibTeX parsing
 def parse_bib(text):
@@ -124,7 +125,7 @@ def dump(entries, out):
             lines += [f"    - {yq(a)}" for a in e['authors']]
         for k in ('year', 'month'):
             if e.get(k): lines.append(f"  {k}: {int(e[k])}")
-        for k in ('venue', 'venue_short', 'address', 'rank', 'rank_url', 'acceptance', 'impact_factor', 'gs_rank', 'award', 'note', 'doi', 'url', 'pdf'):
+        for k in ('venue', 'venue_short', 'address', 'rank', 'rank_url', 'acceptance', 'impact_factor', 'gs_rank', 'gs_url', 'award', 'note', 'doi', 'url', 'pdf'):
             if e.get(k): lines.append(f"  {k}: {yq(e[k])}")
         if e.get('tags'):
             lines.append("  tags: [" + ", ".join(yq(t) for t in e['tags']) + "]")

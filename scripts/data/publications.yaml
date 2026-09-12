@@ -22,9 +22,6 @@
   year: 2026
   month: 7
   venue: "ACM Transactions on Privacy and Security"
-  venue_short: "ACM Transactions on Privacy and Security (TOPS)"
-  rank: "Scimago Q1"
-  rank_url: "https://www.scimagojr.com/journalsearch.php?q=21100832567&tip=sid"
   doi: "10.1145/3830402"
   url: "https://hal.science/hal-05701262"
   pdf: "https://hal.science/hal-05701262v1/file/drawnapart-TOPS.pdf"
@@ -41,31 +38,9 @@
   year: 2026
   month: 7
   venue: "Proceedings of the 26th Privacy Enhancing Technologies Symposium"
-  venue_short: "PETS 2026"
   address: "Calgary, Canada"
-  rank: "CORE A"
-  rank_url: "https://portal.core.edu.au/conf-ranks/1442/"
-  gs_rank: "Google Scholar (Computer Security & Cryptography) #13 (2026 edition)"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_computersecuritycryptography"
-  award: "Runner-up, Andreas Pfitzmann Best Student Paper Award (PETS 2026)"
   url: "https://hal.science/hal-05585898"
   pdf: "https://hal.science/hal-05585898v1/file/exadprinter-pets26.pdf"
-
-- id: "manual-2026-arxiv-llm-bots"
-  type: "other"
-  title: "On the Internet, Nobody Knows You're an LLM Bot: Unmasking Web Agents with Multi-Layer Fingerprinting"
-  authors:
-    - "Iliana Fayolle"
-    - "Sihem Bouhenniche"
-    - "Samuel Pélissier"
-    - "Pierre Laperdrix"
-    - "Clémentine Maurice"
-    - "Walter Rudametkin"
-  year: 2026
-  month: 6
-  venue: "arXiv preprint"
-  note: "Preprint"
-  url: "https://arxiv.org/abs/2606.30119"
 
 - id: "hal-05479340"
   hal_id: "hal-05479340"
@@ -83,12 +58,7 @@
   year: 2026
   month: 4
   venue: "WWW 2026 - ACM Web Conference"
-  venue_short: "WWW 2026"
   address: "Dubai, United Arab Emirates"
-  rank: "CORE A*"
-  rank_url: "https://portal.core.edu.au/conf-ranks/1548/"
-  gs_rank: "Google Scholar (Databases & Information Systems) #2"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_databasesinformationsystems"
   doi: "10.1145/3774904.3792414"
   url: "https://hal.science/hal-05479340"
   pdf: "https://hal.science/hal-05479340v1/file/Pelissier_etal_WebConf_2026_Users_Pay_Twice.pdf"
@@ -108,9 +78,6 @@
   year: 2026
   month: 3
   venue: "ACM Transactions on the Web"
-  venue_short: "ACM Transactions on the Web (TWEB)"
-  rank: "Scimago Q1"
-  rank_url: "https://www.scimagojr.com/journalsearch.php?q=5800207369&tip=sid"
   doi: "10.1145/3774944"
   url: "https://hal.science/hal-05577141"
   pdf: "https://hal.science/hal-05577141v1/file/Gotta_Catch__em_all__On_the_Web_Tracking_Practices_of_a_Deal_Sharing_Conglomerate_and_their_Heavy_Reliance_on_Redirect_Chains___Revision_TWEB.pdf"
@@ -130,10 +97,7 @@
   year: 2025
   month: 6
   venue: "Lecture Notes in Computer Science"
-  venue_short: "DAIS 2025 (LNCS 15730)"
   address: "Lille, France"
-  rank: "CORE C"
-  rank_url: "https://portal.core.edu.au/conf-ranks/801/"
   doi: "10.1007/978-3-031-95728-4_1"
   url: "https://inria.hal.science/hal-04198528"
   pdf: "https://inria.hal.science/hal-04198528v2/file/desauw-et-al_dais2025_preprint.pdf"
@@ -150,12 +114,7 @@
   year: 2025
   month: 4
   venue: "WWW'25 - International World Wide Web Conference"
-  venue_short: "WWW 2025"
   address: "Sydney, Australia"
-  rank: "CORE A*"
-  rank_url: "https://portal.core.edu.au/conf-ranks/1548/"
-  gs_rank: "Google Scholar (Databases & Information Systems) #2"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_databasesinformationsystems"
   doi: "10.1145/3696410.3714699"
   url: "https://hal.science/hal-04932081"
   pdf: "https://hal.science/hal-04932081v1/file/FP_Rainbow.pdf"
@@ -187,7 +146,6 @@
   year: 2025
   month: 2
   venue: "MADWeb'25 - Workshop on Measurements, Attacks, and Defenses for the Web"
-  venue_short: "MADWeb 2025 (NDSS workshop)"
   address: "San Diego, United States"
   doi: "10.14722/madweb.2025.23017"
   url: "https://hal.science/hal-04949268"
@@ -208,10 +166,7 @@
   year: 2024
   month: 9
   venue: "CANS 2024 - 23rd International Conference on Cryptology And Network Security"
-  venue_short: "CANS 2024"
   address: "Cambridge, United Kingdom"
-  rank: "CORE B"
-  rank_url: "https://portal.core.edu.au/conf-ranks/982/"
   url: "https://hal.science/hal-04652991"
   pdf: "https://hal.science/hal-04652991v1/file/cans24_fayolle.pdf"
 
@@ -227,10 +182,7 @@
   year: 2024
   month: 9
   venue: "SPLC'24 - 28th ACM International Systems and Software Product Lines Conference"
-  venue_short: "SPLC 2024"
   address: "Luxembourg, Luxembourg"
-  rank: "CORE B"
-  rank_url: "https://portal.core.edu.au/conf-ranks/2282/"
   url: "https://hal.science/hal-04622269"
   pdf: "https://hal.science/hal-04622269v1/file/SPLC_24.pdf"
 
@@ -247,13 +199,7 @@
   year: 2024
   month: 7
   venue: "Proceedings on Privacy Enhancing Technologies"
-  venue_short: "PETS 2024"
   address: "Bristol, United Kingdom"
-  rank: "CORE A"
-  rank_url: "https://portal.core.edu.au/conf-ranks/1442/"
-  gs_rank: "Google Scholar (Computer Security & Cryptography) #13 (2026 edition)"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_computersecuritycryptography"
-  award: "Andreas Pfitzmann Best Student Paper Award (PETS 2024)"
   doi: "10.56553/popets-2024-0086"
   url: "https://hal.science/hal-04665102"
   pdf: "https://hal.science/hal-04665102v1/file/popets-2024-0086.pdf"
@@ -271,9 +217,7 @@
   year: 2024
   month: 2
   venue: "Workshop on Measurements, Attacks, and Defenses for the Web (MADWeb'24)"
-  venue_short: "MADWeb 2024 (NDSS workshop)"
   address: "San Diego (CA), United States"
-  award: "Best Paper Award"
   doi: "10.14722/madweb.2024.23035"
   url: "https://hal.science/hal-04489166"
   pdf: "https://hal.science/hal-04489166v1/file/free-proxies.pdf"
@@ -289,7 +233,6 @@
   year: 2024
   month: 1
   venue: "HiPEAC Vision 2024 Rationale"
-  venue_short: "HiPEAC Vision 2024"
   url: "https://inria.hal.science/hal-04884681"
   pdf: "https://inria.hal.science/hal-04884681v1/file/HiPEAC_Vision%202024%20rationale_p157_browser.pdf"
 
@@ -304,12 +247,7 @@
   year: 2023
   month: 4
   venue: "Companion Proceedings of the ACM Web Conference 2023 (WWW '23 Companion),"
-  venue_short: "WWW 2023"
   address: "Austin (TX), United States"
-  rank: "CORE A*"
-  rank_url: "https://portal.core.edu.au/conf-ranks/1548/"
-  gs_rank: "Google Scholar (Databases & Information Systems) #1"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_databasesinformationsystems"
   url: "https://hal.science/hal-04084097"
   pdf: "https://hal.science/hal-04084097v1/file/webgames.pdf"
 
@@ -326,13 +264,7 @@
   year: 2022
   month: 4
   venue: "ACM Web Conference 2022"
-  venue_short: "WWW 2022"
   address: "Lyon, France"
-  rank: "CORE A*"
-  rank_url: "https://portal.core.edu.au/conf-ranks/1548/"
-  acceptance: "17%"
-  gs_rank: "Google Scholar (Databases & Information Systems) #1"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_databasesinformationsystems"
   doi: "10.1145/3485447.3512279"
   url: "https://hal.science/hal-03559973"
   pdf: "https://hal.science/hal-03559973v1/file/androidGames_www22.pdf"
@@ -356,13 +288,7 @@
   year: 2022
   month: 2
   venue: "Network and Distributed System Security Symposium"
-  venue_short: "NDSS 2022"
   address: "San Diego, United States"
-  rank: "CORE A*"
-  rank_url: "https://portal.core.edu.au/conf-ranks/1840/"
-  gs_rank: "Google Scholar (Computer Security) #5"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_computersecuritycryptography"
-  note: "Co-first authors: Tomer Laor and Naif Mehanna"
   doi: "10.14722/ndss.2022.24093"
   url: "https://inria.hal.science/hal-03526240"
   pdf: "https://inria.hal.science/hal-03526240v1/file/ndss22_laor.pdf"
@@ -380,12 +306,7 @@
   year: 2021
   month: 7
   venue: "PETS 2021 - The 21th International Symposium on Privacy Enhancing Technologies"
-  venue_short: "PETS 2021"
   address: "Virtual, France"
-  rank: "CORE A"
-  rank_url: "https://portal.core.edu.au/conf-ranks/1442/"
-  gs_rank: "Google Scholar (Computer Security & Cryptography) #13 (2026 edition)"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_computersecuritycryptography"
   url: "https://inria.hal.science/hal-03017222"
   pdf: "https://inria.hal.science/hal-03017222v1/file/dejavu-pets21.pdf"
 
@@ -402,10 +323,7 @@
   year: 2021
   month: 7
   venue: "International Conference on the Detection of Intrusions and Malware & Vulnerability Assessment (DIMVA)"
-  venue_short: "DIMVA 2021"
   address: "lisboa, Portugal"
-  rank: "CORE B"
-  rank_url: "https://portal.core.edu.au/conf-ranks/565/"
   url: "https://hal.science/hal-03212726"
   pdf: "https://hal.science/hal-03212726v1/file/main.pdf"
 
@@ -425,13 +343,12 @@
   year: 2021
   month: 7
   venue: "working paper or preprint"
-  note: "Collaboration with Mozilla — not peer-reviewed"
   url: "https://inria.hal.science/hal-03297181"
 
 - id: "tel-03370277"
   hal_id: "tel-03370277"
   bibtype: "phdthesis"
-  type: "hdr"
+  type: "thesis"
   title: "Improving the Security and Privacy of the Web through Browser Fingerprinting"
   authors:
     - "Walter Rudametkin"
@@ -454,7 +371,6 @@
   year: 2021
   month: 4
   venue: "working paper or preprint"
-  note: "Not peer-reviewed"
   url: "https://hal.science/hal-03212729"
 
 - id: "hal-03121735"
@@ -470,11 +386,6 @@
   year: 2020
   month: 7
   venue: "Empirical Software Engineering"
-  venue_short: "Empirical Software Engineering (EMSE)"
-  rank: "Scimago Q1"
-  impact_factor: "4.457"
-  gs_rank: "Google Scholar (Software Systems) #6"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_softwaresystems"
   doi: "10.1007/s10664-019-09794-7"
   url: "https://inria.hal.science/hal-03121735"
 
@@ -493,14 +404,7 @@
   year: 2020
   month: 4
   venue: "Proceedings of The Web Conference (WWW'20)"
-  venue_short: "WWW 2020"
   address: "Tapeï, Taiwan"
-  rank: "CORE A*"
-  rank_url: "https://portal.core.edu.au/conf-ranks/1548/"
-  acceptance: "19%"
-  gs_rank: "Google Scholar (Databases & Information Systems) #1"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_databasesinformationsystems"
-  note: "Collaboration with Mozilla"
   doi: "10.1145/3366423.3380161"
   url: "https://inria.hal.science/hal-02435622"
   pdf: "https://inria.hal.science/hal-02435622v1/file/mishra-www20.pdf"
@@ -521,14 +425,7 @@
   year: 2020
   month: 4
   venue: "Proceedings of The Web Conference (WWW'20)"
-  venue_short: "WWW 2020"
   address: "Taipei, Taiwan"
-  rank: "CORE A*"
-  rank_url: "https://portal.core.edu.au/conf-ranks/1548/"
-  acceptance: "19%"
-  gs_rank: "Google Scholar (Databases & Information Systems) #1"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_databasesinformationsystems"
-  note: "Collaboration with Mozilla"
   doi: "10.1145/3366423.3380104"
   url: "https://inria.hal.science/hal-02456195"
   pdf: "https://inria.hal.science/hal-02456195v1/file/Jestr_vs_crawl_WWW2020.pdf"
@@ -546,9 +443,7 @@
   year: 2020
   month: 2
   venue: "MADWeb'20 - NDSS Workshop on Measurements, Attacks, and Defenses for the Web"
-  venue_short: "MADWeb 2020 (NDSS workshop)"
   address: "San Diego, United States"
-  award: "Best Paper Award"
   doi: "10.14722/ndss.2020.23xxx"
   url: "https://inria.hal.science/hal-02441653"
   pdf: "https://inria.hal.science/hal-02441653v1/file/vastel-madweb20.pdf"
@@ -566,13 +461,7 @@
   year: 2018
   month: 8
   venue: "Proceedings of the 27th USENIX Security Symposium"
-  venue_short: "USENIX Security 2018"
   address: "Baltimore, United States"
-  rank: "CORE A*"
-  rank_url: "https://portal.core.edu.au/conf-ranks/1841/"
-  acceptance: "19%"
-  gs_rank: "Google Scholar (Computer Security) #3"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_computersecuritycryptography"
   url: "https://inria.hal.science/hal-01820197"
   pdf: "https://inria.hal.science/hal-01820197v1/file/fpscanner_normal.pdf"
 
@@ -589,13 +478,7 @@
   year: 2018
   month: 5
   venue: "Proceedings of the 39th IEEE Symposium on Security and Privacy (S&P)"
-  venue_short: "IEEE S&P 2018"
   address: "San Francisco, United States"
-  rank: "CORE A*"
-  rank_url: "https://portal.core.edu.au/conf-ranks/750/"
-  acceptance: "11%"
-  gs_rank: "Google Scholar (Computer Security) #2"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_computersecuritycryptography"
   doi: "10.1109/SP.2018.00008"
   url: "https://inria.hal.science/hal-01652021"
   pdf: "https://inria.hal.science/hal-01652021v1/file/FPStalker-hal-version.pdf"
@@ -612,7 +495,6 @@
   year: 2018
   month: 4
   venue: "Proceedings of the 4th International Workshop on Privacy Engineering (IWPE'18)"
-  venue_short: "IWPE 2018"
   address: "London, United Kingdom"
   url: "https://inria.hal.science/hal-01717158"
   pdf: "https://inria.hal.science/hal-01717158v1/file/fptester.pdf"
@@ -629,10 +511,7 @@
   year: 2017
   month: 5
   venue: "12th International Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS 2017)"
-  venue_short: "SEAMS 2017"
   address: "Buenos Aires, Argentina"
-  rank: "CORE A"
-  rank_url: "https://portal.core.edu.au/conf-ranks/2281/"
   url: "https://inria.hal.science/hal-01482014"
   pdf: "https://inria.hal.science/hal-01482014v1/file/SEAMS__ICSE_2017_paper_34.pdf"
 
@@ -649,7 +528,6 @@
   year: 2017
   month: 4
   venue: "11th EuroSys Doctoral Workshop EuroDW'17"
-  venue_short: "EuroDW 2017"
   address: "Belgrade, Serbia"
   url: "https://inria.hal.science/hal-01653986"
   pdf: "https://inria.hal.science/hal-01653986v1/file/eurodw17-final19.pdf"
@@ -666,10 +544,7 @@
   year: 2016
   month: 9
   venue: "Proceedings of the 20th International Systems and Software Product Line Conference (SPLC'16)"
-  venue_short: "SPLC 2016"
   address: "Beijing, China"
-  rank: "CORE A"
-  rank_url: "https://portal.core.edu.au/conf-ranks/2282/"
   doi: "10.1145/2934466.2934475"
   url: "https://inria.hal.science/hal-01312751"
   pdf: "https://inria.hal.science/hal-01312751v1/file/SPLC_2016_paper_33%20%282%29.pdf"
@@ -686,11 +561,7 @@
   year: 2016
   month: 6
   venue: "2016 IEEE 9th International Conference on Cloud Computing (CLOUD'16)"
-  venue_short: "IEEE CLOUD 2016"
   address: "San Francisco, United States"
-  rank: "CORE B"
-  rank_url: "https://portal.core.edu.au/conf-ranks/631/"
-  acceptance: "15%"
   doi: "10.1109/CLOUD.2016.0051"
   url: "https://inria.hal.science/hal-01312606"
   pdf: "https://inria.hal.science/hal-01312606v2/file/cloud2016_10527.pdf"
@@ -707,14 +578,7 @@
   year: 2016
   month: 5
   venue: "37th IEEE Symposium on Security and Privacy (S&P 2016)"
-  venue_short: "IEEE S&P 2016"
   address: "San Jose, United States"
-  rank: "CORE A*"
-  rank_url: "https://portal.core.edu.au/conf-ranks/750/"
-  acceptance: "13%"
-  gs_rank: "Google Scholar (Computer Security) #2"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_computersecuritycryptography"
-  award: "CNIL-Inria Privacy Protection Award 2018"
   url: "https://inria.hal.science/hal-01285470"
   pdf: "https://inria.hal.science/hal-01285470v2/file/beauty-sp16.pdf"
 
@@ -732,10 +596,7 @@
   year: 2016
   month: 4
   venue: "SAC - 31st Annual ACM Symposium on Applied Computing"
-  venue_short: "SAC 2016"
   address: "Pisa, Italy"
-  rank: "CORE B"
-  rank_url: "https://portal.core.edu.au/conf-ranks/59/"
   doi: "10.1145/0000000.0000000"
   url: "https://inria.hal.science/hal-01355000"
   pdf: "https://inria.hal.science/hal-01355000v1/file/typeinst.pdf"
@@ -752,7 +613,6 @@
   year: 2016
   month: 4
   venue: "6th International Workshop on Cloud Data and Platforms (CloudDP)"
-  venue_short: "CloudDP 2016"
   address: "London, United Kingdom"
   url: "https://inria.hal.science/hal-01302184"
   pdf: "https://inria.hal.science/hal-01302184v1/file/CloudDP_2016_paper_1.pdf"
@@ -787,11 +647,6 @@
     - "Benoit Baudry"
   year: 2016
   venue: "Journal of Systems and Software"
-  venue_short: "Journal of Systems and Software (JSS)"
-  rank: "Scimago Q1"
-  impact_factor: "2.444"
-  gs_rank: "Google Scholar (Software Systems) #2"
-  gs_url: "https://scholar.google.com/citations?view_op=top_venues&hl=en&vq=eng_softwaresystems"
   doi: "10.1016/j.jss.2016.02.027"
   url: "https://inria.hal.science/hal-01354999"
   pdf: "https://inria.hal.science/hal-01354999v1/file/jss.pdf"
@@ -808,18 +663,14 @@
   year: 2015
   month: 5
   venue: "Proceedings of the IEEE/ACM 10th International Symposium on Software Engineering for Adaptive and Self-Managing Systems (SEAMS)"
-  venue_short: "SEAMS 2015"
   address: "Firenze, Italy"
-  rank: "CORE A"
-  rank_url: "https://portal.core.edu.au/conf-ranks/2281/"
-  acceptance: "29%"
   url: "https://inria.hal.science/hal-01121108"
   pdf: "https://inria.hal.science/hal-01121108v1/file/blink-seams15.pdf"
 
 - id: "hal-01093220"
   hal_id: "hal-01093220"
   bibtype: "inproceedings"
-  type: "workshop"
+  type: "conference"
   title: "Challenges for Automatic Multi-Cloud Configuration"
   authors:
     - "Gustavo Sousa"
@@ -828,7 +679,6 @@
   year: 2014
   month: 12
   venue: "JLDP 14 - Journée Lignes de Produits, Dec 2014, Luxembourg"
-  venue_short: "JLDP 2014"
   address: "Luxembourg, Luxembourg"
   url: "https://inria.hal.science/hal-01093220"
   pdf: "https://inria.hal.science/hal-01093220v1/file/doc-article-hermes%20%281%29.pdf"
@@ -849,11 +699,7 @@
   year: 2014
   month: 4
   venue: "Working IEEE/IFIP Conference on Software Architecture"
-  venue_short: "WICSA 2014"
   address: "Syndey, Australia"
-  rank: "CORE A"
-  rank_url: "https://portal.core.edu.au/conf-ranks/791/"
-  acceptance: "21.1%"
   url: "https://inria.hal.science/hal-00983045"
   pdf: "https://inria.hal.science/hal-00983045v1/file/sig-alternate.pdf"
 
@@ -867,11 +713,9 @@
   year: 2013
   month: 2
   venue: "Université de Grenoble"
-  note: "French version of the thesis record; hidden as a duplicate"
   doi: "10.70675/2a14dc0cz2150z4c42zb645zf0e19bf8e25f"
   url: "https://theses.hal.science/tel-00957942"
   pdf: "https://theses.hal.science/tel-00957942v1/file/20149_RUDAMETKIN_2013_archivage.pdf"
-  hide: true
 
 - id: "tel-00948174"
   hal_id: "tel-00948174"
@@ -885,25 +729,6 @@
   venue: "Université de Grenoble"
   url: "https://theses.hal.science/tel-00948174"
   pdf: "https://theses.hal.science/tel-00948174v1/file/WalterRudametkin.thesis.FINAL.pdf"
-  links:
-    slides: "/docs/WalterRudametkin.slides.FINAL.pdf"
-
-- id: "manual-2012-sbes-resilience"
-  type: "conference"
-  title: "Resilience in dynamic component-based applications"
-  authors:
-    - "Kiev Gama"
-    - "Walter Rudametkin"
-    - "Didier Donsez"
-  year: 2012
-  month: 9
-  venue: "III Congresso Brasileiro de Software: Teoria e Prática — Trilha Especial do SBES'2012"
-  venue_short: "SBES 2012"
-  address: "Natal, Brazil"
-  note: "National conference (Brazil)"
-  url: "http://ieeexplore.ieee.org/xpl/articleDetails.jsp?tp=&arnumber=6337873"
-  links:
-    local_pdf: "/docs/Resilience%20in%20dynamic%20component-based%20applications.pdf"
 
 - id: "hal-00745583"
   hal_id: "hal-00745583"
@@ -917,15 +742,9 @@
   year: 2012
   month: 3
   venue: "SAC 2012 - Symposium On Applied Computing"
-  venue_short: "SAC 2012"
   address: "Trento, Italy"
-  rank: "CORE B"
-  rank_url: "https://portal.core.edu.au/conf-ranks/59/"
-  acceptance: "26%"
   doi: "10.1145/2245276.2231952"
   url: "https://hal.science/hal-00745583"
-  links:
-    local_pdf: "/docs/SAC12-americo.pdf"
 
 - id: "hal-00591066"
   hal_id: "hal-00591066"
@@ -940,25 +759,10 @@
   year: 2011
   month: 5
   venue: "Proceedings of the 11th Annual International Conference on New Technologies of Distributed Systems (NOTERE)"
-  venue_short: "NOTERE 2011"
   address: "Paris, France"
   doi: "10.1109/NOTERE.2011.5957981"
   url: "https://hal.science/hal-00591066"
   pdf: "https://hal.science/hal-00591066v1/file/PID1088226.pdf"
-
-- id: "manual-2011-igi-chapter"
-  type: "chapter"
-  title: "Adaptive and Dynamic Service Compositions in the OSGi Service Platform"
-  authors:
-    - "Lionel Touseau"
-    - "Kiev Gama"
-    - "Didier Donsez"
-    - "Walter Rudametkin"
-  year: 2011
-  venue: "Chapter in Service Life Cycle Tools and Technologies: Methods, Trends and Advances (eds. Jonathan Lee, Shang-Pin Ma and Alan Liu), IGI Global"
-  url: "http://www.igi-global.com/chapter/adaptive-dynamic-service-compositions-osgi/60296"
-  links:
-    sample: "http://www.igi-global.com/viewtitlesample.aspx?id=60296&ptid=52739&t=adaptive%20and%20dynamic%20service%20compositions%20in%20the%20osgi%20service%20platform"
 
 - id: "hal-00941658"
   hal_id: "hal-00941658"
@@ -973,30 +777,9 @@
   year: 2010
   month: 12
   venue: "Proceedings in Services Computing Conference (APSCC), 2010 IEEE Asia-Pacific"
-  venue_short: "IEEE APSCC 2010"
   address: "Hangzhou, China"
-  rank: "CORE C"
-  acceptance: "26%"
   doi: "10.1109/APSCC.2010.99"
   url: "https://hal.science/hal-00941658"
-  links:
-    local_pdf: "/docs/APSCC-2010-Managing%20dynamic%20service-oriented%20component%20architectures.pdf"
-    slides: "/docs/Rudametkin-APSCC-2010-slides.pdf"
-    bibtex: "/docs/bibtex/Rudametkin10_bib.html"
-
-- id: "manual-2010-osgi-community-talk"
-  type: "talk"
-  title: "Predictability vs. Dynamism: managing dynamic real-time applications"
-  authors:
-    - "Walter Rudametkin"
-    - "Joao Americo"
-  year: 2010
-  month: 9
-  venue: "OSGi Community Event 2010"
-  address: "London, England"
-  url: "http://communityevent.osgi.org/2010/schedule"
-  links:
-    slides: "http://www.osgi.org/wiki/uploads/CommunityEvent2010/AmericoampRudametkin-OSGiCommunity2010FINAL.pdf"
 
 - id: "hal-00941643"
   hal_id: "hal-00941643"
@@ -1011,33 +794,9 @@
   year: 2010
   month: 1
   venue: "Proceedings in Consumer Communications and Networking Conference (CCNC), 2010 7th IEEE"
-  venue_short: "IEEE CCNC 2010"
   address: "Las Vegas, NV, United States"
-  rank: "CORE B"
-  rank_url: "https://portal.core.edu.au/conf-ranks/616/"
-  acceptance: "< 33%"
   doi: "10.1109/CCNC.2010.5421602"
   url: "https://hal.science/hal-00941643"
-  links:
-    slides: "http://membres-liglab.imag.fr/donsez/pub/publi/ccnc2010-rudametkin.pres.pdf"
-
-- id: "manual-2010-ccnc-demo"
-  type: "demo"
-  title: "A Service-Oriented Platform for iTV applications deployment"
-  authors:
-    - "Didier Donsez"
-    - "Stéphane Chomat"
-    - "Kiev Gama"
-    - "Walter Rudametkin"
-    - "Lionel Touseau"
-  year: 2010
-  month: 1
-  venue: "IEEE CCNC 2010 — Consumer Communications and Networking Conference, demonstration session"
-  address: "Las Vegas, Nevada, USA"
-  url: "http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=5421597"
-  links:
-    external: "http://membres-liglab.imag.fr/donsez/pub/publi/ccnc2010-donsez.pdf"
-    poster: "http://membres-liglab.imag.fr/donsez/pub/publi/ccnc2010-donsez.poster.pdf"
 
 - id: "hal-00951174"
   hal_id: "hal-00951174"
@@ -1051,117 +810,6 @@
   year: 2009
   month: 8
   venue: "Software Engineering and Advanced Applications, 2009. SEAA '09. 35th Euromicro Conference on"
-  venue_short: "SEAA 2009"
   address: "Patras, Greece"
-  rank: "CORE C"
-  rank_url: "https://portal.core.edu.au/conf-ranks/464/"
-  acceptance: "38%"
   doi: "10.1109/SEAA.2009.72"
   url: "https://hal.science/hal-00951174"
-  links:
-    local_pdf: "/docs/Developing_Adaptable_Components_Using_Dynamic_Languages.pdf"
-
-- id: "manual-2008-middleware-failstop"
-  type: "workshop"
-  title: "Using Fail-stop Proxies for Enhancing Services Isolation in the OSGi Service Platform"
-  authors:
-    - "Kiev Gama"
-    - "Walter Rudametkin"
-    - "Didier Donsez"
-  year: 2008
-  month: 12
-  venue: "Workshop of the 9th International Middleware Conference"
-  venue_short: "MW4SOC 2008 (Middleware workshop)"
-  address: "Leuven, Belgium"
-  url: "http://dl.acm.org/citation.cfm?id=1462804"
-  links:
-    external: "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.151.2620&rep=rep1&type=pdf"
-
-- id: "manual-2008-scc-sla"
-  type: "conference"
-  title: "Towards a SLA-based Approach to Handle Service Disruptions"
-  authors:
-    - "Lionel Touseau"
-    - "Walter Rudametkin"
-    - "Didier Donsez"
-  year: 2008
-  month: 7
-  venue: "IEEE International Conference on Services Computing (SCC'08)"
-  venue_short: "IEEE SCC 2008"
-  address: "Honolulu, Hawaii, USA"
-  rank: "CORE A"
-  rank_url: "https://portal.core.edu.au/conf-ranks/674/"
-  acceptance: "18%"
-  url: "http://ieeexplore.ieee.org/xpl/articleDetails.jsp?arnumber=4578489"
-  links:
-    external: "http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.151.1629&rep=rep1&type=pdf"
-
-- id: "manual-2008-icps-nfcmuseum"
-  type: "demo"
-  title: "NFCMuseum: an Open-Source Middleware for Augmenting Museum Exhibits"
-  authors:
-    - "Walter Rudametkin"
-    - "Lionel Touseau"
-    - "Maroula Perisanidi"
-    - "Andrés Gómez"
-    - "Didier Donsez"
-  year: 2008
-  month: 7
-  venue: "International Conference on Pervasive Services (ICPS'08), demonstration track"
-  address: "Sorrento, Italy"
-  url: "http://www.icpsconference.org/2008/program.htm"
-  links:
-    local_pdf: "/docs/icps08-nfcmuseum.pdf"
-
-- id: "manual-2008-osgi-community-talk"
-  type: "talk"
-  title: "OW2 JOnAS 5.0 Java EE AS: An OSGi Based Integration Platform"
-  authors:
-    - "François Fornaciari"
-    - "Walter Rudametkin"
-  year: 2008
-  month: 6
-  venue: "OSGi Community Event 2008"
-  address: "Berlin, Germany"
-  url: "http://www.osgi.org/CommunityEvent2008/Program"
-  links:
-    slides: "http://www.osgi.org/wiki/uploads/CommunityEvent2008/19_Fornaciari%20Rudametkin.pdf"
-
-- id: "manual-2008-osgiusers-jonas-demo"
-  type: "demo"
-  title: "JOnAS 5 : démonstration du serveur Java EE basé sur OSGi"
-  authors:
-    - "Guillaume Sauthier"
-    - "Walter Rudametkin"
-  year: 2008
-  month: 1
-  venue: "OSGi Users Group France (Bull SAS)"
-  address: "Paris, France"
-  url: "http://france.osgiusers.org/Meeting/200801"
-  links:
-    slides: "http://france.osgiusers.org/wiki/uploads/Meeting/jonasosgi200801.pdf"
-
-- id: "manual-2008-osgiusers-jonas-talk"
-  type: "talk"
-  title: "JOnAS 5 : présentation du serveur Java EE basé sur OSGi"
-  authors:
-    - "Guillaume Sauthier"
-    - "Walter Rudametkin"
-  year: 2008
-  month: 1
-  venue: "OSGi Users Group France (Bull SAS)"
-  address: "Paris, France"
-  url: "http://france.osgiusers.org/Meeting/200801"
-  links:
-    slides: "http://france.osgiusers.org/wiki/uploads/Meeting/jonasosgi200801.pdf"
-
-- id: "manual-2007-master-thesis"
-  type: "thesis"
-  title: "Dynamic instrumentation for application management and application analysis in component-based applications"
-  authors:
-    - "Walter Rudametkin"
-  year: 2007
-  venue: "Master thesis, Université Joseph Fourier, Grenoble — supervised by Vivien Quéma and Renaud Lachaize"
-  links:
-    local_pdf: "/docs/MasterThesis-WalterRudametkin-FINAL.pdf"
-    slides: "/docs/DynamicTracing.pdf"

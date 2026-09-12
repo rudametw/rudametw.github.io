@@ -51,7 +51,7 @@
           {{- with .award }} <span class="label pub-award">{{ . }}</span>{{ end }}
           {{- with .acceptance }} <span class="label pub-meta">Acceptance rate {{ . }}</span>{{ end }}
           {{- with .impact_factor }} <span class="label pub-meta">IF {{ . }}</span>{{ end }}
-          {{- with .gs_rank }} <span class="label pub-meta">{{ . }}</span>{{ end }}
+          {{- if .gs_rank }} {{ with .gs_url }}<a href="{{ . }}" class="label pub-meta">{{ else }}<span class="label pub-meta">{{ end }}{{ .gs_rank }}{{ if .gs_url }}</a>{{ else }}</span>{{ end }}{{ end }}
           {{- with .note }} <span class="label pub-meta">{{ . }}</span>{{ end }}
         </div>
         <div class="pub-links">

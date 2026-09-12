@@ -237,7 +237,7 @@ table .lead { font-size: 1rem; font-weight: 400; margin: 0 0 0.75rem; }
 .pub-venue .label { font-size: 0.68em; font-weight: 700; margin-left: 0.15rem; }
 .pub-rank { background: var(--ok-ink); color: #fff; }  a.pub-rank:hover { text-decoration: underline; color: #fff; }
 .pub-award { background: #f0ad4e; color: #222; }
-.pub-meta { background: var(--paper-3); color: var(--ink); border: 1px solid var(--rule-2); }
+.pub-meta { background: var(--paper-3); color: var(--ink); border: 1px solid var(--rule-2); }  a.pub-meta:hover { text-decoration: underline; }
 .pub-links { display: flex; flex-wrap: wrap; gap: 0.25rem 1rem; font-size: 0.9rem; margin-top: 0.2rem; }
 .pub-links a { display: inline-flex; align-items: center; gap: 0.3em; }
 @media (max-width: 40em) { .pubs li { grid-template-columns: 1fr; } }
