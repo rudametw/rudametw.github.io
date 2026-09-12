@@ -24,8 +24,9 @@
 set -euo pipefail
 export LC_ALL=C
 
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # repo root, whatever the cwd
 SRC="${SRC:-${HOME}/git/archive/jekyll-src}"
-DST="${DST:-static}"
+DST="${DST:-${ROOT}/static}"
 
 [[ -d "${SRC}/docs" ]] || { echo "source not found: ${SRC}" >&2; exit 2; }
 

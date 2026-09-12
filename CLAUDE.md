@@ -32,7 +32,7 @@ assets/             # SCSS/CSS/JS
 static/{img,docs}/
 data/publications.yaml    # NOT USED - see Publications below
 scripts/bib2yaml.py       # NOT USED - see Publications below
-check-urls.sh
+scripts/check-urls.sh   # URL contract checker (all scripts live in scripts/)
 urls-before.txt     # the URL contract — see below
 .github/workflows/hugo.yml
 ```
@@ -99,7 +99,7 @@ Jekyll's `layout: blog-post` key is left in place; Hugo ignores it.
 Verification loop:
 
 ```bash
-hugo --minify && ./check-urls.sh
+hugo --minify && ./scripts/check-urls.sh
 ```
 
 `hugo` is `v0.166.0+extended+withdeploy`, exported to the host at
@@ -145,7 +145,7 @@ Fixes applied to `check-urls.sh`:
 Regenerate with:
 
 ```bash
-./check-urls.sh --inventory-archive
+./scripts/check-urls.sh --inventory-archive
 ```
 
 Current contract: **224 URLs**. `urls-orphans.txt` is a worklist of what still
@@ -684,6 +684,12 @@ all kept.
   them. Edit them directly. Rule 6 applies to them the normal way from now on.
 - `layouts/` is the phase-3 port (see below). No theme, no framework, no JS.
 - Build with `hugo --minify --cleanDestinationDir`, never `rm -rf public`.
+- **All scripts live in `scripts/` and resolve paths from the repo root**, so they
+  can be run from any directory (the author moved `check-urls.sh` there on
+  2026-09-12). Outputs always land in `<repo>/publications.bib`,
+  `<repo>/data/publications.yaml`, `<repo>/content`, `<repo>/static`.
+- **Review `git status` before `git add -A`**: the author works in the same tree
+  and may have moved or added files; stage them knowingly, not by sweep.
 - For bulk file moves, **write a reviewable shell script** rather than performing
   dozens of individual edits. The author reviews before it runs.
 - When porting a template, output a table of every Liquid construct translated and
@@ -694,7 +700,7 @@ all kept.
 
 ## Commands you may run without asking
 
-`hugo`, `hugo --minify`, `hugo server`, `./check-urls.sh`, `git status`,
+`hugo`, `hugo --minify`, `hugo server`, `./scripts/check-urls.sh`, `git status`,
 `git diff`, `git log`, `git add`, `rg`/`grep`, `find`, and any *read-only*
 access to `~/git/archive/old-site-crawl/`.
 

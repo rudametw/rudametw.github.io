@@ -1,5 +1,5 @@
 # Build with one pinned Hugo binary, enforce the URL contract, deploy to Pages.
-# No npm, gem or Python (CLAUDE.md rule 2). check-urls.sh is a gate: a build that
+# No npm, gem or Python (CLAUDE.md rule 2). scripts/check-urls.sh is a gate: a build that
 # drops a URL the old site served fails before it deploys.
 name: Deploy Hugo site to Pages
 
@@ -37,7 +37,7 @@ jobs:
       - name: Build
         run: hugo --minify --gc --baseURL "${{ steps.pages.outputs.base_url }}/"
       - name: URL contract
-        run: ./check-urls.sh
+        run: ./scripts/check-urls.sh
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./public

@@ -2,11 +2,13 @@
 # check-urls.sh — verify the Hugo build preserves every URL the old Jekyll site served.
 #
 # Three modes:
-#   ./check-urls.sh --inventory-archive   build urls-before.txt offline from the
-#                                         `jekyll-final` worktree (preferred)
-#   ./check-urls.sh --inventory           build urls-before.txt from the LIVE
-#                                         sitemap.xml + a live crawl (needs network)
-#   ./check-urls.sh                       verify public/ against urls-before.txt
+#   ./scripts/check-urls.sh --inventory-archive   build urls-before.txt offline from
+#                                                 the `jekyll-final` worktree (preferred)
+#   ./scripts/check-urls.sh --inventory           build urls-before.txt from the LIVE
+#                                                 sitemap.xml + a live crawl (network)
+#   ./scripts/check-urls.sh                       verify public/ against urls-before.txt
+#
+# Paths are resolved from the repository root, so it can be run from anywhere.
 #
 # Exit 0 = contract satisfied. Exit 1 = missing URLs.
 
@@ -15,11 +17,12 @@ set -euo pipefail
 # comm(1) requires both inputs sorted in the SAME collation as the sort that
 # produced them. Pin it so the script behaves identically under any locale.
 export LC_ALL=C
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # repo root, whatever the cwd
 
 SITE_URL="${SITE_URL:-https://rudametw.github.io}"
-PUBLIC_DIR="${PUBLIC_DIR:-public}"
-CONTRACT="${CONTRACT:-urls-before.txt}"
-ORPHANS="${ORPHANS:-urls-orphans.txt}"
+PUBLIC_DIR="${PUBLIC_DIR:-${ROOT}/public}"
+CONTRACT="${CONTRACT:-${ROOT}/urls-before.txt}"
+ORPHANS="${ORPHANS:-${ROOT}/urls-orphans.txt}"
 CRAWL_DIR="${CRAWL_DIR:-${HOME}/git/archive/old-site-crawl}"
 ARCHIVE="${ARCHIVE:-${HOME}/git/archive/jekyll-src}"
 
@@ -230,7 +233,7 @@ verify() {
     amber "Fix by adding to the relevant page's front matter:"
     amber "  aliases:"
     amber "    - /the/missing/path/"
-    amber "Do NOT edit ${CONTRACT}."
+    amber "Do NOT edit $(basename "${CONTRACT}")."
     return 1
   fi
 

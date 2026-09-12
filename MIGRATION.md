@@ -632,3 +632,19 @@ Contract 204/204; only BROKEN is the intended HDR slides link.
   contemporaneous values were kept where they existed; PETS papers got the 2026
   value, labelled as such. TOPS/TWEB are not in Scholar's top 20.
 - 59 entries (58 shown). Contract 204/204; only BROKEN is the intended HDR slides link.
+
+---
+
+## 2026-09-12 — Round 11: scripts run from anywhere; strays from a cwd mix-up removed
+
+The author moved `check-urls.sh` into `scripts/` and wrote
+`scripts/update-publications-from-hal.sh`, then ran it from inside `scripts/`.
+Because the scripts resolved paths from the cwd, that produced
+`scripts/publications.bib` and `scripts/data/publications.yaml` (a 47-entry file
+with none of the extras), and the agent's `git add -A` swept them into commit
+5d167e6. Fixed at the root: every script now resolves paths from the repository
+root (`ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"`; `os.path` in
+`bib2yaml.py`), the wrapper calls its siblings by their own directory, and the
+strays are removed. Tested from `/tmp`. CI gate and docs now say
+`./scripts/check-urls.sh`. Lesson recorded in CLAUDE.md: review `git status`
+before staging — the author works in the same tree.

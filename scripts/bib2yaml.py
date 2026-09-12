@@ -33,8 +33,9 @@ delete it by hand if it is really gone.
 """
 import re, sys, os, datetime
 
-BIB = sys.argv[1] if len(sys.argv) > 1 else "publications.bib"
-OUT = sys.argv[2] if len(sys.argv) > 2 else "data/publications.yaml"
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))   # repo root, whatever the cwd
+BIB = sys.argv[1] if len(sys.argv) > 1 else os.path.join(ROOT, "publications.bib")
+OUT = sys.argv[2] if len(sys.argv) > 2 else os.path.join(ROOT, "data", "publications.yaml")
 MANUAL_KEYS = ("type", "rank", "rank_url", "acceptance", "impact_factor", "gs_rank", "gs_url", "award", "note", "tags", "hide", "links", "venue_short")
 
 # ---------------------------------------------------------------- BibTeX parsing

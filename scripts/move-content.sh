@@ -42,8 +42,9 @@ set -euo pipefail
 export LC_ALL=C
 export SELF="${BASH_SOURCE[0]}"
 
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"   # repo root, whatever the cwd
 SRC="${SRC:-${HOME}/git/archive/jekyll-src/src}"
-OUT="${OUT:-content}"
+OUT="${OUT:-${ROOT}/content}"
 [[ -d "${SRC}/_posts" ]] || { echo "source not found: ${SRC}" >&2; exit 2; }
 
 # front_matter <file>  — print the YAML block of a Jekyll page, delimiters included
