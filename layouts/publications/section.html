@@ -24,7 +24,10 @@
                     (dict "key" "hdr" "label" "Habilitation")
                     (dict "key" "thesis" "label" "Theses")
                     (dict "key" "report" "label" "Reports")
+                    (dict "key" "demo" "label" "Demonstrations")
+                    (dict "key" "talk" "label" "Invited and industry talks")
                     (dict "key" "other" "label" "Other") }}
+{{- $labels := dict "slides" "Slides" "poster" "Poster" "local_pdf" "PDF (local copy)" "bibtex" "BibTeX" "video" "Video" "code" "Code" "sample" "Sample" "external" "PDF (external)" }}
 {{- $shown := where $pubs "hide" "!=" true }}
 <nav class="pub-types" aria-label="Publication types">
   {{- range $types }}{{ $n := len (where $shown "type" .key) }}{{ if $n }}<a href="#{{ .key }}">{{ .label }} <span>{{ $n }}</span></a>{{ end }}{{ end }}
@@ -51,7 +54,7 @@
           {{- with .url }}<a href="{{ . }}"><i class="icon icon-hal"></i>HAL</a>{{ end }}
           {{- with .doi }}<a href="https://doi.org/{{ . }}"><i class="icon icon-external"></i>DOI</a>{{ end }}
           {{- with .pdf }}<a href="{{ . }}"><i class="icon icon-download"></i>PDF</a>{{ end }}
-          {{- range $k, $v := .links }}<a href="{{ $v }}"><i class="icon icon-download"></i>{{ title $k }}</a>{{ end }}
+          {{- range $k, $v := .links }}<a href="{{ $v }}"><i class="icon icon-{{ if in (slice "slides" "poster" "local_pdf" "external") $k }}download{{ else }}external{{ end }}"></i>{{ or (index $labels $k) (title $k) }}</a>{{ end }}
         </div>
       </div>
     </li>

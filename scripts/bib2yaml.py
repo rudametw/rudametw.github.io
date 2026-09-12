@@ -10,13 +10,14 @@ Each entry in the YAML is flat. Two kinds of keys:
   from HAL (rewritten on every import):
       id, hal_id, title, authors, year, month, venue, address, doi, url, pdf, bibtype
   yours (kept across imports, never overwritten):
-      type      journal | conference | workshop | chapter | thesis | hdr | report | other
+      type      journal | conference | workshop | chapter | thesis | hdr | report | demo | talk | other
                 (guessed from HAL on first import; set it and the guess stops)
       rank      e.g. "CORE A*", "Rank A", "Q1"
       note      e.g. "Best paper award", "Invited paper", "Short paper"
       tags      list, free
       hide      true to keep an entry out of the page
-      links     extra links: {slides: /docs/x.pdf, video: https://..., code: https://...}
+      links     extra links, keys become labels on the page:
+                slides, poster, local_pdf, bibtex, video, code, sample, external
       venue_short   e.g. "NDSS" — shown instead of the long booktitle when set
 
 Entries that are not in HAL are fine: give them an `id` that does not start with
@@ -173,7 +174,7 @@ def main():
         merged.append(e); seen.add(e['id'])
     kept = [old[k] for k in old if k not in seen]          # manual entries + ones HAL dropped
     merged += kept
-    order = {'journal': 0, 'conference': 1, 'workshop': 2, 'chapter': 3, 'hdr': 4, 'thesis': 5, 'report': 6, 'other': 7}
+    order = {'journal': 0, 'conference': 1, 'workshop': 2, 'chapter': 3, 'hdr': 4, 'thesis': 5, 'report': 6, 'demo': 7, 'talk': 8, 'other': 9}
     merged.sort(key=lambda e: (-int(e.get('year') or 0), -int(e.get('month') or 0), order.get(e.get('type', 'other'), 9), e.get('title', '')))
     dump(merged, OUT)
     print(f"{len(fresh)} from HAL, {len(kept)} kept from the previous file, {len(merged)} total -> {OUT}")

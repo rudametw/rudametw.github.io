@@ -519,3 +519,33 @@ Research removed from nav and footer; the home card links
     the hand-written 2015 page while the YAML does not exist**, so the switch is
     automatic on first import.
 - **Network**: this sandbox cannot reach HAL; the author runs the fetch.
+
+---
+
+## 2026-09-12 — Round 7: publications imported from HAL; news rewritten
+
+The author ran `scripts/fetch-hal-bibtex.sh`: **40 entries** (32 inproceedings,
+4 articles, 2 theses, 1 report, 1 misc). `bib2yaml.py` typed them (28
+conference, 8 workshop, 4 journal, 2 thesis, 1 report, 1 other after the manual
+`hdr` override) and the page switched to data mode automatically.
+
+Hand edits, all of the kind the merge preserves (verified by re-importing):
+`tel-03370277` → `hdr`; `links` with the old page's local PDFs on the PhD thesis
+(slides), APSCC'10 (paper, slides, BibTeX page), SAC'12, SEAA'09 (the previously
+unlinked `Developing_Adaptable_Components…pdf` matches this paper), CCNC'10
+(external slides); eleven `manual-…` entries for everything the old page had
+that HAL does not. `Kiev Game` on the CCNC demo was corrected to Gama.
+
+Template: `demo` and `talk` groups; link labels per key; group counts in a
+type nav. 51 entries, 10 local `/docs/` files linked; the only BROKEN link is
+still the intended HDR slides one. Contract 204/204.
+
+News: the twelve paper entries rewritten as announcements with co-authors,
+venue and city from the BibTeX, dated to HAL's publication month. Both
+`publications.bib` and the YAML are committed.
+
+### For the author
+- Fill `rank` / `note` where wanted; check PoPETs 2024 (`conference`) and the
+  FP-Rainbow poster (`other`); set `venue_short` for long booktitles.
+- HDR slides file still missing (link intentionally broken).
+- GitHub: default branch → `hugo-site`, rename `master` → `jekyll-site`, then push.
