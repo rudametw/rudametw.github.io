@@ -549,3 +549,33 @@ venue and city from the BibTeX, dated to HAL's publication month. Both
   FP-Rainbow poster (`other`); set `venue_short` for long booktitles.
 - HDR slides file still missing (link intentionally broken).
 - GitHub: default branch → `hugo-site`, rename `master` → `jekyll-site`, then push.
+
+---
+
+## 2026-09-12 — Round 8: six paper posts; ranks and rates written into the YAML
+
+From `PROFILE/publications.rtf` (converted with `soffice --headless`; gitignored):
+
+- **Six blog posts**, hand-written from the author's "summary of research
+  activities", in a blog voice, ~250 words each, tagged `paper` + topics, dated
+  to the conference/publication date, each ending with the full reference and
+  HAL link: Beauty and the Beast (S&P 2016), FP-Stalker (S&P 2018), FP-Scanner
+  (USENIX Security 2018), Don't count me out (WWW 2020), the EMSE 2020 article,
+  DrawnApart (NDSS 2022). Cross-linked where the summaries reference each other.
+  News entries for these carry `link:` → "Read more ›"; two announcements added
+  (WWW 2020 pair with Mozilla; EMSE 2020). 14 news items.
+- **Schema**: `acceptance`, `impact_factor`, `gs_rank`, `award` added to the
+  author-owned keys in `bib2yaml.py` (preserved on import); the template renders
+  them as pills next to `rank` (green) and `award` (gold); `venue_short` set on
+  40 entries so venues read "IEEE S&P 2018" rather than the proceedings title.
+- **Extras written once**, from the author's list: 22 ranks (CORE / Scimago),
+  14 acceptance rates, 2 impact factors, 10 Scholar sub-category ranks, 2 awards
+  (CNIL–Inria 2018; MADWeb 2020 Best Paper), notes (co-first authors, Mozilla
+  collaborations, national conference). Verified to survive a re-import.
+- **Three entries from the list that HAL lacks** added as manual entries: WWW 2023
+  "Caught in the Game", and two preprints (2021 HAL-only, 2020 arXiv). 54 total.
+- Reclassified by the author's list: JLDP 2014 → workshop; SBES 2012 → conference
+  (national). Not applied: the list's 2016 date for FP-Tester (HAL and the venue
+  say 2018) and "Mauric" (HAL: Maurice).
+
+Contract 204/204; only BROKEN is the intended HDR slides link.

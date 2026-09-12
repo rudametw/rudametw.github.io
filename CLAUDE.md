@@ -262,8 +262,10 @@ Pipeline, run by the author, never by CI:
 ```
 
 `bib2yaml.py` rewrites HAL fields on every import and **preserves** `type`,
-`rank`, `note`, `tags`, `hide`, `links`, `venue_short`, every `manual-…` entry,
-and entries HAL no longer returns. Types: journal, conference, workshop, chapter,
+`rank`, `acceptance`, `impact_factor`, `gs_rank`, `award`, `note`, `tags`,
+`hide`, `links`, `venue_short`, every `manual-…` entry, and entries HAL no
+longer returns. The ranks, rates and awards from the author's own list were
+written in on 2026-09-12 (see MIGRATION.md). Types: journal, conference, workshop, chapter,
 hdr, thesis, report, demo, talk, other — guessed once from the BibTeX kind and
 venue, then left alone once set. Set by hand so far: `tel-03370277` → `hdr`.
 `links` keys become labels: slides, poster, local_pdf, bibtex, video, code,
@@ -271,9 +273,8 @@ sample, external. The nine local `/docs/` files from the old page are attached
 this way (thesis slides, APSCC paper+slides+BibTeX page, SAC'12, SEAA'09, SBES'12,
 NFCMuseum, master's thesis+slides), so they stay reachable.
 
-Worth a look by the author: HAL typed *Proceedings on Privacy Enhancing
-Technologies* (PoPETs 2024) as `conference`; the FP-Rainbow poster is `other`;
-`rank` and `note` are empty everywhere until filled in.
+Six papers have a companion blog post (category `paper`), hand-written from the
+author's summaries; news entries link to them.
 
 ## `/docs/` — all keepers (decision, 2026-09-11)
 

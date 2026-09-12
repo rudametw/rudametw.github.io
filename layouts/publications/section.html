@@ -48,7 +48,11 @@
         </div>
         <div class="pub-venue">{{ or .venue_short .venue }}{{ with .address }}, {{ . }}{{ end }}{{ with .year }}, {{ . }}{{ end }}.
           {{- with .rank }} <span class="label pub-rank">{{ . }}</span>{{ end }}
-          {{- with .note }} <span class="label pub-note">{{ . }}</span>{{ end }}
+          {{- with .award }} <span class="label pub-award">{{ . }}</span>{{ end }}
+          {{- with .acceptance }} <span class="label pub-meta">Acceptance rate {{ . }}</span>{{ end }}
+          {{- with .impact_factor }} <span class="label pub-meta">IF {{ . }}</span>{{ end }}
+          {{- with .gs_rank }} <span class="label pub-meta">{{ . }}</span>{{ end }}
+          {{- with .note }} <span class="label pub-meta">{{ . }}</span>{{ end }}
         </div>
         <div class="pub-links">
           {{- with .url }}<a href="{{ . }}"><i class="icon icon-hal"></i>HAL</a>{{ end }}
