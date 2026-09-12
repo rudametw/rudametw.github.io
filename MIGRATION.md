@@ -579,3 +579,32 @@ From `PROFILE/publications.rtf` (converted with `soffice --headless`; gitignored
   say 2018) and "Mauric" (HAL: Maurice).
 
 Contract 204/204; only BROKEN is the intended HDR slides link.
+
+---
+
+## 2026-09-12 — Round 9: web access found; HAL diff; ranks with links; arXiv preprint
+
+- **Web access**: the shell's `curl` is blocked by the tool permission policy, but
+  the agent's **WebFetch** tool reaches the open web through the harness. It works
+  on the HAL API (JSON and BibTeX) and on arXiv; the CORE portal returns 403 to it
+  (WebSearch still surfaces the rank). Scimago untested. So HAL lookups can be done
+  by the agent; CORE/Scholar pages need the author or a search result.
+- **HAL diff** (`scripts/hal-diff.sh`, also run live via WebFetch): 47 deposits
+  match the last name, 40 are tied to IdHAL 16377. The 7 others:
+  hal-04198528 (DAIS 2025), hal-04884681 (HiPEAC Vision 2024 chapter),
+  hal-04652991 (CANS 2024), hal-04084097 (WWW'23 Caught in the Game),
+  hal-03212729 and hal-03297181 (the two preprints), tel-00957942 (French
+  duplicate of the PhD thesis — ignore). The first six are now in the YAML
+  **keyed by their HAL id**, so once the author claims the author forms in HAL
+  (Mon IdHAL → Formes auteur) the import merges into them instead of duplicating.
+- **Ranks from the author**: TWEB and TOPS Scimago Q1 (with Scimago links); PETS
+  CORE A on all PETS papers; WWW CORE A* everywhere, Scholar DB&IS #1 up to 2024
+  and #2 for 2025–26; SPLC 2024 CORE B; `rank_url` (new preserved key, rendered as
+  a link on the pill) on NDSS, S&P, USENIX Security, DIMVA, WWW, SPLC. Awards:
+  PETS 2024 Pfitzmann Best Student Paper (Meta tracking), PETS 2026 runner-up
+  (EXADPrinter), MADWeb 2024 Best Paper (Free Proxies).
+  SPLC 2016 kept at CORE A as in the author's own list; CORE currently rates SPLC B
+  (CORE2021/2023/ICORE2026) — the author may want to align it.
+- **arXiv 2606.30119** ("On the Internet, Nobody Knows You're an LLM Bot") added
+  as a preprint entry and as a June 2026 news item.
+- 58 entries. Contract 204/204; only BROKEN is the intended HDR slides link.

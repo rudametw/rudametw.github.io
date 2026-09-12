@@ -13,6 +13,7 @@ Each entry in the YAML is flat. Two kinds of keys:
       type      journal | conference | workshop | chapter | thesis | hdr | report | demo | talk | other
                 (guessed from HAL on first import; set it and the guess stops)
       rank      venue rank: "CORE A*", "CORE B", "Scimago Q1"
+      rank_url  where that rank can be checked, e.g. https://portal.core.edu.au/conf-ranks/750/
       acceptance    acceptance rate, e.g. "13%"
       impact_factor e.g. "4.457" (journals)
       gs_rank   e.g. "Google Scholar (Computer Security) #2"
@@ -33,7 +34,7 @@ import re, sys, os, datetime
 
 BIB = sys.argv[1] if len(sys.argv) > 1 else "publications.bib"
 OUT = sys.argv[2] if len(sys.argv) > 2 else "data/publications.yaml"
-MANUAL_KEYS = ("type", "rank", "acceptance", "impact_factor", "gs_rank", "award", "note", "tags", "hide", "links", "venue_short")
+MANUAL_KEYS = ("type", "rank", "rank_url", "acceptance", "impact_factor", "gs_rank", "award", "note", "tags", "hide", "links", "venue_short")
 
 # ---------------------------------------------------------------- BibTeX parsing
 def parse_bib(text):
@@ -123,7 +124,7 @@ def dump(entries, out):
             lines += [f"    - {yq(a)}" for a in e['authors']]
         for k in ('year', 'month'):
             if e.get(k): lines.append(f"  {k}: {int(e[k])}")
-        for k in ('venue', 'venue_short', 'address', 'rank', 'acceptance', 'impact_factor', 'gs_rank', 'award', 'note', 'doi', 'url', 'pdf'):
+        for k in ('venue', 'venue_short', 'address', 'rank', 'rank_url', 'acceptance', 'impact_factor', 'gs_rank', 'award', 'note', 'doi', 'url', 'pdf'):
             if e.get(k): lines.append(f"  {k}: {yq(e[k])}")
         if e.get('tags'):
             lines.append("  tags: [" + ", ".join(yq(t) for t in e['tags']) + "]")

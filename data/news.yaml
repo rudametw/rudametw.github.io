@@ -8,6 +8,8 @@
 #
 # Paper announcements below were written from publications.bib (HAL); the date is
 # the publication month HAL records.
+- date: "2026-06"
+  text: "New preprint: **“[On the Internet, Nobody Knows You're an LLM Bot: Unmasking Web Agents with Multi-Layer Fingerprinting](https://arxiv.org/abs/2606.30119)”**, with Iliana Fayolle, Sihem Bouhenniche, Samuel Pélissier, Pierre Laperdrix and Clémentine Maurice. Six LLM-based web agents against honeysites: some bypass every anti-bot mechanism we tried, all can be told apart from humans — and from each other — with network, HTTP and browser fingerprinting, and stealth features tend to make them *more* detectable."
 - date: "2026-07"
   text: "Very happy that **“[EXADPrinter: Semi-Exhaustive Permissionless Device Fingerprinting Within the Android Ecosystem](https://inria.hal.science/hal-05585898v1)”**, written with Sihem Bouhenniche and Pierre Laperdrix, was accepted at PETS 2026 in Calgary."
 - date: "2026-07"

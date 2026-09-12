@@ -47,7 +47,7 @@
           {{- range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if in $a "Rudametkin" }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end }}
         </div>
         <div class="pub-venue">{{ or .venue_short .venue }}{{ with .address }}, {{ . }}{{ end }}{{ with .year }}, {{ . }}{{ end }}.
-          {{- with .rank }} <span class="label pub-rank">{{ . }}</span>{{ end }}
+          {{- if .rank }} {{ with .rank_url }}<a href="{{ . }}" class="label pub-rank">{{ else }}<span class="label pub-rank">{{ end }}{{ .rank }}{{ if .rank_url }}</a>{{ else }}</span>{{ end }}{{ end }}
           {{- with .award }} <span class="label pub-award">{{ . }}</span>{{ end }}
           {{- with .acceptance }} <span class="label pub-meta">Acceptance rate {{ . }}</span>{{ end }}
           {{- with .impact_factor }} <span class="label pub-meta">IF {{ . }}</span>{{ end }}

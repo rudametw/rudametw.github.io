@@ -262,8 +262,8 @@ Pipeline, run by the author, never by CI:
 ```
 
 `bib2yaml.py` rewrites HAL fields on every import and **preserves** `type`,
-`rank`, `acceptance`, `impact_factor`, `gs_rank`, `award`, `note`, `tags`,
-`hide`, `links`, `venue_short`, every `manual-…` entry, and entries HAL no
+`rank`, `rank_url`, `acceptance`, `impact_factor`, `gs_rank`, `award`, `note`,
+`tags`, `hide`, `links`, `venue_short`, every `manual-…` entry, and entries HAL no
 longer returns. The ranks, rates and awards from the author's own list were
 written in on 2026-09-12 (see MIGRATION.md). Types: journal, conference, workshop, chapter,
 hdr, thesis, report, demo, talk, other — guessed once from the BibTeX kind and
@@ -468,8 +468,13 @@ two files concatenate into one fingerprinted `site.css` in `partials/head.html`.
   the piped data is lost. Put the filter in a file (`scripts/*.py`).
 - **Checking minified HTML**: attributes lose their quotes (`href=#AL`), so grep
   for the value, not for `href="…"`.
-- **No network from the agent sandbox**: `curl` is refused. Anything that
-  downloads (HAL BibTeX, fonts) is run by the author.
+- **Network**: the shell's `curl` is refused by the permission policy (the author
+  can allow it — `Bash(curl:*)` in `.claude/settings.json` — or run downloads
+  themselves). The agent's **WebFetch** tool does reach the web: HAL API (JSON,
+  BibTeX) and arXiv work; portal.core.edu.au returns 403 (use WebSearch).
+- **HAL hygiene**: `scripts/hal-diff.sh` lists deposits matching the author's
+  name that are not tied to IdHAL 16377. Entries for such deposits are keyed by
+  HAL id in the YAML so the import merges into them once claimed.
 - **Known-broken link, on purpose**: `/docs/RUDAMETKIN_HDR_slides.pdf` on the
   home page Career list. The author will add the file; until then the link
   checker reports exactly one BROKEN. Leave it.

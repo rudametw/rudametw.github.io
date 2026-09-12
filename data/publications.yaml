@@ -23,6 +23,8 @@
   month: 7
   venue: "ACM Transactions on Privacy and Security"
   venue_short: "ACM Transactions on Privacy and Security (TOPS)"
+  rank: "Scimago Q1"
+  rank_url: "https://www.scimagojr.com/journalsearch.php?q=21100832567&tip=sid"
   doi: "10.1145/3830402"
   url: "https://hal.science/hal-05701262"
   pdf: "https://hal.science/hal-05701262v1/file/drawnapart-TOPS.pdf"
@@ -41,8 +43,26 @@
   venue: "Proceedings of the 26th Privacy Enhancing Technologies Symposium"
   venue_short: "PETS 2026"
   address: "Calgary, Canada"
+  rank: "CORE A"
+  award: "Runner-up, Andreas Pfitzmann Best Student Paper Award (PETS 2026)"
   url: "https://hal.science/hal-05585898"
   pdf: "https://hal.science/hal-05585898v1/file/exadprinter-pets26.pdf"
+
+- id: "manual-2026-arxiv-llm-bots"
+  type: "other"
+  title: "On the Internet, Nobody Knows You're an LLM Bot: Unmasking Web Agents with Multi-Layer Fingerprinting"
+  authors:
+    - "Iliana Fayolle"
+    - "Sihem Bouhenniche"
+    - "Samuel Pélissier"
+    - "Pierre Laperdrix"
+    - "Clémentine Maurice"
+    - "Walter Rudametkin"
+  year: 2026
+  month: 6
+  venue: "arXiv preprint"
+  note: "Preprint"
+  url: "https://arxiv.org/abs/2606.30119"
 
 - id: "hal-05479340"
   hal_id: "hal-05479340"
@@ -62,6 +82,9 @@
   venue: "WWW 2026 - ACM Web Conference"
   venue_short: "WWW 2026"
   address: "Dubai, United Arab Emirates"
+  rank: "CORE A*"
+  rank_url: "https://portal.core.edu.au/conf-ranks/1548/"
+  gs_rank: "Google Scholar (Databases & Information Systems) #2"
   doi: "10.1145/3774904.3792414"
   url: "https://hal.science/hal-05479340"
   pdf: "https://hal.science/hal-05479340v1/file/Pelissier_etal_WebConf_2026_Users_Pay_Twice.pdf"
@@ -82,9 +105,31 @@
   month: 3
   venue: "ACM Transactions on the Web"
   venue_short: "ACM Transactions on the Web (TWEB)"
+  rank: "Scimago Q1"
+  rank_url: "https://www.scimagojr.com/journalsearch.php?q=5800207369&tip=sid"
   doi: "10.1145/3774944"
   url: "https://hal.science/hal-05577141"
   pdf: "https://hal.science/hal-05577141v1/file/Gotta_Catch__em_all__On_the_Web_Tracking_Practices_of_a_Deal_Sharing_Conglomerate_and_their_Heavy_Reliance_on_Redirect_Chains___Revision_TWEB.pdf"
+
+- id: "hal-04198528"
+  hal_id: "hal-04198528"
+  type: "conference"
+  title: "A critical review of mobile device-to-device communication"
+  authors:
+    - "Lauric Desauw"
+    - "Adrien Luxey-Bitri"
+    - "Rémy Raes"
+    - "Romain Rouvoy"
+    - "Olivier Ruas"
+    - "Walter Rudametkin"
+  year: 2025
+  month: 6
+  venue: "Lecture Notes in Computer Science, vol. 15730 (Springer)"
+  venue_short: "DAIS 2025 (LNCS 15730)"
+  address: "Lille, France"
+  doi: "10.1007/978-3-031-95728-4_1"
+  url: "https://inria.hal.science/hal-04198528"
+  pdf: "https://inria.hal.science/hal-04198528v2/file/desauw-et-al_dais2025_preprint.pdf"
 
 - id: "hal-04932081"
   hal_id: "hal-04932081"
@@ -100,6 +145,9 @@
   venue: "WWW'25 - International World Wide Web Conference"
   venue_short: "WWW 2025"
   address: "Sydney, Australia"
+  rank: "CORE A*"
+  rank_url: "https://portal.core.edu.au/conf-ranks/1548/"
+  gs_rank: "Google Scholar (Databases & Information Systems) #2"
   doi: "10.1145/3696410.3714699"
   url: "https://hal.science/hal-04932081"
   pdf: "https://hal.science/hal-04932081v1/file/FP_Rainbow.pdf"
@@ -137,6 +185,25 @@
   url: "https://hal.science/hal-04949268"
   pdf: "https://hal.science/hal-04949268v1/file/MADWEB25.pdf"
 
+- id: "hal-04652991"
+  hal_id: "hal-04652991"
+  type: "conference"
+  title: "Semi-Automated and Easily Interpretable Side-Channel Analysis for Modern JavaScript"
+  authors:
+    - "Iliana Fayolle"
+    - "Jan Wichelmann"
+    - "Anja Köhl"
+    - "Walter Rudametkin"
+    - "Thomas Eisenbarth"
+    - "Clémentine Maurice"
+  year: 2024
+  month: 9
+  venue: "CANS 2024 - 23rd International Conference on Cryptology And Network Security"
+  venue_short: "CANS 2024"
+  address: "Cambridge, United Kingdom"
+  url: "https://hal.science/hal-04652991"
+  pdf: "https://hal.science/hal-04652991v1/file/cans24_fayolle.pdf"
+
 - id: "hal-04622269"
   hal_id: "hal-04622269"
   bibtype: "inproceedings"
@@ -151,6 +218,8 @@
   venue: "SPLC'24 - 28th ACM International Systems and Software Product Lines Conference"
   venue_short: "SPLC 2024"
   address: "Luxembourg, Luxembourg"
+  rank: "CORE B"
+  rank_url: "https://portal.core.edu.au/conf-ranks/2282/"
   url: "https://hal.science/hal-04622269"
   pdf: "https://hal.science/hal-04622269v1/file/SPLC_24.pdf"
 
@@ -170,6 +239,7 @@
   venue_short: "PETS 2024"
   address: "Bristol, United Kingdom"
   rank: "CORE A"
+  award: "Andreas Pfitzmann Best Student Paper Award (PETS 2024)"
   doi: "10.56553/popets-2024-0086"
   url: "https://hal.science/hal-04665102"
   pdf: "https://hal.science/hal-04665102v1/file/popets-2024-0086.pdf"
@@ -189,23 +259,42 @@
   venue: "Workshop on Measurements, Attacks, and Defenses for the Web (MADWeb'24)"
   venue_short: "MADWeb 2024 (NDSS workshop)"
   address: "San Diego (CA), United States"
+  award: "Best Paper Award"
   doi: "10.14722/madweb.2024.23035"
   url: "https://hal.science/hal-04489166"
   pdf: "https://hal.science/hal-04489166v1/file/free-proxies.pdf"
 
-- id: "manual-2023-www-caught-in-the-game"
+- id: "hal-04884681"
+  hal_id: "hal-04884681"
+  type: "chapter"
+  title: "The browser: the key to your privacy on the Web"
+  authors:
+    - "Walter Rudametkin"
+    - "Olivier Zendra"
+  year: 2024
+  month: 1
+  venue: "HiPEAC Vision 2024 Rationale (HiPEAC)"
+  venue_short: "HiPEAC Vision 2024"
+  url: "https://inria.hal.science/hal-04884681"
+  pdf: "https://inria.hal.science/hal-04884681v1/file/HiPEAC_Vision%202024%20rationale_p157_browser.pdf"
+
+- id: "hal-04084097"
+  hal_id: "hal-04084097"
   type: "conference"
   title: "Caught in the Game: On the History and Evolution of Web Browser Gaming"
   authors:
     - "Naif Mehanna"
     - "Walter Rudametkin"
   year: 2023
-  month: 5
-  venue: "ACM Web Conference 2023 (TheWebConf'23, formerly WWW)"
+  month: 4
+  venue: "Companion Proceedings of the ACM Web Conference 2023 (WWW '23 Companion)"
   venue_short: "WWW 2023"
   address: "Austin, Texas, USA"
   rank: "CORE A*"
+  rank_url: "https://portal.core.edu.au/conf-ranks/1548/"
   gs_rank: "Google Scholar (Databases & Information Systems) #1"
+  url: "https://hal.science/hal-04084097"
+  pdf: "https://hal.science/hal-04084097v1/file/webgames.pdf"
 
 - id: "hal-03559973"
   hal_id: "hal-03559973"
@@ -223,6 +312,7 @@
   venue_short: "WWW 2022"
   address: "Lyon, France"
   rank: "CORE A*"
+  rank_url: "https://portal.core.edu.au/conf-ranks/1548/"
   acceptance: "17%"
   gs_rank: "Google Scholar (Databases & Information Systems) #1"
   doi: "10.1145/3485447.3512279"
@@ -251,6 +341,7 @@
   venue_short: "NDSS 2022"
   address: "San Diego, United States"
   rank: "CORE A*"
+  rank_url: "https://portal.core.edu.au/conf-ranks/1840/"
   gs_rank: "Google Scholar (Computer Security) #5"
   note: "Co-first authors: Tomer Laor and Naif Mehanna"
   doi: "10.14722/ndss.2022.24093"
@@ -292,6 +383,7 @@
   venue_short: "DIMVA 2021"
   address: "lisboa, Portugal"
   rank: "CORE B"
+  rank_url: "https://portal.core.edu.au/conf-ranks/565/"
   url: "https://hal.science/hal-03212726"
   pdf: "https://hal.science/hal-03212726v1/file/main.pdf"
 
@@ -308,7 +400,8 @@
   url: "https://inria.hal.science/tel-03370277"
   pdf: "https://inria.hal.science/tel-03370277v1/file/hdr_rudametkin_2021.pdf"
 
-- id: "manual-2021-fp-scripts-preprint"
+- id: "hal-03212729"
+  hal_id: "hal-03212729"
   type: "other"
   title: "An iterative technique to identify browser fingerprinting scripts"
   authors:
@@ -359,6 +452,7 @@
   venue_short: "WWW 2020"
   address: "Tapeï, Taiwan"
   rank: "CORE A*"
+  rank_url: "https://portal.core.edu.au/conf-ranks/1548/"
   acceptance: "19%"
   gs_rank: "Google Scholar (Databases & Information Systems) #1"
   note: "Collaboration with Mozilla"
@@ -385,6 +479,7 @@
   venue_short: "WWW 2020"
   address: "Taipei, Taiwan"
   rank: "CORE A*"
+  rank_url: "https://portal.core.edu.au/conf-ranks/1548/"
   acceptance: "19%"
   gs_rank: "Google Scholar (Databases & Information Systems) #1"
   note: "Collaboration with Mozilla"
@@ -412,7 +507,8 @@
   url: "https://inria.hal.science/hal-02441653"
   pdf: "https://inria.hal.science/hal-02441653v1/file/vastel-madweb20.pdf"
 
-- id: "manual-2020-arxiv-fingerprinting-detection"
+- id: "hal-03297181"
+  hal_id: "hal-03297181"
   type: "other"
   title: "Actions speak louder than words: Semi-supervised learning for browser fingerprinting detection"
   authors:
@@ -444,6 +540,7 @@
   venue_short: "USENIX Security 2018"
   address: "Baltimore, United States"
   rank: "CORE A*"
+  rank_url: "https://portal.core.edu.au/conf-ranks/1841/"
   acceptance: "19%"
   gs_rank: "Google Scholar (Computer Security) #3"
   url: "https://inria.hal.science/hal-01820197"
@@ -465,6 +562,7 @@
   venue_short: "IEEE S&P 2018"
   address: "San Francisco, United States"
   rank: "CORE A*"
+  rank_url: "https://portal.core.edu.au/conf-ranks/750/"
   acceptance: "11%"
   gs_rank: "Google Scholar (Computer Security) #2"
   doi: "10.1109/SP.2018.00008"
@@ -538,6 +636,7 @@
   venue_short: "SPLC 2016"
   address: "Beijing, China"
   rank: "CORE A"
+  rank_url: "https://portal.core.edu.au/conf-ranks/2282/"
   doi: "10.1145/2934466.2934475"
   url: "https://inria.hal.science/hal-01312751"
   pdf: "https://inria.hal.science/hal-01312751v1/file/SPLC_2016_paper_33%20%282%29.pdf"
@@ -577,6 +676,7 @@
   venue_short: "IEEE S&P 2016"
   address: "San Jose, United States"
   rank: "CORE A*"
+  rank_url: "https://portal.core.edu.au/conf-ranks/750/"
   acceptance: "13%"
   gs_rank: "Google Scholar (Computer Security) #2"
   award: "CNIL-Inria Privacy Protection Award 2018"
