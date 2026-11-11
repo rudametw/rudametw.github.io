@@ -648,3 +648,20 @@ root (`ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"`; `os.path` in
 strays are removed. Tested from `/tmp`. CI gate and docs now say
 `./scripts/check-urls.sh`. Lesson recorded in CLAUDE.md: review `git status`
 before staging — the author works in the same tree.
+
+## 2026-11-11 — Containers course PDFs (ESIR SI, Architectures Logicielles)
+
+- Added 16 PDFs (~60 MB) in `static/teaching/esir2-al/`, built from the course repo
+  (`PR_RENNES/ESIR/ESIR2-AL/.../CM2-Docker`, `src/CM2_Containers`, `make dist` + `make full`):
+  3 lectures + appendix in 3 variants (`.pdf` slides, `_noanim.pdf`, `_10pp.pdf` handout),
+  the A4 field guide (`CM2_e_Guide.pdf`) and lectures 1–3 in one PDF (`CM2_Containers*.pdf`, 3 variants).
+- `<table class="course-files">` right under "# ESIR2 SI — Architectures Logicielles", added to BOTH
+  `scripts/fragments/teaching-esir.md` (source) and `content/teaching/_index.md` (generated copy).
+- To update later: `make push-site` in the course repo (`src/CM2_Containers`: builds everything and
+  copies the 16 PDFs here), then build/commit/push the site. No page change needed.
+- Heading "# ESIR2 SI — Architectures Logicielles"; sidebar "[ESIR2 SI] Architectures Logicielles"
+  (also in `scripts/teaching-esir.py`, which generates that sidebar entry).
+- Table rows grouped: `tr.cf-main` (blue `--hi-bg`, new token in both themes: full course, appendix,
+  field guide) and `tr.cf-part` (grey `--paper-2`, indented with ↳: the 3 lectures, under the full
+  course). CSS in `assets/css/main.css` after `.course-files`. "10&nbsp;/&nbsp;page" so it never wraps.
+  Checked with headless Chromium at 1280 px and 420 px, light and dark.
