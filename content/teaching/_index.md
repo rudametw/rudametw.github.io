@@ -12,6 +12,7 @@ title: Courses | Walter Rudametkin
 <div class="col-md-3" id="leftCol">
 <!--<h3>Cours</h3>-->
 <ul class="nav nav-stacked" id="sidebar">
+<li><a href="#SSD">[ESIR3 SI] Sécurité des Systèmes et Données</a></li>
 <li><a href="#AL">[ESIR2 SI] Architectures Logicielles</a></li>
 <li><a href="#Git">[IMA et GIS] Git</a></li>
 <li><a href="#PA">[IMA3] Programmation Avancé</a></li>
@@ -21,6 +22,20 @@ title: Courses | Walter Rudametkin
 </div>
 <!--<div class="col-md-9" id="mainCol">-->
 <div class="col-xs-9 col-sm-9 col-sm-offset-0 col-md-9 col-md-offset-0" id="mainCol">
+<div id="SSD" style="padding-top:0em; padding-bottom:2em;">
+
+# ESIR3 SI — Sécurité des Systèmes et Données (Web Security)
+
+<table class="course-files">
+<tr class="cf-main"><th scope="row">CM4 — Reconnaissance and Mapping</th><td><a href="esir3-ssd/CM4_Recon.pdf">Diapos</a></td><td><a href="esir3-ssd/CM4_Recon_noanim.pdf">Sans animations</a></td><td><a href="esir3-ssd/CM4_Recon_10pp.pdf">10&nbsp;/&nbsp;page</a></td></tr>
+<tr class="cf-main"><th scope="row">CM4 — Appendix (TP2 toolbox, cheat sheets)</th><td><a href="esir3-ssd/CM4_Recon_Appendix.pdf">Diapos</a></td><td><a href="esir3-ssd/CM4_Recon_Appendix_noanim.pdf">Sans animations</a></td><td><a href="esir3-ssd/CM4_Recon_Appendix_10pp.pdf">10&nbsp;/&nbsp;page</a></td></tr>
+<tr class="cf-main"><th scope="row">CM4 — Student Guide</th><td><a href="esir3-ssd/CM4_Recon_Guide.pdf">A4</a></td><td></td><td></td></tr>
+</table>
+
+[ESIR](https://esir.univ-rennes.fr/) — troisième année (bac+5), [spécialité Informatique, option Systèmes d'Information (SI)](https://esir.univ-rennes.fr/spe-informatique-option-systemes-dinformation-si).
+
+</div>
+
 <div id="AL" style="padding-top:0em; padding-bottom:2em;">
 
 # ESIR2 SI — Architectures Logicielles

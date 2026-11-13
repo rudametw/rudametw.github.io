@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Insert the current ESIR course ahead of the Lille-era ones on the teaching page.
+"""Insert the current ESIR courses (ESIR3 SSD, ESIR2 AL) ahead of the Lille-era ones on the teaching page.
 
 Filter: Markdown in (stdin) -> Markdown out. Argument: the author-owned fragment
 scripts/fragments/teaching-esir.md. Adds a sidebar entry and a section before
@@ -11,6 +11,7 @@ page = sys.stdin.read()
 esir = io.open(sys.argv[1], encoding="utf-8").read()
 # the old Git entry pointed at #topOfPage (it was the first section); it gets its own anchor now
 page = page.replace('<li class="active"><a href="#topOfPage">',
+                    '<li><a href="#SSD">[ESIR3 SI] Sécurité des Systèmes et Données</a></li>\n'
                     '<li><a href="#AL">[ESIR2 SI] Architectures Logicielles</a></li>\n<li><a href="#Git">', 1)
 page = page.replace('<div id="Git" ', esir.rstrip() + '\n\n<div id="Git" ', 1)
 sys.stdout.write(page)
