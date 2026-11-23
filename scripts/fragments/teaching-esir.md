@@ -11,6 +11,10 @@
 <tr class="cf-part"><th scope="row">Slides</th><td><a href="esir3-ssd/CM5_CrossOrigin.pdf">Diapos</a></td><td><a href="esir3-ssd/CM5_CrossOrigin_noanim.pdf">Sans animations</a></td><td><a href="esir3-ssd/CM5_CrossOrigin_10pp.pdf">10&nbsp;/&nbsp;page</a></td></tr>
 <tr class="cf-part"><th scope="row">Appendix (CORS reference, isolation, exercises)</th><td><a href="esir3-ssd/CM5_CrossOrigin_Appendix.pdf">Diapos</a></td><td><a href="esir3-ssd/CM5_CrossOrigin_Appendix_noanim.pdf">Sans animations</a></td><td><a href="esir3-ssd/CM5_CrossOrigin_Appendix_10pp.pdf">10&nbsp;/&nbsp;page</a></td></tr>
 <tr class="cf-part"><th scope="row">Student Guide</th><td><a href="esir3-ssd/CM5_CrossOrigin_Guide.pdf">A4</a></td><td></td><td></td></tr>
+<tr class="cf-main"><th scope="row">CM6 — Client-Side Attacks (XSS, CSP)</th><td></td><td></td><td></td></tr>
+<tr class="cf-part"><th scope="row">Slides</th><td><a href="esir3-ssd/CM6_XSS_CSP.pdf">Diapos</a></td><td><a href="esir3-ssd/CM6_XSS_CSP_noanim.pdf">Sans animations</a></td><td><a href="esir3-ssd/CM6_XSS_CSP_10pp.pdf">10&nbsp;/&nbsp;page</a></td></tr>
+<tr class="cf-part"><th scope="row">Appendix (XSS and CSP reference, exercises)</th><td><a href="esir3-ssd/CM6_XSS_CSP_Appendix.pdf">Diapos</a></td><td><a href="esir3-ssd/CM6_XSS_CSP_Appendix_noanim.pdf">Sans animations</a></td><td><a href="esir3-ssd/CM6_XSS_CSP_Appendix_10pp.pdf">10&nbsp;/&nbsp;page</a></td></tr>
+<tr class="cf-part"><th scope="row">Student Guide</th><td><a href="esir3-ssd/CM6_XSS_CSP_Guide.pdf">A4</a></td><td></td><td></td></tr>
 </table>
 
 [ESIR](https://esir.univ-rennes.fr/) — troisième année (bac+5), [spécialité Informatique, option Systèmes d'Information (SI)](https://esir.univ-rennes.fr/spe-informatique-option-systemes-dinformation-si).
