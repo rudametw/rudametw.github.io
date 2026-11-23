@@ -6,6 +6,9 @@
 <tr class="cf-main"><th scope="row">CM4 — Reconnaissance and Mapping</th><td><a href="esir3-ssd/CM4_Recon.pdf">Diapos</a></td><td><a href="esir3-ssd/CM4_Recon_noanim.pdf">Sans animations</a></td><td><a href="esir3-ssd/CM4_Recon_10pp.pdf">10&nbsp;/&nbsp;page</a></td></tr>
 <tr class="cf-main"><th scope="row">CM4 — Appendix (TP2 toolbox, cheat sheets)</th><td><a href="esir3-ssd/CM4_Recon_Appendix.pdf">Diapos</a></td><td><a href="esir3-ssd/CM4_Recon_Appendix_noanim.pdf">Sans animations</a></td><td><a href="esir3-ssd/CM4_Recon_Appendix_10pp.pdf">10&nbsp;/&nbsp;page</a></td></tr>
 <tr class="cf-main"><th scope="row">CM4 — Student Guide</th><td><a href="esir3-ssd/CM4_Recon_Guide.pdf">A4</a></td><td></td><td></td></tr>
+<tr class="cf-main"><th scope="row">CM5 — Cross-Origin Security</th><td><a href="esir3-ssd/CM5_CrossOrigin.pdf">Diapos</a></td><td><a href="esir3-ssd/CM5_CrossOrigin_noanim.pdf">Sans animations</a></td><td><a href="esir3-ssd/CM5_CrossOrigin_10pp.pdf">10&nbsp;/&nbsp;page</a></td></tr>
+<tr class="cf-main"><th scope="row">CM5 — Appendix (CORS reference, isolation, exercises)</th><td><a href="esir3-ssd/CM5_CrossOrigin_Appendix.pdf">Diapos</a></td><td><a href="esir3-ssd/CM5_CrossOrigin_Appendix_noanim.pdf">Sans animations</a></td><td><a href="esir3-ssd/CM5_CrossOrigin_Appendix_10pp.pdf">10&nbsp;/&nbsp;page</a></td></tr>
+<tr class="cf-main"><th scope="row">CM5 — Student Guide</th><td><a href="esir3-ssd/CM5_CrossOrigin_Guide.pdf">A4</a></td><td></td><td></td></tr>
 </table>
 
 [ESIR](https://esir.univ-rennes.fr/) — troisième année (bac+5), [spécialité Informatique, option Systèmes d'Information (SI)](https://esir.univ-rennes.fr/spe-informatique-option-systemes-dinformation-si).
